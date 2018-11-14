@@ -77,6 +77,8 @@ Which brings up to the bottom of the stack, where the rubber meets the road, you
 
 # How do I get started?
 
+  Still here? Great! We'd love to have you! If you are brand new to Enjin check out our First Thing First guide to get you onto the platform. After that, if you are a Unity developer, you'll want to check out this guide that show you how to work with our Unity tools and runtime. Not a Unity developer? That's cool, go here to learn how to talk to our platform with your chosen technology.
+
   ## If you are a Unity Developer go here?
 
   ## If you are non-Unity game developer go here?
