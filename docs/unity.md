@@ -163,18 +163,71 @@ The transfer fee, in ENJ, based on your setting above.
 **Melt Fee Ratio**
 This is the current percentage of ENJ that the player will received upon melting the item. The remaining ENJ goes to the creator.
 
-**Icon**
-To be removed. We do icons in metadata now.
-
 **NONFUNGIBLE ITEM**
-Are you creating a fungible, or non-fungible item.
+Are you creating a fungible, or non-fungible item. Remmember
 
 ### Item Creation Example
 
-#### Non-Fungible Item Considerations
+Let's create a fungible item called **schmeckles**. We intend to use schmeckles as our main, in
+game currency like gold.
+
+Go to the cryptotiems screen, and click **Create**. We fill out the values as follows:
+
+![Cryptoitems Create Item](../images/unity_cryptoitems_example1_1.png)
+
+We decide to make 10 million doubloons to start, and use a supply type of SETTABLE so
+we can create more if we run out and want to expand the supply later.
+
+We set our initial reserve to the same amount as our total supply, since we plan on minting
+the whole lot right away. We decide to use the minimum amount of ENJ required to make our Items
+to reduce cost: the more items you make the less ENJ is needed to back each item. If you keep melt value at 0, the panel will automatically use the minimum amount of ENJ needed.
+
+We decide that it's cool to let people trade doubloons so we set TRANSFERABLE to permanent.
+Furthermore, we decide we are not going to charge any transfer fees. So we set that to NONE.
+
+We set melt fee ratio to none. If players melt this item 100% of the ENJ used to back the
+item will go back to the creator (YOU!).
+
+We click CREATE. The transaction is posted to the blockchain and needs to be signed by a wallet. In this example we will be using the mobile wallet. You'll see something like this:
+![Cryptoitems Create Item](../images/unity_cryptoitems_example1_2.png)
+
+We approve the create request, after awhile (be patient) Unity will refresh and show the newly
+created item:
+
+![Cryptoitems Create Item](../images/unity_cryptoitems_example1_3.png)
+
+You'll notice there there is 0 balance of this item. That is because we only created the
+template of the item, we haven't actually minted anything yet. Let's mint by selecting
+the item and selecting MINT.
+
+![Cryptoitems Create Item](../images/unity_cryptoitems_example1_4.png)
+
+The number to mint will automatically be set to max. You can change this if you'd like. You can
+also choose the address to where the minted items will go. Handy if you have something like
+our wallet daemon running on a remote machine acting as a vault for items. Click MINT.
+
+You'll get a notification in the wallet similar to this:
+![Cryptoitems Create Item](../images/unity_cryptoitems_example1_5.png)
+
+Accept it, and wait. Once the transaction is confirmed on the blockchain, Unity will refresh
+and you will see your doubloons. If you minted them to your mobile wallet you'll be able to See
+them in your collectibles tab.
+
+![Cryptoitems Create Item](../images/unity_cryptoitems_example1_6.png)
+
+But, where are my cool item art? Descriptions? Custom stats? For that, you will need to create
+and set some metadata. See the working with metadata section on how you can customize your items.
+
+Let's create a non-fungible item called a **Vorpal Blade**. These are even rarer than Ioun Stones,
+but also, each Vorpal Sword is unique, and grows in power over time.
+
 
 #### Working with Metadata
-Here is the format:
+
+With JSON metadata, you are able to add custom data to your items, and some information on
+how that data should be displayed in apps like the Enjin Wallet.
+
+Here is the general format:
 
 ```
 {
@@ -202,13 +255,49 @@ Here is the format:
 	}
 }
 ```
-You can view an example [here](https://master.tp-enj.in/storage/json/3800000000000004.0.json).
 
-This data can be hosted anywhere. TODO: What about IPFS?
+Let's look at the doubloons we created in the previous example. Here is the basic
+JSON metadata that I cooked up for it, using the format above.
 
-Properties will be used by the wallet to display
+```
+{
+  "description": "Better than Republic Credits!",
+  "image": "https://imgur.com/wSqwbcU.png",
+  "properties": {
+    "Quality": "Common"
+  }
+}
+```
 
-![Item Metadata in Wallet](../images/unity_cryptoitems_metadata_wallet.png)
+I then created a 1000 x 1000 image of the doubloon. Any image size will work but make
+sure it is square and I recommend sizes larger than 512x512.
+
+![Cryptoitems Metadata Image Example](../images/unity_cryptoitems_metadata_1_2.png)
+
+
+Once you have the metadata and image, they need to be publicly hosted so apps like
+the wallet can grab them and display them to the user. If you are just testing things
+you can try [JSON.bin](https://jsonbin.io/) to host the JSON, and I used
+[imgur](https://imgur.com/) to host the image data.
+
+Once your JSON and image data are up, you can go back into the Unity editor and edit
+the item by double clicking on it, or selecting the item and clicking **Edit**.
+
+![Cryptoitems Metadata Edit](../images/unity_cryptoitems_metadata1_1.png)
+
+Paste the URI into the **METADATA URI** field and hit update. Setting or changing
+the URI requires the owner to sign a transaction. If you are using the mobile wallet
+
+![Cryptoitems Metadata Edit](../images/unity_cryptoitems_metadata1_3.png)
+
+That's it! If you look at the collectible in the wallet, you should now see an image
+and any metadata that you set.
+
+![Cryptoitems Metadata Edit](../images/unity_cryptoitems_metadata1_4.png)
+
+#### Advanced Metadata Concepts
+
+#### Non-Fungible Item Considerations
 
 ## Wallet Screen
 
