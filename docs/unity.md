@@ -13,6 +13,12 @@ minting of items. Test your items out on our Kovan sandbox before moving onto ma
 Working with crypto items involves using real money and transaction fees, and it's
 best to know what you are getting into beforehand.
 
+The Unity panel is designed to allow for non-programmers to be able to create, mint
+and manage cryptoitems. However, it is **not** designed for large scale automation
+and scalability for item creation. If you are creating a large number of items,
+especially NFIs you should consider writing scripts using the Unity runtime API,
+or the GraphQL API.
+
 ## Setup
 
 Setup into Unity is easy. Grab the Enjin Blockchain Asset off the Unity Asset Store
@@ -164,11 +170,11 @@ The transfer fee, in ENJ, based on your setting above.
 This is the current percentage of ENJ that the player will received upon melting the item. The remaining ENJ goes to the creator.
 
 **NONFUNGIBLE ITEM**
-Are you creating a fungible, or non-fungible item. Remmember
+Are you creating a fungible, or non-fungible item.
 
-### Item Creation Example
+### Fungible Item Creation Example
 
-Let's create a fungible item called **schmeckles**. We intend to use schmeckles as our main, in
+Let's create a fungible item called **doubloons**. We intend to use doubloons as our main, in
 game currency like gold.
 
 Go to the cryptotiems screen, and click **Create**. We fill out the values as follows:
@@ -218,9 +224,38 @@ them in your collectibles tab.
 But, where are my cool item art? Descriptions? Custom stats? For that, you will need to create
 and set some metadata. See the working with metadata section on how you can customize your items.
 
-Let's create a non-fungible item called a **Vorpal Blade**. These are even rarer than Ioun Stones,
-but also, each Vorpal Sword is unique, and grows in power over time.
+#### Non-Fungible Item Creation Example.
 
+Let's create a non-fungible item called a **Vorpal Blade**. These are very rare items,
+but also, each Vorpal Sword is unique, and grows in power over time. We fill out the
+create screen as follows:
+
+![Cryptoitems Create Item 2](../images/unity_cryptoitems_example2_1.png)
+
+We decide that there are only 10 of these in the world, and that they will be backed
+by 1 ENJ each. We are using a FIXED supply type, so there can only every be 10 of these
+items in circulation at a time (but we can melt and re-mint up to 10 items).
+
+We decide to add transfer fees, charging a 0.1 ENJ transfer fee every time someone trades
+a Vorpal Sword. Tranfer fees will go to the creator of the item.
+
+Finally, we select **NONFUNGIBLE ITEM** and click **CREATE**.
+
+The create process is exactly the same as fungible items. Accept the create request in the wallet and wait for the Unity panel to update and get confirmation that the item was create on the
+blockchain.
+
+Minting NFIs is a bit different, however. You can only mint one NFI at a time, and each NFI
+mint is a separate transaction.
+
+![Cryptoitems Mint NFI](../images/unity_cryptoitems_example2_2.png)
+
+Also, each NFI will show up as it's own entry in the cryptoitem list in Unity, which makes
+sense, since each NFI is a unique item.
+
+If you are minting a large number of NFIs, you should consider streamlining the process by
+using the GraphiQL console, and the wallet daemon.
+
+Finally, be mindful to the number of transactions you are creating when working with NFIs, transactions can add up quickly, since each item is unique. See Advanced Metadata Concepts for tips and tricks on how you can reduce the number transactions when working with NFIs.
 
 #### Working with Metadata
 
@@ -270,15 +305,14 @@ JSON metadata that I cooked up for it, using the format above.
 ```
 
 I then created a 1000 x 1000 image of the doubloon. Any image size will work but make
-sure it is square and I recommend sizes larger than 512x512.
+sure it is square. I recommend sizes larger than 512x512.
 
 ![Cryptoitems Metadata Image Example](../images/unity_cryptoitems_metadata_1_2.png)
-
 
 Once you have the metadata and image, they need to be publicly hosted so apps like
 the wallet can grab them and display them to the user. If you are just testing things
 you can try [JSON.bin](https://jsonbin.io/) to host the JSON, and I used
-[imgur](https://imgur.com/) to host the image data.
+[imgur](https://imgur.com/) to host the image data in this example.
 
 Once your JSON and image data are up, you can go back into the Unity editor and edit
 the item by double clicking on it, or selecting the item and clicking **Edit**.
@@ -297,7 +331,6 @@ and any metadata that you set.
 
 #### Advanced Metadata Concepts
 
-#### Non-Fungible Item Considerations
 
 ## Wallet Screen
 
