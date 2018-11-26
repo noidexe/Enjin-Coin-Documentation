@@ -81,3 +81,49 @@ wallet installed on a compatible mobile device to do this. Once in the wallet, w
 
 ## Known Limitations
 Currently, the wallet daemon only runs with a single identity (AppID + ethereum address combination).
+
+## Migrating from the mobile wallet to the wallet daemon.
+
+If you started out using the mobile wallet, and want to migrate to the wallet daemon, you can
+do so using the following process.
+
+In your Enjin Mobile Wallet:
+  1. In you ENJ Mobile Wallet, go to WALLETS, select the wallet you want to export
+  and tap the selector in the top right and tap Backup Wallet.
+  2. Enter Password.
+  3. Tap COPY ETHEREUM KEYSTORE to copy the keystore.
+  4. Email this file to yourself. (Don't worry, it's encrypted.)
+
+On a PC:
+  1. Save the keystore in a text file.
+  2. Go to [My Ether Wallet](https://www.myetherwallet.com/)
+  3. Select the network you are working on (Mainnet or Kovan)
+  4. Click View Wallet Info.
+  5. Select Keystore/JSON file.
+  6. The keystore is encrypted, use your wallet password to decrypt.
+  7. Click the eye beside the **Private Key unenecrypted** field. Copy this value.
+
+On your wallet daemon installation:
+  1. Backup your previous wallet, if any. `npm start backup <BACKUP_NAME>`
+  2. Delete `storage.json` in `%\AppData\Local\enjin-wallet-daemon`
+  3. `npm start account import 0x<private key>`
+  4. Go to Unity and login.
+  5. Go to the wallet tab. Hit unlink.
+  6. Note the new link code.
+  7. `npm start link <LINK CODE>`
+  8. `npm start`
+
+At this point yhou should see something like this:
+```
+[info] Enjin Wallet Daemon v0.2
+[info] <account {"address":"0x160B6CE9b405a51745334126E0D3BE382AfFFBa4"}> created
+[info] <account {"address":"0x160B6CE9b405a51745334126E0D3BE382AfFFBa4"}> nonce 319
+[info] <storage> Saving storage to: C:\Users\dethm\AppData\Local\enjin-wallet-daemon\storage.json
+[info] <wallet> Beginning to sign transactions.
+[info] <identity {"id":400,"appId":65}> Fetching smart contract ABIs
+[info] <storage> Saving storage to: C:\Users\dethm\AppData\Local\enjin-wallet-daemon\storage.json
+[info] <identity {"id":400,"appId":65}> Fetched smart contract ABIs
+[info] <identity {"id":400,"appId":65}> No transactions
+```
+
+To prevent potential nonce issues with the wallet, you should delete you wallet in the mobile app. If you  want to keep an eye on balances in the wallet app for your daemon, you can re-add the public wallet as a "Wateched" wallet using the **public** key.
