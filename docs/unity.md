@@ -153,11 +153,21 @@ Determines if items are able to be traded, or are bound to their owners (i.e. no
 * **TEMPORARY**: Item is currently tradable, but creator can make it non-tradable at a future date.
 
 **Transfer Fee Settings**
+
 * **NONE**: No Transfer fees are charged when this item changes hands.
 * **PER_CRYPTO_ITEM**: Transfer fee per item changing hands.
 * **PER_TRANSFER**: Transfer fee per *transfer* when changing hands.
-* **RATIO_CUT**: A % cut of the total is subtracted from the tota for the devl, with the sender paying the total price. For example, if transferring 500 gold with a 10% ratio cut (0.1) the recipient would get 450 gold and the dev 50 gold, with the sender paying 500 total for the transaction.
+* **RATIO_CUT**: A % cut of the total is subtracted from the total for the dev, with the sender paying the total price. For example, if transferring 500 gold with a 10% ratio cut (0.1) the recipient would get 450 gold and the dev 50 gold, with the sender paying 500 total for the transaction.
+Another example:
+`day_of_subscription` has RATIO_CUT of 100 (results in 1% cut to creator)
+`0xPAT` sends 10000 `day_of_subscription` to `0xERIC`
+Result: `0xERIC` gets 9,900 items and `0xCREATOR` gets 100.
 * **RATIO_EXTRA**: A tax that is charged ON TOP of of everything. For example if transferring 500 gold with a 10% ratio extra the recipient would get 500 gold, the dev 50 gold, and the sender pays 550 gold total for the transaction.
+Another example:
+`gold` has RATIO_EXTRA fees of 1,500 (15%)
+0xPAT sends 4000 `gold` to `0xERIC`
+Result: `0xPAT` loses 4,600 `gold`, `0xERIC` receives 4000, `0xCREATOR` receives 600. (edited)
+
 * **TYPE_COUNT**: Not used in v1.
 
 **Token ID**
