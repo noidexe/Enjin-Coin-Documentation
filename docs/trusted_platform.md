@@ -38,6 +38,21 @@ mutation {
 _Accounts are not shared between Kovan & Mainnet TP servers. You will need an account on each server if you want to use both platforms._
 
 ## Authenticating Your Requests
+You will need to authenticate your requests made via the TP. To authenticate your request, you will need an access token. Use this request to get your access token:
+
+```
+query {
+  EnjinOauth (
+    email: "EMAIL",
+    password: "PASSWORD"
+  ) {
+    id,
+    name,
+    email,
+    access_tokens
+  }
+}
+```
 
 In your browser, [Chrome Instructions] open DevTools (F12), navigate to the **“Application”** tab, expand **“Cookies”** on the left panel and select the website. Create a new cookie called “laravel_session” and enter in `<app_id>@<access_token>` substituting in your App ID and Access Token. If you do not have an app yet, you can enter in your Access Token without `<app_id>@`. You can now also send the app_id in as a separate cookie/header called `X-App-Id`. If sending the app_id separately then you don't need to prefix it to the access_token.
 
