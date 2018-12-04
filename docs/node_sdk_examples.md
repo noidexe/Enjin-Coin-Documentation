@@ -1,4 +1,4 @@
-# Node SDK and Examples
+# Node SDK Examples
 
 ## Getting Started
 
@@ -31,7 +31,8 @@ async function retrieveInventory () {
 };
 ```
 
-This example uses the admin user to check the inventory for a specific addresses.
+This example uses the admin user to check the inventory for a specific addresses
+that it knows about.
  ```
  // Use an admin user to query specific addresses.
  async function queryAddress () {
