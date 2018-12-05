@@ -4,7 +4,6 @@
 
 The repository for the Node SDK is here: https://github.com/Enjin/enjin-node-sdk
 
-
 ## Example 1 - Check Inventory
 
 To check our own item inventory. We get our identity and use that to ask the platform
