@@ -49,7 +49,7 @@ In the Platform API (GraphQL), you can set the URI for the item like so:
 ```
 mutation createTokenRequest {
   CreateEnjinRequest (
-    identity_id: 1,
+    identity_id: 400,
     type: SET_ITEM_URI,
     set_item_uri_data: {
       token_id: "700000000000010e",
