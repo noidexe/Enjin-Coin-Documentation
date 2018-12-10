@@ -5,6 +5,8 @@ using [Digital Ocean](www.digitalocean.com) Cloud Services. This is not the only
 way to host your data, but should provide an easy, yet robust way for developers that
 are less familiar with web technologies to fully take advantage of item metadata.
 
+You can look at the full JSON schema for metadta over [here](./erc1155_metadata_json_schema.md).
+
 ## Getting Started
 Create an account on Digital Ocean.
 

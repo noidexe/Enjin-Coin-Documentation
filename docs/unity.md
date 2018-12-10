@@ -270,7 +270,8 @@ Finally, be mindful to the number of transactions you are creating when working 
 #### Working with Metadata
 
 With JSON metadata, you are able to add custom data to your items, and some information on
-how that data should be displayed in apps like the Enjin Wallet.
+how that data should be displayed in apps like the Enjin Wallet. You can look at the full
+JSON schema over [here](./erc1155_metadata_json_schema.md).
 
 Here is the general format:
 
