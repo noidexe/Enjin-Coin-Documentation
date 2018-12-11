@@ -78,6 +78,7 @@ wallet installed on a compatible mobile device to do this. Once in the wallet, w
 4. Enter the ETH address of the wallet.
 
 ## Rules system
+TODO: Document this.
 
 ## Known Limitations
 Currently, the wallet daemon only runs with a single identity (AppID + ethereum address combination).
