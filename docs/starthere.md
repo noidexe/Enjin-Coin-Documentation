@@ -89,6 +89,7 @@ Which brings up to the bottom of the stack, where the rubber meets the road, you
   If you want to use real deal, mainnet, you will need actual ETH and ENJ via an exchange.
 
   3. Finally, you need to decide how you are going to interact with the ENJ platform. You'll probably use all of these platform interfaces at one time or another.
+  
     * If you are a Unity developer, you can use the Unity SDK, which is free on the Unity
     asset store. Guide is [here](./unity.md).
     * You can work with the Platform API via browser based GraphiQL console. Guide is [here]().

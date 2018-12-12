@@ -51,7 +51,7 @@ query login{
 }
 ```
 
-In your browser, [Chrome Instructions] open DevTools (F12), navigate to the **“Application”** tab, expand **“Cookies”** on the left panel and select the website. Create a new cookie called `enjin_session` and enter in your `access_token` from the login query as the value. 
+In your browser, [Chrome Instructions] open DevTools (F12), navigate to the **“Application”** tab, expand **“Cookies”** on the left panel and select the website. Create a new cookie called `enjin_session` and enter in your `access_token` from the login query as the value.
 
  If you have an app already you can send its app id in as a separate cookie/header called `X-App-Id`.  Some GraphQL queries and mutations require the app id cookie/header to be set so make sure you always include it.
 
