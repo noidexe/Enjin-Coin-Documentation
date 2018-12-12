@@ -3,6 +3,7 @@ There are two separate TP servers, Kovan and Mainnet.
 
 You can use the following GraphiQL browser interface to interact with the Trusted Platform:
 
+* Kovan Trusted Platform (Development TODO Remove at launch):[https://master.tp-enj.in/graphiql](https://master.tp-enj.in/graphiql)
 * Kovan Trusted Platform (GraphiQL): [https://kovan.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
 * Mainnet Trusted Platform (GraphiQL): [https://cloud.enjin.io/graphiql](https://cloud.enjin.io/graphiql)
 
@@ -312,3 +313,22 @@ mutation mintNonFungibleItems {
 This request would mint 5x items to “WALLET_ADDRESS_1” and 3x items to “WALLET_ADDRESS_2”.
 
 Once a successful request has been made, you will need to accept and sign the transaction in the “NOTIFICATIONS” section of your dev wallet.
+
+## Working with Roles
+
+You can list roles as follows:
+
+```
+query all_roles {
+  EnjinRoles
+	{
+    id,
+    name,
+    app_id
+  }
+}
+```
+
+CREATE ROLE
+
+ASSIGN ROLE

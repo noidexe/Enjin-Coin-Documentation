@@ -2,7 +2,7 @@
 
 ## What is the wallet daemon?
 The ENJ wallet daemon is a node.js based server side wallet that automates
-transaction signing in your game. without having to use the mobile wallet. You
+transaction signing in your game without having to use the mobile wallet. You
 should run this daemon on a secure server that is not the same as your primary
 game servers.
 
@@ -24,7 +24,8 @@ You'll need to install node.js and python 2.7 to use the wallet deamon.
 
 3. You should now be ready to test with the wallet daemon.
 
-TODO: Update with final setup instructions later.
+TODO: Update with final setup instructions. If you don't have access to
+the repo, download a zip of the daemon [HERE](https://drive.google.com/open?id=1guzFC0bzC38jRuTXxEivzlMKno1A5_S8).
 
 ## Creating a new Wallet
 
