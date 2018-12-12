@@ -86,7 +86,7 @@ Which brings up to the bottom of the stack, where the rubber meets the road, you
 
   The mobile wallet is also handy for watching other wallets, for example, your server side
   wallet daemon.
-  
+
   If you are doing a high number of transactions, or need to automate transaction signing for game severs interacting with players, you should use our wallet daemon. Check out our [wallet daemon guide](./wallet_daemon_guide.md) for how to get started with that.
 
   Wallets need ETH to pay for transactions, and ENJ as the digital casting material to create your items. If you want to experiment our Kovan testnet sandbox before using real currencies you can get some KENJ and KETH from our faucet [here](https://faucet.enjin.io/) and be off to the races.
@@ -94,7 +94,8 @@ Which brings up to the bottom of the stack, where the rubber meets the road, you
   If you want to use real deal, mainnet, you will need actual ETH and ENJ via an exchange.
 
   3. Finally, you need to decide how you are going to interact with the ENJ platform. You'll probably use all of these platform interfaces at one time or another.
+
     * If you are a Unity developer, you can use the Unity SDK, which is free on the Unity
     asset store. Guide is [here](./unity.md).
-    * You can work with the Platform API via browser based GraphiQL console. Guide is [here]().
-    * You can use node to work with the Platform API directly, a guide is [here](./trusted_platform.md).
+    * You can work with the Platform API via browser based GraphiQL console. Guide is [here](./trusted_platform.md).
+    * You can use Node to work with the Platform API directly, a guide is [here](./node_sdk_examples.md).

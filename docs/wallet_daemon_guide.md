@@ -102,20 +102,21 @@ On a PC:
   3. Select the network you are working on (Mainnet or Kovan)
   4. Click View Wallet Info.
   5. Select Keystore/JSON file.
-  6. The keystore is encrypted, use your wallet password to decrypt.
+  6. The keystore is encrypted, use **your wallet password** to decrypt.
   7. Click the eye beside the **Private Key unenecrypted** field. Copy this value.
 
 On your wallet daemon installation:
   1. Backup your previous wallet, if any. `npm start backup <BACKUP_NAME>`
   2. Delete `storage.json` in `%\AppData\Local\enjin-wallet-daemon`
   3. `npm start account import 0x<private key>`
-  4. Go to Unity and login.
-  5. Go to the wallet tab. Hit unlink.
-  6. Note the new link code.
-  7. `npm start link <LINK CODE>`
-  8. `npm start`
+  4. Did you prepend `0x` to your private key? You need that.
+  5. Go to Unity and login.
+  6. Go to the wallet tab. Hit unlink.
+  7. Note the new link code.
+  8. `npm start link <LINK CODE>`
+  9. `npm start`
 
-At this point yhou should see something like this:
+At this point you should see something like this:
 ```
 [info] Enjin Wallet Daemon v0.2
 [info] <account {"address":"0x160B6CE9b405a51745334126E0D3BE382AfFFBa4"}> created
