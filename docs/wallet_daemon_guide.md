@@ -1,3 +1,8 @@
+__“All documents included here are to be considered Work-in-Progress whose contents
+update on a frequent basis. Do NOT download or copy ANY of the files here. You
+are entirely responsible for any and all losses (ETH, ENJ, productivity, etc)
+that result from failing to heed this warning.”__
+
 # Wallet Daemon Guide
 
 ## What is the wallet daemon?
@@ -129,4 +134,7 @@ At this point you should see something like this:
 [info] <identity {"id":400,"appId":65}> No transactions
 ```
 
-To prevent potential nonce issues with the wallet, you should delete you wallet in the mobile app. If you  want to keep an eye on balances in the wallet app for your daemon, you can re-add the public wallet as a "Wateched" wallet using the **public** key.
+To prevent potential nonce issues with the wallet, you should delete your wallet in the mobile app (make sure you have the 12 backup words just in case!). Nonce issues happen when multiple
+parties with the private key try to sign transactions
+
+If you want to keep an eye on balances in the wallet app for your daemon, you can re-add the public wallet as a "Watched" wallet using the **public** key.
