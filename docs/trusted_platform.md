@@ -139,7 +139,7 @@ mutation unlinkWallet{
 ## Approving ENJ
 To prepare for item creation, you will need to pre-approve ENJ to the CryptoItems smart contract.  When linking your wallet for the first time an approve transaction will automatically be created for you to sign.  If you check the **NOTIFICATIONS** section of the wallet you should see the transaction ready to sign.  Accept the transaction request to approve the ENJ.
 
-By default the automatic approval transaction will approve the maximum amount of ENJ possible.  If you wish to change the pre-approval amount you will need to make sure you have set approval to 0 first before approving your actual value. You do not need to multiply value by 10^18 for this request. You don’t need to do this if you have previously approved a sufficient amount of ENJ to use.
+By default the automatic approval transaction will approve the maximum amount of ENJ possible.  If you wish to change the pre-approval amount you will need to make sure you have set approval to 0 first before approving your actual value (use -1 for max ENJ possible). You do not need to multiply value by 10^18 for this request. You don’t need to do this if you have previously approved a sufficient amount of ENJ to use.
 
 ```
 mutation ApproveENJ{
@@ -148,6 +148,19 @@ mutation ApproveENJ{
     type: APPROVE,
     approve_enj_data: {
       value: 0
+    }
+  ) {
+    id,
+    encoded_data
+  }
+}
+
+mutation ApproveMAXENJ{
+  CreateEnjinRequest (
+    identity_id: 1,
+    type: APPROVE,
+    approve_enj_data: {
+      value: -1
     }
   ) {
     id,
