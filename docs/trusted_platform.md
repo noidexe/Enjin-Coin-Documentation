@@ -347,6 +347,18 @@ query all_roles {
 }
 ```
 
-CREATE ROLE
+To update a user, make sure you have you app_id set in `X-App-Id`. You need to set **all**
+the roles you want the user to have in one shot. Any roles not passed will be cleared from the user.
 
-ASSIGN ROLE
+```
+mutation setRoles{
+  UpdateEnjinUser(id:1, roles:["Admin"]){
+    id,
+    roles{
+      id,
+      name,
+      app_id
+    }
+  }
+}
+```
