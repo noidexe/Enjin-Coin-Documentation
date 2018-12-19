@@ -1,11 +1,15 @@
-__“All documents included here are to be considered Work-in-Progress whose contents
-update on a frequent basis. Do NOT download or copy ANY of the files here. You
-are entirely responsible for any and all losses (ETH, ENJ, productivity, etc)
-that result from failing to heed this warning.”__
+## __“All documents included here are to be considered Work-in-Progress whose contents update on a frequent basis. Do NOT download or copy ANY of the files here. You are entirely responsible for any and all losses (ETH, ENJ, productivity, etc) that result from failing to heed this warning.”__
 
 # Platform Overview
 
 ## What is Enjin Coin (ENJ)?
+
+Enjin Coin is an ERC-20 Ethereum Token and Smart Contracts Platform based on then
+ERC-1155 standard. Enjin is the best and easiest way to create and distribute
+blockchain backed digital assets, so that you can empower yourself and your players
+with the benefits of true digital asset ownership, a whole new frontier of game
+development.
+
 The easiest way to get the idea of ENJ is to pretend that it is a real world
 material, like steel. Steel is used to make all sorts of useful
 items in the real world, from weapons, nuts and bolts, to unique pieces of art.
@@ -15,7 +19,8 @@ ENJ is digital steel. ENJ can be bought, sold, and traded on exchanges.
 ENJ can be used to make a million bullets, or to cast a one of kind sculpture. The possibilities are really only limited by your imagination.
 
 ## Why would I use ENJ?
-Digital steel, so what? I can make a billion bullets in my game in 1 second my stubby sausage fingers! I don't need a digital version of a real world concept in my game! Absurd!
+Digital steel, so what? I can make an unlimited number of items in my game right
+now, using better and faster technologies that have been around for decades.
 
 Well, making things with ENJ is just the start. Think again of the real world,
 and pretend the sword you have forged with ENJ is a real world object. What would be
@@ -44,16 +49,15 @@ These are just a few benefits at it's core, if you want a more extensive overvie
 the of digital items check out this [video](https://www.youtube.com/watch?v=7KLpNU6wXEM).
 
 ## The ENJ Stack
-Assuming you're still here, I'll now assume that you are a game developer of some sort with a basic understanding of how cryptocurrencies, in particular Ethereum, work. One of the main
-benefits of ENJ is that is __all__ the knowledge you'll ever need. You will not need to learn how
-to code smart contracts, set up a Parity node, or know how consensus algorithms work. We do that for you so you can focus on the thing really matters, __your game__.
+To work with ENJ CryptoItems, you only need a basic understand of how blockchain
+technology (in particular, Ethereum) works.
 
 Look at this picture:
 
 ![ENJ Platform Overview](../images/enjin_platform_overview.png)
 
 ### Ethereum
-Starting from the top (or maybe the bottom?) is the open-source, public, blockchain based distributed computing platform called [Ethereum](https://en.wikipedia.org/wiki/Ethereum). This is where the magic happens; Vitalik's spaceship. This is the future people: the new internet, it's just not widely distributed yet as old Bill Gibson says. You only really need to know some basic concepts about Ethereum to make your way around the ENJ platform, and you can learn those as you go. Let's move on.
+Underlying everything is the open-source, public, blockchain based distributed computing platform called [Ethereum](https://en.wikipedia.org/wiki/Ethereum). You only really need to know some basic concepts about Ethereum to make your way around the ENJ platform, and you can learn those as you go.
 
 ### CryptoItem Smart Contracts
 Smart Contracts are programs that run on the Ethereum "operating system". They are much like regular programs, and act as the low level building blocks that platforms like ENJ use to build their functionality. Enjin has championed a standard called [ERC-1155](https://github.com/ethereum/eips/issues/1155), proposed by Witek Radomski and the blockchain team here at Enjin. ENJ uses an implementation of ERC-1155 as the basis for the platform's functionality, called the
@@ -68,22 +72,21 @@ Currently, we are using a cloud based solution to host the Trusted Platform for 
 The most basic way to talk to the Trusted Platform is by using our [GraphQL API](https://graphql.org/learn/). If you can use HTTP from you game to talk to a web service, you'll be able to talk to your trusted platform via this interface.
 
 ### Editor Tools and Runtime APIs
-Over time our team of Enjineers will be creating all sorts of tools and APIs for all of the most frequently used game technology out there. For now, the focus is on the Unity engine. We provide a Unity API, and an in-editor UI Panel built right into the editor to help you do the most common operations with the ENJ platform. If you are not using Unity, you'll want to back up one level and use the GraphQL API for you game.
+Over time our team of Enjineers will be creating all sorts of tools and APIs for all of the most frequently used game technology out there. For now, the focus is on the Unity engine. We provide a Unity API, and an editor UI Panel to help you do the most common operations with the ENJ platform. If you are not using Unity, you'll want to use the GraphQL API for you game.
 
 ![Unity SDK Screenshot](../images/unity_login_page.png)
 
 ### ENJ Wallets
-One concept that takes a bit of getting used to when working with the blockchain is the idea of having a wallet address a private key. Think of your wallet address as the street address for your garage of stuff. But it's more than that, because each garage comes with a private key. The private key is solely controlled by the wallet owner, YOU! You use your private key to access the contents of your wallet, but also to authorize and sign transactions that are happening with your items. For most players and some developer tasks, like creating items, you'll probably use the Enjin wallet mobile app for Android and iOS. For your game itself, you'll want to use the Enjin Wallet Deamon to automate most of these operations in a secure and convenient way.
+One concept to learn when working with the blockchain is the idea of having a wallet address a private key. Think of your wallet address as the street address for your garage of stuff. But it's more than that, because each garage comes with a private key. The private key is solely controlled by the wallet owner, YOU! You use your private key to access the contents of your wallet, but also to authorize and sign transactions that are happening with your items. For most players and some developer tasks, like creating items, you'll probably use the Enjin wallet mobile app for Android and iOS. For your game itself, you'll want to use the Enjin Wallet Deamon to automate most of these operations in a secure and convenient way.
 
 ![Wallet Example](../images/enjin_wallet_example.png)
 
 ### YOUR GAME
-Which brings up to the bottom of the stack, where the rubber meets the road, your GAME! The nice thing about our platform is that it is not an all or nothing thing, you can choose how deeply you want to integrate ENJ into you game, over as long of a period as you wish. Maybe start with a vanity item or achievement token that is given to players upon purchase or completion of your game.
+Which brings us to the bottom of the stack, where the rubber meets the road, your GAME! The nice thing about our platform is that it is not an all or nothing thing, you can choose how deeply you want to integrate ENJ into you game, over as long of a period as you wish. Maybe start with a vanity item or achievement token that is given to players upon purchase or completion of your game.
 
 # How do I get started?
 
-  Still here? Great! We'd love to have you! You can get up and running on our platform in therefore
-  easy steps.
+  Still here? Great! We'd love to have you! You can get up and running on our platform in three easy steps.
 
   1. Sign up and subscribe [HERE](./trusted_platform.md). This will give you access the Trusted Platform (and Platform API). TODO: Change link when portal is up.
 
