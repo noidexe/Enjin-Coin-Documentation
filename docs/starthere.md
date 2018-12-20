@@ -63,13 +63,13 @@ Underlying everything is the open-source, public, blockchain based distributed c
 Smart Contracts are programs that run on the Ethereum "operating system". They are much like regular programs, and act as the low level building blocks that platforms like ENJ use to build their functionality. Enjin has championed a standard called [ERC-1155](https://github.com/ethereum/eips/issues/1155), proposed by Witek Radomski and the blockchain team here at Enjin. ENJ uses an implementation of ERC-1155 as the basis for the platform's functionality, called the
 CryptoItem smart contracts. You don't need to know anything about smart contracts or how to program them to use ENJ, we do all the heavy lifting here for you.
 
-### Trusted Platform
-The Trusted Platform is the main backend service of ENJ that connects your game to the Ethereum network. The TP acts as a hub, gathering requests from clients and game servers, interacting with the smart contracts on Ethereum, and returning data back to your game.
+### Cloud Platform
+The Cloud Platform is the main backend service of ENJ that connects your game to the Ethereum network. The TP acts as a hub, gathering requests from clients and game servers, interacting with the smart contracts on Ethereum, and returning data back to your game.
 
-Currently, we are using a cloud based solution to host the Trusted Platform for you, so you don't need to worry about setting up things yourself, all you need is an account and a subscription. In the future, we will be offering ways for developers to run their own self hosted TPs.
+Currently, we are using a cloud based solution to host the Cloud Platform for you, so you don't need to worry about setting up things yourself, all you need is an account and a subscription. In the future, we will be offering ways for developers to run their own self hosted TPs.
 
 ### SDKs and APIs
-The most basic way to talk to the Trusted Platform is by using our [GraphQL API](https://graphql.org/learn/). If you can use HTTP from you game to talk to a web service, you'll be able to talk to your trusted platform via this interface.
+The most basic way to talk to the Cloud Platform is by using our [GraphQL API](https://graphql.org/learn/). If you can use HTTP from you game to talk to a web service, you'll be able to talk to your Cloud Platform via this interface.
 
 ### Editor Tools and Runtime APIs
 Over time our team of Enjineers will be creating all sorts of tools and APIs for all of the most frequently used game technology out there. For now, the focus is on the Unity engine. We provide a Unity API, and an editor UI Panel to help you do the most common operations with the ENJ platform. If you are not using Unity, you'll want to use the GraphQL API for you game.
@@ -88,7 +88,7 @@ Which brings us to the bottom of the stack, where the rubber meets the road, you
 
   Still here? Great! We'd love to have you! You can get up and running on our platform in three easy steps.
 
-  1. Sign up and subscribe [HERE](./trusted_platform.md). This will give you access the Trusted Platform (and Platform API). TODO: Change link when portal is up.
+  1. Sign up and subscribe [HERE](./trusted_platform.md). This will give you access the Cloud Platform (and Platform API). TODO: Change link when portal is up.
 
   2. You'll then need to create at least one wallet. You have multiple options here: if you are just starting out with the platform and if you think you will be doing a low number of operations and want to get a feel for how things work manually, grab the mobile wallet off the [iOS app store](https://itunes.apple.com/us/app/enjin-cryptocurrency-wallet/id1349078375?mt=8) or the [Google play store](https://play.google.com/store/apps/details?id=com.enjin.mobile.wallet&hl=en_US).
 

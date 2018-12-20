@@ -12,7 +12,7 @@ The repository for the Node SDK is here: https://github.com/Enjin/enjin-node-sdk
 ## Example 1 - Check Inventory
 
 To check our own item inventory. We get our identity and use that to ask the platform
-to list our items.  Note that only one ethereum address can be linked to a game account at a time. This query returns all the items from all games.
+to list our items.  Note that only one Ethereum address can be linked to a game account at a time. This query returns all the items from all games.
 
 ```
 // Check the items owned by a specific user.

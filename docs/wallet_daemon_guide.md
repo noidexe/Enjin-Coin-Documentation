@@ -43,7 +43,7 @@ All developer wallets need to be linked to an app in the ENJ platform.
 Once you have an app created, you'll need to get a link code to link the wallet
 to this app.
 
-The instructions vary by platform so consult the [Unity Guide]() or the [Platform API]()
+The instructions vary by platform so consult the [Unity Guide](./unity.md) or the [Platform API](./cloud_platform.md)
 guide on how to create an app and get a link code for the wallet.
 
 Once you have the link code, execute the following:

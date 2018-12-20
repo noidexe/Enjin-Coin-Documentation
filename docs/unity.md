@@ -7,7 +7,7 @@ that result from failing to heed this warning.”__
 
 ## Before You Start
 
-Before you start working with Unity, you'll need a Trusted Platform account.
+Before you start working with Unity, you'll need a Cloud Platform account.
 See [here](./starthere.md) about getting one.
 
 Also, you won't be able to do much without ENJ or ETH (or KENJ/KETH if on Kovan)
