@@ -112,7 +112,20 @@ You will need a name, description and a link to a hosted image for your app. You
 
 ## Linking Your Wallet
 
-Every user for your app requires an App Identity which is used to hold the user's unique wallet address and links the user to your app.  An identity will automatically be created for new users if you set an app id in the `X-App-Id` cookie/header when creating the user.
+Every user for your app requires an App Identity which is used to hold the user's unique wallet address and links the user to your app.
+
+Identities are distinct from user ids, and are a way to decouple users from wallet
+addresses. Identities are either linked, or unlinked. If they are linked, they
+contain a valid Ethereum address. Unlinked identities have a like code like `BXXAZK`.
+It is important to know that **there can only be one identity per user, per app/game.**
+You cannot directly connect a user id to a wallet.
+
+For example, user `bob` can link
+his wallet `0xabcd`to the game `Space Monkies`, but cannot link multiple wallets to
+that particular game.  If `bob` wants to use a different wallet with `Space Monkies`,
+he will need to unlink the current wallet, and re-link with the new wallet.
+
+An identity will automatically be created for new users if you set an app id in the `X-App-Id` cookie/header when creating the user.
 
 To accept and sign any transactions, you will need to link your Enjin Wallet (Dev version) app to your App Identity. To do this, you will need to find your **Linking Code**.
 ```
@@ -182,6 +195,7 @@ Once a successful request has been made, you will need to accept and sign the tr
 
 ## Creating an Item
 
+Creating an item is like creating a template that you will use to mint your items.
 To create an item, you will need to make a request with various item data.
 
 ```
@@ -269,7 +283,14 @@ query viewTokens{
 Enter in the item name to search for that item. Alternatively, you can make the request without the name parameter to return all items on your TP App.
 
 ## Setting the URI (Item Metadata)
+Item metadata is optional, but if you want to display an image and item properties
+in the Enjin Wallet (and other Enjin Services) you will need to define some metadata.
+
 In order to link an item to a metadata file, you will need a .json file hosted somewhere that has public read access. You can include a name (which would be displayed instead of the blockchain item name), description, and link to an image (which also needs to be publicly readable) in the .json file.
+
+The bare minimum recommended metadata is a name, a description, and an image. You
+would define this like so:0
+
 ```
 {
   "name": "ITEM_NAME",
@@ -296,10 +317,16 @@ mutation setItemURI{
   }
 }
 ```
+
+There are many other built in features for metadata built into our schema,
+consult the [Enjin Metadata Schema](../erc1155_metadata_json_schema.md) for details.
+
 Once a successful request has been made, you will need to accept and sign the transaction in the **NOTIFICATIONS** section of your dev wallet.
 
 ## Minting the Item
-The request for minting fungible items (FTs) vs non-fungible items (NFTs) may vary slightly. You can batch mint to multiple addresses if you wish to do so. The differences are that if you need to mint multiple NFTs, you will need to specify the wallet address for each individual item. Ideally try to avoid minting over 100 NFTs in a single transaction, FTs do not have this restriction. Here is the same request between 2 different items types, FT and NFT.
+
+Minting items is like using the template you created in the CREATE step to
+instantiate some items on the blockchain. The request for minting fungible items (FTs) vs non-fungible items (NFTs) may vary slightly. You can batch mint to multiple addresses if you wish to do so. The differences are that if you need to mint multiple NFTs, you will need to specify the wallet address for each individual item. Ideally try to avoid minting over 100 NFTs in a single transaction, FTs do not have this restriction. Here is the same request between 2 different items types, FT and NFT.
 
 **FT:**
 ```
