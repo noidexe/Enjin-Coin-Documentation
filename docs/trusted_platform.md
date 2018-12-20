@@ -1,14 +1,21 @@
-__“All documents included here are to be considered Work-in-Progress whose contents
-update on a frequent basis. Do NOT download or copy ANY of the files here. You
-are entirely responsible for any and all losses (ETH, ENJ, productivity, etc)
-that result from failing to heed this warning.”__
+## __“All documents included here are to be considered Work-in-Progress whose contents update on a frequent basis. Do NOT download or copy ANY of the files here. You are entirely responsible for any and all losses (ETH, ENJ, productivity, etc) that result from failing to heed this warning.”__
 
-# Trusted Platform Guide (GraphiQL)
-There are two separate TP servers, Kovan and Mainnet.
+# Trusted Platform Introduction
+
+The Trusted Platform is the main backend service of ENJ that connects your game to the Ethereum network. The TP acts as a hub, gathering requests from clients and game servers, interacting with the smart contracts on Ethereum, and returning data back to your game. It also manages the link between your users game account (i.e. SteamID,
+  XBox Live Id, etc), and their blockchain identity (i.e. currently linked wallet address).
+
+There are two separate TP servers, Testnet and Mainnet.
+
+Testnet is a development version of the mainnet, where you can easily obtain fake Ethereum and Enjin Coin to test your items in a safe, simulated environment without using real cryptocurrency.
+
+Mainnet is the real deal. You are using real Ethereum and Enjin Coin, so transactions
+here cost real cryptocurrency. You should be very comfortable with your implementation on testnet before doing anything substantial on mainnet.
 
 You can use the following GraphiQL browser interface to interact with the Trusted Platform:
 
 * Kovan Trusted Platform (Development TODO Remove at launch):[https://master.tp-enj.in/graphiql](https://master.tp-enj.in/graphiql)
+* Ropsten Testnet (GraphiQL):[https://ropsten.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
 * Kovan Trusted Platform (GraphiQL): [https://kovan.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
 * Mainnet Trusted Platform (GraphiQL): [https://cloud.enjin.io/graphiql](https://cloud.enjin.io/graphiql)
 
@@ -63,8 +70,11 @@ In your browser, [Chrome Instructions] open DevTools (F12), navigate to the **�
 
 ![Trusted Platform Cookie](../images/trustedplatform_cookie.png)
 
-## Updating Your User Login
-Once you have set up your **enjin_session** cookie. You can update your user name, email, and password by running the following request. Replacing with your User ID, new name, new email and new password.
+Once you have set up your **enjin_session** cookie, you can start working with
+the platform in the GraphQL console.
+
+## Updating Your User Login (Optional)
+You can optionally update your user name, email, and password by running the following request. Replacing with your User ID, new name, new email and new password.
 
 ```
 mutation updateUser{
@@ -206,7 +216,7 @@ Property | Descriptions
 totalSupply | Total Supply for the item
 initialReserve | Initial Reserve for the item. You will need ENJ approved for this reserve.
 supplyModel | Supply Model for the item. FIXED, SETTABLE, INFINITE, COLLAPSING, ANNUAL_VALUE, ANNUAL_PERCENTAGE.
-meltValue | ENJ value of the item. Need to multiply value by 10^18 to include 18 decimals.  There is a minimum melt value requried by new items which is calculated from the inital reserve.  You can use this TP endpoint to discover the minimum amount for any given reserve: `/api/v1/ethereum/get-min-melt-value/{iniitalReserve}` e.g. [https://kovan.cloud.enjin.io/api/v1/ethereum/get-min-melt-value/1000000](https://kovan.cloud.enjin.io/api/v1/ethereum/get-min-melt-value/1000000)
+meltValue | ENJ value of the item. Need to multiply value by 10^18 to include 18 decimals.  There is a minimum melt value required by new items which is calculated from the inital reserve.  You can use this TP endpoint to discover the minimum amount for any given reserve: `/api/v1/ethereum/get-min-melt-value/{iniitalReserve}` e.g. [https://kovan.cloud.enjin.io/api/v1/ethereum/get-min-melt-value/1000000](https://kovan.cloud.enjin.io/api/v1/ethereum/get-min-melt-value/1000000)
 meltFeeRatio | Percentage of melt value returned to the creator (up to a maximum of 50%), up to 2 decimals. Need to multiply the percentage by 100.
 Transferable | Transfer Type. PERMANENT, TEMPORARY, BOUND.
 transferFeeSettings - type | Transfer Fee Type. NONE, PER_TRANSFER, PER_CRYPTO_ITEM, RATIO_CUT, RATIO_EXTRA, TYPE_COUNT.
@@ -214,9 +224,14 @@ transferFeeSettings - token_id | Token ID of the item you want to use as the tra
 transferFeeSettings - value | Value of the transfer fee. If using ENJ, multiply the value by 10^18 to include 18 decimals.
 nonFungible | Whether the item is Non-Fungible or Fungible, true or false.
 
+Consult the "Creating Items" section of the [Unity Guide](../unity.md) to get a more detailed explanation of the item properties and how they work.
+
 Once a successful request has been made, you will need to accept and sign the transaction in the **NOTIFICATIONS** section of your dev wallet.
 
 ## Finding the Token ID (and Additional Details)
+
+TODO: Update with EnjinX instructions.
+
 You can either find the Token ID on the transaction with that item after it confirms via etherscan or you can search for the item on the Trusted Platform, you will need to wait for it to be confirmed and scraped from the blockchain first.
 
 _If you find your Token ID via the blockchain rather than the TP then it will be in integer form, you will need to convert this number to hex and take just the 'upper' 32 bits of the resulting value (which represents the Base Token ID) before using it in many of the GraphQL mutations. You can use a service such as [Rapid Tables](https://www.rapidtables.com/convert/number/decimal-to-hex.html) to do this._
