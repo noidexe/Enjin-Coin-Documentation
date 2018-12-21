@@ -88,7 +88,7 @@ Which brings us to the bottom of the stack, where the rubber meets the road, you
 
   Still here? Great! We'd love to have you! You can get up and running on our platform in three easy steps.
 
-  1. Sign up and subscribe [HERE](./trusted_platform.md). This will give you access the Cloud Platform (and Platform API). TODO: Change link when portal is up.
+  1. Sign up and subscribe [HERE](./cloud_platform.md). This will give you access the Cloud Platform (and Platform API). TODO: Change link when portal is up.
 
   2. You'll then need to create at least one wallet. You have multiple options here: if you are just starting out with the platform and if you think you will be doing a low number of operations and want to get a feel for how things work manually, grab the mobile wallet off the [iOS app store](https://itunes.apple.com/us/app/enjin-cryptocurrency-wallet/id1349078375?mt=8) or the [Google play store](https://play.google.com/store/apps/details?id=com.enjin.mobile.wallet&hl=en_US).
 
@@ -105,5 +105,5 @@ Which brings us to the bottom of the stack, where the rubber meets the road, you
 
     * If you are a Unity developer, you can use the Unity SDK, which is free on the Unity
     asset store. Guide is [here](./unity.md).
-    * You can work with the Platform API via browser based GraphiQL console. Guide is [here](./trusted_platform.md).
+    * You can work with the Platform API via browser based GraphiQL console. Guide is [here](./cloud_platform.md).
     * You can use Node to work with the Platform API directly, a guide is [here](./node_sdk_examples.md).
