@@ -404,3 +404,18 @@ mutation setRoles{
   }
 }
 ```
+
+## Tips and tricks
+
+If the wallet daemon is complaining about a transaction with invalid parameters
+that needs to be reverted, you can revert the transaction
+
+```
+mutation CancelTransaction {
+  UpdateEnjinRequest(id:XXXX state:CANCELED_USER) {
+    id
+    title
+    state
+  }
+}
+```
