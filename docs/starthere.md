@@ -54,7 +54,7 @@ technology (in particular, Ethereum) works.
 
 Look at this picture:
 
-![ENJ Platform Overview](../images/enjin_platform_overview.png)
+![ENJ Platform Overview](../images/enjin_ecosystem.png)
 
 ### Ethereum
 Underlying everything is the open-source, public, blockchain based distributed computing platform called [Ethereum](https://en.wikipedia.org/wiki/Ethereum). You only really need to know some basic concepts about Ethereum to make your way around the ENJ platform, and you can learn those as you go.
