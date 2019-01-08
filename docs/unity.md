@@ -48,9 +48,10 @@ how to link your developer wallet.
 #### Select Platform
 
 Use Select Platform to choose what platform you want to work with. You have 3 choices:
-* Kovan Testnet - Our primary testnet sandbox.
-* EnjinX Platform - Our primary mainnet platform.
-* Custom Platform - Specify the URL to a custom platform.
+
+* Kovan Testnet - Our primary testnet sandbox. `https://kovan.cloud.enjin.io/`
+
+There will be other platforms available at launch.
 
 #### Login
 Right now, accounts are platform specific, so if you are having trouble logging in

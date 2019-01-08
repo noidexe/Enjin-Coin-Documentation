@@ -14,10 +14,7 @@ here cost real cryptocurrency. You should be very comfortable with your implemen
 
 You can use the following GraphiQL browser interface to interact with the Trusted Platform:
 
-* Kovan Trusted Platform (Development TODO Remove at launch):[https://master.tp-enj.in/graphiql](https://master.tp-enj.in/graphiql)
-* Ropsten Testnet (GraphiQL):[https://ropsten.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
-* Kovan Trusted Platform (GraphiQL): [https://kovan.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
-* Mainnet Trusted Platform (GraphiQL): [https://cloud.enjin.io/graphiql](https://cloud.enjin.io/graphiql)
+* **Kovan Trusted Platform (GraphiQL):** [https://kovan.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
 
 ## Browsing the Schema
 On the right-side there should be a documentation panel to expand and browse for all the requests
