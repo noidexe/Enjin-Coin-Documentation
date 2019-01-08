@@ -34,7 +34,15 @@ import into using via Assets->Import Package->Custom Package.
 
 Access the Unity panel via **Window->Enjin SDK**.
 
-## Home Screen (Logged Out)
+Login using your Enjin account that you used during Sign Up.
+
+Once logged in you will need to create an app. See [Home Screen](#home-screen) for
+how to do that.
+
+Finally, you will need to link your wallet. See the [Wallet](#wallet-screen) section for
+how to link your developer wallet.
+
+## Home Screen Logged Out
 ![Login Screen](../images/unity_login_page_2.png)
 
 #### Select Platform
@@ -48,8 +56,7 @@ Use Select Platform to choose what platform you want to work with. You have 3 ch
 Right now, accounts are platform specific, so if you are having trouble logging in
 make sure you are using the right credentials for your account.
 
-
-### Home Screen (Logged In)
+### Home Screen
 ![Home Screen](../images/unity_home_logged_in.png)
 
 When logged in, your home screen is where you can review your login information, but is also where you manage you apps. You are going to want to have one app per game.  Click **Create App** button to add the app to you platform. You can set the name, image URL and description of the app in the fields. Make sure the image is publicly accessible for it to show up in the wallet. Use the app drop down to select the app you want to work with for this session, and **Edit App** if you made any mistakes entering you apps.
@@ -345,9 +352,18 @@ and any metadata that you set.
 
 ![Cryptoitems Metadata Edit](../images/unity_cryptoitems_metadata1_4.png)
 
-#### Advanced Metadata Concepts
-
-
 ## Wallet Screen
+
+The wallet screen shows the currently linked wallet to the given identity, along with
+ETH and ENJ balances.
+
+![Wallet Main](../images/unity_wallet.png)
+
+If unlinked, you'll see a link code like so:
+
+![Wallet Unlinked](../images/unity_wallet_unlinked.png)
+
+In the developer wallet, select LINKED APPS, then + LINK APP and enter the code and
+follow the instructions. Click **REFRESH** in Unity to verify the link is successful.
 
 ## Settings Screen
