@@ -14,9 +14,24 @@ game servers.
 ## Prerequisites
 You'll need to install node.js and python 2.7 to use the wallet deamon.
 
-[Node.js](https://nodejs.org/en/download/)
+### Windows
+See: <https://github.com/nodejs/node-gyp/#on-windows>
+* [node.js](https://nodejs.org/en/download/)
+* [Python 2](https://www.python.org/download/releases/2.7/)
+* [Visual Studio Build Tools](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools)
+* [git](https://git-scm.com/download/win)
 
-[Python 2.7](https://www.python.org/download/releases/2.7/)
+### macOS
+Homebrew is our recommended way to install the node.js environment on macOS. See: <https://brew.sh/>
+* macOS command line developer tools
+* node.js
+
+### Linux
+Here are the necessary commands required to run under Linux
+* build tools (gcc, make, etc.) *build-essential* on Debian and Ubuntu
+* git
+* python 2
+* node.js
 
 ## Setup
 1. Clone the repository:
@@ -49,6 +64,8 @@ guide on how to create an app and get a link code for the wallet.
 Once you have the link code, execute the following:
 
 `npm start link <CODE>`
+
+You can link to multiple identities.
 
 ## Start the wallet daemon
 
@@ -87,7 +104,7 @@ wallet installed on a compatible mobile device to do this. Once in the wallet, w
 TODO: Document this.
 
 ## Known Limitations
-Currently, the wallet daemon only runs with a single identity (AppID + ethereum address combination).
+Currently, the wallet daemon only runs with a single address.
 
 ## Migrating from the mobile wallet to the wallet daemon.
 
