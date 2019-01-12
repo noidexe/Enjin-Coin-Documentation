@@ -1,8 +1,3 @@
-__“All documents included here are to be considered Work-in-Progress whose contents
-update on a frequent basis. Do NOT download or copy ANY of the files here. You
-are entirely responsible for any and all losses (ETH, ENJ, productivity, etc)
-that result from failing to heed this warning.”__
-
 # Unity Quickstart
 
 ## Before You Start
@@ -30,7 +25,7 @@ Setup into Unity is easy. Grab the Enjin Blockchain Asset off the Unity Asset St
 with you open game project in Unity. If you got the package from somewhere else
 import into using via Assets->Import Package->Custom Package.
 
-![Import Package](../images/unity_import_package.png)
+![Import Package](../docs/images/unity_import_package.png)
 
 Access the Unity panel via **Window->Enjin SDK**.
 
@@ -43,7 +38,7 @@ Finally, you will need to link your wallet. See the [Wallet](#wallet-screen) sec
 how to link your developer wallet.
 
 ## Home Screen Logged Out
-![Login Screen](../images/unity_login_page_2.png)
+![Login Screen](../docs/images/unity_login_page_2.png)
 
 #### Select Platform
 
@@ -58,12 +53,12 @@ Right now, accounts are platform specific, so if you are having trouble logging 
 make sure you are using the right credentials for your account.
 
 ### Home Screen
-![Home Screen](../images/unity_home_logged_in.png)
+![Home Screen](../docs/images/unity_home_logged_in.png)
 
 When logged in, your home screen is where you can review your login information, but is also where you manage you apps. You are going to want to have one app per game.  Click **Create App** button to add the app to you platform. You can set the name, image URL and description of the app in the fields. Make sure the image is publicly accessible for it to show up in the wallet. Use the app drop down to select the app you want to work with for this session, and **Edit App** if you made any mistakes entering you apps.
 
 ## Team Screen
-![Team Screen](../images/unity_team_main.png)
+![Team Screen](../docs/images/unity_team_main.png)
 
 The team screen is where you create, edit and remove team members from your app. You can also see player accounts that have been added to your app as people are playing.
 
@@ -73,14 +68,14 @@ To edit an existing user, click **Edit** while the given user is selected.
 
 You can search for users using the **Search** box.
 
-![Roles Screen](../images/unity_team_roles.png)
+![Roles Screen](../docs/images/unity_team_roles.png)
 
 Roles are way for you to control access and permissions for various operations in your app. You can **Create**, **Edit** and **Delete** roles depending on the needs of you game. In general, you'll have two roles: one for the Admin (you!), with permission to do anything, and one for regular players, who generally have a much smaller set of permissions.
 
 **TODO:** How to create a new team member. EDT-1960.
 
 ## Identities Screen
-![Identitites Screen](../images/unity_identities_main.png)
+![Identitites Screen](../docs/images/unity_identities_main.png)
 
 The identities screen is where you link user accounts to ethereum addresses. You are only
 allowed to have one identity per user, per app. That means a user can have many identities across a variety of apps in the ecosystem.
@@ -92,12 +87,12 @@ The linking code is used by developers to link their mobile or wallet daemon to 
 
 The linking code is used by players to link their account and wallet to your game via the platform.
 
-![Identities Edit](../images/unity_identities_edit.png)
+![Identities Edit](../docs/images/unity_identities_edit.png)
 
 You can enter custom data (for example Minecraft player UUID) to attach to an identity, too!
 
 ## Cryptoitems Screen
-![Cryptoitems Main Screen](../images/unity_cryptoitems_main.png)
+![Cryptoitems Main Screen](../docs/images/unity_cryptoitems_main.png)
 
 The Cryptoitems screen is the heart of the Enjin Unity SDK. This is the main screen where you create and manage your items. Before we get into the details of the process, you should know a couple of
 things.
@@ -123,7 +118,7 @@ we traded.
 There are some key workflow differences between fungible and non-fungible items  
 
 #### Creating items
-![Cryptoitems Create Item](../images/unity_cryptoitems_create2.png)
+![Cryptoitems Create Item](../docs/images/unity_cryptoitems_create2.png)
 
 When you click **CREATE** on the main panel you will be brought to the the Create Cryptoitem panel.
 
@@ -202,7 +197,7 @@ game currency like gold.
 
 Go to the cryptotiems screen, and click **Create**. We fill out the values as follows:
 
-![Cryptoitems Create Item](../images/unity_cryptoitems_example1_1.png)
+![Cryptoitems Create Item](../docs/images/unity_cryptoitems_example1_1.png)
 
 We decide to make 10 million doubloons to start, and use a supply type of SETTABLE so
 we can create more if we run out and want to expand the supply later.
@@ -218,31 +213,31 @@ We set melt fee ratio to none. If players melt this item 100% of the ENJ used to
 item will go back to the creator (YOU!).
 
 We click CREATE. The transaction is posted to the blockchain and needs to be signed by a wallet. In this example we will be using the mobile wallet. You'll see something like this:
-![Cryptoitems Create Item](../images/unity_cryptoitems_example1_2.png)
+![Cryptoitems Create Item](../docs/images/unity_cryptoitems_example1_2.png)
 
 We approve the create request, after awhile (be patient) Unity will refresh and show the newly
 created item:
 
-![Cryptoitems Create Item](../images/unity_cryptoitems_example1_3.png)
+![Cryptoitems Create Item](../docs/images/unity_cryptoitems_example1_3.png)
 
 You'll notice there there is 0 balance of this item. That is because we only created the
 template of the item, we haven't actually minted anything yet. Let's mint by selecting
 the item and selecting MINT.
 
-![Cryptoitems Create Item](../images/unity_cryptoitems_example1_4.png)
+![Cryptoitems Create Item](../docs/images/unity_cryptoitems_example1_4.png)
 
 The number to mint will automatically be set to max. You can change this if you'd like. You can
 also choose the address to where the minted items will go. Handy if you have something like
 our wallet daemon running on a remote machine acting as a vault for items. Click MINT.
 
 You'll get a notification in the wallet similar to this:
-![Cryptoitems Create Item](../images/unity_cryptoitems_example1_5.png)
+![Cryptoitems Create Item](../docs/images/unity_cryptoitems_example1_5.png)
 
 Accept it, and wait. Once the transaction is confirmed on the blockchain, Unity will refresh
 and you will see your doubloons. If you minted them to your mobile wallet you'll be able to See
 them in your collectibles tab.
 
-![Cryptoitems Create Item](../images/unity_cryptoitems_example1_6.png)
+![Cryptoitems Create Item](../docs/images/unity_cryptoitems_example1_6.png)
 
 But, where are my cool item art? Descriptions? Custom stats? For that, you will need to create
 and set some metadata. See the working with metadata section on how you can customize your items.
@@ -253,7 +248,7 @@ Let's create a non-fungible item called a **Vorpal Blade**. These are very rare 
 but also, each Vorpal Sword is unique, and grows in power over time. We fill out the
 create screen as follows:
 
-![Cryptoitems Create Item 2](../images/unity_cryptoitems_example2_1.png)
+![Cryptoitems Create Item 2](../docs/images/unity_cryptoitems_example2_1.png)
 
 We decide that there are only 10 of these in the world, and that they will be backed
 by 1 ENJ each. We are using a FIXED supply type, so there can only every be 10 of these
@@ -270,7 +265,7 @@ blockchain.
 Minting NFIs is a bit different, however. You can only mint one NFI at a time, and each NFI
 mint is a separate transaction.
 
-![Cryptoitems Mint NFI](../images/unity_cryptoitems_example2_2.png)
+![Cryptoitems Mint NFI](../docs/images/unity_cryptoitems_example2_2.png)
 
 Also, each NFI will show up as it's own entry in the cryptoitem list in Unity, which makes
 sense, since each NFI is a unique item.
@@ -331,7 +326,7 @@ JSON metadata that I cooked up for it, using the format above.
 I then created a 1000 x 1000 image of the doubloon. Any image size will work but make
 sure it is square. I recommend sizes larger than 512x512.
 
-![Cryptoitems Metadata Image Example](../images/unity_cryptoitems_metadata_1_2.png)
+![Cryptoitems Metadata Image Example](../docs/images/unity_cryptoitems_metadata_1_2.png)
 
 Once you have the metadata and image, they need to be publicly hosted so apps like
 the wallet can grab them and display them to the user. If you are just testing things
@@ -341,28 +336,28 @@ you can try [JSON.bin](https://jsonbin.io/) to host the JSON, and I used
 Once your JSON and image data are up, you can go back into the Unity editor and edit
 the item by double clicking on it, or selecting the item and clicking **Edit**.
 
-![Cryptoitems Metadata Edit](../images/unity_cryptoitems_metadata1_1.png)
+![Cryptoitems Metadata Edit](../docs/images/unity_cryptoitems_metadata1_1.png)
 
 Paste the URI into the **METADATA URI** field and hit update. Setting or changing
 the URI requires the owner to sign a transaction. If you are using the mobile wallet
 
-![Cryptoitems Metadata Edit](../images/unity_cryptoitems_metadata1_3.png)
+![Cryptoitems Metadata Edit](../docs/images/unity_cryptoitems_metadata1_3.png)
 
 That's it! If you look at the collectible in the wallet, you should now see an image
 and any metadata that you set.
 
-![Cryptoitems Metadata Edit](../images/unity_cryptoitems_metadata1_4.png)
+![Cryptoitems Metadata Edit](../docs/images/unity_cryptoitems_metadata1_4.png)
 
 ## Wallet Screen
 
 The wallet screen shows the currently linked wallet to the given identity, along with
 ETH and ENJ balances.
 
-![Wallet Main](../images/unity_wallet.png)
+![Wallet Main](../docs/images/unity_wallet.png)
 
 If unlinked, you'll see a link code like so:
 
-![Wallet Unlinked](../images/unity_wallet_unlinked.png)
+![Wallet Unlinked](../docs/images/unity_wallet_unlinked.png)
 
 In the developer wallet, select LINKED APPS, then + LINK APP and enter the code and
 follow the instructions. Click **REFRESH** in Unity to verify the link is successful.

@@ -1,8 +1,3 @@
-__“All documents included here are to be considered Work-in-Progress whose contents
-update on a frequent basis. Do NOT download or copy ANY of the files here. You
-are entirely responsible for any and all losses (ETH, ENJ, productivity, etc)
-that result from failing to heed this warning.”__
-
 # Working with Metadata - Digital Ocean
 
 This guide will show you how to host JSON metadata and images for your items
@@ -20,7 +15,7 @@ project for you game, and then create a [Space](https://www.digitalocean.com/doc
 
 Your screen should look something like this:
 
-![Getting Started](../images/metadata_digitalocean_getting_started.png)
+![Getting Started](../docs/images/metadata_digitalocean_getting_started.png)
 
 ## Uploading Files
 Click on the Space to access.
@@ -43,13 +38,13 @@ Modify your JSON data to point to the appropriate images on like so:
 
 Upload your finished JSON to the Digital Ocean Space. It should look something like this:
 
-![Digital Ocean Upload](../images/metadata_digitalocean_upload.png)
+![Digital Ocean Upload](../docs/images/metadata_digitalocean_upload.png)
 
 ## Setting URIs and Testing
 
 In Unity, select the item and hit EDIT. Fill in the URI field.
 
-![Digital Ocean Unity](../images/metadata_digitalocean_unity_uri.png)
+![Digital Ocean Unity](../docs/images/metadata_digitalocean_unity_uri.png)
 
 In the Platform API (GraphQL), you can set the URI for the item like so:
 
