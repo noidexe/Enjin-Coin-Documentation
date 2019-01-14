@@ -88,6 +88,22 @@ mutation updateUser{
 }
 ```
 
+## Creating a User
+You can create new users with the following request:
+```
+mutation createUser {
+  CreateEnjinUser (
+    name: "bob_loblaw",
+    email: "bob@loblaw.com",
+    password: "password"
+  ) {
+    id
+    name
+    email
+  }
+}
+```
+
 ## Creating Your App
 You will need to create your own App on the Trusted Platform. This will appear as one of the “collections” where your items will appear in the user’s wallet.
 
