@@ -1,6 +1,6 @@
-## __“All documents included here are to be considered Work-in-Progress whose contents update on a frequent basis. Do NOT download or copy ANY of the files here. You are entirely responsible for any and all losses (ETH, ENJ, productivity, etc) that result from failing to heed this warning.”__
-
 # Platform Overview
+
+Note: All documents included here are to be considered Work-in-Progress whose contents update on a frequent basis. Do NOT download or copy ANY of the files here. You are entirely responsible for any and all losses (ETH, ENJ, productivity, etc) that result from failing to heed this warning
 
 ## What is Enjin Coin (ENJ)?
 
@@ -54,7 +54,7 @@ technology (in particular, Ethereum) works.
 
 Look at this picture:
 
-![ENJ Platform Overview](../images/enjin_ecosystem.png)
+![ENJ Platform Overview](../docs/images/enjin_ecosystem.png)
 
 ### Ethereum
 Underlying everything is the open-source, public, blockchain based distributed computing platform called [Ethereum](https://en.wikipedia.org/wiki/Ethereum). You only really need to know some basic concepts about Ethereum to make your way around the ENJ platform, and you can learn those as you go.
@@ -74,12 +74,12 @@ The most basic way to talk to the Cloud Platform is by using our [GraphQL API](h
 ### Editor Tools and Runtime APIs
 Over time our team of Enjineers will be creating all sorts of tools and APIs for all of the most frequently used game technology out there. For now, the focus is on the Unity engine. We provide a Unity API, and an editor UI Panel to help you do the most common operations with the ENJ platform. If you are not using Unity, you'll want to use the GraphQL API for you game.
 
-![Unity SDK Screenshot](../images/unity_login_page.png)
+![Unity SDK Screenshot](../docs/images/unity_login_page.png)
 
 ### ENJ Wallets
 One concept to learn when working with the blockchain is the idea of having a wallet address a private key. Think of your wallet address as the street address for your garage of stuff. But it's more than that, because each garage comes with a private key. The private key is solely controlled by the wallet owner, YOU! You use your private key to access the contents of your wallet, but also to authorize and sign transactions that are happening with your items. For most players and some developer tasks, like creating items, you'll probably use the Enjin wallet mobile app for Android and iOS. For your game itself, you'll want to use the Enjin Wallet Deamon to automate most of these operations in a secure and convenient way.
 
-![Wallet Example](../images/enjin_wallet_example.png)
+![Wallet Example](../docs/images/enjin_wallet_example.png)
 
 ### YOUR GAME
 Which brings us to the bottom of the stack, where the rubber meets the road, your GAME! The nice thing about our platform is that it is not an all or nothing thing, you can choose how deeply you want to integrate ENJ into you game, over as long of a period as you wish. Maybe start with a vanity item or achievement token that is given to players upon purchase or completion of your game.
