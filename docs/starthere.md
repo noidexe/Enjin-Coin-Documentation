@@ -69,7 +69,7 @@ The Cloud Platform is the main backend service of ENJ that connects your game to
 Currently, we are using a cloud based solution to host the Cloud Platform for you, so you don't need to worry about setting up things yourself, all you need is an account and a subscription. In the future, we will be offering ways for developers to run their own self hosted TPs.
 
 ### SDKs and APIs
-The most basic way to talk to the Cloud Platform is by using our [GraphQL API](https://graphql.org/learn/). If you can use HTTP from you game to talk to a web service, you'll be able to talk to your Cloud Platform via this interface.
+The most basic way to talk to the Cloud Platform is by using our [GraphQL API](https://graphql.org/learn/). If you can use HTTP from your game to talk to a web service, you'll probably be able to talk to your Cloud Platform via this interface.
 
 ### Editor Tools and Runtime APIs
 Over time our team of Enjineers will be creating all sorts of tools and APIs for all of the most frequently used game technology out there. For now, the focus is on the Unity engine. We provide a Unity API, and an editor UI Panel to help you do the most common operations with the ENJ platform. If you are not using Unity, you'll want to use the GraphQL API for you game.
@@ -96,6 +96,9 @@ Which brings us to the bottom of the stack, where the rubber meets the road, you
   #### Create a Wallet
 
   You'll then need to create at least one wallet.
+
+  See ou [Wallet Quickstart](../wallet_quickstart.md) guide on how to setup and
+  fund your wallets.
 
   You have multiple options here: if you are just starting out with the platform and if you think you will be doing a low number of operations and want to get a feel for how things work manually, grab the developer version of the mobile wallet [HERE](https://drive.google.com/open?id=17l8pSm2_1m8VF7dH1p9TIdjZDjSja4Tt). The mobile wallet is also handy for watching other wallets, for example, your server side wallet daemon.
 
