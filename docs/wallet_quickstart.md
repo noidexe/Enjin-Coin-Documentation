@@ -86,11 +86,15 @@ wallet installed on a compatible mobile device to do this. Once in the wallet, w
 3. Enter a name for the wallet you want to watch. i.e. Item Vault.
 4. Enter the ETH address of the daemon wallet.
 
+Now you can see the contents of the wallet daemon, but you can't actually use the
+mobile app to sign any transactions, since the private keys reside with the daemon
+itself.
+
 ## Next steps
 
 If you are using Unity, head over to the [Unity Guide](./unity.md).
 
-If you are not using Unity, check out the [Trusted Platform Guide](./cloud.platform.md)
+If you are not using Unity, check out the [Trusted Platform Guide](./cloud_platform.md)
 
 
 
