@@ -65,7 +65,7 @@ any other service. The Item Vault will receive items that you mint on the Master
 and will automatically sign incoming transactions without user intervention.
 
 Once you secure a server you want to install the Item Vault on, look at
-[this guide](../docs/wallet_ademon_install.md) on how to install the wallet daemon on
+[this guide](../docs/wallet_daemon_install.md) on how to install the wallet daemon on
 that machine.
 
 After installation, you'll want to use [this guide](../docs/wallet_daemon_first_steps.md)
