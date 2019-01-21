@@ -97,7 +97,7 @@ Which brings us to the bottom of the stack, where the rubber meets the road, you
 
   You'll then need to create at least one wallet.
 
-  See our [Wallet Quickstart](../wallet_quickstart.md) guide on how to setup and
+  See our [Wallet Quickstart](../docs/wallet_quickstart.md) guide on how to setup and
   fund your wallets.
 
   #### Pick your SDK.
