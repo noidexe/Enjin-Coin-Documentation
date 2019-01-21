@@ -97,16 +97,8 @@ Which brings us to the bottom of the stack, where the rubber meets the road, you
 
   You'll then need to create at least one wallet.
 
-  See ou [Wallet Quickstart](../wallet_quickstart.md) guide on how to setup and
+  See our [Wallet Quickstart](../wallet_quickstart.md) guide on how to setup and
   fund your wallets.
-
-  You have multiple options here: if you are just starting out with the platform and if you think you will be doing a low number of operations and want to get a feel for how things work manually, grab the developer version of the mobile wallet [HERE](https://drive.google.com/open?id=17l8pSm2_1m8VF7dH1p9TIdjZDjSja4Tt). The mobile wallet is also handy for watching other wallets, for example, your server side wallet daemon.
-
-  If you are doing a high number of transactions, or need to automate transaction signing for game severs interacting with players, you should use our wallet daemon. Check out our [wallet daemon guide](./wallet_daemon_guide.md) for how to get started with that.
-
-  Wallets need ETH to pay for transactions, and ENJ as the digital casting material to create your items. If you want to experiment our Kovan testnet sandbox before using real currencies you can get some KENJ and KETH from our faucet [here](https://kovan.faucet.enjin.io/) and be off to the races.
-
-  If you want to use real deal, mainnet, you will need actual ETH and ENJ via an exchange.
 
   #### Pick your SDK.
 
