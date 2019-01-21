@@ -2,14 +2,14 @@
 
 As mentioned in the [Start Here Guide](./starthere.md), you will need at least one Enjin wallet to work with the platform, but it is a good practice to consider *two* wallets: one Master wallet, and a secondary Item Vault wallet.
 
-The Master Wallet uses the Enjin Developer Wallet Mobile App (found here), and is used to
+The Master Wallet uses the Enjin Developer Wallet Mobile App, and is used to
 store the ENJ/ETH you are using to craft your cryptoitems, as well as assist in the creation
-and minting of your cryptoitems. For example, you would use this wallet to create your in-game
+and minting operations. For example, you would use this wallet to create your in-game
 currency, and any items you would want interactively.
 
 The Item Vault wallet is an instance of our wallet deamon running on a secure server that you
 control. This is a hot wallet that is used with your game at runtime to automate signing of
-transactions dealing with cryptoitems for you game.
+transactions dealing with cryptoitems for your game.
 
 This guide assumes you are running on the testnet beta platform on Kovan testnet.
 
@@ -65,10 +65,10 @@ any other service. The Item Vault will receive items that you mint on the Master
 and will automatically sign incoming transactions without user intervention.
 
 Once you secure a server you want to install the Item Vault on, look at
-[this guide](./wallet_ademon_install.md) on how to install the wallet daemon on
+[this guide](../docs/wallet_ademon_install.md) on how to install the wallet daemon on
 that machine.
 
-After installation, you'll want to use [this guide](./wallet_daemon_first_steps.md)
+After installation, you'll want to use [this guide](../docs/wallet_daemon_first_steps.md)
 to create your wallet and/or import a private key from another wallet. Go up to
 the "Link To Trusted Platform" step, as you will need to create a new user for the
 Wallet Deamon later on.
