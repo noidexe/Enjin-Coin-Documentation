@@ -1,3 +1,5 @@
+## __“All documents included here are to be considered Work-in-Progress whose contents update on a frequent basis. Do NOT download or copy ANY of the files here. You are entirely responsible for any and all losses (ETH, ENJ, productivity, etc) that result from failing to heed this warning.”__
+
 # Trusted Platform Introduction
 
 The Trusted Platform is the main backend service of ENJ that connects your game to the Ethereum network. The TP acts as a hub, gathering requests from clients and game servers, interacting with the smart contracts on Ethereum, and returning data back to your game. It also manages the link between your users game account (i.e. SteamID,
@@ -63,7 +65,7 @@ In your browser, [Chrome Instructions] open DevTools (F12), navigate to the **�
 
  If you have an app already you can send its app id in as a separate cookie/header called `X-App-Id`.  Some GraphQL queries and mutations require the app id cookie/header to be set so make sure you always include it.
 
-![Trusted Platform Cookie](../docs/images/trustedplatform_cookie.png)
+![Trusted Platform Cookie](../images/trustedplatform_cookie.png)
 
 Once you have set up your **enjin_session** cookie, you can start working with
 the platform in the GraphQL console.
@@ -88,6 +90,7 @@ mutation updateUser{
 
 ## Creating a User
 You can create new users with the following request:
+
 ```
 mutation createUser {
   CreateEnjinUser (
@@ -119,6 +122,18 @@ mutation createApp{
   }
 }
 ```
+
+If you already created an app, but forget the id, you can look it up with the following query"
+
+```
+query apps {
+  EnjinApps{
+    id,
+    name
+  }
+}
+```
+
 You will need a name, description and a link to a hosted image for your app. You should get the App ID in the response if it was successful. You can now use this App ID in your `X-App-Id` cookie.
 
 ## Linking Your Wallet
