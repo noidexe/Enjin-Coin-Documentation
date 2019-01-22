@@ -5,8 +5,9 @@
 Before you start working with Unity, you'll need a Cloud Platform account.
 See [here](./starthere.md) about getting one.
 
-Also, you won't be able to do much without ENJ or ETH (or KENJ/KETH if on Kovan)
-so make sure you are stocked up before doing anything beforehand.
+Also, you won't be able to do much without at least one wallet funded with ENJ or ETH
+(or KENJ/KETH if on Kovan) so make sure you are stocked up before doing anything beforehand.
+See [here](./wallet_quickstart.md) about that.
 
 Lastly, it helps to think about your item economy before you do any large scale
 minting of items. Test your items out on our Kovan sandbox before moving onto mainnet.
