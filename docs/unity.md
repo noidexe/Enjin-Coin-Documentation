@@ -43,11 +43,12 @@ how to link your developer wallet.
 
 #### Select Platform
 
-Use Select Platform to choose what platform you want to work with. You have 3 choices:
+Use Select Platform to choose what platform you want to work with. Right now there
+is only one choice:
 
 * Kovan Testnet - Our primary testnet sandbox. `https://kovan.cloud.enjin.io/`
 
-There will be other platforms available at launch.
+There will be other platforms available, including mainnet, at a later date.
 
 #### Login
 Right now, accounts are platform specific, so if you are having trouble logging in
@@ -89,8 +90,6 @@ The linking code is used by developers to link their mobile or wallet daemon to 
 The linking code is used by players to link their account and wallet to your game via the platform.
 
 ![Identities Edit](../docs/images/unity_identities_edit.png)
-
-You can enter custom data (for example Minecraft player UUID) to attach to an identity, too!
 
 ## Cryptoitems Screen
 ![Cryptoitems Main Screen](../docs/images/unity_cryptoitems_main.png)
@@ -364,3 +363,10 @@ In the developer wallet, select LINKED APPS, then + LINK APP and enter the code 
 follow the instructions. Click **REFRESH** in Unity to verify the link is successful.
 
 ## Settings Screen
+
+## Setting up your Item Vault with the Wallet daemon
+
+If you are opting to have an item vault using the wallet deamon, follow the next steps
+to set up your daemon with you app.
+
+<INSERT STEPS HERE>
