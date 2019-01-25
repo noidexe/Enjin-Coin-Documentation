@@ -1,19 +1,22 @@
 # Wallet Quickstart
 
-As mentioned in the [Start Here Guide](./starthere.md), you will need at least one Enjin wallet to work with the platform, but it is a good practice to consider *two* wallets: one Master wallet, and a secondary Item Vault wallet.
+As mentioned in the [Start Here Guide](./starthere.md), you will need at least one Enjin wallet to work with the platform. This guide shows you how to set up your primary wallet, but
+also details how to set up a secondary wallet to use for your game service.
 
-The Master Wallet uses the Enjin Developer Wallet Mobile App, and is used to
+Your primary wallet uses the Enjin Developer Wallet Mobile App, and is used to
 store the ENJ/ETH you are using to craft your cryptoitems, as well as assist in the creation
 and minting operations. For example, you would use this wallet to create your in-game
 currency, and any items you would want interactively.
 
-The Item Vault wallet is an instance of our wallet deamon running on a secure server that you
+The secondary wallet is an instance of our wallet deamon running on a secure server that you
 control. This is a hot wallet that is used with your game at runtime to automate signing of
-transactions dealing with cryptoitems for your game.
+transactions dealing with cryptoitems for your game. You don't have to set up this wallet
+right away, but if you do, you'll save some work moving items from your primary to
+secondary wallets.
 
-This guide assumes you are running on the testnet beta platform on Kovan testnet.
+This guide assumes you are running on our Kovan testnet beta.
 
-## Creating the Master Wallet (Required)
+## Creating your Primary wallet (Required)
 
 ### Install the Enjin Developer Wallet
 
@@ -44,7 +47,7 @@ cryptocurrency and items.
 ### Fund the Wallet
 
 The next step is to fund the wallet with ETH (Ethereum) and ENJ (Enjin Coin). ETH is used
-to pay for transaction fees on the network, which ENJ is used as the digital casting material
+to pay for transaction fees on the network, while ENJ is used as the digital casting material
 to create your items. You'll need both to use the platform successfully and both are provided
 for free on testnet.
 
@@ -55,16 +58,18 @@ RECEIVE in the top left. Copy this address.
 
 Go to [Enjin Kovan Testnet Faucet](https://kovan.faucet.enjin.io/) and paste your address.
 
-In a couple of minutes, you should have both Kovan ETH and ENJ in your wallet. You are now ready to use the platform to make items.
+In a couple of minutes, you should have both Kovan ETH and ENJ in your wallet. You are now ready to use the platform to make items!
 
-## Creating the Item Vault (Optional)
+## Creating the Secondary wallet (Optional)
 
-It is highly recommended that you create an Item Vault wallet on a secure server that you
-control somewhere. This does not to be on the same machine as you game server or
-any other service. The Item Vault will receive items that you mint on the Master Wallet,
-and will automatically sign incoming transactions without user intervention.
+This process can be completed at any time after creating your Primary wallet.
 
-Once you secure a server you want to install the Item Vault on, look at
+It is highly recommended that you create an secondary wallet on a secure server that you
+control somewhere. This does not have to be on the same machine as your game server or
+any other service. The secondary wallet will receive items that you mint from the primary
+wallet, and will automatically sign incoming transactions without user intervention.
+
+Once you secure a server you want to install the secondary wallet on, look at
 [this guide](../docs/wallet_daemon_install.md) on how to install the wallet daemon on
 that machine.
 
@@ -76,7 +81,7 @@ Wallet Deamon later on.
 ![Wallet Daemon Create](../docs/images/wallet_daemon_create.png)
 
 Fund the new Item Vault wallet using the [Enjin Kovan Testnet Faucet](https://kovan.faucet.enjin.io/) by pasting you new item vault address like you did with
-your main wallet.
+your primary wallet.
 
 You can use the ENJ mobile wallet to watch your Item Vault wallet. You'll need the mobile
 wallet installed on a compatible mobile device to do this. Once in the wallet, watch you wallet daemon Ethereum address like so:
@@ -91,6 +96,9 @@ mobile app to sign any transactions, since the private keys reside with the daem
 itself.
 
 ## Next steps
+
+Great! With your account set up, and funded wallet(s), you are ready to use the
+Platform.
 
 If you are using Unity, head over to the [Unity Guide](./unity.md).
 

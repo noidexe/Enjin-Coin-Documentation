@@ -64,9 +64,9 @@ Smart Contracts are programs that run on the Ethereum "operating system". They a
 CryptoItem smart contracts. You don't need to know anything about smart contracts or how to program them to use ENJ, we do all the heavy lifting here for you.
 
 ### Cloud Platform
-The Cloud Platform is the main backend service of ENJ that connects your game to the Ethereum network. The TP acts as a hub, gathering requests from clients and game servers, interacting with the smart contracts on Ethereum, and returning data back to your game.
+The Cloud Platform is the main backend service of ENJ that connects your game to the Ethereum network. The Platform acts as a hub, gathering requests from clients and game servers, interacting with the smart contracts on Ethereum, and returning data back to your game.
 
-Currently, we are using a cloud based solution to host the Cloud Platform for you, so you don't need to worry about setting up things yourself, all you need is an account and a subscription. In the future, we will be offering ways for developers to run their own self hosted TPs.
+Currently, we are using a cloud based solution so the platform is hosted for you. You don't need to worry about setting up things yourself, all you need is an developer account and a subscription. In the future, we will be offering ways for developers to run their own self hosted platform(s).
 
 ### SDKs and APIs
 The most basic way to talk to the Cloud Platform is by using our [GraphQL API](https://graphql.org/learn/). If you can use HTTP from your game to talk to a web service, you'll probably be able to talk to your Cloud Platform via this interface.
@@ -77,12 +77,14 @@ Over time our team of Enjineers will be creating all sorts of tools and APIs for
 ![Unity SDK Screenshot](../docs/images/unity_login_page.png)
 
 ### ENJ Wallets
-One concept to learn when working with the blockchain is the idea of having a wallet address a private key. Think of your wallet address as the street address for your garage of stuff. But it's more than that, because each garage comes with a private key. The private key is solely controlled by the wallet owner, YOU! You use your private key to access the contents of your wallet, but also to authorize and sign transactions that are happening with your items. For most players and some developer tasks, like creating items, you'll probably use the Enjin wallet mobile app for Android and iOS. For your game itself, you'll want to use the Enjin Wallet Deamon to automate most of these operations in a secure and convenient way.
+One concept to learn when working with the blockchain is the idea of having a wallet address a private key. Think of your wallet address as the street address for your garage of stuff. But it's more than that, because each garage comes with a private key. The private key is solely controlled by the wallet owner, YOU! You use your private key to access the contents of your wallet, but also to authorize and sign transactions that involve your items. For most players and some developer tasks, like creating items, you'll probably use the Enjin wallet mobile app for Android and iOS.
+
+For your game itself, you'll want to use the Enjin Wallet Deamon to automate most of these operations in a secure and convenient way.
 
 ![Wallet Example](../docs/images/enjin_wallet_example.png)
 
 ### YOUR GAME
-Which brings us to the bottom of the stack, where the rubber meets the road, your GAME! The nice thing about our platform is that it is not an all or nothing thing, you can choose how deeply you want to integrate ENJ into you game, over as long of a period as you wish. Maybe start with a vanity item or achievement token that is given to players upon purchase or completion of your game.
+Which brings us to the bottom of the stack, where the rubber meets the road, your GAME! The nice thing about our platform is that it is not an all or nothing thing, you can choose how deeply you want to integrate ENJ into you game, over as long of a period as you wish. Maybe start with a vanity item or achievement token that is given to players upon purchase or completion of your game?
 
 # How do I get started?
 
@@ -97,8 +99,8 @@ Which brings us to the bottom of the stack, where the rubber meets the road, you
 
   You'll then need to create at least one wallet.
 
-  See our [Wallet Quickstart](../docs/wallet_quickstart.md) guide on how to setup and
-  fund your wallets.
+  See our [Wallet Quickstart](./wallet_quickstart.md) guide on how to setup and
+  fund your wallet.
 
   #### Pick your SDK.
 
