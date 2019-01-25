@@ -1,8 +1,8 @@
 ## __“All documents included here are to be considered Work-in-Progress whose contents update on a frequent basis. Do NOT download or copy ANY of the files here. You are entirely responsible for any and all losses (ETH, ENJ, productivity, etc) that result from failing to heed this warning.”__
 
-# Trusted Platform Introduction
+# Cloud Platform Introduction
 
-The Trusted Platform is the main backend service of ENJ that connects your game to the Ethereum network. The TP acts as a hub, gathering requests from clients and game servers, interacting with the smart contracts on Ethereum, and returning data back to your game. It also manages the link between your users game account (i.e. SteamID,
+The Cloud Platform is the main backend service of ENJ that connects your game to the Ethereum network. The TP acts as a hub, gathering requests from clients and game servers, interacting with the smart contracts on Ethereum, and returning data back to your game. It also manages the link between your users game account (i.e. SteamID,
   XBox Live Id, etc), and their blockchain identity (i.e. currently linked wallet address).
 
 There are two separate TP servers, Testnet and Mainnet.
@@ -12,9 +12,9 @@ Testnet is a development version of the mainnet, where you can easily obtain fak
 Mainnet is the real deal. You are using real Ethereum and Enjin Coin, so transactions
 here cost real cryptocurrency. You should be very comfortable with your implementation on testnet before doing anything substantial on mainnet.
 
-You can use the following GraphiQL browser interface to interact with the Trusted Platform:
+You can use the following GraphiQL browser interface to interact with the Cloud Platform:
 
-* **Kovan Trusted Platform (GraphiQL):** [https://kovan.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
+* **Kovan Cloud Platform (GraphiQL):** [https://kovan.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
 
 ## Browsing the Schema
 On the right-side there should be a documentation panel to expand and browse for all the requests
@@ -65,7 +65,7 @@ In your browser, [Chrome Instructions] open DevTools (F12), navigate to the **�
 
  If you have an app already you can send its app id in as a separate cookie/header called `X-App-Id`.  Some GraphQL queries and mutations require the app id cookie/header to be set so make sure you always include it.
 
-![Trusted Platform Cookie](../images/trustedplatform_cookie.png)
+![Cloud Platform Cookie](../images/trustedplatform_cookie.png)
 
 Once you have set up your **enjin_session** cookie, you can start working with
 the platform in the GraphQL console.
@@ -106,7 +106,7 @@ mutation createUser {
 ```
 
 ## Creating Your App
-You will need to create your own App on the Trusted Platform. This will appear as one of the “collections” where your items will appear in the user’s wallet.
+You will need to create your own App on the Cloud Platform. This will appear as one of the “collections” where your items will appear in the user’s wallet.
 
 ```
 mutation createApp{
@@ -272,7 +272,7 @@ Once a successful request has been made, you will need to accept and sign the tr
 
 TODO: Update with EnjinX instructions.
 
-You can either find the Token ID on the transaction with that item after it confirms via etherscan or you can search for the item on the Trusted Platform, you will need to wait for it to be confirmed and scraped from the blockchain first.
+You can either find the Token ID on the transaction with that item after it confirms via etherscan or you can search for the item on the Cloud Platform, you will need to wait for it to be confirmed and scraped from the blockchain first.
 
 _If you find your Token ID via the blockchain rather than the TP then it will be in integer form, you will need to convert this number to hex and take just the 'upper' 32 bits of the resulting value (which represents the Base Token ID) before using it in many of the GraphQL mutations. You can use a service such as [Rapid Tables](https://www.rapidtables.com/convert/number/decimal-to-hex.html) to do this._
 
