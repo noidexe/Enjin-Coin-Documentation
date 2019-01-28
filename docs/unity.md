@@ -365,6 +365,9 @@ If unlinked, you'll see a link code like so:
 In the developer wallet, select LINKED APPS, then + LINK APP and enter the code and
 follow the instructions. Click **REFRESH** in Unity to verify the link is successful.
 
+If this is the first time linking this wallet to the platform, you will receive an **APPROVE ENJ** notification. Accept it. This will allow the platform to use your ENJ on your behalf to
+do operations like creating and minting items.
+
 ## Settings Screen
 
 We don't have much here at the moment.
