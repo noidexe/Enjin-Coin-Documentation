@@ -19,7 +19,7 @@ See <https://github.com/nodejs/node-gyp/#on-windows>
 Install node.js 11 from the official website <https://nodejs.org/>. Then, in an administrator command prompt (Windows+R `cmd` run with ctrl-shift-enter):
 
 ```
-npm install --global --production windows-build-tools 
+npm install --global --production windows-build-tools
 ```
 
 Install git from the official website <https://git-scm.com/download/win>
