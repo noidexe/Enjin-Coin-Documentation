@@ -49,7 +49,7 @@ _Accounts are not shared between Kovan & Mainnet TP servers. You will need an ac
 
 If you are an Admin user for an app you can also use the above mutation to create new users for your app, the new user's details will be emailed to the user on creation.
 
-## Authenticating Your Requests
+## Login and Authenticating Your Requests
 You will need to **authenticate your requests** made via the TC. To authenticate your request, you will need an access token. Use this request to get your access token:
 
 ```
