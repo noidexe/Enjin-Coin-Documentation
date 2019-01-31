@@ -150,7 +150,7 @@ query viewIdentities{
 ```
 You should be given a 6 character linking code to enter into your dev wallet app in the **LINKED APPS** section. Mainnet code starts with “A”, while Kovan starts with “B”. You will need to choose which wallet to link (if you have multiple wallets imported).
 
-To reset your linked app, use the following query and replace the id with your identity_id. You can find this by using the query above.
+To reset your linked wallet, use the following query and replace the id with your identity_id. You can find this by using the query above.
 ```
 mutation unlinkWallet{
   DeleteEnjinIdentity (
@@ -201,7 +201,7 @@ Once a successful request has been made, you will need to accept and sign the tr
 ## Creating an Item
 
 Creating an item is like creating a template that you will use to mint your items.
-To create an item, you will need to make a request with various item data. Here is
+To create an item, you will need to make a request with the desired item properties. Here is
 an example:
 
 ```
@@ -244,7 +244,7 @@ transferFeeSettings - token_id | Token ID of the item you want to use as the tra
 transferFeeSettings - value | Value of the transfer fee. If using ENJ, multiply the value by 10^18 to include 18 decimals.
 nonFungible | Whether the item is Non-Fungible or Fungible, true or false.
 
-Consult the "Creating Items" section of the [Unity Guide](../unity.md) to get a more detailed explanation of the item properties and how they work.
+Consult the "Creating Items" section of the [Unity Guide](./unity.md) to get a more detailed explanation of the item properties and how they work.
 
 Once a successful request has been made, you will need to accept and sign the transaction in the **NOTIFICATIONS** section of your dev wallet. If the transaction is successful the
 item template is created and you can move onto finding the item's id to MINT.
