@@ -1,6 +1,6 @@
-# Platform Overview
+# Disclaimer
 
-Note: All documents included here are to be considered Work-in-Progress whose contents update on a frequent basis. Do NOT download or copy ANY of the files here. You are entirely responsible for any and all losses (ETH, ENJ, productivity, etc) that result from failing to heed this warning
+This documentation is a frequently-updated work in progress. To guarantee you see the most up-to-date documentation, please do not download or store this guide locally. Instead, refer to Enjin's developer portal website. You are responsible for any losses. Working with the most up-to-date materials can prevent any accidents. Your feedback and questions are much appreciated in improving these tutorials.
 
 ## What is Enjin Coin (ENJ)?
 
