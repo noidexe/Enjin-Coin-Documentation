@@ -1,8 +1,8 @@
 # Registering Your Game
 
-You understand what [item interactions on our Trusted Platform](platform-architecture.md) look like, so you're ready to register a game of your own to work on.
+You understand what [item interactions on our Trusted Cloud](platform-architecture.md) look like, so you're ready to register a game of your own to work on.
 
-First, you must sign up and subscribe [on the Enjin developer portal](https://feature-front-end.tp-enj.in/#/signup). This will give you an account and credentials to access the Trusted Platform.
+First, you must sign up and subscribe [on the Enjin developer portal](https://feature-front-end.tp-enj.in/#/signup). This will give you an account and credentials to access the Trusted Cloud.
 
 There are two separate TC servers, Testnet and Mainnet.
 
@@ -107,4 +107,4 @@ You will need a name, description and a link to a hosted image for your app. You
 
 # Next Steps
 
-Your game is ready to go. It has a presence on the Trusted Platform and we're almost at that exciting point where we can begin creating our own items. First, however, we need to make sure that you're ready with an [Enjin Wallet and the necessary resources](wallet-setup.md).
+Your game is ready to go. It has a presence on the Trusted Cloud and we're almost at that exciting point where we can begin creating our own items. First, however, we need to make sure that you're ready with an [Enjin Wallet and the necessary resources](wallet-setup.md).

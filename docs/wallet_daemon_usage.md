@@ -50,7 +50,7 @@ node src/main.js account import 0x37986485ee024917a6cb7748c60d5d58214c7ca6e9a1d5
 
 ## link
 
-Connect the wallet daemon with a trusted platform identity. You can link with many different identities, on many different trusted platforms.
+Connect the wallet daemon with a Trusted Cloud identity. You can link with many different identities, on many different Trusted Clouds.
 
 Example:
 ```

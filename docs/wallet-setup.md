@@ -1,6 +1,6 @@
 # Getting Started with the Enjin Wallet
 
-Congratulations on making it this far! By now you've completed [registering your game on the Trusted Platform](registering-game.md) and are ready to begin using the Enjin Wallet app.
+Congratulations on making it this far! By now you've completed [registering your game on the Trusted Cloud](registering-game.md) and are ready to begin using the Enjin Wallet app.
 
 ## Creating your Primary wallet (Required)
 

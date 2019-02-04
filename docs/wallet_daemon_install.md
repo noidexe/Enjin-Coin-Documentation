@@ -100,7 +100,7 @@ npm install
 ## All Platforms
 
 ### Run Wallet Daemon _(New Wallet)_
-Open an account on the trusted platform and get a link code (e.g. XY1ABC). Replace the `<LINK_CODE>` placeholder bellow with that code.
+Open an account on the Trusted Cloud and get a link code (e.g. XY1ABC). Replace the `<LINK_CODE>` placeholder bellow with that code.
 
 ```bash
 node src/main.js account new

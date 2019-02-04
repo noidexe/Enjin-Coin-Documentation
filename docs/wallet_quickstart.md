@@ -75,7 +75,7 @@ that machine.
 
 After installation, you'll want to use [this guide](../docs/wallet_daemon_first_steps.md)
 to create your wallet and/or import a private key from another wallet. Go up to
-the "Link To Trusted Platform" step, as you will need to create a new user for the
+the "Link To Trusted Cloud" step, as you will need to create a new user for the
 Wallet Deamon later on.
 
 ![Wallet Daemon Create](../docs/images/wallet_daemon_create.png)
@@ -102,4 +102,4 @@ Platform.
 
 If you are using Unity, head over to the [Unity Guide](./unity.md).
 
-If you are not using Unity, check out the [Trusted Platform Guide](./cloud_platform.md)
+If you are not using Unity, check out the [Trusted Cloud Guide](./cloud_platform.md)

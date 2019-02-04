@@ -1,6 +1,6 @@
 # Enjin Wallet Daemon First Steps
 
-The Enjin Wallet Daemon is a utility that manages an Ethereum address linked to an Enjin Trusted Platform identity. When a transaction is submitted on the trusted platform, the wallet daemon receives that transaction, signs it, and sends it back to the trusted platform.
+The Enjin Wallet Daemon is a utility that manages an Ethereum address linked to an Enjin Trusted Cloud identity. When a transaction is submitted on the Trusted Cloud, the wallet daemon receives that transaction, signs it, and sends it back to the Trusted Cloud.
 
 ## New Wallet Creation
 
@@ -55,9 +55,9 @@ If you decide to go this route, click on "View Wallet Info" and follow the onscr
 * Keystore / JSON File
 * Select your file, enter your password
 
-## Link To Trusted Platform
+## Link To Trusted Cloud
 
-1) Create an account on the trusted platform.
+1) Create an account on the Trusted Cloud.
 2) Create an identify for the application you want to control with the wallet daemon.
 3) Copy the linking code from the identity `<CODE>`.
 4) Run `node src/main.js link <CODE>`
