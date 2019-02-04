@@ -58,10 +58,10 @@ These are just a few benefits at the core of Enjin's vision. If you want a more 
 # Sign me up!
 
 Now that you understand Enjin, Ethereum, and what we're trying to do with ENJ, it's time to build a real game that improves ownership for users. We'll be walking through the following steps to do so:
-- a more detailed look at Enjin's architecture
-- registering your game on Enjin's platform
-- installing the Enjin Wallet
-- creating items on Enjin's platform
-- creating a game
+1. [Taking a more detailed look at the Enjin Coin platform architecture](platform-architecture.md),
+2. Understanding how to register your game on Enjin's platform,
+3. Setting up the Enjin Wallet,
+4. Creating items on Enjin's platform,
+5. Using those items in your game.
 
 We hope you find these guides useful learning tools as you explore this new technology, and appreciate your support in helping us explore the future of in-game assets.
