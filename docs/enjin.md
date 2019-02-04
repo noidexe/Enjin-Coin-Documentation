@@ -51,7 +51,7 @@ Think again of the real world, and pretend you made a sword. Pretend the sword y
 - If you have something of value and it has supply, you can expect demand for that item. The demand might be small or large. That depends on the item, how it works in your game, and what players are willing to pay for the item.
 - Players who buy your sword _really_ own it. You and your game could go offline tomorrow and they would still have it associated with their Ethereum address. A censorship-proof, unchanging smart contract will ensure that the item lives on.
 - People can trade items with each other, without needing you to know about it. You can even charge a small fee of ENJ every time one of your items moves from person to person.
-- People can recycle items by melting them back in ENJ, allowing them to re-invest that ENJ into new games that they want to play.
+- People can recycle items by melting them back into ENJ, allowing them to re-invest that ENJ into new games that they want to play.
 
 These are just a few benefits at the core of Enjin's vision. If you want a more extensive overview of our digital items, check out this [video](https://www.youtube.com/watch?v=7KLpNU6wXEM).
 
