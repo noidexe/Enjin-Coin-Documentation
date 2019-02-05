@@ -327,7 +327,14 @@ mutation mintNonFungibleItems {
       token_id: "TOKEN_ID",
       token_index: "0",
       recipient_address_array: [
-        "WALLET_ADDRESS_1","WALLET_ADDRESS_1","WALLET_ADDRESS_1","WALLET_ADDRESS_1","WALLET_ADDRESS_1","WALLET_ADDRESS_2","WALLET_ADDRESS_2","WALLET_ADDRESS_2"
+        "WALLET_ADDRESS_1",
+        "WALLET_ADDRESS_1",
+        "WALLET_ADDRESS_1",
+        "WALLET_ADDRESS_1",
+        "WALLET_ADDRESS_1",
+        "WALLET_ADDRESS_2",
+        "WALLET_ADDRESS_2",
+        "WALLET_ADDRESS_2"
       ]
     }
   ) {
