@@ -1,7 +1,3 @@
-# Disclaimer!
-
-This documentation is a frequently-updated work in progress. To guarantee you see the most up-to-date documentation, please do not download or store this guide locally. Instead, refer to Enjin's developer portal website. You are responsible for any losses. Working with the most up-to-date materials can prevent accidents. Your feedback and questions are much appreciated in improving these tutorials.
-
 # What is Enjin?
 
 Enjin was founded in 2009 as a company offering easy website creation and hosting for gamers. Enjin's community platform is popular with guilds, clans, and servers for a number of games. Now, Enjin is using Ethereum to empower the true ownership of in-game assets.

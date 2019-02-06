@@ -1,5 +1,3 @@
-## __“All documents included here are to be considered Work-in-Progress whose contents update on a frequent basis. Do NOT download or copy ANY of the files here. You are entirely responsible for any and all losses (ETH, ENJ, productivity, etc) that result from failing to heed this warning.”__
-
 # Trusted Cloud Introduction
 
 The Trusted Cloud is the main backend service of ENJ that connects your game to the Ethereum network. The TC acts as a hub, gathering requests from clients and game servers, interacting with the smart contracts on Ethereum, and returning data back to your game. It also manages the link between your users game account (i.e. SteamID,
