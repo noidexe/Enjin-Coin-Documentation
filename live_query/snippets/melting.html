@@ -1,0 +1,65 @@
+        <!-- Creating Melt Requests -->
+        <article>
+          <header>
+            Creating Melt Requests
+          </header>
+          <summary>
+            Here we learn how to create melt requests whereby a User may destroy an Item and receive what amount of Enjin Coin had been staked to it at its creation.
+          </summary>
+          <details>
+            <p>
+              This method, given an access token, will send a request to the Cloud Platform which creates a request to melt an Item. The sender will be given the option to either accept or deny the melt operataion in the Enjin Wallet. This second factor of accepting or denying the transfer request on a separate service is a security feature to protect against potentially malicious developers, server proxies, or compromised machines.
+            </p>
+
+            <section class='example'>
+              <p>
+                Creating a melt request on the Cloud Platform requires specifying an identifier for the sender's Identity, an identifier for the Item being melted, and an amount of that Item to melt. Once this request appears in the sender's wallet and is accepted, the Items specified in the request will be melted to unlock their staked Enjin Coin. The GraphQL query to do so is as follows:
+              </p>
+
+              <p>
+                Some calls to the Cloud Platform require specifying a particular App to operate on. This is one such call. The App is specified by prepending its identifier with an "@" to the front of the access token when sending that in the 'Authorization' header to the Cloud Platform. That is, the entire access token for operating on a specific App will look like "App ID"@"access token"; you can find potential App identifiers as the "app_id" field in the response to the "Getting Access Credentials" call.
+              </p>
+
+              <input id="appId" type='text' name='appId' placeholder='App ID'>
+
+              <pre><code class='query-display highlight language-graphql'>
+mutation meltToken($identityId: Int!, $tokenId: String!, $value: Int!) {
+  request: CreateEnjinRequest(type: MELT, identity_id: $identityId, melt_token_data: { token_id: $tokenId, value: $value }) {
+    id
+    encoded_data
+    state
+  }
+}
+              </code></pre>
+
+              <p>
+                Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded as follows:
+              </p>
+
+              <input class='parameter' type='text' name='identityId' placeholder='Sender Identity ID'>
+              <br>
+              <input class='parameter' type='text' name='tokenId' placeholder='Item ID'>
+              <br>
+              <input class='parameter' type='text' name='value' placeholder='Amount to Melt'>
+
+              <pre><code class='parameter-display highlight language-javascript'>
+{}
+              </code></pre>
+
+              <button class='submit-button'>Submit Query</button>
+
+              <p>
+                Here is the output response from the Cloud Platform:
+              </p>
+
+              <pre><code class='output-display highlight language-javascript'>
+{
+}
+              </code></pre>
+
+              <p>
+                In this example query, we have issued a melt request for the sender to either accept or deny using their Enjin Wallet. The corresponding function in the Unity SDK to this GraphQL call is <a href="doxygen/class_enjin_s_d_k_1_1_enjin.html#acb6c36db0dfc21261a27a1aba7f63d63" target="_blank">Enjin.MeltTokens(int userIdentityID, string itemID, int amount, System.Action&lt;RequestEvent&gt; callback)</a> which will create an identical melt request as well as register a callback for listening to the User accepting. This callback can be used in similar fashion to the "Linking a Wallet" example.
+              </p>
+            </section>
+          </details>
+        </article>

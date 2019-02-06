@@ -1,0 +1,107 @@
+        <!-- Linking a Wallet -->
+        <article>
+          <header>
+            Linking a Wallet
+          </header>
+          <summary>
+            Newly-created Identities include codes that players can enter in the Enjin Wallet to link an Ethereum address for handling Items.
+          </summary>
+          <details>
+                      <!--
+            <p>
+              This method, given an Admin's access token, will send a request to the Cloud Platform which creates a new User and Identity with the specified details. This Identity will need to be linked at some point to a Player's wallet using the Enjin Wallet App before it can be particularly useful. The use case for this sort of User crreation is to let game developers leverage the Cloud Platform as a kind of authorization and credentials backend in supporting User login.
+            </p>
+
+            <section class='example'>
+              <p>
+                Creating a new User on the Cloud Platform requires specifying a name, password, unique email, and role. All fields are specified as text strings, with the Role matching an existing value known to the Cloud Platform. The User is created under the specified App that the caller is an Admin of. The GraphQL query to do so is as follows:
+              </p>
+
+              <p>
+                Some calls to the Cloud Platform require specifying a particular App to operate on. This is one such call. The App is specified by prepending its identifier with an "@" to the front of the access token when sending that in the 'Authorization' header to the Cloud Platform. That is, the entire access token for operating on a specific App will look like "App ID"@"access token"; you can find potential App identifiers as the "app_id" field in the response to the "Getting Access Credentials" call.
+              </p>
+
+              <input id="appId" type='text' name='appId' placeholder='App ID'>
+
+              <pre><code class='query-display highlight language-graphql'>
+mutation createUser($name: String!, $password: String!, $email: String!, $role: String!) {
+  user: CreateEnjinUser(name: $name, password: $password, email: $email, role: $role) {
+    id
+    name
+    email
+    roles {
+      id
+      name
+      permissions {
+        id
+        name
+      }
+    }
+    identities {
+      id
+      ethereum_address
+      linking_code
+      updated_at
+      created_at
+      fields {
+        key
+        value
+        searchable
+        displayable
+        unique
+      }
+    }
+    access_tokens
+    created_at
+    updated_at
+  }
+}
+              </code></pre>
+
+              <p>
+                Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded as follows:
+              </p>
+
+              <input class='parameter' type='text' name='name' placeholder='Name'>
+              <br>
+              <input class='parameter' type='text' name='password' placeholder='Password'>
+              <br>
+              <input class='parameter' type='text' name='email' placeholder='Email'>
+              <br>
+              <input class='parameter' type='text' name='role' placeholder='Role'>
+
+              <pre><code class='parameter-display highlight language-javascript'>
+{}
+              </code></pre>
+
+              <button class='submit-button'>Submit Query</button>
+
+              <p>
+                Here is the output response from the Cloud Platform:
+              </p>
+
+              <pre><code class='output-display highlight language-javascript'>
+{
+}
+              </code></pre>
+
+              <p>
+                In this example query, we have created a new User on the Cloud Platform. In order for this call to succeed, the caller must have permissions to create Users on their App. Typically, this is done by letting the caller have the Admin or Platform Owner Roles. This new User is automatically created with a single Identity for the caller's App. The corresponding function in the Unity SDK to this GraphQL call is <a href="doxygen/class_enjin_s_d_k_1_1_enjin.html#ad3766c8ed4e8fdb68f065177d4046027" target="_blank">CreateUser(string username, string email, string password, string role)</a> which will create a new User with new Identity and return it such that we might link it to a Player's wallet.
+              </p>
+            -->
+              <p>
+                In the Unity SDK, the intended workflow for linking a User's wallet to an Identity such that your game might retrieve their Ethereum address is to register a listening callback and display a linking code. The User will then enter this code in their Enjin Wallet, at which time your callback function will be triggered. The code can be retrieved from the "linking_code" field of the appropriate Identity under the User object returned from methods such as <a href="doxygen/class_enjin_s_d_k_1_1_enjin.html#abd0ebc7f68d479d83a8d365c52d35993" target="_blank">Enjin.VerifyLogin(string username, string password)</a> or <a href="doxygen/class_enjin_s_d_k_1_1_enjin.html#ad3766c8ed4e8fdb68f065177d4046027" target="_blank">CreateUser(string username, string email, string password, string role)</a>. If the Identity has already been linked, then the "linking_code" field will be null and an "ethereum_address" will be present.
+              </p>
+
+              <p>
+                An example of the Unity SDK's <a href='doxygen/class_enjin_s_d_k_1_1_enjin.html#a5935d76a851168b2b5c5a15f0bef753e' target='_blank'>Enjin.ListenForLink(int identityID, System.Action&lt;RequestEvent&gt; listener)</a> where "identityId" is the identifier of a specific Identity under a User which you as developer would like to listen for linking on. That is, this is the Identity containing the code which you should be displaying to the player. The "linkingData" parameter is an object of type <a href='doxygen/class_enjin_s_d_k_1_1_request_event.html' target='_blank'>RequestEvent</a> and includes some potentially-useful metadata about the linking event.
+              </p>
+
+              <pre><code class='output-display highlight language-javascript'>
+Enjin.ListenForLink(identityId, linkingData => {
+  Debug.Log("Linked!");
+});
+              </code></pre>
+            </section>
+          </details>
+        </article>
