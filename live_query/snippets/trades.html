@@ -1,0 +1,135 @@
+        <!-- Creating Trade Requests -->
+        <article>
+          <header>
+            Creating Trade Requests
+          </header>
+          <summary>
+            Here we learn how to create trade requests between Users. Trading empowers us to transfer Items in secure, atomic fashion.
+          </summary>
+          <details>
+            <p>
+              This method, given an access token, will send a request to the Cloud Platform which creates a new trade request to be either accepted or denied in the Enjin Wallet of the access token's owner. This second factor of accepting or denying the transfer request on a separate service is a security feature to protect against potentially malicious developers, server proxies, or compromised machines.
+            </p>
+
+            <section class='example'>
+              <p>
+                Creating a trade request on the Cloud Platform requires specifying an identifier for the sender's Identity, an identifier for the second party's Identity, the identifier for the Item being offered, an amount of the Item being offered, the identifier for the Item being asked for, and the amount of the Item being asked for. Once the request appears in the sender's wallet and is accepted, the second party must issue and accept a request to complete the trade. At this time, the Items are moved from the Ethereum addresses that are linked to their respective Identities and into each other's wallets. To do this successfully, the parties require some Ether to cover gas costs. They might also potentially require some Enjin Coin to cover transaction fees specified by the game developer. The GraphQL query to do so is as follows (note that this is just a sample query transferring a single type of Item; multiple Items can be transferred at once by extending what is inserted into the "asking_tokens" and "offering_tokens" arrays):
+              </p>
+
+              <p>
+                Some calls to the Cloud Platform require specifying a particular App to operate on. This is one such call. The App is specified by prepending its identifier with an "@" to the front of the access token when sending that in the 'Authorization' header to the Cloud Platform. That is, the entire access token for operating on a specific App will look like "App ID"@"access token"; you can find potential App identifiers as the "app_id" field in the response to the "Getting Access Credentials" call.
+              </p>
+
+              <input id="appId" type='text' name='appId' placeholder='App ID'>
+
+              <pre><code class='query-display highlight language-graphql'>
+mutation sendTrade($identityId: Int!, $askingTokenId: String!, $askingValue: Int!, $offeringTokenId: String!, $offeringValue: Int!, $secondPartyIdentityId: Int!) {
+  result: CreateEnjinRequest(identity_id: $identityId, type: CREATE_TRADE, create_trade_data: { asking_tokens: [{ id: $askingTokenId, value: $askingValue }], offering_tokens: [{ id: $offeringTokenId, value: $offeringValue }], second_party_identity_id: $secondPartyIdentityId }) {
+    id
+    encoded_data
+    state
+  }
+}
+              </code></pre>
+
+              <p>
+                Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded as follows:
+              </p>
+
+              <input class='parameter' type='text' name='identityId' placeholder='Sender Identity ID'>
+              <br>
+              <input class='parameter' type='text' name='secondPartyIdentityId' placeholder='Second Party Identity ID'>
+              <br>
+              <input class='parameter' type='text' name='askingTokenId' placeholder='Asking Item ID'>
+              <br>
+              <input class='parameter' type='text' name='askingValue' placeholder='Asking Item Amount'>
+              <br>
+              <input class='parameter' type='text' name='offeringTokenId' placeholder='Offering Item ID'>
+              <br>
+              <input class='parameter' type='text' name='offeringValue' placeholder='Offering Item Amount'>
+
+              <pre><code class='parameter-display highlight language-javascript'>
+{}
+              </code></pre>
+
+              <button class='submit-button'>Submit Query</button>
+
+              <p>
+                Here is the output response from the Cloud Platform:
+              </p>
+
+              <pre><code class='output-display highlight language-javascript'>
+{
+}
+              </code></pre>
+
+              <p>
+                In this example query, we have created a trade request for the sender to either accept or deny using their Enjin Wallet. This has a myriad of uses in gameplay, such as letting a game server safely handle atomic swaps of Items. The corresponding function in the Unity SDK to this GraphQL call is <a href="doxygen/class_enjin_s_d_k_1_1_enjin.html#a10d26b82146e1650ae485325f936632a" target="_blank">Enjin.CreateTradeRequest(int senderIdentityID, CryptoItem[] itemsFromSender, int[] amountsFromSender, int secondPartyIdentityID, CryptoItem[] itemsFromSecondParty, int[] amountsFromSecondParty)</a> which will create an identical request for Item trading as well as registering a callback for listening to the first party accepting. This callback can be used in similar fashion to the "Linking a Wallet" example. The second party needs to accept this trade request using the "trade_id" value specified here as <a href='doxygen/class_enjin_s_d_k_1_1_request_event.html#ae7ac635d5ceb808ab248578d43093d05' target='_blank'>RequestEvent.request_id</a>.
+              </p>
+            </section>
+          </details>
+        </article>
+
+        <!-- Completing Trade Requests -->
+        <article>
+          <header>
+            Completing Trade Requests
+          </header>
+          <summary>
+            Here we learn how to complete trade requests between Users as had been created by the last call. Trading empowers us to transfer Items in secure, atomic fashion.
+          </summary>
+          <details>
+            <p>
+              This method, given an access token, will send a request to the Cloud Platform which completes an outstanding trade request. The sender will be given the option to either accept or deny the trade in the Enjin Wallet. This second factor of accepting or denying the transfer request on a separate service is a security feature to protect against potentially malicious developers, server proxies, or compromised machines.
+            </p>
+
+            <section class='example'>
+              <p>
+                Completing a trade request on the Cloud Platform requires specifying an identifier for the sender's Identity and an identifier for the trade to complete. This trade identity is generated in response to the trade creation request. Once this request appears in the sender's wallet and is accepted, the items specified in the trade creation request will be swapped. The GraphQL query to do so is as follows:
+              </p>
+
+              <p>
+                Some calls to the Cloud Platform require specifying a particular App to operate on. This is one such call. The App is specified by prepending its identifier with an "@" to the front of the access token when sending that in the 'Authorization' header to the Cloud Platform. That is, the entire access token for operating on a specific App will look like "App ID"@"access token"; you can find potential App identifiers as the "app_id" field in the response to the "Getting Access Credentials" call.
+              </p>
+
+              <input id="appId" type='text' name='appId' placeholder='App ID'>
+
+              <pre><code class='query-display highlight language-graphql'>
+mutation sendTrade($identityId: Int!, $tradeId: String!) {
+  result: CreateEnjinRequest(identity_id: $identityId, type: COMPLETE_TRADE, complete_trade_data: { trade_id: $tradeId }) {
+    id
+    encoded_data
+    state
+  }
+}
+              </code></pre>
+
+              <p>
+                Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded as follows:
+              </p>
+
+              <input class='parameter' type='text' name='identityId' placeholder='Sender Identity ID'>
+              <br>
+              <input class='parameter' type='text' name='tradeId' placeholder='Trade ID'>
+
+              <pre><code class='parameter-display highlight language-javascript'>
+{}
+              </code></pre>
+
+              <button class='submit-button'>Submit Query</button>
+
+              <p>
+                Here is the output response from the Cloud Platform:
+              </p>
+
+              <pre><code class='output-display highlight language-javascript'>
+{
+}
+              </code></pre>
+
+              <p>
+                In this example query, we have issued a trade completion request for the sender to either accept or deny a proposed trade using their Enjin Wallet. The corresponding function in the Unity SDK to this GraphQL call is <a href="doxygen/class_enjin_s_d_k_1_1_enjin.html#a423a2b4481219bcad6989a88a6b06615" target="_blank">Enjin.CompleteTradeRequest(int secondPartyID, string tradeID, System.Action&lt;RequestEvent&gt; callback)</a> which will create an identical complete trade request as well as register a callback for listening to the second party accepting. This callback can be used in similar fashion to the "Linking a Wallet" example. The second party needs to accept this trade request using the "trade_id" value specified here as <a href='doxygen/class_enjin_s_d_k_1_1_request_event.html#ae7ac635d5ceb808ab248578d43093d05' target='_blank'>RequestEvent.request_id</a> in the trade creation request.
+              </p>
+            </section>
+          </details>
+        </article>
