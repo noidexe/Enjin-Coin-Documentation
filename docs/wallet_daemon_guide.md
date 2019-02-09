@@ -71,7 +71,7 @@ including the private wallet key.
 
 Upon start, you should see something like this:
 
-```
+```bash
 > enjin-wallet-daemon@1.0.0 start C:\Users\dethm\Documents\Projects\Enjin\enjin-wallet-daemon
 > node ./src/main.js
 
@@ -134,7 +134,7 @@ On your wallet daemon installation:
   9. `npm start`
 
 At this point you should see something like this:
-```
+```bash
 [info] Enjin Wallet Daemon v0.2
 [info] <account {"address":"0x160B6CE9b405a51745334126E0D3BE382AfFFBa4"}> created
 [info] <account {"address":"0x160B6CE9b405a51745334126E0D3BE382AfFFBa4"}> nonce 319

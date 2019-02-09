@@ -26,7 +26,7 @@ On the (top) left panel, you would enter in your request to be made to the TC. P
 
   If you have not already signed up, you can create a user account directly in GraphiQL with the following mutation:
 
-```
+```graphql
 mutation createNewUser{
   CreateEnjinUser (
     name: "USERNAME",
@@ -48,7 +48,7 @@ If you are an Admin user for an app you can also use the above mutation to creat
 ## Login and Authenticating Your Requests
 You will need to **authenticate your requests** made via the TC. To authenticate your request, you will need an access token. Use this request to get your access token:
 
-```
+```graphql
 query login{
   EnjinOauth (
     email: "MY_ACCOUNT_EMAIL",
@@ -76,7 +76,7 @@ the platform in the GraphQL console.
 You will need to create at least one App on the Trusted Cloud. An app is a central
 container for all of your items and players. For example your app will appear as one of the “Collections” where your items will appear in the user’s wallet.
 
-```
+```graphql
 mutation createApp{
   CreateEnjinApp (
     name: "Doge",
@@ -93,7 +93,7 @@ mutation createApp{
 
 One important thing to know is your App ID. If you already created an app, but forget the id, you can look it up with the following query:
 
-```
+```graphql
 query apps {
   EnjinApps{
     id,

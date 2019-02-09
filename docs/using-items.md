@@ -10,7 +10,7 @@ To begin exploring the Unity SDK more thoroughly, we're going to look at an exam
 
 To get this game working with your own tokens that you've created, you'll need to update some configuration options in _Game.cs_. Namely, you'll want to update the configuration variables at the top of the file.
 
-```
+```csharp
 private string platformURL = "https://kovan.cloud.enjin.io/";
 private string developerUsername = YOUR_EMAIL_HERE;
 private string developerPassword = YOUR_PASSWORD_HERE;

@@ -26,7 +26,7 @@ Set permissions to Public.
 
 Modify your JSON data to point to the appropriate images on like so:
 
-```
+```json
 {
   "description": "Hello from Digital Ocean!",
   "image": "https://enjintest.sfo2.cdn.digitaloceanspaces.com/shcmeckle_export.png",
@@ -48,7 +48,7 @@ In Unity, select the item and hit EDIT. Fill in the URI field.
 
 In the Platform API (GraphQL), you can set the URI for the item like so:
 
-```
+```graphql
 mutation createTokenRequest {
   CreateEnjinRequest (
     identity_id: 400,

@@ -28,7 +28,7 @@ On the (top) left panel, you would enter in your request to be made to the TC. P
 
   If you have not already signed up, you can create a user account directly in GraphiQL with the following mutation:
 
-```
+```graphql
 mutation createNewUser{
   CreateEnjinUser (
     name: "USERNAME",
@@ -50,7 +50,7 @@ If you are an Admin user for an app you can also use the above mutation to creat
 ## Login and Authenticating Your Requests
 You will need to **authenticate your requests** made via the TC. To authenticate your request, you will need an access token. Use this request to get your access token:
 
-```
+```graphql
 query login{
   EnjinOauth (
     email: "MY_ACCOUNT_EMAIL",
@@ -78,7 +78,7 @@ the platform in the GraphQL console.
 You will need to create at least one App on the Trusted Cloud. An app is a central
 container for all of your items and players. For example your app will appear as one of the “Collections” where your items will appear in the user’s wallet.
 
-```
+```graphql
 mutation createApp{
   CreateEnjinApp (
     name: "Doge",
@@ -95,7 +95,7 @@ mutation createApp{
 
 One important thing to know is your App ID. If you already created an app, but forget the id, you can look it up with the following query:
 
-```
+```graphql
 query apps {
   EnjinApps{
     id,
@@ -128,7 +128,7 @@ To accept and sign any transactions, you will need to link your Enjin Wallet (De
 
 You can find the link code with the following query:
 
-```
+```graphql
 query viewIdentities{
   EnjinIdentities (
     pagination: {
@@ -149,7 +149,7 @@ query viewIdentities{
 You should be given a 6 character linking code to enter into your dev wallet app in the **LINKED APPS** section. Mainnet code starts with “A”, while Kovan starts with “B”. You will need to choose which wallet to link (if you have multiple wallets imported).
 
 To reset your linked wallet, use the following query and replace the id with your identity_id. You can find this by using the query above.
-```
+```graphql
 mutation unlinkWallet{
   DeleteEnjinIdentity (
     id: identity_id,
@@ -166,7 +166,7 @@ To prepare for item creation, you will need to pre-approve ENJ to the CryptoItem
 By default the automatic approval transaction will approve the maximum amount of ENJ possible.  If you wish to change the pre-approval amount you will need to make sure you have set approval to 0 first before approving your actual value (use -1 for max ENJ possible). You do not need to multiply value by 10^18 for this request. You don’t need to do this if you have previously approved a sufficient amount of ENJ to use (i.e approved
 wallet transaction above.)
 
-```
+```graphql
 mutation ApproveENJ{
   CreateEnjinRequest (
     identity_id: 1,
@@ -202,7 +202,7 @@ Creating an item is like creating a template that you will use to mint your item
 To create an item, you will need to make a request with the desired item properties. Here is
 an example:
 
-```
+```graphql
 mutation createTokenRequest{
   CreateEnjinRequest (
     identity_id: 1,
@@ -254,7 +254,7 @@ You can either find the Token ID on the transaction with that item after it conf
 
 NOTE: If you find your Token ID via the blockchain rather than the TP then it will be in integer form, you will need to convert this number to hex and take just the 'upper' 32 bits of the resulting value (which represents the Base Token ID) before using it in many of the GraphQL mutations. You can use a service such as [Rapid Tables](https://www.rapidtables.com/convert/number/decimal-to-hex.html) to do this.
 
-```
+```graphql
 query viewTokens{
   EnjinTokens (
     name: "ITEM_NAME",
@@ -292,7 +292,7 @@ Minting items is using the template you created in the CREATE step to
 instantiate some items on the blockchain. The request for minting fungible items (FIs) vs non-fungible items (NFIs) varies slightly. You can batch mint to multiple addresses if you wish to do so. The differences are that if you need to mint multiple NFIs, you will need to specify the wallet address for each individual item. Ideally try to avoid minting over 100 NFIs in a single transaction, FIs do not have this restriction. Here is the same request between 2 different items types, FI and NFI.
 
 **FI:**
-```
+```graphql
 mutation mintFungibleItems {
   CreateEnjinRequest (
     identity_id: 1,
@@ -316,7 +316,7 @@ This request would mint 5x items to “WALLET_ADDRESS_1” and 3x items to “WA
 You can mint up to `INITIAL RESERVE` of items.
 
 **NFI:**
-```
+```graphql
 mutation mintNonFungibleItems {
   CreateEnjinRequest (
     identity_id: 1,
@@ -354,7 +354,7 @@ In order to link an item to a metadata file, you will need a .json file hosted s
 The bare minimum recommended metadata is a name, a description, and an image. You
 would define this like so:
 
-```
+```json
 {
   "name": "ITEM_NAME",
   "description": "Description line 1.\nDescription line 2.",
@@ -367,7 +367,7 @@ unfamiliar with hosting files.
 
 Advanced Users: You can use the {id} and {index} semantics within the url to have the TP replace the tag with the token_id and token_index values of the item e.g. `/{id}.{index}.json` will become something like `/2000000000000026.0.json`.
 
-```
+```graphql
 mutation setItemURI{
   CreateEnjinRequest (
     identity_id: 1,
@@ -394,7 +394,7 @@ Once a successful request has been made, you will need to accept and sign the tr
 
 You can list roles as follows:
 
-```
+```graphql
 query all_roles {
   EnjinRoles
 	{
@@ -408,7 +408,7 @@ query all_roles {
 To update a user, make sure you have you app_id set in `X-App-Id`. You need to set **all**
 the roles you want the user to have in one shot. Any roles not passed will be cleared from the user.
 
-```
+```graphql
 mutation setRoles{
   UpdateEnjinUser(id:1, roles:["Admin"]){
     id,
@@ -424,7 +424,7 @@ mutation setRoles{
 ## Updating Users (including yourself)
 You can update your user name, email, and password by running the following request. Replacing with your User ID, new name, new email and new password.
 
-```
+```graphql
 mutation updateUser{
   UpdateEnjinUser (
     id: USER_ID
@@ -444,7 +444,7 @@ mutation updateUser{
 If the wallet daemon is complaining about a transaction with invalid parameters
 that needs to be reverted, you can revert the transaction
 
-```
+```graphql
 mutation CancelTransaction {
   UpdateEnjinRequest(id:XXXX state:CANCELED_USER) {
     id

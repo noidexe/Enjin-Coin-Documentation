@@ -18,7 +18,7 @@ See <https://github.com/nodejs/node-gyp/#on-windows>
 
 Install node.js 11 from the official website <https://nodejs.org/>. Then, in an administrator command prompt (Windows+R `cmd` run with ctrl-shift-enter):
 
-```
+```bash
 npm install --global --production windows-build-tools
 ```
 
@@ -26,7 +26,7 @@ Install git from the official website <https://git-scm.com/download/win>
 
 ### Install Wallet Daemon
 Right-click `enjin-wallet-daemon-master.zip` and select "_Extract All..._" Then, in a command line (replace `<CODE_FOLDER>` with whatever folder you extracted the archive to):
-```
+```bash
 cd <CODE_FOLDER>\enjin-wallet-daemon-master
 npm install
 ```

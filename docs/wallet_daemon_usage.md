@@ -35,7 +35,7 @@ Create a new account for this wallet. The wallet _must_ not already have an addr
 If you want to create a new wallet address, you have to move or rename the storage file first.
 
 Example:
-```
+```bash
 node src/main.js account new
 ```
 
@@ -44,7 +44,7 @@ node src/main.js account new
 This command takes a single argument: the private key to use with the wallet. The format of the private key must be a 160 bit hexadecimal string prefixed with `0x`.
 
 Example:
-```
+```bash
 node src/main.js account import 0x37986485ee024917a6cb7748c60d5d58214c7ca6e9a1d5d3880e2d94983012b7
 ```
 
@@ -53,7 +53,7 @@ node src/main.js account import 0x37986485ee024917a6cb7748c60d5d58214c7ca6e9a1d5
 Connect the wallet daemon with a Trusted Cloud identity. You can link with many different identities, on many different Trusted Clouds.
 
 Example:
-```
+```bash
 node src/main.js link B3DJF4
 ```
 
@@ -62,7 +62,7 @@ node src/main.js link B3DJF4
 Start the wallet daemon. This is the default command if none is supplied. The application will keep running until it's stopped (Ctrl-C) or killed.
 
 Example:
-```
+```bash
 node src/main.js run
 ```
 
@@ -71,7 +71,7 @@ node src/main.js run
 Copy the current storage file to the specified location. The file remains safely encrypted.
 
 Example:
-```
+```bash
 node src/main.js backup c:\users\timmy\dropbox\backup\enjin-wallet-daemon-storage.json
 ```
 
@@ -80,7 +80,7 @@ node src/main.js backup c:\users\timmy\dropbox\backup\enjin-wallet-daemon-storag
 Read an encrypted storage file and output its content to the console. If no storage file is specified, the default storage is read.
 
 Examples:
-```
+```bash
 node src/main.js decrypt d:\backup\ewd-storage.json
 node src/main.js decrypt
 ```

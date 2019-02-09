@@ -68,7 +68,7 @@ To accept and sign any transactions, you will need to link your Enjin Wallet (De
 
 You can find the link code with the following query:
 
-```
+```graphql
 query viewIdentities{
   EnjinIdentities (
     pagination: {
@@ -89,7 +89,7 @@ query viewIdentities{
 You should be given a 6 character linking code to enter into your dev wallet app in the **LINKED APPS** section. Mainnet code starts with “A”, while Kovan starts with “B”. You will need to choose which wallet to link (if you have multiple wallets imported).
 
 To reset your linked wallet, use the following query and replace the id with your identity_id. You can find this by using the query above.
-```
+```graphql
 mutation unlinkWallet{
   DeleteEnjinIdentity (
     id: identity_id,
@@ -106,7 +106,7 @@ To prepare for item creation, you will need to pre-approve ENJ to the CryptoItem
 By default the automatic approval transaction will approve the maximum amount of ENJ possible.  If you wish to change the pre-approval amount you will need to make sure you have set approval to 0 first before approving your actual value (use -1 for max ENJ possible). You do not need to multiply value by 10^18 for this request. You don’t need to do this if you have previously approved a sufficient amount of ENJ to use (i.e approved
 wallet transaction above.)
 
-```
+```graphql
 mutation ApproveENJ{
   CreateEnjinRequest (
     identity_id: 1,

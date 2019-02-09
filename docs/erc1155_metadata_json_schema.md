@@ -8,8 +8,8 @@ Correctly formatted metadata is used by:
 * The Game Client / Server via SDKs
 
 ## JSON Format
-```
 Example:
+```json
 {
 	"name": "Asset Name",
 	"description": "Lorem ipsum...",

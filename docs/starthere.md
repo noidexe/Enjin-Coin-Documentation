@@ -86,19 +86,19 @@ Which brings us to the bottom of the stack, where the rubber meets the road, you
 
   Still here? Great! We'd love to have you! You can get up and running on our platform in three easy steps.
 
-  #### Sign Up
+#### Sign Up
 
   Sign up and subscribe [HERE](https://feature-front-end.tp-enj.in/#/signup).
   This will give you an account so you can access the Platform.
 
-  #### Create a Wallet
+#### Create a Wallet
 
   You'll then need to create at least one wallet.
 
   See our [Wallet Quickstart](./wallet_quickstart.md) guide on how to setup and
   fund your wallet.
 
-  #### Pick your SDK.
+#### Pick your SDK.
 
   Finally, you need to decide how you are going to interact with the ENJ platform. You'll probably use all of these platform interfaces at one time or another, but here
   are your main options:

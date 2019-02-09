@@ -10,7 +10,7 @@ Creating an item is like creating a template that you will use to mint your item
 To create an item, you will need to make a request with the desired item properties. Here is
 an example:
 
-```
+```graphql
 mutation createTokenRequest{
   CreateEnjinRequest (
     identity_id: 1,
@@ -62,7 +62,7 @@ You can either find the Token ID on the transaction with that item after it conf
 
 NOTE: If you find your Token ID via the blockchain rather than the TP then it will be in integer form, you will need to convert this number to hex and take just the 'upper' 32 bits of the resulting value (which represents the Base Token ID) before using it in many of the GraphQL mutations. You can use a service such as [Rapid Tables](https://www.rapidtables.com/convert/number/decimal-to-hex.html) to do this.
 
-```
+```graphql
 query viewTokens{
   EnjinTokens (
     name: "ITEM_NAME",
@@ -100,7 +100,7 @@ Minting items is using the template you created in the CREATE step to
 instantiate some items on the blockchain. The request for minting fungible items (FIs) vs non-fungible items (NFIs) varies slightly. You can batch mint to multiple addresses if you wish to do so. The differences are that if you need to mint multiple NFIs, you will need to specify the wallet address for each individual item. Ideally try to avoid minting over 100 NFIs in a single transaction, FIs do not have this restriction. Here is the same request between 2 different items types, FI and NFI.
 
 **FI:**
-```
+```graphql
 mutation mintFungibleItems {
   CreateEnjinRequest (
     identity_id: 1,
@@ -124,7 +124,7 @@ This request would mint 5x items to “WALLET_ADDRESS_1” and 3x items to “WA
 You can mint up to `INITIAL RESERVE` of items.
 
 **NFI:**
-```
+```graphql
 mutation mintNonFungibleItems {
   CreateEnjinRequest (
     identity_id: 1,
@@ -155,7 +155,7 @@ In order to link an item to a metadata file, you will need a .json file hosted s
 The bare minimum recommended metadata is a name, a description, and an image. You
 would define this like so:
 
-```
+```json
 {
   "name": "ITEM_NAME",
   "description": "Description line 1.\nDescription line 2.",
@@ -168,7 +168,7 @@ unfamiliar with hosting files.
 
 Advanced Users: You can use the {id} and {index} semantics within the url to have the TP replace the tag with the token_id and token_index values of the item e.g. `/{id}.{index}.json` will become something like `/2000000000000026.0.json`.
 
-```
+```graphql
 mutation setItemURI{
   CreateEnjinRequest (
     identity_id: 1,
@@ -478,7 +478,7 @@ JSON schema over [here](./erc1155_metadata_json_schema.md).
 
 Here is the general format:
 
-```
+```json
 {
 	"name": "Asset Name",
 	"description": "Lorem ipsum...",
@@ -508,7 +508,7 @@ Here is the general format:
 Let's look at the doubloons we created in the previous example. Here is the basic
 JSON metadata that I cooked up for it, using the format above.
 
-```
+```json
 {
   "description": "Better than Republic Credits!",
   "image": "https://imgur.com/wSqwbcU.png",

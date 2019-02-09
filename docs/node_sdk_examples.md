@@ -9,7 +9,7 @@ The repository for the Node SDK is here: https://github.com/Enjin/enjin-node-sdk
 To check our own item inventory. We get our identity and use that to ask the platform
 to list our items.  Note that only one Ethereum address can be linked to a game account at a time. This query returns all the items from all games.
 
-```
+```javascript
 // Check the items owned by a specific user.
 async function retrieveInventory () {
   var user = await new User(CREDENTIALS_PATH);
@@ -32,7 +32,7 @@ async function retrieveInventory () {
 
 This example uses the admin user to check the inventory for a specific addresses
 that it knows about.
- ```
+```javascript
  // Use an admin user to query specific addresses.
  async function queryAddress () {
    var admin = await new Admin(CREDENTIALS_PATH);

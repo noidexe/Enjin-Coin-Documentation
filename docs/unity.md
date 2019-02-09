@@ -286,7 +286,7 @@ JSON schema over [here](./erc1155_metadata_json_schema.md).
 
 Here is the general format:
 
-```
+```json
 {
 	"name": "Asset Name",
 	"description": "Lorem ipsum...",
@@ -316,7 +316,7 @@ Here is the general format:
 Let's look at the doubloons we created in the previous example. Here is the basic
 JSON metadata that I cooked up for it, using the format above.
 
-```
+```json
 {
   "description": "Better than Republic Credits!",
   "image": "https://imgur.com/wSqwbcU.png",
