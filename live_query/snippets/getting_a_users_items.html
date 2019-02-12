@@ -19,40 +19,32 @@
               <pre><code class='query-display highlight language-graphql'>
 query getAllItems($identityId: Int!) {
   result: EnjinIdentities(id: $identityId) {
-    tokens(pagination: {page: 1}, include_creator_tokens: true) {
-      items {
-        app_id
-        index
-        itemURI
-        token_id
-        name
-        creator
-        totalSupply
-        reserve
-        circulatingSupply
-        supplyModel
-        meltValue
-        meltFeeRatio
-        meltFeeMaxRatio
-        transferable
-        transferFeeSettings {
-          type
-          token_id
-          value
-        }
-        nonFungible
-        icon
-        balance
-        isCreator
-        markedForDelete
-      }
-      cursor {
-        total
-        hasPages
-        perPage
-        currentPage
-      }
-    }
+    tokens(include_creator_tokens: true) {
+		app_id
+		index
+		itemURI
+		token_id
+		name
+		creator
+		totalSupply
+		reserve
+		circulatingSupply
+		supplyModel
+		meltValue
+		meltFeeRatio
+		meltFeeMaxRatio
+		transferable
+		transferFeeSettings {
+		  type
+		  token_id
+		  value
+		}
+		nonFungible
+		icon
+		balance
+		isCreator
+		markedForDelete
+	}
   }
 }
               </code></pre>
