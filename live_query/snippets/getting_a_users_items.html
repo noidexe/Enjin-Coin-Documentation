@@ -22,7 +22,6 @@ query getAllItems($identityId: Int!) {
     tokens(include_creator_tokens: true) {
 		app_id
 		index
-		itemURI
 		token_id
 		name
 		creator
@@ -41,9 +40,7 @@ query getAllItems($identityId: Int!) {
 		}
 		nonFungible
 		icon
-		balance
 		isCreator
-		markedForDelete
 	}
   }
 }
