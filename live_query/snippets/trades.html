@@ -6,7 +6,7 @@
 	<summary>
 		Here we learn how to create trade requests between Users. Trading empowers us to transfer Items in secure, atomic fashion.
 	</summary>
-	<details>
+	<div>
 		<p>
 			This method, given an access token, will send a request to the Cloud Platform which creates a new trade request to be either accepted or
 			denied in the Enjin Wallet of the access token's owner. This second factor of accepting or denying the transfer request on a separate
@@ -94,7 +94,7 @@ mutation sendTrade($identityId: Int!, $askingTokenId: String!, $askingValue: Int
 					target='_blank'>RequestEvent.request_id</a>.
 			</p>
 		</section>
-	</details>
+	</div>
 </article>
 
 <!-- Completing Trade Requests -->
@@ -106,7 +106,7 @@ mutation sendTrade($identityId: Int!, $askingTokenId: String!, $askingValue: Int
 		Here we learn how to complete trade requests between Users as had been created by the last call. Trading empowers us to transfer Items in
 		secure, atomic fashion.
 	</summary>
-	<details>
+	<div>
 		<p>
 			This method, given an access token, will send a request to the Cloud Platform which completes an outstanding trade request. The sender
 			will be given the option to either accept or deny the trade in the Enjin Wallet. This second factor of accepting or denying the transfer
@@ -182,5 +182,5 @@ mutation sendTrade($identityId: Int!, $tradeId: String!) {
 					target='_blank'>RequestEvent.request_id</a> in the trade creation request.
 			</p>
 		</section>
-	</details>
+	</div>
 </article>

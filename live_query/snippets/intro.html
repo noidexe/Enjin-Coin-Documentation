@@ -1,40 +1,46 @@
-<header>
-	Welcome to the documentation for the Enjin SDK. Here you will find useful instructions for interacting with the tools we provide to make the true
-	ownership of in-game items possible. This page is a customized landing menu to explore general, useful GraphQL queries with links to their
-	equivalent functions in Unity. If you'd like to explore the full automatically-generated Unity documentation, feel free to peruse the included <a
-		href="doxygen/index.html" target="_blank">Doxygen resources</a>.
-</header>
-
-<section>
-	<header>
-		About the Cloud Platform
-	</header>
+<span>
+<article class="live-query">
+	<header>Live Query</header>
 
 	<p>
-		The Cloud Platform is Enjin's intermediary server to make interacting with our deployed ERC-1155 smart contract implementation easier.
+		Welcome to the documentation for the Enjin SDK. Here you will find useful instructions for interacting with the tools we provide to make the true
+		ownership of in-game items possible. This page is a customized landing menu to explore general, useful GraphQL queries with links to their
+		equivalent functions in Unity. If you'd like to explore the full automatically-generated Unity documentation, feel free to peruse the included <a
+			href="doxygen/index.html" target="_blank">Doxygen resources</a>.
 	</p>
 
-	<p>
-		Cloud Platforms are deployed to specific URLs and listen for POSTed GraphQL queries. In this documentation, the Cloud Platform at the
-		following URL will be queried:
-		<br>
-		<input id='platform-url' type='text' value='https://kovan.cloud.enjin.io/graphql/'>
-	</p>
-</section>
+	<section>
+		<header>
+			About the Cloud Platform
+		</header>
 
-<section>
-	<header>
-		Operations Involving Users
-	</header>
+		<p>
+			The Cloud Platform is Enjin's intermediary server to make interacting with our deployed ERC-1155 smart contract implementation easier.
+		</p>
 
-	<p>
-		Users are an abstraction on the Cloud Platform for someone with login details. This encompasses someone who might be a Player, an Admin, or a
-		Platform Owner. Players are Users who do not have any special permissions within a single app. They are normal, unelevated, and the majority
-		of Users. Admins are Users with elevated permissions within a single app, typically the developer. This is a good Role to assign to something
-		like a server which proxies requests on behalf of Players. Platform Owners have elevated privileges across an entire Cloud Platform. A use
-		case for such a Role is an over-arching developer Role which wants to access multiple items from multiple individual apps on that single
-		instance of a Cloud Platform. More generally, Roles are custom collections of permissions that can be created and attached to specific Users
-		in order to restrict some parts of the SDK functionality. The Player, Admin, and Platform Owner permissions described here represent what is
-		available as default Roles.
-	</p>
-</section>
+		<p>
+			Cloud Platforms are deployed to specific URLs and listen for POSTed GraphQL queries. In this documentation, the Cloud Platform at the
+			following URL will be queried:
+			<br>
+			<input id='platform-url' type='text' value='https://kovan.cloud.enjin.io/graphql/'>
+		</p>
+	</section>
+
+	<section>
+		<header>
+			Operations Involving Users
+		</header>
+
+		<p>
+			Users are an abstraction on the Cloud Platform for someone with login details. This encompasses someone who might be a Player, an Admin, or a
+			Platform Owner. Players are Users who do not have any special permissions within a single app. They are normal, unelevated, and the majority
+			of Users. Admins are Users with elevated permissions within a single app, typically the developer. This is a good Role to assign to something
+			like a server which proxies requests on behalf of Players. Platform Owners have elevated privileges across an entire Cloud Platform. A use
+			case for such a Role is an over-arching developer Role which wants to access multiple items from multiple individual apps on that single
+			instance of a Cloud Platform. More generally, Roles are custom collections of permissions that can be created and attached to specific Users
+			in order to restrict some parts of the SDK functionality. The Player, Admin, and Platform Owner permissions described here represent what is
+			available as default Roles.
+		</p>
+	</section>
+</article>
+</span>
