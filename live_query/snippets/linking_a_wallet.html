@@ -1,12 +1,12 @@
-        <!-- Linking a Wallet -->
-        <article>
-          <header>
-            Linking a Wallet
-          </header>
-          <summary>
-            Newly-created Identities include codes that players can enter in the Enjin Wallet to link an Ethereum address for handling Items.
-          </summary>
-          <details>
+<!-- Linking a Wallet -->
+<article class="live-query">
+  <header>
+	Linking a Wallet
+  </header>
+  <summary>
+	Newly-created Identities include codes that players can enter in the Enjin Wallet to link an Ethereum address for handling Items.
+  </summary>
+  <details>
                       <!--
             <p>
               This method, given an Admin's access token, will send a request to the Cloud Platform which creates a new User and Identity with the specified details. This Identity will need to be linked at some point to a Player's wallet using the Enjin Wallet App before it can be particularly useful. The use case for this sort of User crreation is to let game developers leverage the Cloud Platform as a kind of authorization and credentials backend in supporting User login.
@@ -101,7 +101,7 @@ mutation createUser($name: String!, $password: String!, $email: String!, $role: 
 Enjin.ListenForLink(identityId, linkingData => {
   Debug.Log("Linked!");
 });
-              </code></pre>
-            </section>
-          </details>
-        </article>
+	  </code></pre>
+	</section>
+  </details>
+</article>
