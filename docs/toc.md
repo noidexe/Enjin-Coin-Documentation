@@ -26,10 +26,11 @@
 [First Steps](/docs/node_sdk_examples)
 
 # Live Query
-[Intro & Access Credentials](/livequery/intro)
-[Getting a User's Items](/livequery/getting_a_users_items)
-[Creating a New User](/livequery/creating_a_new_user)
-[Linking a Wallet](/livequery/linking_a_wallet)
-[Sending an Item to a User](/livequery/sending_an_item_to_a_user)
-[Trades](/livequery/trades)
-[Melting](/livequery/melting)
+[Introduction](/docs/livequery/intro)
+[Access Credentials](/docs/livequery/access_credentials)
+[Getting a User's Items](/docs/livequery/getting_a_users_items)
+[Creating a New User](/docs/livequery/creating_a_new_user)
+[Linking a Wallet](/docs/livequery/linking_a_wallet)
+[Sending an Item to a User](/docs/livequery/sending_an_item_to_a_user)
+[Trades](/docs/livequery/trades)
+[Melting](/docs/livequery/melting)
