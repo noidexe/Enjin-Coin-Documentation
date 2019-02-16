@@ -4,7 +4,7 @@ Now that you've [created your items](creating-items.md), it's time to walk throu
 
 # The Simple Game
 
-To begin exploring the Unity SDK more thoroughly, we're going to look at an example of a very simple game. Included in the Unity SDK is an example under the _Assets > Enjin > Enjin SDK > Simple Game_ directory. Included in that direcory is a scene configured as a simple clicker-style game, and a _Game.cs_ file which demonstrates use of the Unity SDK.
+To begin exploring the Unity SDK more thoroughly, we're going to look at an example of a very simple game. Included in the Unity SDK is an example under the _Assets > Enjin > Enjin SDK > Simple Game_ directory. Included in that directory is a scene configured as a simple clicker-style game, and a _Game.cs_ file which demonstrates use of the Unity SDK.
 
 # Required Information
 
