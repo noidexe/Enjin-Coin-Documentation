@@ -22,7 +22,7 @@ The Trusted Cloud is Enjin's intermediary server that makes interacting with Eth
 
 The Trusted Cloud includes better error handling and input validation than directly interacting with our smart contract would allow. It also pushes notifications about a given transaction's state to your game such that you might be able to handle these error cases appropriately should they occur. Our platform server also manages the link between your user's game account (such as their Steam, Xbox Live, or PlayStation identifiers), and their Ethereum wallet address.
 
-Currently, we are using a cloud based solution so the platform is hosted for you. You don't need to worry about setting up things yourself. All you need is a developer account and a subscription. In the future, we will be offering ways for developers to run their own self-hosted platforms.
+Currently, we are using a cloud based solution so the platform is hosted for you. You don't need to worry about setting up things yourself. All you need is a developer account and a subscription. In the future, we will be offering ways for developers to run their own self-hosted platforms to truly decentralize the ecosystem.
 
 # The Trusted Cloud API
 

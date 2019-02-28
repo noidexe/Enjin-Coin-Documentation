@@ -2,19 +2,20 @@
 
 Congratulations on making it this far! By now you've completed [registering your game on the Trusted Cloud](registering-game.md) and are ready to begin using the Enjin Wallet app.
 
-## Creating your Primary wallet (Required)
+## Creating your Primary Wallet (Required)
 
 ### Install the Enjin Developer Wallet
 
 Grab the latest version of the Enjin wallet from [HERE](https://drive.google.com/open?id=1zKcWWweKaL8ITpabOZHI6IuU80g5LnHA). You'll need version 1.3.37777 or later
-to work with the platform.
+to work with the platform with developer mode enabled. Developer mode features are
+only available on Android currently.
 
 ### Create a wallet
 If this is your first wallet, select Create Wallet option. If this is not your first
 wallet hit the selector on the right, tap Manage Wallets, and tap the + symbol in the
 lower right. Select Create Wallet.
 
-Give the wallet a name, like Master Wallet.
+Give the wallet a name, like "Master Wallet".
 
 Select Ethereum (Kovan) and Enjin Coin (Kovan) for Coins. Tap Create Wallet.
 
@@ -24,17 +25,15 @@ Enter a password for the wallet.
 
 The wallet is created.
 
+### Backup the Wallet
+It is strongly recommended that you take a minute and back up your wallet using the 12 keywords. If you do NOT backup your wallet and your device is lost you will **NOT BE ABLE TO RECOVER** your cryptocurrency and items. You are warned!
+
+![Enjin Backup Wallet](../docs/images/wallet_master_wallet.png)
+
 ### Enable Developer Mode
 To enable developer mode in the wallet, tap the version number located in the lower
 right of the menu 10 times. Developer mode is needed in order to link to the Trusted Cloud and enable other developer related features and functions. Developer mode is only available
 on the Android version of the wallet at this time.
-
-### Backup the Wallet
-It is highly recommended that you back up your wallet using the 12 keywords. If you
-do NOT backup your wallet and your device is lost you will **NOT BE ABLE TO RECOVER** your
-cryptocurrency and items.
-
-![Enjin Backup Wallet](../docs/images/wallet_master_wallet.png)
 
 ### Fund the Wallet
 
@@ -50,7 +49,8 @@ RECEIVE in the top left. Copy this address.
 
 Go to [Enjin Kovan Testnet Faucet](https://kovan.faucet.enjin.io/) and paste your address.
 
-In a couple of minutes, you should have both Kovan ETH and ENJ in your wallet. You are now ready to use the platform to make items!
+In a couple of minutes, you should have both Kovan ETH and ENJ in your wallet. You'll be
+using the ETH and ENJ to pay for transactions and infusing your items with ENJ.
 
 # Linking Your Wallet
 
@@ -110,7 +110,7 @@ mutation unlinkWallet{
 To prepare for item creation, you will need to pre-approve ENJ to the CryptoItems smart contract.  When linking your wallet for the first time an approve transaction will automatically be created for you to sign.  If you check the **NOTIFICATIONS** section of the wallet you should see and APPROVE ENJ transaction ready to sign.  Accept the transaction request to approve the ENJ.
 
 By default the automatic approval transaction will approve the maximum amount of ENJ possible.  If you wish to change the pre-approval amount you will need to make sure you have set approval to 0 first before approving your actual value (use -1 for max ENJ possible). You do not need to multiply value by 10^18 for this request. You don’t need to do this if you have previously approved a sufficient amount of ENJ to use (i.e approved
-wallet transaction above.)
+wallet transaction above)
 
 ```graphql
 mutation ApproveENJ{

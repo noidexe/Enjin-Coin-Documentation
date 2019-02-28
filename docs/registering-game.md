@@ -2,7 +2,7 @@
 
 You understand what [item interactions on our Trusted Cloud](platform-architecture.md) look like, so you're ready to register a game of your own to work on.
 
-First, you must sign up and subscribe [on the Enjin developer portal](https://feature-front-end.tp-enj.in/#/signup). This will give you an account and credentials to access the Trusted Cloud.
+First, you must sign up [on the Enjin developer portal](https://feature-front-end.tp-enj.in/#/signup) if you haven't done so already. This will give you an account and credentials to access the Trusted Cloud services.
 
 There are two separate TC servers, Testnet and Mainnet.
 
@@ -11,39 +11,18 @@ Testnet is a development version of the mainnet, where you can easily obtain fak
 Mainnet is the real deal. You are using real Ethereum and EnjinCoin, so transactions
 here cost real cryptocurrency. You should be very comfortable with your implementation on testnet before doing anything substantial on mainnet.
 
+We will only be publicly supporting Kovan testnet for our initial launch. Soon afterwards,
+we will roll out on Ropsten and finally, Mainnet proper.
+
 You can use the following GraphiQL browser interface to interact with the Trusted Cloud:
 
 * **Kovan Trusted Cloud (GraphiQL):** [https://kovan.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
 
 ## Browsing the Schema
-On the right-side there should be a documentation panel to expand and browse for all the requests and parameters you can use. See [here](https://graphql.org/learn/queries/) for documentation on Queries and Mutations. Queries are requests for information from the
-server, where Mutations are requests that modify server side data.
+On the right-side there should be a documentation panel to expand and browse for all the requests and parameters you can use. See [here](https://graphql.org/learn/queries/) for documentation on Queries and Mutations. In a nutshell, Queries are requests for information from the server, where Mutations are requests that modify server side data.
 
 ## Making a Request
 On the (top) left panel, you would enter in your request to be made to the TC. Press the “Play” button at the top to submit that request, and you will receive a response on the right panel, sometimes a notification will appear in your dev wallet to sign a transaction depending on the request made.
-
-## Creating Your User
-
-  If you have not already signed up, you can create a user account directly in GraphiQL with the following mutation:
-
-```graphql
-mutation createNewUser{
-  CreateEnjinUser (
-    name: "USERNAME",
-    email: "EMAIL",
-    password: "PASSWORD"
-  ) {
-    id
-    name
-    email
-    access_tokens
-  }
-}
-```
-
-_Accounts are not shared between Kovan & Mainnet TP servers. You will need an account on each server if you want to use both platforms._
-
-If you are an Admin user for an app you can also use the above mutation to create new users for your app, the new user's details will be emailed to the user on creation.
 
 ## Login and Authenticating Your Requests
 You will need to **authenticate your requests** made via the TC. To authenticate your request, you will need an access token. Use this request to get your access token:
@@ -62,9 +41,9 @@ query login{
 }
 ```
 
-In your browser, [Chrome Instructions] open DevTools (F12), navigate to the **“Application”** tab, expand **“Cookies”** on the left panel and select the website. Create a new cookie called `enjin_session` and enter in your `access_token` from the login query as the value (cut and paste the key in quotes).
+In your browser, [Chrome Instructions] open DevTools (F12), navigate to the **“Application”** tab, expand **“Cookies”** on the left panel and select the website. Create a new cookie called `enjin_session` and enter in your `access_token` from the login query as the value (cut and paste the key inside the quotes).
 
- If you have an app already you can send its app id in as a separate cookie/header called `X-App-Id`.  Some GraphQL queries and mutations require the app id cookie/header to be set so make sure you always include it.
+ If you have an app already you can send its app id in as a separate cookie/header called `X-App-Id`. If not, don't worry, we'll be creating an app in the section below. Some GraphQL queries and mutations require the app id cookie/header to be set so make sure you always include it if you can.
 
 ![Trusted Cloud Cookie](./images/trustedplatform_cookie.png)
 
@@ -73,8 +52,7 @@ the platform in the GraphQL console.
 
 
 ## Creating Your App
-You will need to create at least one App on the Trusted Cloud. An app is a central
-container for all of your items and players. For example your app will appear as one of the “Collections” where your items will appear in the user’s wallet.
+You will need to create at least one App in order to work with the Trusted Cloud. An app is a central container for all of your items and players. For example your app will appear as one of the “Collections” where your items will appear in the user’s Enjin wallet.
 
 ```graphql
 mutation createApp{
@@ -91,7 +69,7 @@ mutation createApp{
 }
 ```
 
-One important thing to know is your App ID. If you already created an app, but forget the id, you can look it up with the following query:
+One important thing to note is your App ID. If you already created an app, but forget the id, you can look it up with the following query:
 
 ```graphql
 query apps {
@@ -102,8 +80,28 @@ query apps {
 }
 ```
 
-You will need a name, description and a link to a hosted image for your app. You should get the App ID in the response if it was successful. You can now use this App ID in your `X-App-Id` cookie. See **Authenticating your Requests** for info about setting this cookie.
+You will need a name, description and an (optional) link to a hosted image for your app. You should get the App ID in the response if it was successful. You can now use this App ID in your `X-App-Id` cookie. See **Authenticating your Requests** for info about setting this cookie up.
 
+## Creating More Users (Optional)
+
+  If you are an Admin for your app (you are admin by default if you created the app), you can create new user accounts directly in GraphiQL with the following mutation, if desired:
+
+```graphql
+mutation createNewUser{
+  CreateEnjinUser (
+    name: "USERNAME",
+    email: "EMAIL",
+    password: "PASSWORD"
+  ) {
+    id
+    name
+    email
+    access_tokens
+  }
+}
+```
+
+_NOTE: Accounts are not shared between Testnet & Mainnet TC servers. You will need an account on each server if you want to use both platforms._
 
 # Next Steps
 

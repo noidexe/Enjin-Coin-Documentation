@@ -1,6 +1,6 @@
 # Creating Your First Items
 
-With a [properly setup wallet](wallet-setup.md) under your belt, it's time for you to create some items to fill that wallet with. You can opt to create these items directly using GraphQL, or by using the Enjin SDK editor window within the Unity editor.
+With a [properly setup wallet](wallet-setup.md) under your belt, it's time for you to create some items to fill that wallet with. You can opt to create these items directly using GraphQL, or by using the [Enjin SDK editor](# Using Unity) window within the Unity.
 
 # Using GraphQL
 
