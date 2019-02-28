@@ -6,7 +6,8 @@ Congratulations on making it this far! By now you've completed [registering your
 
 ### Install the Enjin Developer Wallet
 
-Grab the latest version of the developer wallet from [HERE](https://drive.google.com/open?id=17l8pSm2_1m8VF7dH1p9TIdjZDjSja4Tt).
+Grab the latest version of the Enjin wallet from [HERE](https://drive.google.com/open?id=1zKcWWweKaL8ITpabOZHI6IuU80g5LnHA). You'll need version 1.3.37777 or later
+to work with the platform.
 
 ### Create a wallet
 If this is your first wallet, select Create Wallet option. If this is not your first
@@ -22,6 +23,10 @@ Select Ethereum (Kovan) and Enjin Coin (Kovan) for Coins. Tap Create Wallet.
 Enter a password for the wallet.
 
 The wallet is created.
+
+### Enable Developer Mode
+To enable developer mode in the wallet, tap the version number located in the lower
+right of the menu 10 times. Developer mode is needed in order to link to the Trusted Cloud and enable other developer related features and functions.
 
 ### Backup the Wallet
 It is highly recommended that you back up your wallet using the 12 keywords. If you
