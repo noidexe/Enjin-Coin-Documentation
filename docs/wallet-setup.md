@@ -26,7 +26,8 @@ The wallet is created.
 
 ### Enable Developer Mode
 To enable developer mode in the wallet, tap the version number located in the lower
-right of the menu 10 times. Developer mode is needed in order to link to the Trusted Cloud and enable other developer related features and functions.
+right of the menu 10 times. Developer mode is needed in order to link to the Trusted Cloud and enable other developer related features and functions. Developer mode is only available
+on the Android version of the wallet at this time.
 
 ### Backup the Wallet
 It is highly recommended that you back up your wallet using the 12 keywords. If you
