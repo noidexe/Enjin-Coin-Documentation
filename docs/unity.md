@@ -2,7 +2,7 @@
 
 ## Before You Start
 
-Before you start working with Unity, you'll need a Cloud Platform account.
+Before you start working with Unity, you'll need a Trusted Cloud Platform account.
 See [here](./starthere.md) about getting one.
 
 Also, you won't be able to do much without at least one wallet funded with ENJ or ETH
@@ -34,10 +34,10 @@ Access the Unity panel via **Window->Enjin SDK**.
 Login using your Enjin account that you used during Sign Up.
 
 Once logged in you will need to create an app if you haven't already via the
-dev portal. See [Home Screen](#home-screen) for how to do that.
+dev portal. See [Home Screen](#home-screen) below, for how to do that.
 
 Finally, you will need to link your wallet. See the [Wallet](#wallet-screen) section for
-how to link your developer wallet.
+how to link your wallet to your developer account.
 
 ## Home Screen Logged Out
 ![Login Screen](../docs/images/unity_login_page_2.png)
@@ -75,12 +75,9 @@ To edit an existing user, click **Edit** while the given user is selected.
 
 You can search for users using the **Search** box.
 
-
 ![Roles Screen](../docs/images/unity_team_roles.png)
 
 Roles are way for you to control access and permissions for various operations in your app. You can **Create**, **Edit** and **Delete** roles depending on the needs of you game. In general, you'll have two roles: one for the Admin (you!), with permission to do anything, and one for regular players, who generally have a much smaller set of permissions.
-
-**TODO:** How to create a new team member. EDT-1960.
 
 ## Identities Screen
 ![Identitites Screen](../docs/images/unity_identities_main.png)
@@ -95,20 +92,21 @@ The linking code is used by **developers** to link their mobile or wallet daemon
 
 The linking code is used by **players** to link their game account and wallet to your game via the platform.
 
+Linking is required for developers to manage items for their app, or for players to do in-game operations like trading, if supported.
+
 ![Identities Edit](../docs/images/unity_identities_edit.png)
 
 ## Cryptoitems Screen
 ![Cryptoitems Main Screen](../docs/images/unity_cryptoitems_main.png)
 
-The Cryptoitems screen is the heart of the Enjin Unity SDK. This is the main screen where you create and manage your items. Before we get into the details of the process, you should know a couple of
-things.
+The Cryptoitems screen is the heart of the Enjin Unity SDK. This is the main screen where you create and manage your items. Before we get into the details of the process, you should know a couple of things.
 
 #### Creation of an item is two step process:
 
 1. First you need to **CREATE** the item. This is like crafting a cookie cutter for your cookies you
 will be making.
 
-2. Then, you need to **MINT** the item. Minting the item uses the cookie cutter to punch out some cookies.
+2. Then, you need to **MINT** the item. Minting the item uses the cookie cutter to cut out some cookies.
 
 #### There are two types of items: Fungible Items and Non Fungible Items.
 * **Fungible Items** are all identical and can be considered essentially interchangeable. Gold coins,
@@ -127,7 +125,7 @@ be highlighted as they come up in this guide.
 #### Creating items
 ![Cryptoitems Create Item](../docs/images/unity_cryptoitems_create2.png)
 
-When you click **CREATE** on the main panel you will be brought to the the Create Cryptoitem panel.
+When you click **CREATE** on the main panel you will be brought to the Create Cryptoitem panel.
 
 In the top left, you'll be able to see what wallet you are using, and the ENJ balance you have in
 that wallet. If you need to change wallets, you can unlink the current wallet and link the wallet
@@ -169,24 +167,28 @@ Determines if items are able to be traded, or are bound to their owners (i.e. no
 **Transfer Fee Settings**
 
 * **NONE**: No Transfer fees are charged when this item changes hands.
-* **PER_CRYPTO_ITEM**: Transfer fee per item changing hands in ENJ.
-* **PER_TRANSFER**: Transfer fee per *transfer* when changing hands in ENJ.
+
+* **PER_CRYPTO_ITEM**: Transfer fee *per item* changing hands, in ENJ. For example, if an `Apple`
+has a `0.1 ENJ` fee per item and `0xPAT` sends 10 apples to `0xERIC`, `0xPAT` would be charged 1 ENJ for the transaction that would go to the `0xCREATOR` of the apple.
+
+* **PER_TRANSFER**: Transfer fee per *transfer* when changing hands, in ENJ. For example, if a `Banana` has a `0.1 ENJ` fee per transfer and `0xPAT` sends 10 bananas to `0xERIC`, `0xPAT` would
+be charged 0.1 ENJ for the transaction that would go to the `0xCREATOR` of the banana.
 * **RATIO_CUT**: Fungible Items only. A % cut of the total items is subtracted from the total for the dev, with the sender paying the total price. For example, if transferring 500 gold with a 10% ratio cut (0.1) the recipient would get 450 gold and the dev 50 gold, with the sender paying 500 total for the transaction.
 Another example:
+
 `day_of_subscription` has RATIO_CUT of 100 (results in 1% cut to creator)
 `0xPAT` sends 10000 `day_of_subscription` to `0xERIC`
 Result: `0xERIC` gets 9,900 items and `0xCREATOR` gets 100.
-* **RATIO_EXTRA**: Fungible items only. A tax that is charged ON TOP of of everything. For example if transferring 500 gold with a 10% ratio extra the recipient would get 500 gold, the dev 50 gold, and the sender pays 550 gold total for the transaction.
+
+* **RATIO_EXTRA**: Fungible items only. A tax that is charged ON TOP of everything. For example if transferring 500 gold with a 10% ratio extra the recipient would get 500 gold, the dev 50 gold, and the sender pays 550 gold total for the transaction.
 Another example:
 `gold` has RATIO_EXTRA fees of 1,500 (15%)
 0xPAT sends 4000 `gold` to `0xERIC`
 Result: `0xPAT` loses 4,600 `gold`, `0xERIC` receives 4000, `0xCREATOR` receives 600.
 
-* **TYPE_COUNT**: Not used in v1.
-
 
 **Transfer Fee (ENJ or %)**
-The transfer fee, in ENJ or % of items, based on your transfer fee settings.
+The transfer fee, in ENJ or % of nonfungible items, based on your transfer fee settings.
 
 **Melt Fee Ratio**
 This is the current percentage of ENJ that the player will received upon melting the item. The remaining ENJ goes to the creator.
@@ -224,7 +226,7 @@ created item:
 
 ![Cryptoitems Create Item](../docs/images/unity_cryptoitems_example1_3.png)
 
-You'll notice there there is 0 balance of this item. That is because we only created the
+You'll notice there is 0 balance of this item. That is because we only created the
 template of the item, we haven't actually minted anything yet. Let's mint by selecting
 the item and selecting MINT.
 
@@ -372,7 +374,6 @@ do operations like creating and minting items.
 
 We don't have much here at the moment.
 
-## Setting up a secondary wallet using Unity
-If you are opting to have an secondary wallet like the wallet daemon, you'll need
-to add a user to your app for this wallet.
-Complete when https://enjineer.jira.com/browse/EDT-2442 is done.
+# Using the Items
+
+The items have been created, your parameters have been specified, and all of the foundations are ready for you to begin spreading your truly-ownable assets to players. It's time to [begin using your new items](using-items.md).
