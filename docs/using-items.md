@@ -30,6 +30,8 @@ These configuration variables are all exposed through and used in _Game.cs_.
 |:-:|
 |This is where you can find your developer Identity ID.|
 
+* `APP_ID`: this variable specifies which of the developer's apps the Simple Game should use. A developer could potentially have multiple apps, so it is important to select the right one when performing any item creation in the Enjin SDK editor window. Your app identity number can be found after linking it to your developer wallet by looking in the "Linked Apps" section of the Enjin Wallet mobile app.
+
 * `REWARD_TOKEN_ID`: this variable specifies which of the developer's Items should be minted as a reward to players who have clicked enough times. The developer must be able to mint more instances of this Item using the selected `DEVELOPER_IDENTITY_ID`. This value can be retrieved by viewing your reward Item under the _CryptoItems_ tab of the Enjin SDK editor window for your app.
 
 |![This is where you can find your reward token's ID.](images/sg_token_id.png)|
