@@ -1,66 +1,21 @@
 # Wallet Daemon Guide
 
-## What is the wallet daemon?
-The ENJ wallet daemon is a node.js based server side wallet that automates
-transaction signing in your game without having to use the mobile wallet. You
-should run this daemon on a secure server that is not the same as your primary
-game servers.
+## Decide which app you are working with, create a new user, and link to that app.
 
-## Prerequisites
-You'll need to install node.js and python 2.7 to use the wallet deamon.
+In order to work with the Trusted Cloud, a wallet needs to be linked to an app on
+the platform and the wallet daemon needs it's own user/identity on the app.
 
-### Windows
-See: <https://github.com/nodejs/node-gyp/#on-windows>
-* [node.js](https://nodejs.org/en/download/)
-* [Python 2](https://www.python.org/download/releases/2.7/)
-* [Visual Studio Build Tools](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools)
-* [git](https://git-scm.com/download/win)
+Once you have an app created (or are using an existing app) you'll need a user
+for the daemon to use and link to your game.
 
-### macOS
-Homebrew is our recommended way to install the node.js environment on macOS. See: <https://brew.sh/>
-* macOS command line developer tools
-* node.js
-
-### Linux
-Here are the necessary commands required to run under Linux
-* build tools (gcc, make, etc.) *build-essential* on Debian and Ubuntu
-* git
-* python 2
-* node.js
-
-## Setup
-1. Clone the repository:
-
-`git clone https://github.com/enjin/enjin-wallet-daemon.git`
-
-2. Inside the `enjin-wallet-daemon` folder:
-
-`npm install`
-
-3. You should now be ready to test with the wallet daemon.
-
-TODO: Update with final setup instructions. If you don't have access to
-the repo, download a zip of the daemon [HERE](https://drive.google.com/open?id=1guzFC0bzC38jRuTXxEivzlMKno1A5_S8).
-
-## Creating a new Wallet
-
-`npm start account new`
-
-## Decide which app you are working with, and link to that app.
-
-All developer wallets need to be linked to an app in the ENJ platform.
-
-Once you have an app created, you'll need to get a link code to link the wallet
-to this app.
-
-The instructions vary by platform so consult the [Unity Guide](./unity.md) or the [Platform API](./cloud_platform.md)
-guide on how to create an app and get a link code for the wallet.
+The instructions vary by platform so consult the [Unity Guide](./unity.md) or the [Platform API](./cloud_platform.md) guide on how to create a an apps and users and get a link code for the wallet.
 
 Once you have the link code, execute the following:
 
 `npm start link <CODE>`
 
-You can link to multiple identities.
+Like a normal user, the daemon can link to multiple identities, but remember that you
+can only have 1 identity per game.
 
 ## Start the wallet daemon
 
@@ -85,18 +40,15 @@ Password:
 [info] <identity {"id":266,"appId":45}> Fetching smart contract ABIs
 ```
 
-The daemon is now active and will automatically watch the wallet and sign transactions as they come in. While there is a rules system to prevent simple abuse of the wallet you need to ensure that trade requests coming to your game are coming via a trusted source (typically a game server you control). Never trust the game client directly.
+The daemon is now active and will automatically watch the wallet and sign transactions as they come in. While there is a rules system to prevent simple abuse of the wallet you need to ensure that trade requests coming to your game are coming via a trusted source (typically a game server you control or via a secure in-app purchase mechanism). Never trust the game client directly.
 
-## Monitoring the wallet
+## Watching the wallet daemon
 You can use the ENJ mobile wallet to watch your wallet daemon wallet. You'll need the mobile
 wallet installed on a compatible mobile device to do this. Once in the wallet, watch you wallet daemon Ethereum address like so:
 1. WALLETS -> Manage WALLETS
 2. Hit + and WATCH wallet
 3. Enter a name for the wallet you want to watch.
 4. Enter the ETH address of the wallet.
-
-## Rules system
-TODO: Document this.
 
 ## Known Limitations
 Currently, the wallet daemon only runs with a single address.
@@ -124,11 +76,11 @@ On a PC:
 
 On your wallet daemon installation:
   1. Backup your previous wallet, if any. `npm start backup <BACKUP_NAME>`
-  2. Delete `storage.json` in `%\AppData\Local\enjin-wallet-daemon`
+  2. Delete or rename `storage.json` in `%\AppData\Local\enjin-wallet-daemon`
   3. `npm start account import 0x<private key>`
   4. Did you prepend `0x` to your private key? You need that.
-  5. Go to Unity and login.
-  6. Go to the wallet tab. Hit unlink.
+  5. Login via GraphQL or Unity.
+  6. Unlink the wallet.
   7. Note the new link code.
   8. `npm start link <LINK CODE>`
   9. `npm start`
@@ -146,7 +98,6 @@ At this point you should see something like this:
 [info] <identity {"id":400,"appId":65}> No transactions
 ```
 
-To prevent potential nonce issues with the wallet, you should delete your wallet in the mobile app (make sure you have the 12 backup words just in case!). Nonce issues happen when multiple
-parties with the private key try to sign transactions
+To prevent potential nonce issues with the wallet, you should delete your wallet in the mobile app (make sure you have the 12 backup words just in case!). Nonce issues happen when multiple parties with the same private key try to sign transactions.
 
-If you want to keep an eye on balances in the wallet app for your daemon, you can re-add the public wallet as a "Watched" wallet using the **public** key.
+If you want to keep an eye on balances in the wallet app for your daemon, you can re-add the public wallet as a "Watched" wallet using the **public** key (ethereum address).

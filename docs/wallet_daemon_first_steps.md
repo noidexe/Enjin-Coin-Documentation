@@ -57,10 +57,10 @@ If you decide to go this route, click on "View Wallet Info" and follow the onscr
 
 ## Link To Trusted Cloud
 
-1) Create an account on the Trusted Cloud.
-2) Create an identify for the application you want to control with the wallet daemon.
-3) Copy the linking code from the identity `<CODE>`.
-4) Run `node src/main.js link <CODE>`
+1. Create an account on the Trusted Cloud.
+2. Create an identify for the application you want to control with the wallet daemon.
+3. Copy the linking code from the identity `<CODE>`.
+4. Run `node src/main.js link <CODE>`
 
 ## Run The Wallet Daemon
 Run `node src/main.js`

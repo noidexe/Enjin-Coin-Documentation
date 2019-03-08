@@ -13,10 +13,9 @@
 [Unity Panel User Guide](/docs/unity)
 
 # Wallet Daemon
-[First Steps](/docs/wallet_daemon_first_steps)
 [Installation](/docs/wallet_daemon_install)
-[Guide](/docs/wallet_daemon_guide)
 [Usage](/docs/wallet_daemon_usage)
+[First Steps](/docs/wallet_daemon_first_steps)
 
 # Metadata
 [ERC-1155 Metadata JSON Schema](/docs/erc1155_metadata_json_schema)
