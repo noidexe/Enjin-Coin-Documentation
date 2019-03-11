@@ -33,3 +33,6 @@
 [Sending an Item to a User](/docs/livequery/sending_an_item_to_a_user)
 [Trades](/docs/livequery/trades)
 [Melting](/docs/livequery/melting)
+
+# Trade Fee Guide
+[Trade Fee Guide](/docs/trade_fees)

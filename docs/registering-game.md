@@ -36,7 +36,14 @@ query login{
     id,
     name,
     email,
-    access_tokens
+    access_tokens,
+    identities {
+      id,
+      app {
+        id,
+        name
+      }
+    }
   }
 }
 ```
