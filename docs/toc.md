@@ -34,5 +34,5 @@
 [Trades](/docs/livequery/trades)
 [Melting](/docs/livequery/melting)
 
-# Trade Fee Guide
+# Guides
 [Trade Fee Guide](/docs/trade_fees)
