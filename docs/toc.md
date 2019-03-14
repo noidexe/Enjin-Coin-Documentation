@@ -36,3 +36,4 @@
 
 # Guides
 [Trade Fee Guide](/docs/trade_fees)
+[GraphQL Cookbook](/docs/graphql_cookbook)

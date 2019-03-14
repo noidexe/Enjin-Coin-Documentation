@@ -6,9 +6,10 @@ Congratulations on making it this far! By now you've completed [registering your
 
 ### Install the Enjin Developer Wallet
 
-Grab the latest version of the Enjin wallet from [HERE](https://drive.google.com/open?id=1zKcWWweKaL8ITpabOZHI6IuU80g5LnHA). You'll need version 1.3.37777 or later
-to work with the platform with developer mode enabled. Developer mode features are
-only available on Android currently.
+Grab the latest version of the Enjin wallet from the Google Play store or [HERE](https://drive.google.com/open?id=1zKcWWweKaL8ITpabOZHI6IuU80g5LnHA). You'll need version
+1.3.7.20316 or later to work with the platform with developer mode enabled.
+
+Developer mode features are only available on Android currently.
 
 ### Create a wallet
 If this is your first wallet, select Create Wallet option. If this is not your first
