@@ -8,6 +8,7 @@
 
 # Enjin Cloud API
 [Guide](/docs/cloud_platform)
+[API Reference](/api-docs)
 
 # Unity SDK
 [Unity Panel User Guide](/docs/unity)
@@ -37,3 +38,8 @@
 # Guides
 [Trade Fee Guide](/docs/trade_fees)
 [GraphQL Cookbook](/docs/graphql_cookbook)
+
+# Terms
+[Terms & Conditions](/terms)
+[Privacy Policy](/privacy)
+[Cookies Policy](/cookies)
