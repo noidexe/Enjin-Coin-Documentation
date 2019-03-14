@@ -215,7 +215,7 @@ or the GraphQL API.
 
 ## Setup
 
-Setup into Unity is easy. Grab the [Enjin Blockchain Asset](https://assetstore.unity.com/packages/slug/124132) off the Unity Asset Store
+Setup into Unity is easy. Grab the [Enjin Blockchain Asset](https://assetstore.unity.com/packages/tools/utilities/blockchain-sdk-by-enjin-124133) off the Unity Asset Store
 with you open game project in Unity.
 
 If you got the package from somewhere else import into using via Assets->Import Package->Custom Package.
