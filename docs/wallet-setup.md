@@ -11,6 +11,11 @@ Grab the latest version of the Enjin wallet from the Google Play store or [HERE]
 
 Developer mode features are only available on Android currently.
 
+### Enable Developer Mode
+To enable developer mode in the wallet, tap the version number located in the lower
+right of the menu 10 times. Developer mode is needed in order to link to the Trusted Cloud and enable other developer related features and functions. Developer mode is only available
+on the Android version of the wallet at this time.
+
 ### Create a wallet
 If this is your first wallet, select Create Wallet option. If this is not your first
 wallet hit the selector on the right, tap Manage Wallets, and tap the + symbol in the
@@ -30,11 +35,6 @@ The wallet is created.
 It is strongly recommended that you take a minute and back up your wallet using the 12 keywords. If you do NOT backup your wallet and your device is lost you will **NOT BE ABLE TO RECOVER** your cryptocurrency and items. You are warned!
 
 ![Enjin Backup Wallet](../docs/images/wallet_master_wallet.png)
-
-### Enable Developer Mode
-To enable developer mode in the wallet, tap the version number located in the lower
-right of the menu 10 times. Developer mode is needed in order to link to the Trusted Cloud and enable other developer related features and functions. Developer mode is only available
-on the Android version of the wallet at this time.
 
 ### Fund the Wallet
 
