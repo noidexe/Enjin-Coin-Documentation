@@ -23,6 +23,8 @@ or the GraphQL API.
 
 ## Setup
 
+In order to use our blockchain SDK, you'll need Unity 2018.3.8 or higher.
+
 Setup into Unity is easy. Grab the [Enjin Blockchain Asset](https://assetstore.unity.com/packages/tools/utilities/blockchain-sdk-by-enjin-124133) off the Unity Asset Store
 with you open game project in Unity. If you got the package from somewhere else
 import into using via Assets->Import Package->Custom Package.
