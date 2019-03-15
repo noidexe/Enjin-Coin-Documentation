@@ -9,7 +9,8 @@ Congratulations on making it this far! By now you've completed [registering your
 Grab the latest version of the Enjin wallet from the Google Play store or [HERE](https://drive.google.com/open?id=1zKcWWweKaL8ITpabOZHI6IuU80g5LnHA). You'll need version
 1.3.7.20316 or later to work with the platform with developer mode enabled.
 
-Developer mode features are only available on Android currently.
+Developer mode features are only available on Android currently. You can use an
+emulator if you do not have access to an iOS device. See [here](https://forum.enjin.io/threads/link-not-available-in-ios-wallet.10/) for a quick how-to.
 
 ### Enable Developer Mode
 To enable developer mode in the wallet, tap the version number located in the lower
