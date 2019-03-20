@@ -88,7 +88,7 @@ Which brings us to the bottom of the stack, where the rubber meets the road, you
 
 #### Sign Up
 
-  Sign up and subscribe [HERE](https://feature-front-end.tp-enj.in/#/signup).
+  Sign up and subscribe [HERE](https://kovan.cloud.enjin.io/signup).
   This will give you an account so you can access the Platform.
 
 #### Create a Wallet

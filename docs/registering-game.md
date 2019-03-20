@@ -2,7 +2,7 @@
 
 You understand what [item interactions on our Trusted Cloud](platform-architecture.md) look like, so you're ready to register a game of your own to work on.
 
-First, you must sign up [on the Enjin developer portal](https://feature-front-end.tp-enj.in/#/signup) if you haven't done so already. This will give you an account and credentials to access the Trusted Cloud services.
+First, you must sign up [on the Enjin developer portal](https://kovan.cloud.enjin.io/signup) if you haven't done so already. This will give you an account and credentials to access the Trusted Cloud services.
 
 There are two separate TC servers, Testnet and Mainnet.
 

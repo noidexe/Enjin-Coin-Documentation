@@ -386,7 +386,7 @@ Result: `0xPAT` loses 4,600 `gold`, `0xERIC` receives 4000, `0xCREATOR` receives
 The transfer fee, in ENJ or % of nonfungible items, based on your transfer fee settings.
 
 **Melt Fee Ratio**
-This is the current percentage of ENJ that the player will received upon melting the item. The remaining ENJ goes to the creator.
+This is the current percentage of ENJ that the creator will receive when the item is melted, up to 50%.
 
 **NONFUNGIBLE ITEM**
 Are you creating a fungible, or non-fungible item.
