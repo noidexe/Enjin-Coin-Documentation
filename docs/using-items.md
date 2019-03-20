@@ -82,6 +82,6 @@ This page also shows how the player ought to be notified about which operations 
 
 # Additional Resources
 
-Many of the Unity SDK methods are also available as direct GraphQL calls in our [live documentation](https://github.com/enjin/Enjin-Coin-Documentation/tree/master/live_query). The live documentation is a good resource for more in-depth examples of interacting directly with GraphQL on the Trusted Cloud.
+Many of the Unity SDK methods are also available as direct GraphQL calls in our [live documentation](/docs/livequery/intro). The live documentation is a good resource for more in-depth examples of interacting directly with GraphQL on the Trusted Cloud.
 
 In practice, any game like this will want to use a deployed instance of the Enjin Wallet Daemon to automatically accept or reject game item transactions. Let's walk through a more advanced example on how to set that up.

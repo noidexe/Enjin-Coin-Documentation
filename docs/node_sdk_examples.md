@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-The repository for the Node SDK is here: https://github.com/Enjin/enjin-node-sdk
+The repository for the Node SDK is here: https://github.com/enjin/Enjin-Node-SDK
 
 ## Example 1 - Check Inventory
 
