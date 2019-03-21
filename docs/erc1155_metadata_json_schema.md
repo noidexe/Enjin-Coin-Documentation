@@ -18,8 +18,8 @@ Example:
 		"simple_property": "example value",
 		"rich_property": {
 			"name": "Name",
-			"value": "123"
-			"display_value": "123 Example Value"
+			"value": "123",
+			"display_value": "123 Example Value",
 			"class": "emphasis",
 			"css": {
 				"color": "#ffffff",
@@ -29,7 +29,7 @@ Example:
 		},
 		"array_property": {
 			"name": "Name",
-			"value": [1,2,3,4]
+			"value": [1, 2, 3, 4],
 			"class": "emphasis"
 		}
 	}
