@@ -1,3 +1,3 @@
 # Unity Runtime
 
-See here for runtime docs: https://github.com/enjin/Enjin-Coin-Documentation/tree/master/live_query
+[Click here for the runtime documentation.](/docs/livequery/intro)
