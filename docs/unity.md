@@ -193,7 +193,7 @@ Result: `0xPAT` loses 4,600 `gold`, `0xERIC` receives 4000, `0xCREATOR` receives
 The transfer fee, in ENJ or % of nonfungible items, based on your transfer fee settings.
 
 **Melt Fee Ratio**
-This is the current percentage of ENJ that the player will received upon melting the item. The remaining ENJ goes to the creator.
+This is the current percentage of ENJ that the player will receive upon melting the item. The remaining ENJ goes to the creator.
 
 **NONFUNGIBLE ITEM**
 Are you creating a fungible, or non-fungible item.
@@ -218,7 +218,7 @@ We decide that it's cool to let people trade doubloons so we set TRANSFERABLE to
 Furthermore, we decide we are not going to charge any transfer fees. So we set that to NONE.
 
 We set melt fee ratio to none. If players melt this item 100% of the ENJ used to back the
-item will go back to the creator (YOU!).
+item will go back to the player.
 
 We click CREATE. The transaction is posted to the blockchain and needs to be signed by a wallet. In this example we will be using the mobile wallet. You'll see something like this:
 ![Cryptoitems Create Item](../docs/images/unity_cryptoitems_example1_2.png)
