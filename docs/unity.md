@@ -203,7 +203,7 @@ Are you creating a fungible, or non-fungible item.
 Let's create a fungible item called **doubloons**. We intend to use doubloons as our main, in
 game currency like gold.
 
-Go to the cryptotiems screen, and click **Create**. We fill out the values as follows:
+Go to the cryptoitems screen, and click **Create**. We fill out the values as follows:
 
 ![Cryptoitems Create Item](../docs/images/unity_cryptoitems_example1_1.png)
 
