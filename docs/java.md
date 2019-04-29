@@ -1,5 +1,10 @@
 # Java SDK
 
+## Before You Begin
+
+Please note that the Java SDK is still in-development and is subject to breaking changes between
+minor version updates.
+
 ## Setup
 
 The source code for the Java SDK can be found at https://github.com/enjin/Enjin-Coin-Java-SDK.
@@ -80,3 +85,9 @@ One thing to keep in mind is that the ```Client#auth``` method is synchronous.
 One last step that should be taken is to call ```Client#getNotificationsService``` to initialize the
 notification service. The notification service is lazy loaded and will only be created upon being
 requested the first time.
+
+## Further Reading
+
+To learn more about the Java SDK api you can view the latest javadoc at
+https://enjin.github.io/Enjin-Coin-Java-SDK/. As the api matures we will expand the documentation
+with more example code.
