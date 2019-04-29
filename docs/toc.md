@@ -13,6 +13,9 @@
 # Unity SDK
 [Unity Panel User Guide](/docs/unity)
 
+# Java SDK
+[Java SDK User Guide](/docs/java)
+
 # Wallet Daemon
 [Installation](/docs/wallet_daemon_install)
 [Usage](/docs/wallet_daemon_usage)
