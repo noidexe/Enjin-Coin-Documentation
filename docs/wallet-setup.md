@@ -14,8 +14,8 @@ emulator if you do not have access to an iOS device. See [here](https://forum.en
 
 ### Enable Developer Mode
 To enable developer mode in the wallet, tap the version number located in the lower
-right of the menu 10 times. Developer mode is needed in order to link to the Trusted Cloud and enable other developer related features and functions. Developer mode is only available
-on the Android version of the wallet at this time.
+right of the menu 10 times. Developer mode is needed in order to link to the Trusted Cloud and enable other developer related features and functions. Developer mode is available
+on both Android (1.3.7) and iOS (1.3.0).
 
 ### Create a wallet
 If this is your first wallet, select Create Wallet option. If this is not your first
