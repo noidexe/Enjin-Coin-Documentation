@@ -13,8 +13,8 @@ Developer mode features are only available on Android currently. You can use an
 emulator if you do not have access to an iOS device. See [here](https://forum.enjin.io/threads/link-not-available-in-ios-wallet.10/) for a quick how-to.
 
 ### Enable Developer Mode
-To enable developer mode in the wallet, tap the version number located in the lower
-right of the menu 10 times. Developer mode is needed in order to link to the Trusted Cloud and enable other developer related features and functions. Developer mode is available
+To enable developer mode in the wallet, head to the settings screen and tap the version number located on the bottom
+right 10 times. Developer mode is needed in order to link to the Trusted Cloud and enable other developer related features and functions. Developer mode is available
 on both Android (1.3.7) and iOS (1.3.0).
 
 ### Create a wallet
