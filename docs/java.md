@@ -15,7 +15,7 @@ The source code for the Java SDK can be found at https://github.com/enjin/Enjin-
 <dependency>
   <groupId>com.enjin</groupId>
   <artifactId>enjincoin-java-sdk</artifactId>
-  <version>0.6.0-SNAPSHOT</version>
+  <version>0.7.0-SNAPSHOT</version>
 </dependency>
 
 <repositories>
@@ -30,7 +30,7 @@ The source code for the Java SDK can be found at https://github.com/enjin/Enjin-
 
 ```groovy
 dependencies {
-    implementation 'com.enjin:enjincoin-java-sdk:0.6.0-SNAPSHOT'
+    implementation 'com.enjin:enjincoin-java-sdk:0.7.0-SNAPSHOT'
 }
 
 repositories {
