@@ -6,11 +6,8 @@ Congratulations on making it this far! By now you've completed [registering your
 
 ### Install the Enjin Developer Wallet
 
-Grab the latest version of the Enjin wallet from the Google Play store or with the APK [HERE](https://enjinwallet.io/apk.html). You'll need version
+You can get the latest version of the Enjin Wallet on both Android and iOS from the Play Store and App Store, also for Android devices, you can install the app with the APK [HERE](https://enjinwallet.io/apk.html). You'll need version
 1.3.7.20316 or later to work with the platform with developer mode enabled.
-
-Developer mode features are only available on Android currently. You can use an
-emulator if you do not have access to an iOS device. See [here](https://forum.enjin.io/threads/link-not-available-in-ios-wallet.10/) for a quick how-to.
 
 ### Enable Developer Mode
 To enable developer mode in the wallet, head to the settings screen and tap the version number located on the bottom
