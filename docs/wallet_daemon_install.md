@@ -26,7 +26,7 @@ Install git from the official website <https://git-scm.com/download/win>
 
 ### Install Wallet Daemon
 
-Get the zip for the wallet daemon [HERE](https://drive.google.com/open?id=1rR2675NHSKIGsODn-5h9KgYC78F6WHBo).
+Get the zip for the wallet daemon [HERE](https://cdn.enjin.io/downloads/enjin-wallet-daemon/latest).
 
 Right-click `enjin-wallet-daemon-master.zip` and select "_Extract All..._" Then, in a command line (replace `<CODE_FOLDER>` with whatever folder you extracted the archive to):
 ```bash

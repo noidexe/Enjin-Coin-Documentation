@@ -26,7 +26,7 @@ npm install --global --production windows-build-tools
 
 ### Wallet Daemon 설치하기
 
-Wallet daemon 압축 파일을 [여기서](https://drive.google.com/open?id=1rR2675NHSKIGsODn-5h9KgYC78F6WHBo) 받으세요.
+Wallet daemon 압축 파일을 [여기서](https://cdn.enjin.io/downloads/enjin-wallet-daemon/latest) 받으세요.
 
 `Enjin-wallet-daemon-master.zip` 파일을 오른쪽 클릭한 후 "_Extract All..._"을 선택 하세요. 그리고 command line에 있는 (`<CODE_FOLDER>`에 압축을 푼 파일을 보관한 폴더명으로 대체해주세요):
 
