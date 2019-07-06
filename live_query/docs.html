@@ -216,7 +216,7 @@
                 Logging a User into a Cloud Platform requires their email address and password. The GraphQL query to do so is as follows:
               </p>
 
-              <pre><code class='query-display highlight language-graphql'>
+              <pre><code class='query-display language-graphql'>
 query login($email:String!, $password:String!) {
   results: EnjinOauth(email: $email, password: $password) {
     id
@@ -241,7 +241,7 @@ query login($email:String!, $password:String!) {
               <br>
               <input class='parameter' type='text' name='password' placeholder='Password'>
 
-              <pre><code class='parameter-display highlight language-javascript'>
+              <pre><code class='parameter-display language-javascript'>
 {}
               </code></pre>
 
@@ -251,7 +251,7 @@ query login($email:String!, $password:String!) {
                 Here is the output response from the Cloud Platform:
               </p>
 
-              <pre><code class='output-display highlight language-javascript'>
+              <pre><code class='output-display language-javascript'>
 {
 }
               </code></pre>
@@ -281,7 +281,7 @@ query login($email:String!, $password:String!) {
                 Retrieving a User's inventory from the Cloud Platform requires knowing the ID for an Identity of theirs. The GraphQL query to do so is as follows:
               </p>
 
-              <pre><code class='query-display highlight language-graphql'>
+              <pre><code class='query-display language-graphql'>
 query getAllItems($identityId: Int!) {
   result: EnjinIdentities(id: $identityId) {
     tokens(pagination: {page: 1}, include_creator_tokens: true) {
@@ -328,7 +328,7 @@ query getAllItems($identityId: Int!) {
 
               <input class='parameter' type='text' name='identityId' placeholder='Identity ID'>
 
-              <pre><code class='parameter-display highlight language-javascript'>
+              <pre><code class='parameter-display language-javascript'>
 {}
               </code></pre>
 
@@ -338,7 +338,7 @@ query getAllItems($identityId: Int!) {
                 Here is the output response from the Cloud Platform:
               </p>
 
-              <pre><code class='output-display highlight language-javascript'>
+              <pre><code class='output-display language-javascript'>
 {
 }
               </code></pre>
@@ -374,7 +374,7 @@ query getAllItems($identityId: Int!) {
 
               <input id="appId" type='text' name='appId' placeholder='App ID'>
 
-              <pre><code class='query-display highlight language-graphql'>
+              <pre><code class='query-display language-graphql'>
 mutation createUser($name: String!, $password: String!, $email: String!, $role: String!) {
   user: CreateEnjinUser(name: $name, password: $password, email: $email, role: $role) {
     id
@@ -421,7 +421,7 @@ mutation createUser($name: String!, $password: String!, $email: String!, $role: 
               <br>
               <input class='parameter' type='text' name='role' placeholder='Role'>
 
-              <pre><code class='parameter-display highlight language-javascript'>
+              <pre><code class='parameter-display language-javascript'>
 {}
               </code></pre>
 
@@ -431,7 +431,7 @@ mutation createUser($name: String!, $password: String!, $email: String!, $role: 
                 Here is the output response from the Cloud Platform:
               </p>
 
-              <pre><code class='output-display highlight language-javascript'>
+              <pre><code class='output-display language-javascript'>
 {
 }
               </code></pre>
@@ -468,7 +468,7 @@ mutation createUser($name: String!, $password: String!, $email: String!, $role: 
 
               <input id="appId" type='text' name='appId' placeholder='App ID'>
 
-              <pre><code class='query-display highlight language-graphql'>
+              <pre><code class='query-display language-graphql'>
 mutation createUser($name: String!, $password: String!, $email: String!, $role: String!) {
   user: CreateEnjinUser(name: $name, password: $password, email: $email, role: $role) {
     id
@@ -515,7 +515,7 @@ mutation createUser($name: String!, $password: String!, $email: String!, $role: 
               <br>
               <input class='parameter' type='text' name='role' placeholder='Role'>
 
-              <pre><code class='parameter-display highlight language-javascript'>
+              <pre><code class='parameter-display language-javascript'>
 {}
               </code></pre>
 
@@ -525,7 +525,7 @@ mutation createUser($name: String!, $password: String!, $email: String!, $role: 
                 Here is the output response from the Cloud Platform:
               </p>
 
-              <pre><code class='output-display highlight language-javascript'>
+              <pre><code class='output-display language-javascript'>
 {
 }
               </code></pre>
@@ -542,7 +542,7 @@ mutation createUser($name: String!, $password: String!, $email: String!, $role: 
                 An example of the Unity SDK's <a href='doxygen/class_enjin_s_d_k_1_1_enjin.html#a5935d76a851168b2b5c5a15f0bef753e' target='_blank'>Enjin.ListenForLink(int identityID, System.Action&lt;RequestEvent&gt; listener)</a> where "identityId" is the identifier of a specific Identity under a User which you as developer would like to listen for linking on. That is, this is the Identity containing the code which you should be displaying to the player. The "linkingData" parameter is an object of type <a href='doxygen/class_enjin_s_d_k_1_1_request_event.html' target='_blank'>RequestEvent</a> and includes some potentially-useful metadata about the linking event.
               </p>
 
-              <pre><code class='output-display highlight language-javascript'>
+              <pre><code class='output-display language-javascript'>
 Enjin.ListenForLink(identityId, linkingData => {
   Debug.Log("Linked!");
 });
@@ -575,7 +575,7 @@ Enjin.ListenForLink(identityId, linkingData => {
 
               <input id="appId" type='text' name='appId' placeholder='App ID'>
 
-              <pre><code class='query-display highlight language-graphql'>
+              <pre><code class='query-display language-graphql'>
 mutation sendItem($identityId: Int!, $recipientIdentityId: Int!, $tokenId: String!, $value: Int!) {
   CreateEnjinRequest(type: SEND, identity_id: $identityId, send_token_data: { recipient_identity_id: $recipientIdentityId, token_id: $tokenId, value: $value }) {
     id
@@ -597,7 +597,7 @@ mutation sendItem($identityId: Int!, $recipientIdentityId: Int!, $tokenId: Strin
               <br>
               <input class='parameter' type='text' name='value' placeholder='Amount'>
 
-              <pre><code class='parameter-display highlight language-javascript'>
+              <pre><code class='parameter-display language-javascript'>
 {}
               </code></pre>
 
@@ -607,7 +607,7 @@ mutation sendItem($identityId: Int!, $recipientIdentityId: Int!, $tokenId: Strin
                 Here is the output response from the Cloud Platform:
               </p>
 
-              <pre><code class='output-display highlight language-javascript'>
+              <pre><code class='output-display language-javascript'>
 {
 }
               </code></pre>
@@ -643,7 +643,7 @@ mutation sendItem($identityId: Int!, $recipientIdentityId: Int!, $tokenId: Strin
 
               <input id="appId" type='text' name='appId' placeholder='App ID'>
 
-              <pre><code class='query-display highlight language-graphql'>
+              <pre><code class='query-display language-graphql'>
 mutation sendTrade($identityId: Int!, $askingTokenId: String!, $askingValue: Int!, $offeringTokenId: String!, $offeringValue: Int!, $secondPartyIdentityId: Int!) {
   result: CreateEnjinRequest(identity_id: $identityId, type: CREATE_TRADE, create_trade_data: { asking_tokens: [{ id: $askingTokenId, value: $askingValue }], offering_tokens: [{ id: $offeringTokenId, value: $offeringValue }], second_party_identity_id: $secondPartyIdentityId }) {
     id
@@ -669,7 +669,7 @@ mutation sendTrade($identityId: Int!, $askingTokenId: String!, $askingValue: Int
               <br>
               <input class='parameter' type='text' name='offeringValue' placeholder='Offering Item Amount'>
 
-              <pre><code class='parameter-display highlight language-javascript'>
+              <pre><code class='parameter-display language-javascript'>
 {}
               </code></pre>
 
@@ -679,7 +679,7 @@ mutation sendTrade($identityId: Int!, $askingTokenId: String!, $askingValue: Int
                 Here is the output response from the Cloud Platform:
               </p>
 
-              <pre><code class='output-display highlight language-javascript'>
+              <pre><code class='output-display language-javascript'>
 {
 }
               </code></pre>
@@ -715,7 +715,7 @@ mutation sendTrade($identityId: Int!, $askingTokenId: String!, $askingValue: Int
 
               <input id="appId" type='text' name='appId' placeholder='App ID'>
 
-              <pre><code class='query-display highlight language-graphql'>
+              <pre><code class='query-display language-graphql'>
 mutation sendTrade($identityId: Int!, $tradeId: String!) {
   result: CreateEnjinRequest(identity_id: $identityId, type: COMPLETE_TRADE, complete_trade_data: { trade_id: $tradeId }) {
     id
@@ -733,7 +733,7 @@ mutation sendTrade($identityId: Int!, $tradeId: String!) {
               <br>
               <input class='parameter' type='text' name='tradeId' placeholder='Trade ID'>
 
-              <pre><code class='parameter-display highlight language-javascript'>
+              <pre><code class='parameter-display language-javascript'>
 {}
               </code></pre>
 
@@ -743,7 +743,7 @@ mutation sendTrade($identityId: Int!, $tradeId: String!) {
                 Here is the output response from the Cloud Platform:
               </p>
 
-              <pre><code class='output-display highlight language-javascript'>
+              <pre><code class='output-display language-javascript'>
 {
 }
               </code></pre>
@@ -779,7 +779,7 @@ mutation sendTrade($identityId: Int!, $tradeId: String!) {
 
               <input id="appId" type='text' name='appId' placeholder='App ID'>
 
-              <pre><code class='query-display highlight language-graphql'>
+              <pre><code class='query-display language-graphql'>
 mutation meltToken($identityId: Int!, $tokenId: String!, $value: Int!) {
   request: CreateEnjinRequest(type: MELT, identity_id: $identityId, melt_token_data: { token_id: $tokenId, value: $value }) {
     id
@@ -799,7 +799,7 @@ mutation meltToken($identityId: Int!, $tokenId: String!, $value: Int!) {
               <br>
               <input class='parameter' type='text' name='value' placeholder='Amount to Melt'>
 
-              <pre><code class='parameter-display highlight language-javascript'>
+              <pre><code class='parameter-display language-javascript'>
 {}
               </code></pre>
 
@@ -809,7 +809,7 @@ mutation meltToken($identityId: Int!, $tokenId: String!, $value: Int!) {
                 Here is the output response from the Cloud Platform:
               </p>
 
-              <pre><code class='output-display highlight language-javascript'>
+              <pre><code class='output-display language-javascript'>
 {
 }
               </code></pre>
