@@ -62,17 +62,19 @@
                 ‘Submit Query’ 버튼을 누르면 위에 있는 쿼리가 아래에 추가된 파라미터와 함께 클라우드 플랫폼 엔드 포인트에 POST됩니다:
               </p>
 
-              <input class="parameter" type="text" name="name" placeholder="Name">
-              <br>
-              <input class="parameter" type="text" name="password" placeholder="Password">
-              <br>
-              <input class="parameter" type="text" name="email" placeholder="Email">
-              <br>
-              <input class="parameter" type="text" name="role" placeholder="Role">
+              <form method="post">
+                <input class="parameter" type="text" name="name" placeholder="Name">
+                <br>
+                <input class="parameter" type="text" name="password" placeholder="Password">
+                <br>
+                <input class="parameter" type="text" name="email" placeholder="Email">
+                <br>
+                <input class="parameter" type="text" name="role" placeholder="Role">
 
-              <pre><code class="parameter-display language-json">{}</code></pre>
+                <pre><code class="parameter-display language-json">{}</code></pre>
 
-              <button class="submit-button">Submit Query</button>
+                <button class="submit-button" type="submit">Submit Query</button>
+              </form>
 
               <p>
                 다음은 클라우드 플랫폼에 출력된 응답입니다:

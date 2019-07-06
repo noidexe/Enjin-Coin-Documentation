@@ -60,17 +60,19 @@
                 Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded as follows:
               </p>
 
-              <input class="parameter" type="text" name="name" placeholder="Name">
-              <br>
-              <input class="parameter" type="text" name="password" placeholder="Password">
-              <br>
-              <input class="parameter" type="text" name="email" placeholder="Email">
-              <br>
-              <input class="parameter" type="text" name="role" placeholder="Role">
+              <form method="post">
+                <input class="parameter" type="text" name="name" placeholder="Name">
+                <br>
+                <input class="parameter" type="text" name="password" placeholder="Password">
+                <br>
+                <input class="parameter" type="text" name="email" placeholder="Email">
+                <br>
+                <input class="parameter" type="text" name="role" placeholder="Role">
 
-              <pre><code class="parameter-display language-json">{}</code></pre>
+                <pre><code class="parameter-display language-json">{}</code></pre>
 
-              <button class="submit-button">Submit Query</button>
+                <button class="submit-button" type="submit">Submit Query</button>
+              </form>
 
               <p>
                 Here is the output response from the Cloud Platform:

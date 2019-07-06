@@ -236,13 +236,15 @@ query login($email:String!, $password:String!) {
                 Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded as follows:
               </p>
 
-              <input class="parameter" type="text" name="email" placeholder="Email">
-              <br>
-              <input class="parameter" type="text" name="password" placeholder="Password">
+              <form method="post">
+                <input class="parameter" type="text" name="email" placeholder="Email">
+                <br>
+                <input class="parameter" type="text" name="password" placeholder="Password">
 
-              <pre><code class="parameter-display language-json">{}</code></pre>
+                <pre><code class="parameter-display language-json">{}</code></pre>
 
-              <button class="submit-button">Submit Query</button>
+                <button class="submit-button" type="submit">Submit Query</button>
+              </form>
 
               <p>
                 Here is the output response from the Cloud Platform:
@@ -319,11 +321,13 @@ query getAllItems($identityId: Int!) {
                 Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded as follows:
               </p>
 
-              <input class="parameter" type="text" name="identityId" placeholder="Identity ID">
+              <form method="post">
+                <input class="parameter" type="text" name="identityId" placeholder="Identity ID">
 
-              <pre><code class="parameter-display language-json">{}</code></pre>
+                <pre><code class="parameter-display language-json">{}</code></pre>
 
-              <button class="submit-button">Submit Query</button>
+                <button class="submit-button" type="submit">Submit Query</button>
+              </form>
 
               <p>
                 Here is the output response from the Cloud Platform:
@@ -400,17 +404,19 @@ mutation createUser($name: String!, $password: String!, $email: String!, $role: 
                 Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded as follows:
               </p>
 
-              <input class="parameter" type="text" name="name" placeholder="Name">
-              <br>
-              <input class="parameter" type="text" name="password" placeholder="Password">
-              <br>
-              <input class="parameter" type="text" name="email" placeholder="Email">
-              <br>
-              <input class="parameter" type="text" name="role" placeholder="Role">
+              <form method="post">
+                <input class="parameter" type="text" name="name" placeholder="Name">
+                <br>
+                <input class="parameter" type="text" name="password" placeholder="Password">
+                <br>
+                <input class="parameter" type="text" name="email" placeholder="Email">
+                <br>
+                <input class="parameter" type="text" name="role" placeholder="Role">
 
-              <pre><code class="parameter-display language-json">{}</code></pre>
+                <pre><code class="parameter-display language-json">{}</code></pre>
 
-              <button class="submit-button">Submit Query</button>
+                <button class="submit-button" type="submit">Submit Query</button>
+              </form>
 
               <p>
                 Here is the output response from the Cloud Platform:
@@ -488,17 +494,19 @@ mutation createUser($name: String!, $password: String!, $email: String!, $role: 
                 Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded as follows:
               </p>
 
-              <input class="parameter" type="text" name="name" placeholder="Name">
-              <br>
-              <input class="parameter" type="text" name="password" placeholder="Password">
-              <br>
-              <input class="parameter" type="text" name="email" placeholder="Email">
-              <br>
-              <input class="parameter" type="text" name="role" placeholder="Role">
+              <form method="post">
+                <input class="parameter" type="text" name="name" placeholder="Name">
+                <br>
+                <input class="parameter" type="text" name="password" placeholder="Password">
+                <br>
+                <input class="parameter" type="text" name="email" placeholder="Email">
+                <br>
+                <input class="parameter" type="text" name="role" placeholder="Role">
 
-              <pre><code class="parameter-display language-json">{}</code></pre>
+                <pre><code class="parameter-display language-json">{}</code></pre>
 
-              <button class="submit-button">Submit Query</button>
+                <button class="submit-button" type="submit">Submit Query</button>
+              </form>
 
               <p>
                 Here is the output response from the Cloud Platform:
@@ -562,17 +570,19 @@ mutation sendItem($identityId: Int!, $recipientIdentityId: Int!, $tokenId: Strin
                 Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded as follows:
               </p>
 
-              <input class="parameter" type="text" name="identityId" placeholder="Sender Identity ID">
-              <br>
-              <input class="parameter" type="text" name="recipientIdentityId" placeholder="Recipient Identity ID">
-              <br>
-              <input class="parameter" type="text" name="tokenId" placeholder="Item ID">
-              <br>
-              <input class="parameter" type="text" name="value" placeholder="Amount">
+              <form method="post">
+                <input class="parameter" type="text" name="identityId" placeholder="Sender Identity ID">
+                <br>
+                <input class="parameter" type="text" name="recipientIdentityId" placeholder="Recipient Identity ID">
+                <br>
+                <input class="parameter" type="text" name="tokenId" placeholder="Item ID">
+                <br>
+                <input class="parameter" type="text" name="value" placeholder="Amount">
 
-              <pre><code class="parameter-display language-json">{}</code></pre>
+                <pre><code class="parameter-display language-json">{}</code></pre>
 
-              <button class="submit-button">Submit Query</button>
+                <button class="submit-button" type="submit">Submit Query</button>
+              </form>
 
               <p>
                 Here is the output response from the Cloud Platform:
@@ -624,21 +634,23 @@ mutation sendTrade($identityId: Int!, $askingTokenId: String!, $askingValue: Int
                 Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded as follows:
               </p>
 
-              <input class="parameter" type="text" name="identityId" placeholder="Sender Identity ID">
-              <br>
-              <input class="parameter" type="text" name="secondPartyIdentityId" placeholder="Second Party Identity ID">
-              <br>
-              <input class="parameter" type="text" name="askingTokenId" placeholder="Asking Item ID">
-              <br>
-              <input class="parameter" type="text" name="askingValue" placeholder="Asking Item Amount">
-              <br>
-              <input class="parameter" type="text" name="offeringTokenId" placeholder="Offering Item ID">
-              <br>
-              <input class="parameter" type="text" name="offeringValue" placeholder="Offering Item Amount">
+              <form method="post">
+                <input class="parameter" type="text" name="identityId" placeholder="Sender Identity ID">
+                <br>
+                <input class="parameter" type="text" name="secondPartyIdentityId" placeholder="Second Party Identity ID">
+                <br>
+                <input class="parameter" type="text" name="askingTokenId" placeholder="Asking Item ID">
+                <br>
+                <input class="parameter" type="text" name="askingValue" placeholder="Asking Item Amount">
+                <br>
+                <input class="parameter" type="text" name="offeringTokenId" placeholder="Offering Item ID">
+                <br>
+                <input class="parameter" type="text" name="offeringValue" placeholder="Offering Item Amount">
 
-              <pre><code class="parameter-display language-json">{}</code></pre>
+                <pre><code class="parameter-display language-json">{}</code></pre>
 
-              <button class="submit-button">Submit Query</button>
+                <button class="submit-button" type="submit">Submit Query</button>
+              </form>
 
               <p>
                 Here is the output response from the Cloud Platform:
@@ -690,13 +702,15 @@ mutation sendTrade($identityId: Int!, $tradeId: String!) {
                 Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded as follows:
               </p>
 
-              <input class="parameter" type="text" name="identityId" placeholder="Sender Identity ID">
-              <br>
-              <input class="parameter" type="text" name="tradeId" placeholder="Trade ID">
+              <form method="post">
+                <input class="parameter" type="text" name="identityId" placeholder="Sender Identity ID">
+                <br>
+                <input class="parameter" type="text" name="tradeId" placeholder="Trade ID">
 
-              <pre><code class="parameter-display language-json">{}</code></pre>
+                <pre><code class="parameter-display language-json">{}</code></pre>
 
-              <button class="submit-button">Submit Query</button>
+                <button class="submit-button" type="submit">Submit Query</button>
+              </form>
 
               <p>
                 Here is the output response from the Cloud Platform:
@@ -748,15 +762,17 @@ mutation meltToken($identityId: Int!, $tokenId: String!, $value: Int!) {
                 Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded as follows:
               </p>
 
-              <input class="parameter" type="text" name="identityId" placeholder="Sender Identity ID">
-              <br>
-              <input class="parameter" type="text" name="tokenId" placeholder="Item ID">
-              <br>
-              <input class="parameter" type="text" name="value" placeholder="Amount to Melt">
+              <form method="post">
+                <input class="parameter" type="text" name="identityId" placeholder="Sender Identity ID">
+                <br>
+                <input class="parameter" type="text" name="tokenId" placeholder="Item ID">
+                <br>
+                <input class="parameter" type="text" name="value" placeholder="Amount to Melt">
 
-              <pre><code class="parameter-display language-json">{}</code></pre>
+                <pre><code class="parameter-display language-json">{}</code></pre>
 
-              <button class="submit-button">Submit Query</button>
+                <button class="submit-button" type="submit">Submit Query</button>
+              </form>
 
               <p>
                 Here is the output response from the Cloud Platform:
