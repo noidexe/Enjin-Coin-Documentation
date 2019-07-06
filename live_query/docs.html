@@ -840,7 +840,7 @@ mutation meltToken($identityId: Int!, $tokenId: String!, $value: Int!) {
       $('.example').each((index, element) => {
         var platformUrl = $('#platform-url').val();
         var submitButton = $(element).find('.submit-button');
-        var query = $(element).find('.query-display').html();
+        var query = $(element).find('.query-display').text();
         var outputDisplay = $(element).find('.output-display');
         submitButton.click(() => {
           var parameters = {};

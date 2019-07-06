@@ -33,7 +33,7 @@
 
 			<!--input id="appId" type='text' name='appId' placeholder='App ID'-->
 
-			<pre><code class='query-display highlight language-text'>
+			<pre><code class="query-display language-graphql">
 mutation sendItem($identityId: Int!, $recipientIdentityId: Int!, $tokenId: String!, $value: Int!) {
   CreateEnjinRequest(type: SEND, identity_id: $identityId, send_token_data: { recipient_identity_id: $recipientIdentityId, token_id: $tokenId, value: $value }) {
     id

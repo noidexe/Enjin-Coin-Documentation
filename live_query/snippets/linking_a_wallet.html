@@ -23,7 +23,7 @@
 
               <input id="appId" type='text' name='appId' placeholder='App ID'>
 
-              <pre><code class='query-display highlight language-text'>
+              <pre><code class="query-display language-graphql">
 mutation createUser($name: String!, $password: String!, $email: String!, $role: String!) {
   user: CreateEnjinUser(name: $name, password: $password, email: $email, role: $role) {
     id
