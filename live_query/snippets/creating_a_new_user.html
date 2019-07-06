@@ -14,7 +14,7 @@
 			authorization and credentials backend in supporting User login.
 		</p>
 
-		<section class='example'>
+		<section class="example">
 			<p>
 				Creating a new User on the Cloud Platform requires specifying a name, password, unique email, and role. All fields are specified as
 				text strings, with the Role matching an existing value known to the Cloud Platform. The User is created under the specified App that
@@ -34,10 +34,9 @@
 				To switch app please choose another app from the Applications tab above then navigate back here.
 			</p>
 
-			<!--input id="appId" type='text' name='appId' placeholder='App ID'-->
+			<!--input id="appId" type="text" name="appId" placeholder="App ID"-->
 
-			<pre><code class="query-display language-graphql">
-mutation createUser($name: String!, $password: String!, $email: String!, $role: String!) {
+			<pre><code class="query-display language-graphql">mutation createUser($name: String!, $password: String!, $email: String!, $role: String!) {
   user: CreateEnjinUser(name: $name, password: $password, email: $email, role: $role) {
     id
     name
@@ -68,36 +67,30 @@ mutation createUser($name: String!, $password: String!, $email: String!, $role: 
     created_at
     updated_at
   }
-}
-              </code></pre>
+}</code></pre>
 
 			<p>
 				Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded
 				as follows:
 			</p>
 
-			<input class='parameter' type='text' name='name' placeholder='Name'>
+			<input class="parameter" type="text" name="name" placeholder="Name">
 			<br>
-			<input class='parameter' type='text' name='password' placeholder='Password'>
+			<input class="parameter" type="text" name="password" placeholder="Password">
 			<br>
-			<input class='parameter' type='text' name='email' placeholder='Email'>
+			<input class="parameter" type="text" name="email" placeholder="Email">
 			<br>
-			<input class='parameter' type='text' name='role' placeholder='Role' value="Player">
+			<input class="parameter" type="text" name="role" placeholder="Role" value="Player">
 
-			<pre><code class='parameter-display language-javascript'>
-{}
-              </code></pre>
+			<pre><code class="parameter-display language-json">{}</code></pre>
 
-			<button class='submit-button'>Submit Query</button>
+			<button class="submit-button">Submit Query</button>
 
 			<p>
 				Here is the output response from the Cloud Platform:
 			</p>
 
-			<pre><code class='output-display language-javascript'>
-{
-}
-              </code></pre>
+			<pre><code class="output-display language-json">{}</code></pre>
 
 			<p>
 				In this example query, we have created a new User on the Cloud Platform. In order for this call to succeed, the caller must have

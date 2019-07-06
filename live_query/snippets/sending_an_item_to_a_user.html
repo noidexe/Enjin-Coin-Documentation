@@ -13,7 +13,7 @@
 			separate service is a security feature to protect against potentially malicious developers, server proxies, or compromised machines.
 		</p>
 
-		<section class='example'>
+		<section class="example">
 			<p>
 				Creating an Item transfer request on the Cloud Platform requires specifying an identifier for the sender's Identity, an identifier for
 				the recipient's Identity, the identifier for the Item to transfer, and an amount of that Item to transfer. Once the request appears in
@@ -36,45 +36,38 @@
 				To switch app please choose another app from the Applications tab above then navigate back here.
 			</p>
 
-			<!--input id="appId" type='text' name='appId' placeholder='App ID'-->
+			<!--input id="appId" type="text" name="appId" placeholder="App ID"-->
 
-			<pre><code class="query-display language-graphql">
-mutation sendItem($identityId: Int!, $recipientIdentityId: Int!, $tokenId: String!, $value: Int!) {
+			<pre><code class="query-display language-graphql">mutation sendItem($identityId: Int!, $recipientIdentityId: Int!, $tokenId: String!, $value: Int!) {
   CreateEnjinRequest(type: SEND, identity_id: $identityId, send_token_data: { recipient_identity_id: $recipientIdentityId, token_id: $tokenId, value: $value }) {
     id
     encoded_data
     state
   }
-}
-              </code></pre>
+}</code></pre>
 
 			<p>
 				Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded
 				as follows:
 			</p>
 
-			<input class='parameter' type='text' name='identityId' placeholder='Sender Identity ID'>
+			<input class="parameter" type="text" name="identityId" placeholder="Sender Identity ID">
 			<br>
-			<input class='parameter' type='text' name='recipientIdentityId' placeholder='Recipient Identity ID'>
+			<input class="parameter" type="text" name="recipientIdentityId" placeholder="Recipient Identity ID">
 			<br>
-			<input class='parameter' type='text' name='tokenId' placeholder='Item ID'>
+			<input class="parameter" type="text" name="tokenId" placeholder="Item ID">
 			<br>
-			<input class='parameter' type='text' name='value' placeholder='Amount'>
+			<input class="parameter" type="text" name="value" placeholder="Amount">
 
-			<pre><code class='parameter-display language-javascript'>
-{}
-              </code></pre>
+			<pre><code class="parameter-display language-json">{}</code></pre>
 
-			<button class='submit-button'>Submit Query</button>
+			<button class="submit-button">Submit Query</button>
 
 			<p>
 				Here is the output response from the Cloud Platform:
 			</p>
 
-			<pre><code class='output-display language-javascript'>
-{
-}
-              </code></pre>
+			<pre><code class="output-display language-json">{}</code></pre>
 
 			<p>
 				In this example query, we have created an Item transfer request for the sender to either accept or deny using their Enjin Wallet. This

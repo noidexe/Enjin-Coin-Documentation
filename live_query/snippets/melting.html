@@ -15,7 +15,7 @@
 			machines.
 		</p>
 
-		<section class='example'>
+		<section class="example">
 			<p>
 				Creating a melt request on the Cloud Platform requires specifying an identifier for the sender's Identity, an identifier for the Item
 				being melted, and an amount of that Item to melt. Once this request appears in the sender's wallet and is accepted, the Items
@@ -35,43 +35,36 @@
 				To switch app please choose another app from the Applications tab above then navigate back here.
 			</p>
 
-			<!--input id="appId" type='text' name='appId' placeholder='App ID'-->
+			<!--input id="appId" type="text" name="appId" placeholder="App ID"-->
 
-			<pre><code class="query-display language-graphql">
-mutation meltToken($identityId: Int!, $tokenId: String!, $value: Int!) {
+			<pre><code class="query-display language-graphql">mutation meltToken($identityId: Int!, $tokenId: String!, $value: Int!) {
   request: CreateEnjinRequest(type: MELT, identity_id: $identityId, melt_token_data: { token_id: $tokenId, value: $value }) {
     id
     encoded_data
     state
   }
-}
-              </code></pre>
+}</code></pre>
 
 			<p>
 				Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded
 				as follows:
 			</p>
 
-			<input class='parameter' type='text' name='identityId' placeholder='Sender Identity ID'>
+			<input class="parameter" type="text" name="identityId" placeholder="Sender Identity ID">
 			<br>
-			<input class='parameter' type='text' name='tokenId' placeholder='Item ID'>
+			<input class="parameter" type="text" name="tokenId" placeholder="Item ID">
 			<br>
-			<input class='parameter' type='text' name='value' placeholder='Amount to Melt'>
+			<input class="parameter" type="text" name="value" placeholder="Amount to Melt">
 
-			<pre><code class='parameter-display language-javascript'>
-{}
-              </code></pre>
+			<pre><code class="parameter-display language-json">{}</code></pre>
 
-			<button class='submit-button'>Submit Query</button>
+			<button class="submit-button">Submit Query</button>
 
 			<p>
 				Here is the output response from the Cloud Platform:
 			</p>
 
-			<pre><code class='output-display language-javascript'>
-{
-}
-              </code></pre>
+			<pre><code class="output-display language-json">{}</code></pre>
 
 			<p>
 				In this example query, we have issued a melt request for the sender to either accept or deny using their Enjin Wallet. The

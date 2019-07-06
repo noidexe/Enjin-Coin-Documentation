@@ -13,14 +13,13 @@
 			also have a single Identity with items from multiple apps.
 		</p>
 
-		<section class='example'>
+		<section class="example">
 			<p>
 				Retrieving a User's inventory from the Cloud Platform requires knowing the ID for an Identity of theirs. The GraphQL query to do so is
 				as follows:
 			</p>
 
-			<pre><code class="query-display language-graphql">
-query getAllItems($identityId: Int!) {
+			<pre><code class="query-display language-graphql">query getAllItems($identityId: Int!) {
   result: EnjinIdentities(id: $identityId) {
     tokens(include_creator_tokens: true) {
 		app_id
@@ -46,30 +45,24 @@ query getAllItems($identityId: Int!) {
 		isCreator
 	}
   }
-}
-              </code></pre>
+}</code></pre>
 
 			<p>
 				Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded
 				as follows:
 			</p>
 
-			<input class='parameter' type='text' name='identityId' placeholder='Identity ID'>
+			<input class="parameter" type="text" name="identityId" placeholder="Identity ID">
 
-			<pre><code class='parameter-display language-javascript'>
-{}
-              </code></pre>
+			<pre><code class="parameter-display language-json">{}</code></pre>
 
-			<button class='submit-button'>Submit Query</button>
+			<button class="submit-button">Submit Query</button>
 
 			<p>
 				Here is the output response from the Cloud Platform:
 			</p>
 
-			<pre><code class='output-display language-javascript'>
-{
-}
-              </code></pre>
+			<pre><code class="output-display language-json">{}</code></pre>
 
 			<p>
 				In this example query, we have retrieved the first page of a User's inventory from the Cloud Platform. Please note that the "page"

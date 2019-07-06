@@ -8,14 +8,14 @@
 	</summary>
 	<div>
 		<p>
-			이 방법은 관리자의 액세스 토큰에 지정된 세부 정보로 새 사용자 및 ID를 생성하는 요청을 클라우드 플랫폼으로 보냅니다. 
-			이 ID는 특정 시점에 엔진지갑 앱을 사용하여 플레이어의 지갑에 연결해야 합니다. 이러한 유형의 사용자 생성은 게임 게발자가 클라우드 플랫폼을 일종의 
+			이 방법은 관리자의 액세스 토큰에 지정된 세부 정보로 새 사용자 및 ID를 생성하는 요청을 클라우드 플랫폼으로 보냅니다.
+			이 ID는 특정 시점에 엔진지갑 앱을 사용하여 플레이어의 지갑에 연결해야 합니다. 이러한 유형의 사용자 생성은 게임 게발자가 클라우드 플랫폼을 일종의
 			인증 및 인증 백엔드로 활용하여 사용자 로그인을 지원하게 됩니다.
 		</p>
 
-		<section class='example'>
+		<section class="example">
 			<p>
-				클라우드 플랫폼에서 새 사용자를 만들려면 이름, 비밀번호, 고유 이메일 및 역할을 지정해야 합니다. 모든 필트는 텍스트 문자열로 지정되며 
+				클라우드 플랫폼에서 새 사용자를 만들려면 이름, 비밀번호, 고유 이메일 및 역할을 지정해야 합니다. 모든 필트는 텍스트 문자열로 지정되며
 				역할은 클라우드 플랫폼에 알려진 기존 값과 일치합니다. 사용자는 발신자가 관리인이 지정된 응용프로그램 내에 만들어집니다. 이렇게 하기 위한 GraphQL 쿼리는 다음과 같습니다:
 			</p>
 
@@ -30,10 +30,9 @@
 				앱을 전환하려면 위의 어플리케이션 탭에서 다른 앱을 선택한 다음 여기로 다시 이동하십시오.
 			</p>
 
-			<!--input id="appId" type='text' name='appId' placeholder='App ID'-->
+			<!--input id="appId" type="text" name="appId" placeholder="App ID"-->
 
-			<pre><code class="query-display language-graphql">
-mutation createUser($name: String!, $password: String!, $email: String!, $role: String!) {
+			<pre><code class="query-display language-graphql">mutation createUser($name: String!, $password: String!, $email: String!, $role: String!) {
   user: CreateEnjinUser(name: $name, password: $password, email: $email, role: $role) {
     id
     name
@@ -64,41 +63,35 @@ mutation createUser($name: String!, $password: String!, $email: String!, $role: 
     created_at
     updated_at
   }
-}
-              </code></pre>
+}</code></pre>
 
 			<p>
 				‘Submit Query’ 버튼을 누르면 위에 있는 쿼리가 아래에 추가된 파라미터와 함께 클라우드 플랫폼 엔드 포인트에 POST됩니다:
 			</p>
 
-			<input class='parameter' type='text' name='name' placeholder='Name'>
+			<input class="parameter" type="text" name="name" placeholder="Name">
 			<br>
-			<input class='parameter' type='text' name='password' placeholder='Password'>
+			<input class="parameter" type="text" name="password" placeholder="Password">
 			<br>
-			<input class='parameter' type='text' name='email' placeholder='Email'>
+			<input class="parameter" type="text" name="email" placeholder="Email">
 			<br>
-			<input class='parameter' type='text' name='role' placeholder='Role' value="Player">
+			<input class="parameter" type="text" name="role" placeholder="Role" value="Player">
 
-			<pre><code class='parameter-display language-javascript'>
-{}
-              </code></pre>
+			<pre><code class="parameter-display language-json">{}</code></pre>
 
-			<button class='submit-button'>Submit Query</button>
+			<button class="submit-button">Submit Query</button>
 
 			<p>
 				다음은 클라우드 플랫폼에 출력된 응답입니다:
 			</p>
 
-			<pre><code class='output-display language-javascript'>
-{
-}
-              </code></pre>
+			<pre><code class="output-display language-json">{}</code></pre>
 
 			<p>
-                이 예제 쿼리에서 클라우드 플랫폼에 새로운 사용자를 생성했습니다. 이 콜이 성공하려면 호출자가 자신의 앱에서 사용자를 생성할 수 있는 권한이 있어야 합니다. 
-                일반적으로 이 작업은 호출자에게 관리자 혹은 플랫폼 소유자 역할을 부여하여 수행합니다. 이 새로운 사용자는 호출자의 앱에 대해 하나의 ID로 자동 생성됩니다. 
+                이 예제 쿼리에서 클라우드 플랫폼에 새로운 사용자를 생성했습니다. 이 콜이 성공하려면 호출자가 자신의 앱에서 사용자를 생성할 수 있는 권한이 있어야 합니다.
+                일반적으로 이 작업은 호출자에게 관리자 혹은 플랫폼 소유자 역할을 부여하여 수행합니다. 이 새로운 사용자는 호출자의 앱에 대해 하나의 ID로 자동 생성됩니다.
                 Unity SDK에서 이를 실행하기 위한 GraphQL 호출은 <a href="doxygen/class_enjin_s_d_k_1_1_enjin.html#ad3766c8ed4e8fdb68f065177d4046027" target="_blank">CreateUser(string
-				username, string email, string password, string role)</a> 입니다. 
+				username, string email, string password, string role)</a> 입니다.
                 이 함수는 새로운 ID가 담긴 새로운 사용자를 생성하고 플레이어의 지갑에 연결할 수 있도록 합니다.
 			</p>
 		</section>
