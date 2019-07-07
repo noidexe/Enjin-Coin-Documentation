@@ -169,14 +169,14 @@
 
   <body>
     <main>
-      <header>
+      <h1>
         Welcome to the documentation for the Enjin SDK. Here you will find useful instructions for interacting with the tools we provide to make the true ownership of in-game items possible. This page is a customized landing menu to explore general, useful GraphQL queries with links to their equivalent functions in Unity. If you'd like to explore the full automatically-generated Unity documentation, feel free to peruse the included <a href="doxygen/index.html" target="_blank">Doxygen resources</a>.
-      </header>
+      </h1>
 
       <section>
-        <header>
+        <h1>
           About the Cloud Platform
-        </header>
+        </h1>
 
         <p>
           The Cloud Platform is Enjin's intermediary server to make interacting with our deployed ERC-1155 smart contract implementation easier.
@@ -190,9 +190,9 @@
       </section>
 
       <section>
-        <header>
+        <h1>
           Operations Involving Users
-        </header>
+        </h1>
 
         <p>
           Users are an abstraction on the Cloud Platform for someone with login details. This encompasses someone who might be a Player, an Admin, or a Platform Owner. Players are Users who do not have any special permissions within a single app. They are normal, unelevated, and the majority of Users. Admins are Users with elevated permissions within a single app, typically the developer. This is a good Role to assign to something like a server which proxies requests on behalf of Players. Platform Owners have elevated privileges across an entire Cloud Platform. A use case for such a Role is an over-arching developer Role which wants to access multiple items from multiple individual apps on that single instance of a Cloud Platform. More generally, Roles are custom collections of permissions that can be created and attached to specific Users in order to restrict some parts of the SDK functionality. The Player, Admin, and Platform Owner permissions described here represent what is available as default Roles.
@@ -200,9 +200,9 @@
 
         <!-- Getting Access Credentials -->
         <article>
-          <header>
+          <h1>
             Getting Access Credentials
-          </header>
+          </h1>
           <summary>
             Most functionality that this SDK supports, whether querying Player data or requesting operations on CryptoItems, requires an access token to use.
           </summary>
@@ -261,9 +261,9 @@ query login($email:String!, $password:String!) {
 
         <!-- Getting a User's Items -->
         <article>
-          <header>
+          <h1>
             Getting a User's Items
-          </header>
+          </h1>
           <summary>
             With access token in hand, we can retrieve a User's Items.
           </summary>
@@ -344,9 +344,9 @@ query getAllItems($identityId: Int!) {
 
         <!-- Creating a New User -->
         <article>
-          <header>
+          <h1>
             Creating a New User
-          </header>
+          </h1>
           <summary>
             A game developer can, using their privileged Admin User, create additional Users for their players.
           </summary>
@@ -433,9 +433,9 @@ mutation createUser($name: String!, $password: String!, $email: String!, $role: 
 
         <!-- Linking a Wallet -->
         <article>
-          <header>
+          <h1>
             Linking a Wallet
-          </header>
+          </h1>
           <summary>
             Newly-created Identities include codes that players can enter in the Enjin Wallet to link an Ethereum address for handling Items.
           </summary>
@@ -535,9 +535,9 @@ mutation createUser($name: String!, $password: String!, $email: String!, $role: 
 
         <!-- Sending an Item to a User -->
         <article>
-          <header>
+          <h1>
             Sending an Item to a User
-          </header>
+          </h1>
           <summary>
             Here we learn how to send an Item from the caller's wallet to a User.
           </summary>
@@ -599,9 +599,9 @@ mutation sendItem($identityId: Int!, $recipientIdentityId: Int!, $tokenId: Strin
 
         <!-- Creating Trade Requests -->
         <article>
-          <header>
+          <h1>
             Creating Trade Requests
-          </header>
+          </h1>
           <summary>
             Here we learn how to create trade requests between Users. Trading empowers us to transfer Items in secure, atomic fashion.
           </summary>
@@ -667,9 +667,9 @@ mutation sendTrade($identityId: Int!, $askingTokenId: String!, $askingValue: Int
 
         <!-- Completing Trade Requests -->
         <article>
-          <header>
+          <h1>
             Completing Trade Requests
-          </header>
+          </h1>
           <summary>
             Here we learn how to complete trade requests between Users as had been created by the last call. Trading empowers us to transfer Items in secure, atomic fashion.
           </summary>
@@ -727,9 +727,9 @@ mutation sendTrade($identityId: Int!, $tradeId: String!) {
 
         <!-- Creating Melt Requests -->
         <article>
-          <header>
+          <h1>
             Creating Melt Requests
-          </header>
+          </h1>
           <summary>
             Here we learn how to create melt requests whereby a User may destroy an Item and receive what amount of Enjin Coin had been staked to it at its creation.
           </summary>
