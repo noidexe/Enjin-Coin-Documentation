@@ -7,8 +7,9 @@
 [Using Items In Your Game](/docs/using-items)
 
 # Enjin Cloud API
-[Guide](/docs/cloud_platform)
 [API Reference](/api-docs)
+[GraphiQL](/graphiql)
+[Guide](/docs/cloud_platform)
 
 # Unity SDK
 [Unity Panel User Guide](/docs/unity)
