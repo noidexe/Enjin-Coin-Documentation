@@ -59,15 +59,6 @@ query login{
 }
 ```
 
-브라우저에서, [Chrome Instructions] 에서 DevTools (F12)를 열고, **“Application”** 탭으로 이동한 후, 왼쪽 패널에서 **“Cookies”** 를 확장하고 웹사이트를 선택합니다. `enjin_session`이라는 새로운 쿠키를 만들고 로그인 쿼리에서 `access_token`을 값으로 입력합니다. (키 전체 복붙하기).
-
- 이미 앱이 있는 경우 앱 ID를 `X-App-Id`라는 별도의 쿠키/헤더로 전송할 수 있습니다. 일부 GraphQL 쿼리 및 뮤테이션은 앱 ID 쿠키/헤더를 필수적으로 설정해야 하므로 이를 항상 포함시키도록 합니다.
-
-![Trusted Cloud Cookie](./images/trustedplatform_cookie.png)
-
-**enjin_session** 쿠키 설정이 완료되면, GraphQL 콘솔에서 플랫폼 작업을 시작할 수 있습니다.
-
-
 ## 앱 만들기
 Trusted Cloud에 하나 이상의 앱을 만들어야합니다. 앱은 모든 아이템과 플레이어의 중앙 컨테이너 역할을 합니다. 예를 들어 당신의 앱은 당신의 아이템이 들어있는 유저의 지갑에 ‘Collections’중 하나로 표시됩니다.
 

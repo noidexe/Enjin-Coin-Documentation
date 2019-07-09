@@ -64,16 +64,6 @@ query login{
 }
 ```
 
-In your browser, [Chrome Instructions] open DevTools (F12), navigate to the **“Application”** tab, expand **“Cookies”** on the left panel and select the website. Create a new cookie called `enjin_session` and enter in your `access_token` from the login query as the value (cut and paste the key in quotes).
-
- If you have an app already you can send its app id in as a separate cookie/header called `X-App-Id`.  Some GraphQL queries and mutations require the app id cookie/header to be set so make sure you always include it.
-
-![Trusted Cloud Cookie](./images/trustedplatform_cookie.png)
-
-Once you have set up your **enjin_session** cookie, you can start working with
-the platform in the GraphQL console.
-
-
 ## Creating Your App
 You will need to create at least one App on the Trusted Cloud. An app is a central
 container for all of your items and players. For example your app will appear as one of the “Collections” where your items will appear in the user’s wallet.
