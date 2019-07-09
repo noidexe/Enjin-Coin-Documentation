@@ -1,5 +1,5 @@
 mutation SendItem($identityId: Int!, $recipientIdentityId: Int!, $tokenId: String!, $value: Int!) {
-  CreateEnjinRequest(type: SEND, identity_id: $identityId, send_token_data: { recipient_identity_id: $recipientIdentityId, token_id: $tokenId, value: $value }) {
+  result: CreateEnjinRequest(type: SEND, identity_id: $identityId, send_token_data: { recipient_identity_id: $recipientIdentityId, token_id: $tokenId, value: $value }) {
     id
     encoded_data
     state
