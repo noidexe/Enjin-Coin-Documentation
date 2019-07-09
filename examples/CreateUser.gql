@@ -1,5 +1,5 @@
-mutation CreateUser($name: String!, $password: String!, $email: String!, $role: String!) {
-  user: CreateEnjinUser(name: $name, password: $password, email: $email, role: $role) {
+mutation CreateUser($name: String!, $password: String!, $email: String!, $appId: Int, $role: String = "Player") {
+  user: CreateEnjinUser(name: $name, password: $password, email: $email, app_id: $appId, role: $role) {
     id
     name
     email
