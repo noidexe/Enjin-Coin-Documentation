@@ -94,7 +94,7 @@ query apps {
 }
 ```
 
-You will need a name, description and a link to a hosted image for your app. You should get the App ID in the response if it was successful. You can now use this App ID in your `X-App-Id` cookie. See **Authenticating your Requests** for info about setting this cookie.
+You will need a name, description and a link to a hosted image for your app. You should get the App ID in the response if it was successful.
 
 ## Linking Your Wallet
 
@@ -112,7 +112,7 @@ his wallet `0xabcd`to the game `Space Monkies`, but cannot link multiple wallets
 that particular game.  If `bob` wants to use a different wallet with `Space Monkies`,
 he will need to unlink the current wallet, and re-link with the new wallet.
 
-An identity will automatically be created for new users if you set an app id in the `X-App-Id` cookie/header when creating the user.
+An identity will automatically be created for new users if you set an app id when creating the user.
 
 To accept and sign any transactions, you will need to link your Enjin Wallet (Dev version) app to your identity. To do this, you will need to find your **Linking Code**.
 
@@ -396,7 +396,7 @@ query all_roles {
 }
 ```
 
-To update a user, make sure you have you app_id set in `X-App-Id`. You need to set **all**
+To update a user, make sure you have your app id set. You need to set **all**
 the roles you want the user to have in one shot. Any roles not passed will be cleared from the user.
 
 ```graphql

@@ -67,7 +67,7 @@ his wallet `0xabcd`to the game `Space Monkies`, but cannot link multiple wallets
 that particular game.  If `bob` wants to use a different wallet with `Space Monkies`,
 he will need to unlink the current wallet, and re-link with the new wallet.
 
-An identity will automatically be created for new users if you set an app id in the `X-App-Id` cookie/header when creating the user.
+An identity will automatically be created for new users if you set an app id when creating the user.
 
 To accept and sign any transactions, you will need to link your Enjin Wallet (Dev version) app to your identity. To do this, you will need to find your **Linking Code**.
 
