@@ -1,5 +1,5 @@
 query Items($identityId: Int!) {
-  result: EnjinIdentities(id: $identityId) {
+  results: EnjinIdentities(id: $identityId) {
     tokens(include_creator_tokens: true) {
         app_id
         index
