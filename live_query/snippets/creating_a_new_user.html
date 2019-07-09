@@ -1,4 +1,3 @@
-<!-- Creating a New User -->
 <article class="live-query">
     <h1>
         Creating a New User
@@ -29,65 +28,7 @@
             "Getting Access Credentials" call.
             </p>
 
-            <!--input id="appId" type="text" name="appId" placeholder="App ID"-->
-
-            <pre><code class="query-display language-graphql">mutation createUser($name: String!, $password: String!, $email: String!, $role: String!) {
-  user: CreateEnjinUser(name: $name, password: $password, email: $email, role: $role) {
-    id
-    name
-    email
-    roles {
-      id
-      name
-      permissions {
-        id
-        name
-      }
-    }
-    identities {
-      id
-      ethereum_address
-      linking_code
-      updated_at
-      created_at
-      fields {
-        key
-        value
-        searchable
-        displayable
-        unique
-      }
-    }
-    access_tokens
-    created_at
-    updated_at
-  }
-}</code></pre>
-
-            <p>
-                Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded
-                as follows:
-            </p>
-
-            <form method="post">
-                <input class="parameter" type="text" name="name" placeholder="Name">
-                <br>
-                <input class="parameter" type="text" name="password" placeholder="Password">
-                <br>
-                <input class="parameter" type="text" name="email" placeholder="Email">
-                <br>
-                <input class="parameter" type="text" name="role" placeholder="Role" value="Player">
-
-                <pre><code class="parameter-display language-json">{}</code></pre>
-
-                <button class="v-btn primary" type="submit">Submit Query</button>
-            </form>
-
-            <p>
-                Here is the output response from the Cloud Platform:
-            </p>
-
-            <pre><code class="output-display language-json">{}</code></pre>
+            {{ CreateUserExample }}
 
             <p>
                 In this example query, we have created a new User on the Cloud Platform. In order for this call to succeed, the caller must have
