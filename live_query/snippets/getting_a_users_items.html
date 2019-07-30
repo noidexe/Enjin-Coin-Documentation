@@ -1,83 +1,78 @@
 <!-- Getting a User's Items -->
 <article class="live-query">
-	<header>
-		Getting a User's Items
-	</header>
-	<summary>
-		With access token in hand, we can retrieve a User's Items.
-	</summary>
-	<div>
-		<p>
-			This method, given a User's access token, will send a request to the Cloud Platform which returns a User's inventory for a specified
-			Identity. An Identity is tied to a single wallet address, and a User can have many of them across different Cloud Platform apps. Users can
-			also have a single Identity with items from multiple apps.
-		</p>
+    <h1>
+        Getting a User's Items
+    </h1>
+    <summary>
+        With access token in hand, we can retrieve a User's Items.
+    </summary>
+    <div>
+        <p>
+            This method, given a User's access token, will send a request to the Cloud Platform which returns a User's inventory for a specified
+            Identity. An Identity is tied to a single wallet address, and a User can have many of them across different Cloud Platform apps. Users can
+            also have a single Identity with items from multiple apps.
+        </p>
 
-		<section class='example'>
-			<p>
-				Retrieving a User's inventory from the Cloud Platform requires knowing the ID for an Identity of theirs. The GraphQL query to do so is
-				as follows:
-			</p>
+        <section class="example">
+            <p>
+                Retrieving a User's inventory from the Cloud Platform requires knowing the ID for an Identity of theirs. The GraphQL query to do so is
+                as follows:
+            </p>
 
-			<pre><code class='query-display highlight language-text'>
-query getAllItems($identityId: Int!) {
+            <pre><code class="query-display language-graphql">query getAllItems($identityId: Int!) {
   result: EnjinIdentities(id: $identityId) {
     tokens(include_creator_tokens: true) {
-		app_id
-		index
-		token_id
-		name
-		creator
-		totalSupply
-		reserve
-		circulatingSupply
-		supplyModel
-		meltValue
-		meltFeeRatio
-		meltFeeMaxRatio
-		transferable
-		transferFeeSettings {
-		  type
-		  token_id
-		  value
-		}
-		nonFungible
-		icon
-		isCreator
-	}
+        app_id
+        index
+        token_id
+        name
+        creator
+        totalSupply
+        reserve
+        circulatingSupply
+        supplyModel
+        meltValue
+        meltFeeRatio
+        meltFeeMaxRatio
+        transferable
+        transferFeeSettings {
+          type
+          token_id
+          value
+        }
+        nonFungible
+        icon
+        isCreator
+    }
   }
-}
-              </code></pre>
+}</code></pre>
 
-			<p>
-				Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded
-				as follows:
-			</p>
+            <p>
+                Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded
+                as follows:
+            </p>
 
-			<input class='parameter' type='text' name='identityId' placeholder='Identity ID'>
+            <form method="post">
+                <input class="parameter" type="text" name="identityId" placeholder="Identity ID">
 
-			<pre><code class='parameter-display highlight language-javascript'>
-{}
-              </code></pre>
+                <pre><code class="parameter-display language-json">{}</code></pre>
 
-			<button class='submit-button'>Submit Query</button>
+                <button class="v-btn primary" type="submit">Submit Query</button>
+            </form>
 
-			<p>
-				Here is the output response from the Cloud Platform:
-			</p>
+            <p>
+                Here is the output response from the Cloud Platform:
+            </p>
 
-			<pre><code class='output-display highlight language-javascript'>
-{
-}
-              </code></pre>
+            <pre><code class="output-display language-json">{}</code></pre>
 
-			<p>
-				In this example query, we have retrieved the first page of a User's inventory from the Cloud Platform. Please note that the "page"
-				parameter may be changed to query for additional items as desired by your game's needs. The corresponding function in the Unity SDK to
-				this GraphQL call is <a href="doxygen/class_enjin_s_d_k_1_1_enjin.html#a91d65b738b2b58ede69122afb8e83501" target="_blank">Enjin.GetAllItems(int
-				identityID)</a> which will return a workable list of all Items tied to an Identity and their relevant metadata.
-			</p>
-		</section>
-	</div>
+            <p>
+                In this example query, we have retrieved the first page of a User's inventory from the Cloud Platform. Please note that the "page"
+                parameter may be changed to query for additional items as desired by your game's needs. The corresponding function in the Unity SDK to
+                this GraphQL call is <a href="doxygen/class_enjin_s_d_k_1_1_enjin.html#a91d65b738b2b58ede69122afb8e83501" target="_blank">Enjin.GetAllItems(int
+                identityID)</a> which will return a workable list of all Items tied to an Identity and their relevant metadata.
+            </p>
+        </section>
+    </div>
 </article>
 

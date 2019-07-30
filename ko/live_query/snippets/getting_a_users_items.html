@@ -1,80 +1,75 @@
 <!-- Getting a User's Items -->
 <article class="live-query">
-	<header>
-		사용자 아이템 가져오기
-	</header>
-	<summary>
-		소지하고 있는 액세스 토큰을 사용하여 사용자 아이템을 검색할 수 있습니다.
-	</summary>
-	<div>
-		<p>
-			이 방법은 유저의 액세스 토큰이 있다는 가정하에 특정 ID에 대한 사용자 인벤토리를 반환하는 요청을 클라우드 플랫폼에 보냅니다. 
-			ID는 단일 지갑 주소에 연결되며 사용자는 여러 클라우드 플랫폼 앱에서 여러 아이디를 가질 수 있습니다. 
-			유저는 또한 아이템과 여러 앱에 하나의 ID만 사용할 수 있습니다. 
-		</p>
+    <h1>
+        사용자 아이템 가져오기
+    </h1>
+    <summary>
+        소지하고 있는 액세스 토큰을 사용하여 사용자 아이템을 검색할 수 있습니다.
+    </summary>
+    <div>
+        <p>
+            이 방법은 유저의 액세스 토큰이 있다는 가정하에 특정 ID에 대한 사용자 인벤토리를 반환하는 요청을 클라우드 플랫폼에 보냅니다.
+            ID는 단일 지갑 주소에 연결되며 사용자는 여러 클라우드 플랫폼 앱에서 여러 아이디를 가질 수 있습니다.
+            유저는 또한 아이템과 여러 앱에 하나의 ID만 사용할 수 있습니다.
+        </p>
 
-		<section class='example'>
-			<p>
-				클라우드 플랫폼에서 사용자의 인벤토리를 검색하려면 사용자의 ID를 알아야 합니다. 이를 위한 GraphQL 쿼리는 다음과 같습니다:
-			</p>
+        <section class="example">
+            <p>
+                클라우드 플랫폼에서 사용자의 인벤토리를 검색하려면 사용자의 ID를 알아야 합니다. 이를 위한 GraphQL 쿼리는 다음과 같습니다:
+            </p>
 
-			<pre><code class='query-display highlight language-text'>
-query getAllItems($identityId: Int!) {
+            <pre><code class="query-display language-graphql">query getAllItems($identityId: Int!) {
   result: EnjinIdentities(id: $identityId) {
     tokens(include_creator_tokens: true) {
-		app_id
-		index
-		token_id
-		name
-		creator
-		totalSupply
-		reserve
-		circulatingSupply
-		supplyModel
-		meltValue
-		meltFeeRatio
-		meltFeeMaxRatio
-		transferable
-		transferFeeSettings {
-		  type
-		  token_id
-		  value
-		}
-		nonFungible
-		icon
-		isCreator
-	}
+        app_id
+        index
+        token_id
+        name
+        creator
+        totalSupply
+        reserve
+        circulatingSupply
+        supplyModel
+        meltValue
+        meltFeeRatio
+        meltFeeMaxRatio
+        transferable
+        transferFeeSettings {
+          type
+          token_id
+          value
+        }
+        nonFungible
+        icon
+        isCreator
+    }
   }
-}
-              </code></pre>
+}</code></pre>
 
-			<p>
-				‘Submit Query’ 버튼을 누르면 위에 있는 쿼리가 아래에 추가된 파라미터와 함께 클라우드 플랫폼 엔드 포인트에 POST됩니다:
-			</p>
+            <p>
+                ‘Submit Query’ 버튼을 누르면 위에 있는 쿼리가 아래에 추가된 파라미터와 함께 클라우드 플랫폼 엔드 포인트에 POST됩니다:
+            </p>
 
-			<input class='parameter' type='text' name='identityId' placeholder='Identity ID'>
+            <form method="post">
+                <input class="parameter" type="text" name="identityId" placeholder="Identity ID">
 
-			<pre><code class='parameter-display highlight language-javascript'>
-{}
-              </code></pre>
+                <pre><code class="parameter-display language-json">{}</code></pre>
 
-			<button class='submit-button'>Submit Query</button>
+                <button class="v-btn primary" type="submit">Submit Query</button>
+            </form>
 
-			<p>
-				다음은 클라우드 플랫폼에 출력된 응답입니다:
-			</p>
+            <p>
+                다음은 클라우드 플랫폼에 출력된 응답입니다:
+            </p>
 
-			<pre><code class='output-display highlight language-javascript'>
-{
-}
-              </code></pre>
+            <pre><code class="output-display language-json">{}</code></pre>
 
-			<p>
-				이 예제 쿼리에서는 클라우드 플랫폼에서 사용자 인벤토리의 첫페이지를 검색했습니다. 게임의 필요에 따라 추가 아이템을 쿼리하도록 ‘페이지’ 매개변수를 변경할 수 있습니다. 
-				Unity SDK에서 이 GraphQL 호출에 해당하는 기능은 <a href="doxygen/class_enjin_s_d_k_1_1_enjin.html#a91d65b738b2b58ede69122afb8e83501" target="_blank">Enjin.GetAllItems(int
-				identityID)</a>입니다. 이는 ID 및 관련 메타 데이터에 연결된 모든 아이템의 실행 가능한 목록을 반환합니다.
-			</p>
-		</section>
-	</div>
+            <p>
+                이 예제 쿼리에서는 클라우드 플랫폼에서 사용자 인벤토리의 첫페이지를 검색했습니다. 게임의 필요에 따라 추가 아이템을 쿼리하도록 ‘페이지’ 매개변수를 변경할 수 있습니다.
+                Unity SDK에서 이 GraphQL 호출에 해당하는 기능은 <a href="doxygen/class_enjin_s_d_k_1_1_enjin.html#a91d65b738b2b58ede69122afb8e83501" target="_blank">Enjin.GetAllItems(int
+                identityID)</a>입니다. 이는 ID 및 관련 메타 데이터에 연결된 모든 아이템의 실행 가능한 목록을 반환합니다.
+            </p>
+        </section>
+    </div>
 </article>
 
