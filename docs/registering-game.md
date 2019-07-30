@@ -77,7 +77,7 @@ query apps {
 }
 ```
 
-You will need a name, description and an (optional) link to a hosted image for your app. You should get the App ID in the response if it was successful. You can now use this App ID in your `X-App-Id` cookie. See **Authenticating your Requests** for info about setting this cookie up.
+You will need a name, description and an (optional) link to a hosted image for your app. You should get the App ID in the response if it was successful.
 
 ## Creating More Users (Optional)
 

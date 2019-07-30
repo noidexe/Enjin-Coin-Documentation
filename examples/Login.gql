@@ -1,5 +1,5 @@
-query Login($email:String!, $password:String!) {
-  results: EnjinOauth(email: $email, password: $password) {
+query Login($email: String!, $password: String!) {
+  user: EnjinOauth(email: $email, password: $password) {
     id
     access_tokens
     roles {

@@ -9,7 +9,7 @@
         <p>
             This method, given an Admin's access token, will send a request to the Cloud Platform which creates a new User and Identity with the
             specified details. This Identity will need to be linked at some point to a Player's wallet using the Enjin Wallet App before it can be
-            particularly useful. The use case for this sort of User crreation is to let game developers leverage the Cloud Platform as a kind of
+            particularly useful. The use case for this sort of User creation is to let game developers leverage the Cloud Platform as a kind of
             authorization and credentials backend in supporting User login.
         </p>
 
@@ -18,14 +18,6 @@
                 Creating a new User on the Cloud Platform requires specifying a name, password, unique email, and role. All fields are specified as
                 text strings, with the Role matching an existing value known to the Cloud Platform. The User is created under the specified App that
                 the caller is an Admin of. The GraphQL query to do so is as follows:
-            </p>
-
-            <p>
-                Some calls to the Cloud Platform require specifying a particular App to operate on. This is one such call. The App is specified by
-                setting a header called:
-            <code>X-App-Id</code>
-            With the value being the App ID you which to use. You can find potential App identifiers as the "app_id" field in the response to the
-            "Getting Access Credentials" call.
             </p>
 
             {{ CreateUserExample }}
