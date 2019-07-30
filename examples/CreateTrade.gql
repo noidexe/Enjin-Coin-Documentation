@@ -1,0 +1,7 @@
+mutation CreateTrade($identityId: Int!, $askingTokenId: String!, $askingValue: Int!, $offeringTokenId: String!, $offeringValue: Int!, $secondPartyIdentityId: Int!) {
+  result: CreateEnjinRequest(identity_id: $identityId, type: CREATE_TRADE, create_trade_data: { asking_tokens: [{ id: $askingTokenId, value: $askingValue }], offering_tokens: [{ id: $offeringTokenId, value: $offeringValue }], second_party_identity_id: $secondPartyIdentityId }) {
+    id
+    encoded_data
+    state
+  }
+}

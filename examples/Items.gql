@@ -1,0 +1,27 @@
+query Items($identityId: Int!) {
+  result: EnjinIdentities(id: $identityId) {
+    tokens(include_creator_tokens: true) {
+        app_id
+        index
+        token_id
+        name
+        creator
+        totalSupply
+        reserve
+        circulatingSupply
+        supplyModel
+        meltValue
+        meltFeeRatio
+        meltFeeMaxRatio
+        transferable
+        transferFeeSettings {
+          type
+          token_id
+          value
+        }
+        nonFungible
+        icon
+        isCreator
+    }
+  }
+}

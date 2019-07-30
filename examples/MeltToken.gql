@@ -1,0 +1,7 @@
+mutation MeltToken($identityId: Int!, $tokenId: String!, $value: Int!) {
+  request: CreateEnjinRequest(type: MELT, identity_id: $identityId, melt_token_data: { token_id: $tokenId, value: $value }) {
+    id
+    encoded_data
+    state
+  }
+}

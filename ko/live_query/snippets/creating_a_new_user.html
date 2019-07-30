@@ -25,64 +25,7 @@
             이 값은 사용할 앱 ID 입니다. “액세스 자격 증명 얻기” 호출에 대한 응답으로 받은 “app_id” 필드에서 잠재적 App 식별자를 찾을 수 있습니다.
             </p>
 
-            <!--input id="appId" type="text" name="appId" placeholder="App ID"-->
-
-            <pre><code class="query-display language-graphql">mutation createUser($name: String!, $password: String!, $email: String!, $role: String!) {
-  user: CreateEnjinUser(name: $name, password: $password, email: $email, role: $role) {
-    id
-    name
-    email
-    roles {
-      id
-      name
-      permissions {
-        id
-        name
-      }
-    }
-    identities {
-      id
-      ethereum_address
-      linking_code
-      updated_at
-      created_at
-      fields {
-        key
-        value
-        searchable
-        displayable
-        unique
-      }
-    }
-    access_tokens
-    created_at
-    updated_at
-  }
-}</code></pre>
-
-            <p>
-                ‘Submit Query’ 버튼을 누르면 위에 있는 쿼리가 아래에 추가된 파라미터와 함께 클라우드 플랫폼 엔드 포인트에 POST됩니다:
-            </p>
-
-            <form method="post">
-                <input class="parameter" type="text" name="name" placeholder="Name">
-                <br>
-                <input class="parameter" type="text" name="password" placeholder="Password">
-                <br>
-                <input class="parameter" type="text" name="email" placeholder="Email">
-                <br>
-                <input class="parameter" type="text" name="role" placeholder="Role" value="Player">
-
-                <pre><code class="parameter-display language-json">{}</code></pre>
-
-                <button class="v-btn primary" type="submit">Submit Query</button>
-            </form>
-
-            <p>
-                다음은 클라우드 플랫폼에 출력된 응답입니다:
-            </p>
-
-            <pre><code class="output-display language-json">{}</code></pre>
+            {{ CreateUserExample }}
 
             <p>
                 이 예제 쿼리에서 클라우드 플랫폼에 새로운 사용자를 생성했습니다. 이 콜이 성공하려면 호출자가 자신의 앱에서 사용자를 생성할 수 있는 권한이 있어야 합니다.
