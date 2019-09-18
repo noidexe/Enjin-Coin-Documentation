@@ -1,0 +1,9 @@
+mutation CompleteTrade($appId: Int!, $tradeId: String!) {
+  result: CreateEnjinRequest(type: COMPLETE_TRADE, appId: $appId, complete_trade_data: {
+    trade_id: $tradeId
+  }) {
+    id
+    encoded_data
+    state
+  }
+}

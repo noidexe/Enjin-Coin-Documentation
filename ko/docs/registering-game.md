@@ -48,13 +48,6 @@ query login{
   }
 }
 ```
-브라우저에 있는 [Chrome Instructions]에서 DevTools (개발자 도구) (F12) 열고, “Application/어플리케이션" 탭으로 이동하세요. 왼쪽 패널의 “Cookies/쿠키"를 확대한 후 웹사이트를 선택하세요. ‘Enjin_session’ 이라는 새로우 쿠키를 생성하신 후 로긴 쿼리에서 받은 `엑세스 토큰/access_token`을 값으로 입력하세요 (문구 안에 있는 키를 복붙하세요).
- 
-이미 앱이 있으시다면 `X-App-Id`라는 별개의 쿠키/헤더로 그 앱 ID를 보낼 수 있습니다. 없으실 경우 아래 세션에서 앱을 만들 예정이니 염려 마세요. 어떤 GraphQL query와 mutation은 앱 id 쿠키/헤더의 설정을 요구하기 때문에 가능한 경우 늘 포함하는 것을 추천합니다.
-
-![Trusted Cloud Cookie](./images/trustedplatform_cookie.png)
-
-이제 ‘enjin_session’ 쿠키 설정이 완료되면 GraphQL 콘솔의 플랫폼에서 작업을 시작할 수 있습니다.
 
 ## 앱 만들기
 
@@ -86,7 +79,7 @@ query apps {
 }
 ```
 
-앱에서 호스팅 된 이미지를 위한 이름, 설명, 그리고 (옵션) 링크를 넣으시면 됩니다. 성공적으로 마무리 되면 App ID를 받게 됩니다. 이제 받은 App ID를 `X-App-Id` 쿠키에서 사용할 수 있습니다. 이 쿠키 설정에 대한 정보는 **Authenticating your Requests - 요청 인증하기** 에서 볼 수 있습니다.
+앱에서 호스팅 된 이미지를 위한 이름, 설명, 그리고 (옵션) 링크를 넣으시면 됩니다. 성공적으로 마무리 되면 App ID를 받게 됩니다. 이제 받은 App ID를 사용할 수 있습니다. 이 쿠키 설정에 대한 정보는 **Authenticating your Requests - 요청 인증하기** 에서 볼 수 있습니다.
 
 ## 더 많은 유저 생성하기 (옵션) 
 

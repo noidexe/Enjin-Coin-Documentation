@@ -1,0 +1,14 @@
+query Login($email: String!, $password: String!) {
+  user: EnjinOauth(email: $email, password: $password) {
+    id
+    access_tokens
+    roles {
+      name
+    }
+    identities {
+      id
+      app_id
+      ethereum_address
+    }
+  }
+}

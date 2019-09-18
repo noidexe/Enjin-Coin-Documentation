@@ -1,90 +1,39 @@
 <!-- Sending an Item to a User -->
 <article class="live-query">
-	<header>
-		Sending an Item to a User
-	</header>
-	<summary>
-		Here we learn how to send an Item from the caller's wallet to a User.
-	</summary>
-	<div>
-		<p>
-			This method, given an access token, will send a request to the Cloud Platform which creates a new item transfer request to be either
-			accepted or denied in the Enjin Wallet of the access token's owner. This second factor of accepting or denying the transfer request on a
-			separate service is a security feature to protect against potentially malicious developers, server proxies, or compromised machines.
-		</p>
+    <h1>
+        Sending an Item to a User
+    </h1>
+    <summary>
+        Here we learn how to send an Item from the caller's wallet to a User.
+    </summary>
+    <div>
+        <p>
+            This method, given an access token, will send a request to the Cloud Platform which creates a new item transfer request to be either
+            accepted or denied in the Enjin Wallet of the access token's owner. This second factor of accepting or denying the transfer request on a
+            separate service is a security feature to protect against potentially malicious developers, server proxies, or compromised machines.
+        </p>
 
-		<section class='example'>
-			<p>
-				Creating an Item transfer request on the Cloud Platform requires specifying an identifier for the sender's Identity, an identifier for
-				the recipient's Identity, the identifier for the Item to transfer, and an amount of that Item to transfer. Once the request appears in
-				the sender's wallet and is accepted, the Item is moved from the Ethereum address that is linked to the sending Identity and into the
-				Ethereum address that is linked to the recipient's Identity. To do this successfully, the sender requires some Ether to cover gas
-				costs. They might also potentially require some Enjin Coin to cover transaction fees specified by the game developer. The GraphQL
-				query to do so is as follows:
-			</p>
+        <section class="example">
+            <p>
+                Creating an Item transfer request on the Cloud Platform requires specifying an identifier for the sender's Identity, an identifier for
+                the recipient's Identity, the identifier for the Item to transfer, and an amount of that Item to transfer. Once the request appears in
+                the sender's wallet and is accepted, the Item is moved from the Ethereum address that is linked to the sending Identity and into the
+                Ethereum address that is linked to the recipient's Identity. To do this successfully, the sender requires some Ether to cover gas
+                costs. They might also potentially require some Enjin Coin to cover transaction fees specified by the game developer. The GraphQL
+                query to do so is as follows:
+            </p>
 
-			<p>
-				Some calls to the Cloud Platform require specifying a particular App to operate on. This is one such call. The App is specified by
-				setting a header called:
-			<pre>X-App-Id</pre>
-			With the value being the App ID you which to use. You can find potential App identifiers as the "app_id" field in the response to the
-			"Getting Access Credentials" call.
-			</p>
+            {{ SendItemExample }}
 
-			<p>
-				The current App ID being used in this session is: <span class="app-id"></span><br/>
-				To switch app please choose another app from the Applications tab above then navigate back here.
-			</p>
-
-			<!--input id="appId" type='text' name='appId' placeholder='App ID'-->
-
-			<pre><code class='query-display highlight language-text'>
-mutation sendItem($identityId: Int!, $recipientIdentityId: Int!, $tokenId: String!, $value: Int!) {
-  CreateEnjinRequest(type: SEND, identity_id: $identityId, send_token_data: { recipient_identity_id: $recipientIdentityId, token_id: $tokenId, value: $value }) {
-    id
-    encoded_data
-    state
-  }
-}
-              </code></pre>
-
-			<p>
-				Pressing the 'Submit Query' button will POST the query above to the Cloud Platform endpoint, along with additional parameters encoded
-				as follows:
-			</p>
-
-			<input class='parameter' type='text' name='identityId' placeholder='Sender Identity ID'>
-			<br>
-			<input class='parameter' type='text' name='recipientIdentityId' placeholder='Recipient Identity ID'>
-			<br>
-			<input class='parameter' type='text' name='tokenId' placeholder='Item ID'>
-			<br>
-			<input class='parameter' type='text' name='value' placeholder='Amount'>
-
-			<pre><code class='parameter-display highlight language-javascript'>
-{}
-              </code></pre>
-
-			<button class='submit-button'>Submit Query</button>
-
-			<p>
-				Here is the output response from the Cloud Platform:
-			</p>
-
-			<pre><code class='output-display highlight language-javascript'>
-{
-}
-              </code></pre>
-
-			<p>
-				In this example query, we have created an Item transfer request for the sender to either accept or deny using their Enjin Wallet. This
-				has a myriad of uses in gameplay, such as letting a game server reward a player with some Item based on their in-game actions. The
-				corresponding function in the Unity SDK to this GraphQL call is <a
-					href="doxygen/class_enjin_s_d_k_1_1_enjin.html#a1dd110b494d572b3b7eccb671585dbb2" target="_blank">SendCryptoItemRequest(int
-				identityID, string tokenID, int recipientID, int value, System.Action&lt;RequestEvent&gt; callback)</a> which will create an identical
-				request for Item transfer as well as registering a callback for listening to successful transfer. This callback can be used in similar
-				fashion to the "Linking a Wallet" example.
-			</p>
-		</section>
-	</div>
+            <p>
+                In this example query, we have created an Item transfer request for the sender to either accept or deny using their Enjin Wallet. This
+                has a myriad of uses in gameplay, such as letting a game server reward a player with some Item based on their in-game actions. The
+                corresponding function in the Unity SDK to this GraphQL call is <a
+                    href="doxygen/class_enjin_s_d_k_1_1_enjin.html#a1dd110b494d572b3b7eccb671585dbb2" target="_blank">SendCryptoItemRequest(int
+                identityID, string tokenID, int recipientID, int value, System.Action&lt;RequestEvent&gt; callback)</a> which will create an identical
+                request for Item transfer as well as registering a callback for listening to successful transfer. This callback can be used in similar
+                fashion to the "Linking a Wallet" example.
+            </p>
+        </section>
+    </div>
 </article>

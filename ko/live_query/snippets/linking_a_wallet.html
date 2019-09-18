@@ -1,114 +1,27 @@
 <!-- Linking a Wallet -->
 <article class="live-query">
-  <header>
+  <h1>
     지갑 연결하기
-  </header>
+  </h1>
   <summary>
     새로 생성된 ID에는 코드가 포함되어 있는데, 플레이어는 이 코드를 엔진 지갑에 입력하여 이더리움 지갑에 연결할 수 있습니다. 이는 아이템들을 처리하기 위해 이용됩니다.
   </summary>
   <div>
-                      <!--
-            <p>
-              이 방법은 관리자의 액세스 토큰에 지정된 세부 정보로 새 사용자 및 ID를 생성하는 요청을 클라우드 플랫폼으로 보냅니다. 이 ID는 특정 시점에 엔진지갑 앱을 사용하여 플레이어의 지갑에 연결해야 합니다. 이러한 유형의 사용자 생성은 게임 게발자가 클라우드 플랫폼을 일종의 인증 및 인증 백엔드로 활용하여 사용자 로그인을 지원하게 됩니다.
-            </p>
+    <p>
+      Unity SDK에서 사용자의 지갑을 ID에 연결하여 게임에서 이더리움 주소를 가져올 수 있게 하는 이유는 수신 콜백을 등록하고 연결된 코드를 표시하기 위함입니다.
+      그런 다음 사용자는 엔진 지갑에 이 코드를 입력하면 콜백 기능이 실행됩니다. 코드는 <a href="doxygen/class_enjin_s_d_k_1_1_enjin.html#abd0ebc7f68d479d83a8d365c52d35993" target="_blank">Enjin.VerifyLogin(string username, string password)</a>
+      혹은 <a href="doxygen/class_enjin_s_d_k_1_1_enjin.html#ad3766c8ed4e8fdb68f065177d4046027" target="_blank">CreateUser(string username, string email, string password, string role)</a>과 같은 방법으로 반환되는 사용자 개체 아래의 해당 ID의
+      "link_code" 필드에서 검색할 수 있습니다. ID가 이미 연결된 경우 "link_code" 필드는 비워지고 대신 "ethereum_address"가 나타납니다.
+    </p>
 
-            <section class='example'>
-              <p>
-                클라우드 플랫폼에서 새 사용자를 만들려면 이름, 비밀번호, 고유 이메일 및 역할을 지정해야 합니다. 모든 필트는 텍스트 문자열로 지정되며 역할은 클라우드 플랫폼에 알려진 기존 값과 일치합니다. 사용자는 발신자가 관리인이 지정된 응용프로그램 내에 만들어집니다. 이렇게 하기 위한 GraphQL 쿼리는 다음과 같습니다:
-              </p>
+    <p>
+          Unity SDK의 <a href="doxygen/class_enjin_s_d_k_1_1_enjin.html#a5935d76a851168b2b5c5a15f0bef753e" target="_blank">Enjin.ListenForLink(int identityID, System.Action&lt;RequestEvent&gt; listener)</a> 의 예로
+          "identityId"는 개발자로서 연결하기 위해 청취하고자 하는 사용자 아래의 특정 ID의 식별자입니다. 즉, 플레이어에게 표시해야 하는 코드가 포함된 ID입니다.
+          "linkingData" 매개 변수는 <a href="doxygen/class_enjin_s_d_k_1_1_request_event.html" target="_blank">RequestEvent</a> 유형의 개체이며, 링크할 때 유용한 메타데이터가 포함되어 있습니다.
+    </p>
 
-              <p>
-                클라우드 플랫폼에 대한 일부 호출에는 작동 할 특정 App을 지정해야합니다. 이것은 그러한 호출입니다. 앱은 'Authorization' 헤더에서 클라우드 플랫폼으로 보낼 때 
-                액세스 토큰 앞에 "@" 식별자를 붙이면 지정됩니다. 특정 응용 프로그램에서 작동하기 위한 전체 액세스 토큰은 “App ID"@ "액세스 토큰”으로 보입니다. 
-                "액세스 자격 증명 얻기"호출에 대한 응답으로 App 식별자를 "app_id"필드로 찾을 수 있습니다.
-              </p>
-
-              <input id="appId" type='text' name='appId' placeholder='App ID'>
-
-              <pre><code class='query-display highlight language-text'>
-mutation createUser($name: String!, $password: String!, $email: String!, $role: String!) {
-  user: CreateEnjinUser(name: $name, password: $password, email: $email, role: $role) {
-    id
-    name
-    email
-    roles {
-      id
-      name
-      permissions {
-        id
-        name
-      }
-    }
-    identities {
-      id
-      ethereum_address
-      linking_code
-      updated_at
-      created_at
-      fields {
-        key
-        value
-        searchable
-        displayable
-        unique
-      }
-    }
-    access_tokens
-    created_at
-    updated_at
-  }
-}
-              </code></pre>
-
-              <p>
-                ‘Submit Query’ 버튼을 누르면 위에 있는 쿼리가 아래에 추가된 파라미터와 함께 클라우드 플랫폼 엔드 포인트에 POST됩니다:
-              </p>
-
-              <input class='parameter' type='text' name='name' placeholder='Name'>
-              <br>
-              <input class='parameter' type='text' name='password' placeholder='Password'>
-              <br>
-              <input class='parameter' type='text' name='email' placeholder='Email'>
-              <br>
-              <input class='parameter' type='text' name='role' placeholder='Role'>
-
-              <pre><code class='parameter-display highlight language-javascript'>
-{}
-              </code></pre>
-
-              <button class='submit-button'>Submit Query</button>
-
-              <p>
-                다음은 클라우드 플랫폼에 출력된 응답입니다:
-              </p>
-
-              <pre><code class='output-display highlight language-javascript'>
-{
-}
-              </code></pre>
-
-              <p>
-                이 예제 쿼리에서 클라우드 플랫폼에 새로운 사용자를 생성했습니다. 이 콜이 성공하려면 호출자가 자신의 앱에서 사용자를 생성할 수 있는 권한이 있어야 합니다. 일반적으로 이 작업은 호출자에게 관리자 혹은 플랫폼 소유자 역할을 부여하여 수행합니다. 이 새로운 사용자는 호출자의 앱에 대해 하나의 ID로 자동 생성됩니다. Unity SDK에서 이를 실행하기 위한 GraphQL 호출은 <a href="doxygen/class_enjin_s_d_k_1_1_enjin.html#ad3766c8ed4e8fdb68f065177d4046027" target="_blank">CreateUser(string username, string email, string password, string role)</a> 입니다. 이 함수는 새로운 ID가 담긴 새로운 사용자를 생성하고 플레이어의 지갑에 연결할 수 있도록 합니다.
-              </p>
-            -->
-              <p>
-                Unity SDK에서 사용자의 지갑을 ID에 연결하여 게임에서 이더리움 주소를 가져올 수 있게 하는 이유는 수신 콜백을 등록하고 연결된 코드를 표시하기 위함입니다. 
-                그런 다음 사용자는 엔진 지갑에 이 코드를 입력하면 콜백 기능이 실행됩니다. 코드는 <a href="doxygen/class_enjin_s_d_k_1_1_enjin.html#abd0ebc7f68d479d83a8d365c52d35993" target="_blank">Enjin.VerifyLogin(string username, string password)</a> 
-                혹은 <a href="doxygen/class_enjin_s_d_k_1_1_enjin.html#ad3766c8ed4e8fdb68f065177d4046027" target="_blank">CreateUser(string username, string email, string password, string role)</a>과 같은 방법으로 반환되는 사용자 개체 아래의 해당 ID의 
-                "link_code" 필드에서 검색할 수 있습니다. ID가 이미 연결된 경우 "link_code" 필드는 비워지고 대신 "ethereum_address"가 나타납니다.
-              </p>
-
-              <p>
-                    Unity SDK의 <a href='doxygen/class_enjin_s_d_k_1_1_enjin.html#a5935d76a851168b2b5c5a15f0bef753e' target='_blank'>Enjin.ListenForLink(int identityID, System.Action&lt;RequestEvent&gt; listener)</a> 의 예로 
-                    "identityId"는 개발자로서 연결하기 위해 청취하고자 하는 사용자 아래의 특정 ID의 식별자입니다. 즉, 플레이어에게 표시해야 하는 코드가 포함된 ID입니다. 
-                    "linkingData" 매개 변수는 <a href='doxygen/class_enjin_s_d_k_1_1_request_event.html' target='_blank'>RequestEvent</a> 유형의 개체이며, 링크할 때 유용한 메타데이터가 포함되어 있습니다.
-              </p>
-
-              <pre><code class='output-display highlight language-javascript'>
-Enjin.ListenForLink(identityId, linkingData => {
+    <pre><code class="output-display language-javascript">Enjin.ListenForLink(identityId, linkingData => {
   Debug.Log("Linked!");
-});
-	  </code></pre>
-	</section>
+});</code></pre>
   </div>
 </article>

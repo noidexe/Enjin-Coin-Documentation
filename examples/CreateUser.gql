@@ -1,0 +1,32 @@
+mutation CreateUser($name: String!, $password: String!, $email: String!, $appId: Int, $role: String = "Player") {
+  user: CreateEnjinUser(name: $name, password: $password, email: $email, app_id: $appId, role: $role) {
+    id
+    name
+    email
+    roles {
+      id
+      name
+      permissions {
+        id
+        name
+      }
+    }
+    identities {
+      id
+      ethereum_address
+      linking_code
+      updated_at
+      created_at
+      fields {
+        key
+        value
+        searchable
+        displayable
+        unique
+      }
+    }
+    access_tokens
+    created_at
+    updated_at
+  }
+}
