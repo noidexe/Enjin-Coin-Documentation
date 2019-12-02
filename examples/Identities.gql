@@ -1,9 +1,7 @@
-query Identities($page: Int, $perPage: Int) {
-  EnjinIdentities(
-    pagination: {
-      page: $page
-      limit: $perPage
-    }
+query Identities($appId: Int, $page: Int, $perPage: Int) {
+  identities: EnjinIdentities(
+    appId: $appId
+    pagination: { page: $page, limit: $perPage }
   ) {
     id
     linkingCode

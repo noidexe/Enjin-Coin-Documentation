@@ -1,5 +1,5 @@
 mutation MintFungibleItems($identityId: Int!, $tokenId: String!) {
-  CreateEnjinRequest(
+  transaction: CreateEnjinRequest(
     identity_id: $identityId
     type: MINT
     mint_token_data: {

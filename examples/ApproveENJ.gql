@@ -1,5 +1,5 @@
 mutation ApproveENJ($identityId: Int) {
-  CreateEnjinRequest(
+  transaction: CreateEnjinRequest(
     identity_id: $identityId
     type: APPROVE
     approve_enj_data: {

@@ -1,5 +1,5 @@
 mutation SetItemUri($identityId: Int!, $tokenId: String!, $metadataUri: String!) {
-  CreateEnjinRequest(
+  transaction: CreateEnjinRequest(
     identity_id: $identityId
     type: SET_ITEM_URI
     set_item_uri_data: {

@@ -1,5 +1,5 @@
 mutation CreateApp($name: String, $description: String, $image: String) {
-  CreateEnjinApp(name: $name, description: $description, image: $image) {
+  app: CreateEnjinApp(name: $name, description: $description, image: $image) {
     id
     name
     description

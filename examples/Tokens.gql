@@ -1,12 +1,9 @@
-query Tokens {
-  EnjinTokens(
-    name: "ITEM_NAME"
-    pagination: {
-      page: 1
-      limit: 50
-    }
+query Tokens($name: String, $page: Int, $perPage: Int) {
+  tokens: EnjinTokens(
+    name: $name
+    pagination: { page: $page, limit: $perPage }
   ) {
-    token_id
+    id
     name
     creator
     meltValue
@@ -20,8 +17,6 @@ query Tokens {
     nonFungible
     blockHeight
     markedForDelete
-    created_at
-    updated_at
     availableToMint
     itemURI
   }

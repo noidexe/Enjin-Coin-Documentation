@@ -4,7 +4,7 @@ mutation CreateToken(
   $totalSupply: Int
   $initialReserve: Int
 ) {
-  CreateEnjinRequest(
+  transaction: CreateEnjinRequest(
     identity_id: $identityId
     type: CREATE
     create_token_data: {

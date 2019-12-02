@@ -1,5 +1,5 @@
 mutation UpdateUser($id: Int, $name: String, $email: String, $password: String) {
-  UpdateEnjinUser(id: $id, name: $name, email: $email, password: $password) {
+  user: UpdateEnjinUser(id: $id, name: $name, email: $email, password: $password) {
     id
     name
     email

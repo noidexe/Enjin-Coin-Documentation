@@ -1,5 +1,5 @@
 query Apps {
-  EnjinApps {
+  apps: EnjinApps {
     id
     name
   }
