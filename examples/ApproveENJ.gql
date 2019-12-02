@@ -1,0 +1,12 @@
+mutation ApproveENJ($identityId: Int) {
+  CreateEnjinRequest(
+    identity_id: $identityId
+    type: APPROVE
+    approve_enj_data: {
+      value: 0
+    }
+  ) {
+    id
+    encodedData
+  }
+}

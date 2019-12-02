@@ -1,0 +1,20 @@
+mutation MintFungibleItems($identityId: Int!, $tokenId: String!) {
+  CreateEnjinRequest(
+    identity_id: $identityId
+    type: MINT
+    mint_token_data: {
+      token_id: $tokenId
+      recipient_address_array: [
+        "WALLET_ADDRESS_1"
+        "WALLET_ADDRESS_2"
+      ]
+      value_array: [
+        5
+        3
+      ]
+    }
+  ) {
+    id
+    encodedData
+  }
+}

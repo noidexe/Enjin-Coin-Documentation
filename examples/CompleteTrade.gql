@@ -3,7 +3,7 @@ mutation CompleteTrade($appId: Int!, $tradeId: String!) {
     trade_id: $tradeId
   }) {
     id
-    encoded_data
+    encodedData
     state
   }
 }

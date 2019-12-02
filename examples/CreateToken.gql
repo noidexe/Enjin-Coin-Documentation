@@ -1,0 +1,29 @@
+mutation CreateToken(
+  $identityId: Int
+  $name: String
+  $totalSupply: Int
+  $initialReserve: Int
+) {
+  CreateEnjinRequest(
+    identity_id: $identityId
+    type: CREATE
+    create_token_data: {
+      name: $name
+      totalSupply: $totalSupply
+      initialReserve: $initialReserve
+      supplyModel: FIXED
+      meltValue: "15000000000000000000"
+      meltFeeRatio: 1250
+      transferable: PERMANENT
+      transferFeeSettings: {
+        type: PER_TRANSFER
+        token_id: "0"
+        value: "1000000000000000000"
+      }
+      nonFungible: false
+    }
+  ) {
+    id
+    encodedData
+  }
+}

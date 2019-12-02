@@ -1,0 +1,13 @@
+mutation CreateUserAndIdentity($name: String!, $password: String!, $email: String!, $appId: Int) {
+  user: CreateEnjinUser(name: $name, password: $password, email: $email, app_id: $appId) {
+    id
+    name
+    email
+    accessTokens
+    identities {
+      id
+      ethAddress
+      linkingCode
+    }
+  }
+}

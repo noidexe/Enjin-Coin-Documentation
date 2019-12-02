@@ -10,32 +10,8 @@ Creating an item is like creating a template that you will use to mint your item
 To create an item, you will need to make a request with the desired item properties. Here is
 an example:
 
-```graphql
-mutation createTokenRequest{
-  CreateEnjinRequest (
-    identity_id: 1,
-    type: CREATE,
-    create_token_data: {
-      name: "ITEM_NAME",
-      totalSupply: 100,
-      initialReserve: 50,
-      supplyModel: FIXED,
-      meltValue: "15000000000000000000",
-      meltFeeRatio: 1250,
-      transferable: PERMANENT,
-      transferFeeSettings: {
-        type: PER_TRANSFER,
-        token_id: "0",
-        value: "1000000000000000000"
-      }
-      nonFungible: false
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
-```
+[CreateToken](../examples/CreateToken.gql)
+
 
 Property | Descriptions
 ---|---
@@ -62,36 +38,8 @@ You can either find the Token ID on the transaction with that item after it conf
 
 NOTE: If you find your Token ID via the blockchain rather than the TP then it will be in integer form, you will need to convert this number to hex and take just the 'upper' 32 bits of the resulting value (which represents the Base Token ID) before using it in many of the GraphQL mutations. You can use a service such as [Rapid Tables](https://www.rapidtables.com/convert/number/decimal-to-hex.html) to do this.
 
-```graphql
-query viewTokens{
-  EnjinTokens (
-    name: "ITEM_NAME",
-    pagination: {
-      page: 1,
-      limit: 50
-    }
-  ) {
-    token_id
-    name
-    creator
-    meltValue
-    meltFeeRatio
-    meltFeeMaxRatio
-    supplyModel
-    totalSupply
-    circulatingSupply
-    reserve
-    transferable
-    nonFungible
-    blockHeight
-    markedForDelete
-    created_at
-    updated_at
-    availableToMint
-    itemURI
-  }
-}
-```
+[Tokens](../examples/Tokens.gql)
+
 Enter in the `ITEM NAME` to search for that item. Alternatively, you can make the request without the name parameter to return all items on your app.
 
 ## Minting the Item
@@ -100,48 +48,14 @@ Minting items is using the template you created in the CREATE step to
 instantiate some items on the blockchain. The request for minting fungible items (FIs) vs non-fungible items (NFIs) varies slightly. You can batch mint to multiple addresses if you wish to do so. The differences are that if you need to mint multiple NFIs, you will need to specify the wallet address for each individual item. Ideally try to avoid minting over 100 NFIs in a single transaction, FIs do not have this restriction. Here is the same request between 2 different items types, FI and NFI.
 
 **FI:**
-```graphql
-mutation mintFungibleItems {
-  CreateEnjinRequest (
-    identity_id: 1,
-    type: MINT,
-    mint_token_data: {
-      token_id: "TOKEN_ID",
-      recipient_address_array: [
-        "WALLET_ADDRESS_1","WALLET_ADDRESS_2"
-      ]
-      value_array: [
-        5,3
-      ]
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
-```
+[MintFungibleItems](../examples/MintFungibleItems.gql)
+
 This request would mint 5x items to “WALLET_ADDRESS_1” and 3x items to “WALLET_ADDRESS_2”.
 You can mint up to `INITIAL RESERVE` of items.
 
 **NFI:**
-```graphql
-mutation mintNonFungibleItems {
-  CreateEnjinRequest (
-    identity_id: 1,
-    type: MINT,
-    mint_token_data: {
-      token_id: "TOKEN_ID",
-      token_index: "0",
-      recipient_address_array: [
-        "WALLET_ADDRESS_1","WALLET_ADDRESS_1","WALLET_ADDRESS_1","WALLET_ADDRESS_1","WALLET_ADDRESS_1","WALLET_ADDRESS_2","WALLET_ADDRESS_2","WALLET_ADDRESS_2"
-      ]
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
-```
+[MintNonFungibleItems](../examples/MintNonFungibleItems.gql)
+
 This request would mint 5x items to “WALLET_ADDRESS_1” and 3x items to “WALLET_ADDRESS_2”.
 
 Once a successful request has been made, you will need to accept and sign the transaction in the “NOTIFICATIONS” section of your dev wallet.
@@ -169,22 +83,8 @@ unfamiliar with hosting files.
 **Advanced Users:**
 The URI value allows for ID substitution by clients. If the string `{id}` exists in any URI, clients MUST replace this with the actual token ID in hexadecimal form. This allows for large number of tokens to use the same on-chain string by defining a URI once, for a large collection of tokens. Example of such a URI: `https://token-cdn-domain/{id}.json` would be replaced with `https://token-cdn-domain/780000000000001e000000000000000000000000000000000000000000000000.json` if the client is referring to token ID `780000000000001e000000000000000000000000000000000000000000000000`. See [Metadata](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#metadata) section in the ERC-1155 standards documentation for full details.
 
-```graphql
-mutation setItemURI{
-  CreateEnjinRequest (
-    identity_id: 1,
-    type: SET_ITEM_URI,
-    set_item_uri_data: {
-      token_id: "TOKEN_ID",
-      token_index: 0,
-      item_uri: "/METADATA.json"
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
-```
+[SetItemUri](../examples/SetItemUri.gql)
+
 
 There are many other built in features for metadata built into our schema,
 consult the [Enjin Metadata Schema](../erc1155_metadata_json_schema.md) for details.
@@ -253,7 +153,7 @@ make sure you are using the right credentials for your account.
 ### Home Screen
 ![Home Screen](../docs/images/unity_home_logged_in.png)
 
-When logged in, your home screen is where you can review your login information, but is also where you manage your apps. You are going to want to have one app per game.  
+When logged in, your home screen is where you can review your login information, but is also where you manage your apps. You are going to want to have one app per game.
 
 Click **Create App** button to add the app to you platform. You can set the name, image URL and description of the app in the fields. Make sure the image is publicly accessible for it to show up in the wallet.
 
@@ -315,7 +215,7 @@ patterns. If we traded non-fungible cookies we would easily be able to identify 
 we traded.
 
 There are some key workflow differences between fungible and non-fungible items that will
-be highlighted as they come up in this guide.  
+be highlighted as they come up in this guide.
 
 #### Creating items
 ![Cryptoitems Create Item](../docs/images/unity_cryptoitems_create2.png)

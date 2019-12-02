@@ -4,7 +4,7 @@ mutation MeltToken($appId: Int!, $tokenId: String!, $value: Int!) {
     value: $value
   }) {
     id
-    encoded_data
+    encodedData
     state
   }
 }

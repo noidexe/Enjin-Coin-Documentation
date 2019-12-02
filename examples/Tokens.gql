@@ -1,0 +1,28 @@
+query Tokens {
+  EnjinTokens(
+    name: "ITEM_NAME"
+    pagination: {
+      page: 1
+      limit: 50
+    }
+  ) {
+    token_id
+    name
+    creator
+    meltValue
+    meltFeeRatio
+    meltFeeMaxRatio
+    supplyModel
+    totalSupply
+    circulatingSupply
+    reserve
+    transferable
+    nonFungible
+    blockHeight
+    markedForDelete
+    created_at
+    updated_at
+    availableToMint
+    itemURI
+  }
+}

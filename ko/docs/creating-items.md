@@ -6,35 +6,11 @@
 
 ## 아이템 만들기
 
-아이템을 만드는 것은 아이템을 민팅할 템플릿을 만드는 것과 같습니다. 
+아이템을 만드는 것은 아이템을 민팅할 템플릿을 만드는 것과 같습니다.
 아이템을 만들기 위해서는 원하는 아이템 속성을 요청해야 합니다. 다음은 예시입니다:
 
-```graphql
-mutation createTokenRequest{
-  CreateEnjinRequest (
-    identity_id: 1,
-    type: CREATE,
-    create_token_data: {
-      name: "ITEM_NAME",
-      totalSupply: 100,
-      initialReserve: 50,
-      supplyModel: FIXED,
-      meltValue: "15000000000000000000",
-      meltFeeRatio: 1250,
-      transferable: PERMANENT,
-      transferFeeSettings: {
-        type: PER_TRANSFER,
-        token_id: "0",
-        value: "1000000000000000000"
-      }
-      nonFungible: false
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
-```
+[CreateToken](../examples/CreateToken.gql)
+
 
 속성 | 설명
 ---|---
@@ -49,46 +25,18 @@ transferFeeSettings - token_id (전송 수수료 설정 - token_id) |  전송 �
 transferFeeSettings - value (전송 수수료 설정 - 가치) | 전송 수수료의 가치. ENJ을 사용할 경우, 값에 10^18을 곱하여 소수자리 18개 포함.
 nonFungible (대체 불가능) | 대체 가능한 혹은 대체 불가능한 아이템인지. True 아니면 false.
 
-[Unity Guide](./unity.md)의 ‘Creating Items - 아이템 생성'을 보면 아이템 속성과 작동법에 대한 상세한 내용을 보실 수 있습니다. 
+[Unity Guide](./unity.md)의 ‘Creating Items - 아이템 생성'을 보면 아이템 속성과 작동법에 대한 상세한 내용을 보실 수 있습니다.
 
 성공적인 요청이 이뤄지면 개발자 지갑의 **NOTIFICATIONS** 섹션에서 트랜잭션을 수락하고 서명해야 합니다. 트랜잭션이 성공적이면 아이템 템플릿이 생성되고 민팅할 아이템 ID를 검색/찾을 수 있습니다.
 
 ## Token ID 찾기 (및 추가 세부 사항)
 
-트랜잭션이 컨펌된 후 EnjinX에서 아이템으로 트랜잭션 토큰 ID를 검색하시거나 Trusted Cloud에서 아이템을 검색할 수 있습니다. 허나, 먼저 트랜잭션이 블록체인에서 컨펌되길 기다려야 합니다. 
+트랜잭션이 컨펌된 후 EnjinX에서 아이템으로 트랜잭션 토큰 ID를 검색하시거나 Trusted Cloud에서 아이템을 검색할 수 있습니다. 허나, 먼저 트랜잭션이 블록체인에서 컨펌되길 기다려야 합니다.
 
 참고: 만약 토큰 ID를 TP가 아닌 블록체인에서 검색한다면 정수 형태로 나타납니다. 그럴 경우 GraphQL mutations에 사용하기 전 이 숫자를 hex로 전환하고 결과 값의 상단 32bits 를 가져가면 됩니다 (결과값은 Base Token ID를 나타냅니다). 이 작업을 위해서는 [Rapid Tables](https://www.rapidtables.com/convert/number/decimal-to-hex.html) 같은 서비스를 사용해도 됩니다.
 
-```graphql
-query viewTokens{
-  EnjinTokens (
-    name: "ITEM_NAME",
-    pagination: {
-      page: 1,
-      limit: 50
-    }
-  ) {
-    token_id
-    name
-    creator
-    meltValue
-    meltFeeRatio
-    meltFeeMaxRatio
-    supplyModel
-    totalSupply
-    circulatingSupply
-    reserve
-    transferable
-    nonFungible
-    blockHeight
-    markedForDelete
-    created_at
-    updated_at
-    availableToMint
-    itemURI
-  }
-}
-```
+[Tokens](../examples/Tokens.gql)
+
 
 아이템 검색을 위해서는 `아이템 이름/ITEM NAME`을 입력하세요. 앱의 전체 아이템을 부르고 싶다면 이름 파라미터 없이 요청 하면 됩니다.
 
@@ -97,50 +45,16 @@ query viewTokens{
 CREATE 단계에서 만든 템플릿으로 블록체인 아이템을 만드는 것을 아이템 민팅이라고 표현합니다. 대체가능한 아이템(FI)을 민팅하는 것과 대체불가능한 아이템(NFI)을 민팅하는 방식은 살짝 다릅니다. 원한다면 여러 주소에 아이템을 묶음으로 민팅할 수 있습니다. 차이점은 대체불가능한 아이템을 여러개 민팅해야 할 경우 각 아이템 당 지정 지갑 주소를 설정해야 합니다. 단일 트랜잭션에 100개 이상의 대체불가능한 아이템을 민팅하는 것은 웬만하면 하지 않는게 좋습니다. 대체 가능한 아이템들은 이런 제한이 따로 없습니다. 아래 예시를 보시면 2가지 다른 아이템 유형의 동일한 요청입니다.
 
 **FI (대체 가능한 아이템):**
-```graphql
-mutation mintFungibleItems {
-  CreateEnjinRequest (
-    identity_id: 1,
-    type: MINT,
-    mint_token_data: {
-      token_id: "TOKEN_ID",
-      recipient_address_array: [
-        "WALLET_ADDRESS_1","WALLET_ADDRESS_2"
-      ]
-      value_array: [
-        5,3
-      ]
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
-```
+[MintFungibleItems](../examples/MintFungibleItems.gql)
+
 
 “WALLET_ADDRESS_1” 에 아이템 5개, 그리고 “WALLET_ADDRESS_2”에 아이템 3개를 민팅하는 요청입니다. 아이템의 `예치금/INITIAL RESERVE`만큼 민팅 가능합니다.
 
 **NFI (대체 불가능한 아이템):**
-```graphql
-mutation mintNonFungibleItems {
-  CreateEnjinRequest (
-    identity_id: 1,
-    type: MINT,
-    mint_token_data: {
-      token_id: "TOKEN_ID",
-      token_index: "0",
-      recipient_address_array: [
-        "WALLET_ADDRESS_1","WALLET_ADDRESS_1","WALLET_ADDRESS_1","WALLET_ADDRESS_1","WALLET_ADDRESS_1","WALLET_ADDRESS_2","WALLET_ADDRESS_2","WALLET_ADDRESS_2"
-      ]
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
-```
+[MintNonFungibleItems](../examples/MintNonFungibleItems.gql)
 
-“WALLET_ADDRESS_1” 에 아이템 5개, 그리고 “WALLET_ADDRESS_2”에 아이템 3개를 민팅하는 요청입니다. 
+
+“WALLET_ADDRESS_1” 에 아이템 5개, 그리고 “WALLET_ADDRESS_2”에 아이템 3개를 민팅하는 요청입니다.
 
 요청이 성공적으로 진행되면 개발자 지갑의 “NOTIFICATIONS” 에서 트랜잭션을 수락 및 서명해야 합니다.
 
@@ -168,24 +82,10 @@ URI 값은 클라이언트/고객의 ID 대체를 가능하게 합니다. 어떤
 
 만약 클라이언트/고객이 다음 토큰 ID`780000000000001e000000000000000000000000000000000000000000000000`을 사용할 경우, `https://token-cdn-domain/{id}.json` 를 다음 링크로 바꿉니다: `https://token-cdn-domain/780000000000001e000000000000000000000000000000000000000000000000.json`. 더 자세한 내용은 ERC-1155 표준 문서에 나온 [메타데이터](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#metadata) 섹션 참고 부탁 드립니다.
 
-```graphql
-mutation setItemURI{
-  CreateEnjinRequest (
-    identity_id: 1,
-    type: SET_ITEM_URI,
-    set_item_uri_data: {
-      token_id: "TOKEN_ID",
-      token_index: 0,
-      item_uri: "/METADATA.json"
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
-```
+[SetItemUri](../examples/SetItemUri.gql)
 
-저희 스키마(개요)에 탑재된 다양한 메타데이터 기능들에 대해 더 자세히 알고 싶으시면 [Enjin 메타데이터 스키마](../erc1155_metadata_json_schema.md)를 참고 부탁 드립니다. 
+
+저희 스키마(개요)에 탑재된 다양한 메타데이터 기능들에 대해 더 자세히 알고 싶으시면 [Enjin 메타데이터 스키마](../erc1155_metadata_json_schema.md)를 참고 부탁 드립니다.
 
 요청이 성공적으로 진행되면 개발자 지갑의 **NOTIFICATIONS** 에서 트랜잭션을 수락하고 서명하시면 됩니다.
 
@@ -207,7 +107,7 @@ Unity 설정은 쉽습니다. Unity Asset Store 에서 [Enjin Blockchain Asset](
 
 ![Import Package](../docs/images/unity_import_package.png)
 
-**Window->Enjin SDK**로 유니티 패널에 접근하세요. 
+**Window->Enjin SDK**로 유니티 패널에 접근하세요.
 
 가입 할때 사용한 Enjin 계정으로 로그인하세요.
 
@@ -257,13 +157,13 @@ Roles/역할은 앱 내 다양한 작업의 권한 및 접근성을 관리하는
 ## Identities Screen
 ![Identitites Screen](../docs/images/unity_identities_main.png)
 
-아이덴티티 스크린에서는 유저 계정을 이더리움 주소로 연결할 수 있습니다. 하나의 앱, 한명의 유저 당 아이덴티티 하나만 가능합니다. 즉, ENJ 생태계에서 유저 한명은 여러 앱에서 사용하는 여러 아이덴티티를 가질 수 있습니다. 
+아이덴티티 스크린에서는 유저 계정을 이더리움 주소로 연결할 수 있습니다. 하나의 앱, 한명의 유저 당 아이덴티티 하나만 가능합니다. 즉, ENJ 생태계에서 유저 한명은 여러 앱에서 사용하는 여러 아이덴티티를 가질 수 있습니다.
 
-아이덴티티는 2가지 형태가 가능합니다: 링크/연결 혹은 언링크/비연결. 연결된 아이덴티티는 유효한 퍼블릭 이더리움 주소를 보여주고 연결되지 않은 주소는 영숫자 집합의 6자리 링크 코드를 보여줍니다. 
+아이덴티티는 2가지 형태가 가능합니다: 링크/연결 혹은 언링크/비연결. 연결된 아이덴티티는 유효한 퍼블릭 이더리움 주소를 보여주고 연결되지 않은 주소는 영숫자 집합의 6자리 링크 코드를 보여줍니다.
 
-**개발자는** 링크/연결 코드로 본인의 모바일 혹은 지갑 데몬을 앱에 연동하여 아이템 생성/지급을 할 수 있습니다. 
+**개발자는** 링크/연결 코드로 본인의 모바일 혹은 지갑 데몬을 앱에 연동하여 아이템 생성/지급을 할 수 있습니다.
 
-**게임 유저들은** 링크/연결 코드로 플랫폼을 통해 게임 계정과 지갑을 게임에 연동할 수 있습니다.  
+**게임 유저들은** 링크/연결 코드로 플랫폼을 통해 게임 계정과 지갑을 게임에 연동할 수 있습니다.
 
 링크/연결 기능을 통해 개발자들은 앱 아이템을 관리할 수 있고, 게임 유저들은 아이템 거래 같은 게임 내 작업을 진행할 수 있습니다.
 
@@ -280,7 +180,7 @@ Cryptoitems 스크린은 Enjin Unity SDK의 핵심입니다. 이 메인 스크�
 
 2. 두번째, 아이템을 **민팅**해야 합니다. 예를 들어 붕어빵 기계로 붕어빵을 만드는 것입니다.
 
-#### 아이템은 2가지 타입이 있습니다: 대체 가능한 아이템 그리고 대체 불가능한 아이템 
+#### 아이템은 2가지 타입이 있습니다: 대체 가능한 아이템 그리고 대체 불가능한 아이템
 
 * **대체 가능한 아이템**은 다 동일하며 기본적으로 호환 가능합니다. 골드 코인, 녹슨 검 등과 같은 아이템들은 이 카테고리에 들어갑니다. 위에 언급한 붕어빵을 예로 들 경우, 대체 가능한 붕어빵들을 거래하면 서로 섞이더라도 알 수 없습니다
 
@@ -319,7 +219,7 @@ Metadata URI는 이미지 및 여러 속성을 설명하는 JSON이 담긴 URL�
 
 **전송 가능한 유형**
 아이템이 거래 가능한지 아니면 오너에게 귀속되었는지 (예를 들어 거래 불가능) 정하기
-* **PERMANENT**: 항상 거래 가능 
+* **PERMANENT**: 항상 거래 가능
 * **BOUND**: 아이템 제작자에게 귀속됨
 * **TEMPORARY**: 현재 거래 가능하지만, 향후 제작자가 원한다면 거래 불가능으로 변경 가능
 
@@ -331,7 +231,7 @@ Metadata URI는 이미지 및 여러 속성을 설명하는 JSON이 담긴 URL�
 
 * **PER_TRANSFER**: *전송 마다* 수수료를 ENJ로 부과. 예를 들어, `바나나` 전송 수수료가 전송 마다 `0.1 ENJ`일 경우, `0xPAT`이 10개의 바나나를 `0xERIC`에게 보내면 `0xPAT`은 바나나 아이템 제작자 `0xCREATOR`에게 0.1ENJ를 지불해야함.
 
-* **RATIO_CUT**: 대체 가능한 아이템에만 해당. 전송자가 지불하는 총 금액 중 총 아이템의 일부 %는 개발자에게 돌아감. 예를 들어, 10% ratio cut (0.1)이 설정된 골드 500개를 전송할 경우, 수령인은 450골드를 받고 개발자는 50을 받는다. 
+* **RATIO_CUT**: 대체 가능한 아이템에만 해당. 전송자가 지불하는 총 금액 중 총 아이템의 일부 %는 개발자에게 돌아감. 예를 들어, 10% ratio cut (0.1)이 설정된 골드 500개를 전송할 경우, 수령인은 450골드를 받고 개발자는 50을 받는다.
 
 또 다른 예시:
 
@@ -347,7 +247,7 @@ Metadata URI는 이미지 및 여러 속성을 설명하는 JSON이 담긴 URL�
 결과: `0xPAT`은 4,600 `골드`를 지불하고, `0xERIC`은 4000개를 받고 `0xCREATOR`은 600개를 받는다.
 
 **전송 수수료 Fee (ENJ or %)**
-전송 수수료 설정에 따라 ENJ나 대체 불가능한 아이템의 일정 퍼센티지로 지불 되는 수수료. 
+전송 수수료 설정에 따라 ENJ나 대체 불가능한 아이템의 일정 퍼센티지로 지불 되는 수수료.
 
 **멜팅 수수료 비율**
 아이템을 멜팅할 경우 제작자가 받을 ENJ 퍼센티지. 최대 50%까지 가능.
@@ -363,7 +263,7 @@ Cryptoitems 스크린에 가서 **Create**를 클릭하세요. 그리고 입력�
 
 ![Cryptoitems Create Item](../docs/images/unity_cryptoitems_example1_1.png)
 
-우선 천만개 더블룬을 만들기로 하고 향후 수량이 부족하면 추가해야 하니 공급 모델은 SETTABLE로 정합니다. 
+우선 천만개 더블룬을 만들기로 하고 향후 수량이 부족하면 추가해야 하니 공급 모델은 SETTABLE로 정합니다.
 
 한꺼번에 다 민팅할 예정이라서 예치금은 총 수량과 동일한 금액으로 정했습니다. 또한, 비용을 줄기이 위해 최소 ENJ금액으로 아이템을 민팅하기로 했습니다: 아이템을 많이 만들수록 아이템 개당 필요한 ENJ은 적습니다. 멜팅 가치를 0으로 설정할 경우 패널이 자동으로 필요한 최소 ENJ를 사용합니다.
 
@@ -371,7 +271,7 @@ Cryptoitems 스크린에 가서 **Create**를 클릭하세요. 그리고 입력�
 
 멜팅 수수료 비율도 0 으로 정했습니다. 즉, 유저들이 이 아이템을 멜팅하면 아이템에 들어가 있는 ENJ 모두 다 유저에게 돌아갑니다.
 
-CREATE를 클릭합니다. 이제 이 트랜잭션은 블록체인에 올라가고 지갑 서명이 필요합니다. 이 예시에서는 모바일 지갑을 사용하겠습니다. 다음과 같은 화면이 나타납니다: 
+CREATE를 클릭합니다. 이제 이 트랜잭션은 블록체인에 올라가고 지갑 서명이 필요합니다. 이 예시에서는 모바일 지갑을 사용하겠습니다. 다음과 같은 화면이 나타납니다:
 ![Cryptoitems Create Item](../docs/images/unity_cryptoitems_example1_2.png)
 
 생성 요청을 승인하면 얼마 뒤 Unity가 새로고침을 하고 새로 생성된 아이템을 보여줍니다:
@@ -384,7 +284,7 @@ CREATE를 클릭합니다. 이제 이 트랜잭션은 블록체인에 올라가�
 
 민팅할 수량은 자동으로 최대 설정됩니다. 원하시면 변경 가능합니다. 또한 민팅된 아이템들이 전송될 주소 역시 선택할 수 있습니다. 지갑 데몬이 있다면 아주 유용한 기능입니다. MINT를 클릭하세요.
 
-그러면 지갑에서 다음과 같은 알림이 뜹니다: 
+그러면 지갑에서 다음과 같은 알림이 뜹니다:
 ![Cryptoitems Create Item](../docs/images/unity_cryptoitems_example1_5.png)
 
 수락하시고 기다리세요. 트랜잭션이 블록체인에서 컨펌되면 Unity가 새로고침을 하고 더블룬이 뜹니다. 모바일 지갑으로 민팅했다면 지갑 내 컬렉티블/소장용 아이템 탭에서 볼 수 있습니다.
@@ -399,21 +299,21 @@ CREATE를 클릭합니다. 이제 이 트랜잭션은 블록체인에 올라가�
 
 ![Cryptoitems Create Item 2](../docs/images/unity_cryptoitems_example2_1.png)
 
-이 세상에 존재하는 수량은 딱 10개로 정해놓고 각 아이템마다 1ENJ을 넣습니다. 공급 모델은 FIXED로 정합니다. 즉, 동시에 유통되는 수량은 딱 10개 뿐이지만 원한다면 멜팅 후 다시 10개를 민팅할 수 있습니다. 
+이 세상에 존재하는 수량은 딱 10개로 정해놓고 각 아이템마다 1ENJ을 넣습니다. 공급 모델은 FIXED로 정합니다. 즉, 동시에 유통되는 수량은 딱 10개 뿐이지만 원한다면 멜팅 후 다시 10개를 민팅할 수 있습니다.
 
 전송 수수료도 추가해서 Vorpal Sword가 거래 될때마다 0.1ENJ 수수료가 부과 되도록 설정합니다. 전송 수수료는 아이템 제작자에게 갑니다.
 
-이제 **대체 불가능한 아이템**을 선택하신 후 **CREATE**를 클릭하세요. 
+이제 **대체 불가능한 아이템**을 선택하신 후 **CREATE**를 클릭하세요.
 
-생성 과정은 대체 가능한 아이템과 동일합니다. 지갑에서 생성 요청을 수락한 후 Unity 패널이 새로고침 할때까지 기다린 후 아이템이 블록체인 위에 생성 되었다는 컨펌을 받으세요. 
+생성 과정은 대체 가능한 아이템과 동일합니다. 지갑에서 생성 요청을 수락한 후 Unity 패널이 새로고침 할때까지 기다린 후 아이템이 블록체인 위에 생성 되었다는 컨펌을 받으세요.
 
 하지만 대체불가능한 아이템을 민팅하는 과정은 살짝 다릅니다. 한번에 한개씩만 민팅 가능하며 각 민팅은 개별 트랜잭션으로 간주됩니다.
 
 ![Cryptoitems Mint NFI](../docs/images/unity_cryptoitems_example2_2.png)
 
-또한, 각 NFI(대체 불가능한 아이템)는 각자 유니크하기 때문에 Unity의 cryptoitem 목록에서 개별 항목으로 나타납니다. 
+또한, 각 NFI(대체 불가능한 아이템)는 각자 유니크하기 때문에 Unity의 cryptoitem 목록에서 개별 항목으로 나타납니다.
 
-만약 대체불가능한 아이템을 대량으로 민팅할 계획이라면 GraphiQL 콘솔을 사용해서 절차를 간소화하는 것을 추천합니다. 
+만약 대체불가능한 아이템을 대량으로 민팅할 계획이라면 GraphiQL 콘솔을 사용해서 절차를 간소화하는 것을 추천합니다.
 
 마지막으로 대체불가능한 아이템을 가지고 작업할 때 트랜잭션 숫자에 주의하시길 바랍니다. 각 아이템이 유니크하기 때문에 트랜잭션들이 빨리 누적됩니다.
 

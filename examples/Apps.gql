@@ -1,0 +1,6 @@
+query Apps {
+  EnjinApps {
+    id
+    name
+  }
+}

@@ -15,7 +15,7 @@ mutation CreateTrade($appId: Int!, $askingTokenId: String!, $askingValue: Int!, 
     second_party_identity_id: $secondPartyIdentityId
   }) {
     id
-    encoded_data
+    encodedData
     state
   }
 }

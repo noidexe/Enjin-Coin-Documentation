@@ -1,0 +1,18 @@
+query Identities($page: Int, $perPage: Int) {
+  EnjinIdentities(
+    pagination: {
+      page: $page
+      limit: $perPage
+    }
+  ) {
+    id
+    linkingCode
+    app {
+      name
+    }
+    wallet {
+      enjAllowance
+      ethAddress
+    }
+  }
+}

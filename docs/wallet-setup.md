@@ -73,37 +73,13 @@ To accept and sign any transactions, you will need to link your Enjin Wallet (De
 
 You can find the link code with the following query:
 
-```graphql
-query viewIdentities{
-  EnjinIdentities (
-    pagination: {
-      page: 1,
-      limit: 50
-    }
-  ) {
-    id
-    app {
-      name
-    }
-    linking_code
-    enj_allowance
-    ethereum_address
-  }
-}
-```
+[Identities](../examples/Identities.gql)
+
 You should be given a 6 character linking code to enter into your dev wallet app in the **LINKED APPS** section. Mainnet code starts with “A”, while Kovan starts with “B”. You will need to choose which wallet to link (if you have multiple wallets imported).
 
 To reset your linked wallet, use the following query and replace the id with your identity_id. You can find this by using the query above.
-```graphql
-mutation unlinkWallet{
-  DeleteEnjinIdentity (
-    id: identity_id,
-    unlink: true
-  ) {
-    linking_code
-  }
-}
-```
+[UnlinkWallet](../examples/UnlinkWallet.gql)
+
 
 ## Approving ENJ
 To prepare for item creation, you will need to pre-approve ENJ to the CryptoItems smart contract.  When linking your wallet for the first time an approve transaction will automatically be created for you to sign.  If you check the **REQUESTS** section of the wallet you should see and APPROVE ENJ transaction ready to sign.  Accept the transaction request to approve the ENJ.
@@ -111,33 +87,8 @@ To prepare for item creation, you will need to pre-approve ENJ to the CryptoItem
 By default the automatic approval transaction will approve the maximum amount of ENJ possible.  If you wish to change the pre-approval amount you will need to make sure you have set approval to 0 first before approving your actual value (use -1 for max ENJ possible). You do not need to multiply value by 10^18 for this request. You don’t need to do this if you have previously approved a sufficient amount of ENJ to use (i.e approved
 wallet transaction above)
 
-```graphql
-mutation ApproveENJ{
-  CreateEnjinRequest (
-    identity_id: 1,
-    type: APPROVE,
-    approve_enj_data: {
-      value: 0
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
+[ApproveENJ](../examples/ApproveENJ.gql)
 
-mutation ApproveMAXENJ{
-  CreateEnjinRequest (
-    identity_id: 1,
-    type: APPROVE,
-    approve_enj_data: {
-      value: -1
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
-```
 
 Once a successful request has been made, you will need to accept and sign the transaction in the **REQUESTS** section of your dev wallet.
 

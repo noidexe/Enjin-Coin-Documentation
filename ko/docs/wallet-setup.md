@@ -60,39 +60,15 @@ WALLETS를 탭해서 지갑 주소를 찾으세요. ETH 나 ENJ entry 중 하나
 
 링크 코드는 다음 쿼리로 찾을 수 있습니다:
 
-```graphql
-query viewIdentities{
-  EnjinIdentities (
-    pagination: {
-      page: 1,
-      limit: 50
-    }
-  ) {
-    id
-    app {
-      name
-    }
-    linking_code
-    enj_allowance
-    ethereum_address
-  }
-}
-```
+[Identities](../examples/Identities.gql)
+
 
 **LINKED APPS** 섹션에서 개발자 지갑 앱에 입력할 수 있는 6 글자의 링크 코드를 받게 됩니다. 메인넷 코드는 “A”로 시작하고 Kovan 코드는 “B”로 시작합니다. (한 개 이상의 지갑을 불러온 경우) 링크할 지갑을 선택해야 합니다.
 
 링크/연결된 지갑을 초기화 하기 위해서는 아래 쿼리를 사용하세요. Id를 본인의 identity_id로 대체하시면 됩니다. 이 부분은 위에 있는 쿼리를 사용해서 찾을 수 있습니다.
 
-```graphql
-mutation unlinkWallet{
-  DeleteEnjinIdentity (
-    id: identity_id,
-    unlink: true
-  ) {
-    linking_code
-  }
-}
-```
+[UnlinkWallet](../examples/UnlinkWallet.gql)
+
 
 ## ENJ 승인하기
 
@@ -100,33 +76,8 @@ mutation unlinkWallet{
 
 자동화된 승인 트랜잭션은 디폴트로 최대 가능한 ENJ를 승인합니다. 만약 사전 승인 금액을 변경하고 싶다면 실제 가치를 승인하기 전 승인을 0으로 설정해야 합니다 (최대 가능한 ENJ으로 설정하려면 -1 사용). 이 요청을 위해서는 가치를 10^18로 곱할 필요가 없습니다. 예전에 이미 충분한 ENJ 금액을 승인했다면 이 작업을 안해도 됩니다 (예를 들어 위에 나온 지갑 트랜잭션 승인 내용).
 
-```graphql
-mutation ApproveENJ{
-  CreateEnjinRequest (
-    identity_id: 1,
-    type: APPROVE,
-    approve_enj_data: {
-      value: 0
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
+[ApproveENJ](../examples/ApproveENJ.gql)
 
-mutation ApproveMAXENJ{
-  CreateEnjinRequest (
-    identity_id: 1,
-    type: APPROVE,
-    approve_enj_data: {
-      value: -1
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
-```
 
 성공적으로 요청이 되면 개발자 지갑의 **NOTIFICATIONS** 에서 트랜잭션을 수락 후 서명하시면 됩니다.
 
