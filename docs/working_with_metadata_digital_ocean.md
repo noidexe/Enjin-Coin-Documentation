@@ -48,20 +48,6 @@ In Unity, select the item and hit EDIT. Fill in the URI field.
 
 In the Platform API (GraphQL), you can set the URI for the item like so:
 
-```graphql
-mutation createTokenRequest {
-  CreateEnjinRequest (
-    identity_id: 400,
-    type: SET_ITEM_URI,
-    set_item_uri_data: {
-      token_id: "700000000000010e",
-      token_index: 0,
-      item_uri: "https://enjintest.sfo2.digitaloceanspaces.com/doubloon%7BI%7D.json"
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
-```
+[CreateToken](../examples/CreateToken.gql)
+
 Note that in either case setting the URI is a blockchain transaction that you will need to approve.

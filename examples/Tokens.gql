@@ -1,0 +1,23 @@
+query Tokens($name: String, $page: Int, $perPage: Int) {
+  tokens: EnjinTokens(
+    name: $name
+    pagination: { page: $page, limit: $perPage }
+  ) {
+    id
+    name
+    creator
+    meltValue
+    meltFeeRatio
+    meltFeeMaxRatio
+    supplyModel
+    totalSupply
+    circulatingSupply
+    reserve
+    transferable
+    nonFungible
+    blockHeight
+    markedForDelete
+    availableToMint
+    itemURI
+  }
+}
