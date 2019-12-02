@@ -81,8 +81,8 @@ You can find the link code with the following query:
 
 You should be given a 6 character linking code to enter into your dev wallet app in the **LINKED APPS** section. Mainnet code starts with “A”, while Kovan starts with “B”. You will need to choose which wallet to link (if you have multiple wallets imported).
 
-To reset your linked wallet, use the following query and replace the id with your identity_id. You can find this by using the query above.
-[UnlinkWallet](../examples/UnlinkWallet.gql)
+To reset your linked wallet, use the following query.
+[UnlinkIdentity](../examples/UnlinkIdentity.gql)
 
 
 ## Approving ENJ

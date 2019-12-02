@@ -67,7 +67,7 @@ WALLETS를 탭해서 지갑 주소를 찾으세요. ETH 나 ENJ entry 중 하나
 
 링크/연결된 지갑을 초기화 하기 위해서는 아래 쿼리를 사용하세요. Id를 본인의 identity_id로 대체하시면 됩니다. 이 부분은 위에 있는 쿼리를 사용해서 찾을 수 있습니다.
 
-[UnlinkWallet](../examples/UnlinkWallet.gql)
+[UnlinkIdentity](../examples/UnlinkIdentity.gql)
 
 
 ## ENJ 승인하기

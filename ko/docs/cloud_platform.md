@@ -73,7 +73,7 @@ Trusted Cloud에 하나 이상의 앱을 만들어야합니다. 앱은 모든 �
 **LINKED APPS** 섹션에서 개발자 지갑 앱에 들어가려면 6 문자의 링크 코드가 주어져야 합니다. 메인넷 코드는 “A”로 시작하고 Kovan은 “B”로 시작됩니다. 그리고 어떤 지갑을 연결할지 선택해야 합니다 (불러온 지갑이 여러 개인 경우).
 
 링크 된 지갑을 재설정하려면 다음 쿼리를 사용하면 되고 id는 당신의  identity_id로 바꿉니다. 이는 위의 쿼리를 사용하여 찾을 수 있습니다.
-[UnlinkWallet](../examples/UnlinkWallet.gql)
+[UnlinkIdentity](../examples/UnlinkIdentity.gql)
 
 
 ## ENJ 승인하기
