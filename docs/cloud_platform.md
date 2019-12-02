@@ -184,19 +184,6 @@ consult the [Enjin Metadata Schema](../erc1155_metadata_json_schema.md) for deta
 Once a successful request has been made, you will need to accept and sign the transaction in the **NOTIFICATIONS** section of your dev wallet.
 
 
-## Working with Roles
-
-You can list roles as follows:
-
-[All_roles](../examples/Roles.gql)
-
-
-To update a user, make sure you have your app id set. You need to set **all**
-the roles you want the user to have in one shot. Any roles not passed will be cleared from the user.
-
-[SetRoles](../examples/SetRoles.gql)
-
-
 ## Updating Users (including yourself)
 You can update your user name, email, and password by running the following request. Replacing with your User ID, new name, new email and new password.
 

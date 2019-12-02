@@ -150,10 +150,6 @@ Unity 설정은 쉽습니다. Unity Asset Store 에서 [Enjin Blockchain Asset](
 
 **Search** 박스에서 유저를 검색 할 수 있습니다.
 
-![Roles Screen](../docs/images/unity_team_roles.png)
-
-Roles/역할은 앱 내 다양한 작업의 권한 및 접근성을 관리하는 가능 입니다. 게임 니즈에 따라 역할을 **생성**, **수정** 그리고 **삭제** 할 수 있습니다. 전반적으로 2개의 역할이 있습니다. 하나는 모든 권한이 있는 관리자 (본인), 나머지 하나는 제한된 권한이 있는 일반 유저들입니다.
-
 ## Identities Screen
 ![Identitites Screen](../docs/images/unity_identities_main.png)
 

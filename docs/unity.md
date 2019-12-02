@@ -60,7 +60,7 @@ make sure you are using the right credentials for your account.
 ### Home Screen
 ![Home Screen](../docs/images/unity_home_logged_in.png)
 
-When logged in, your home screen is where you can review your login information, but is also where you manage your apps. You are going to want to have one app per game.  
+When logged in, your home screen is where you can review your login information, but is also where you manage your apps. You are going to want to have one app per game.
 
 Click **Create App** button to add the app to you platform. You can set the name, image URL and description of the app in the fields. Make sure the image is publicly accessible for it to show up in the wallet.
 
@@ -71,15 +71,11 @@ Use the app drop down to select the app you want to work with for this session, 
 
 The team screen is where you create, edit and remove team members from your app. You can also see player accounts that have been added to your app as people are playing.
 
-To create a team member, click **Create Member**. Enter a username, password, and role for this user.
+To create a team member, click **Create Member**. Enter a username and password for this user.
 
 To edit an existing user, click **Edit** while the given user is selected.
 
 You can search for users using the **Search** box.
-
-![Roles Screen](../docs/images/unity_team_roles.png)
-
-Roles are way for you to control access and permissions for various operations in your app. You can **Create**, **Edit** and **Delete** roles depending on the needs of you game. In general, you'll have two roles: one for the Admin (you!), with permission to do anything, and one for regular players, who generally have a much smaller set of permissions.
 
 ## Identities Screen
 ![Identitites Screen](../docs/images/unity_identities_main.png)
@@ -122,7 +118,7 @@ patterns. If we traded non-fungible cookies we would easily be able to identify 
 we traded.
 
 There are some key workflow differences between fungible and non-fungible items that will
-be highlighted as they come up in this guide.  
+be highlighted as they come up in this guide.
 
 #### Creating items
 ![Cryptoitems Create Item](../docs/images/unity_cryptoitems_create2.png)
