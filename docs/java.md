@@ -62,13 +62,8 @@ public Client createSdkClient() {
 Next step is to authenticate our client using the app secret. To obtain the app secret you can execute
 the following query on the Trusted Platform GraphQL interface:
 
-```graphql
-query GetAppSecret {
-    EnjinApps(id: 307) {
-        secret
-    }
-}
-```
+[AppSecret](../examples/AppSecret.gql)
+
 
 The following is an example of how to authenticate a client:
 

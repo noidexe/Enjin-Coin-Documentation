@@ -1,0 +1,7 @@
+mutation CancelTransaction($id: Int) {
+  transaction: UpdateEnjinRequest(id: $id state: CANCELED_USER) {
+    id
+    title
+    state
+  }
+}

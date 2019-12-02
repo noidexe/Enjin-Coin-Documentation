@@ -4,7 +4,7 @@
 
 메타데이터의 전체 JSON schema는 [여기서](./erc1155_metadata_json_schema.md) 확인 하시면 됩니다.
 
-## 시작하기 
+## 시작하기
 
 Digital Ocean에 계정을 만듭니다. 계정을 만든 후, 신규 프로젝트를 생성하고, [Space](https://www.digitalocean.com/docs/spaces/) 를 만드세요.
 
@@ -20,7 +20,7 @@ Space를 클릭하세요.
 
 이미지 권한을 퍼블릭으로 설정 하세요.
 
-JSON 데이터가 해당 이미지로 가리키도록 수정하세요: 
+JSON 데이터가 해당 이미지로 가리키도록 수정하세요:
 
 ```json
 {
@@ -32,7 +32,7 @@ JSON 데이터가 해당 이미지로 가리키도록 수정하세요:
 }
 ```
 
-완성된 JSON을 Digital Ocean Space에 업로드 하세요. 그럼 아래 이미지처럼 보입니다: 
+완성된 JSON을 Digital Ocean Space에 업로드 하세요. 그럼 아래 이미지처럼 보입니다:
 
 ![Digital Ocean Upload](../docs/images/metadata_digitalocean_upload.png)
 
@@ -44,23 +44,8 @@ Unity에서 아이템 선택 후 EDIT을 누르세요. URI 필드에 필요한 �
 
 플랫폼 API (GraphQL)에서는 URI를 다음 같이 설정할 수 있습니다:
 
-```graphql
-mutation createTokenRequest {
-  CreateEnjinRequest (
-    identity_id: 400,
-    type: SET_ITEM_URI,
-    set_item_uri_data: {
-      token_id: "700000000000010e",
-      token_index: 0,
-      item_uri: "https://enjintest.sfo2.digitaloceanspaces.com/doubloon%7BI%7D.json"
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
-```
+[CreateToken](../examples/CreateToken.gql)
+
 
 URI 설정은 두가지 방식에서 모두 승인이 필요한 블록체인 트랜잭션입니다.
 
- 

@@ -1,0 +1,8 @@
+mutation UnlinkIdentity($id: Int!) {
+  identity: UnlinkIdentity(id: $id) {
+    id
+    wallet {
+      ethAddress
+    }
+  }
+}

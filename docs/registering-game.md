@@ -27,55 +27,19 @@ On the (top) left panel, you would enter in your request to be made to the TC. P
 ## Login and Authenticating Your Requests
 You will need to **authenticate your requests** made via the TC. To authenticate your request, you will need an access token. Use this request to get your access token:
 
-```graphql
-query login{
-  EnjinOauth (
-    email: "MY_ACCOUNT_EMAIL",
-    password: "MY_ACCOUNT_PASSWORD"
-  ) {
-    id,
-    name,
-    email,
-    access_tokens,
-    identities {
-      id,
-      app {
-        id,
-        name
-      }
-    }
-  }
-}
-```
+[Login](../examples/Login.gql)
+
 
 ## Creating Your App
 You will need to create at least one App in order to work with the Trusted Cloud. An app is a central container for all of your items and players. For example your app will appear as one of the “Collections” where your items will appear in the user’s Enjin wallet.
 
-```graphql
-mutation createApp{
-  CreateEnjinApp (
-    name: "Doge",
-    description: "Much apps. Such wow.",
-    image: "/doge.jpg"
-  ) {
-    id
-    name
-    description
-    image
-  }
-}
-```
+[CreateApp](../examples/CreateApp.gql)
+
 
 One important thing to note is your App ID. If you already created an app, but forget the id, you can look it up with the following query:
 
-```graphql
-query apps {
-  EnjinApps{
-    id,
-    name
-  }
-}
-```
+[Apps](../examples/Apps.gql)
+
 
 You will need a name, description and an (optional) link to a hosted image for your app. You should get the App ID in the response if it was successful.
 
@@ -83,20 +47,8 @@ You will need a name, description and an (optional) link to a hosted image for y
 
   If you are an Admin for your app (you are admin by default if you created the app), you can create new user accounts directly in GraphiQL with the following mutation, if desired:
 
-```graphql
-mutation createNewUser{
-  CreateEnjinUser (
-    name: "USERNAME",
-    email: "EMAIL",
-    password: "PASSWORD"
-  ) {
-    id
-    name
-    email
-    access_tokens
-  }
-}
-```
+[CreateUser](../examples/CreateUser.gql)
+
 
 _NOTE: Accounts are not shared between Testnet & Mainnet TC servers. You will need an account on each server if you want to use both platforms._
 

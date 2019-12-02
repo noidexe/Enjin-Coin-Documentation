@@ -28,20 +28,8 @@ On the (top) left panel, you would enter in your request to be made to the TC. P
 
   If you have not already signed up, you can create a user account directly in GraphiQL with the following mutation:
 
-```graphql
-mutation createNewUser{
-  CreateEnjinUser (
-    name: "USERNAME",
-    email: "EMAIL",
-    password: "PASSWORD"
-  ) {
-    id
-    name
-    email
-    access_tokens
-  }
-}
-```
+[CreateUser](../examples/CreateUser.gql)
+
 
 _Accounts are not shared between Kovan & Mainnet TP servers. You will need an account on each server if you want to use both platforms._
 
@@ -50,49 +38,20 @@ If you are an Admin user for an app you can also use the above mutation to creat
 ## Login and Authenticating Your Requests
 You will need to **authenticate your requests** made via the TC. To authenticate your request, you will need an access token. Use this request to get your access token:
 
-```graphql
-query login{
-  EnjinOauth (
-    email: "MY_ACCOUNT_EMAIL",
-    password: "MY_ACCOUNT_PASSWORD"
-  ) {
-    id,
-    name,
-    email,
-    access_tokens
-  }
-}
-```
+[Login](../examples/Login.gql)
+
 
 ## Creating Your App
 You will need to create at least one App on the Trusted Cloud. An app is a central
 container for all of your items and players. For example your app will appear as one of the “Collections” where your items will appear in the user’s wallet.
 
-```graphql
-mutation createApp{
-  CreateEnjinApp (
-    name: "Doge",
-    description: "Much apps. Such wow.",
-    image: "/doge.jpg"
-  ) {
-    id
-    name
-    description
-    image
-  }
-}
-```
+[CreateApp](../examples/CreateApp.gql)
+
 
 One important thing to know is your App ID. If you already created an app, but forget the id, you can look it up with the following query:
 
-```graphql
-query apps {
-  EnjinApps{
-    id,
-    name
-  }
-}
-```
+[Apps](../examples/Apps.gql)
+
 
 You will need a name, description and a link to a hosted image for your app. You should get the App ID in the response if it was successful.
 
@@ -118,37 +77,13 @@ To accept and sign any transactions, you will need to link your Enjin Wallet (De
 
 You can find the link code with the following query:
 
-```graphql
-query viewIdentities{
-  EnjinIdentities (
-    pagination: {
-      page: 1,
-      limit: 50
-    }
-  ) {
-    id
-    app {
-      name
-    }
-    linking_code
-    enj_allowance
-    ethereum_address
-  }
-}
-```
+[Identities](../examples/Identities.gql)
+
 You should be given a 6 character linking code to enter into your dev wallet app in the **LINKED APPS** section. Mainnet code starts with “A”, while Kovan starts with “B”. You will need to choose which wallet to link (if you have multiple wallets imported).
 
-To reset your linked wallet, use the following query and replace the id with your identity_id. You can find this by using the query above.
-```graphql
-mutation unlinkWallet{
-  DeleteEnjinIdentity (
-    id: identity_id,
-    unlink: true
-  ) {
-    linking_code
-  }
-}
-```
+To reset your linked wallet, use the following query.
+[UnlinkIdentity](../examples/UnlinkIdentity.gql)
+
 
 ## Approving ENJ
 To prepare for item creation, you will need to pre-approve ENJ to the CryptoItems smart contract.  When linking your wallet for the first time an approve transaction will automatically be created for you to sign.  If you check the **NOTIFICATIONS** section of the wallet you should see and APPROVE ENJ transaction ready to sign.  Accept the transaction request to approve the ENJ.
@@ -156,33 +91,8 @@ To prepare for item creation, you will need to pre-approve ENJ to the CryptoItem
 By default the automatic approval transaction will approve the maximum amount of ENJ possible.  If you wish to change the pre-approval amount you will need to make sure you have set approval to 0 first before approving your actual value (use -1 for max ENJ possible). You do not need to multiply value by 10^18 for this request. You don’t need to do this if you have previously approved a sufficient amount of ENJ to use (i.e approved
 wallet transaction above.)
 
-```graphql
-mutation ApproveENJ{
-  CreateEnjinRequest (
-    identity_id: 1,
-    type: APPROVE,
-    approve_enj_data: {
-      value: 0
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
+[ApproveENJ](../examples/ApproveENJ.gql)
 
-mutation ApproveMAXENJ{
-  CreateEnjinRequest (
-    identity_id: 1,
-    type: APPROVE,
-    approve_enj_data: {
-      value: -1
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
-```
 
 Once a successful request has been made, you will need to accept and sign the transaction in the **NOTIFICATIONS** section of your dev wallet.
 
@@ -192,32 +102,8 @@ Creating an item is like creating a template that you will use to mint your item
 To create an item, you will need to make a request with the desired item properties. Here is
 an example:
 
-```graphql
-mutation createTokenRequest{
-  CreateEnjinRequest (
-    identity_id: 1,
-    type: CREATE,
-    create_token_data: {
-      name: "ITEM_NAME",
-      totalSupply: 100,
-      initialReserve: 50,
-      supplyModel: FIXED,
-      meltValue: "15000000000000000000",
-      meltFeeRatio: 1250,
-      transferable: PERMANENT,
-      transferFeeSettings: {
-        type: PER_TRANSFER,
-        token_id: "0",
-        value: "1000000000000000000"
-      }
-      nonFungible: false
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
-```
+[CreateToken](../examples/CreateToken.gql)
+
 
 Property | Descriptions
 ---|---
@@ -244,36 +130,8 @@ You can either find the Token ID on the transaction with that item after it conf
 
 NOTE: If you find your Token ID via the blockchain rather than the TP then it will be in integer form, you will need to convert this number to hex and take just the 'upper' 32 bits of the resulting value (which represents the Base Token ID) before using it in many of the GraphQL mutations. You can use a service such as [Rapid Tables](https://www.rapidtables.com/convert/number/decimal-to-hex.html) to do this.
 
-```graphql
-query viewTokens{
-  EnjinTokens (
-    name: "ITEM_NAME",
-    pagination: {
-      page: 1,
-      limit: 50
-    }
-  ) {
-    token_id
-    name
-    creator
-    meltValue
-    meltFeeRatio
-    meltFeeMaxRatio
-    supplyModel
-    totalSupply
-    circulatingSupply
-    reserve
-    transferable
-    nonFungible
-    blockHeight
-    markedForDelete
-    created_at
-    updated_at
-    availableToMint
-    itemURI
-  }
-}
-```
+[Tokens](../examples/Tokens.gql)
+
 Enter in the `ITEM NAME` to search for that item. Alternatively, you can make the request without the name parameter to return all items on your app.
 
 ## Minting the Item
@@ -282,55 +140,14 @@ Minting items is using the template you created in the CREATE step to
 instantiate some items on the blockchain. The request for minting fungible items (FIs) vs non-fungible items (NFIs) varies slightly. You can batch mint to multiple addresses if you wish to do so. The differences are that if you need to mint multiple NFIs, you will need to specify the wallet address for each individual item. Ideally try to avoid minting over 100 NFIs in a single transaction, FIs do not have this restriction. Here is the same request between 2 different items types, FI and NFI.
 
 **FI:**
-```graphql
-mutation mintFungibleItems {
-  CreateEnjinRequest (
-    identity_id: 1,
-    type: MINT,
-    mint_token_data: {
-      token_id: "TOKEN_ID",
-      recipient_address_array: [
-        "WALLET_ADDRESS_1","WALLET_ADDRESS_2"
-      ]
-      value_array: [
-        5,3
-      ]
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
-```
+[MintFungibleItems](../examples/MintFungibleItems.gql)
+
 This request would mint 5x items to “WALLET_ADDRESS_1” and 3x items to “WALLET_ADDRESS_2”.
 You can mint up to `INITIAL RESERVE` of items.
 
 **NFI:**
-```graphql
-mutation mintNonFungibleItems {
-  CreateEnjinRequest (
-    identity_id: 1,
-    type: MINT,
-    mint_token_data: {
-      token_id: "TOKEN_ID",
-      token_index: "0",
-      recipient_address_array: [
-        "WALLET_ADDRESS_1",
-        "WALLET_ADDRESS_1",
-        "WALLET_ADDRESS_1",
-        "WALLET_ADDRESS_1",
-        "WALLET_ADDRESS_1",
-        "WALLET_ADDRESS_2",
-        "WALLET_ADDRESS_2",
-        "WALLET_ADDRESS_2"
-      ]
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
-```
+[MintNonFungibleItems](../examples/MintNonFungibleItems.gql)
+
 This request would mint 5x items to “WALLET_ADDRESS_1” and 3x items to “WALLET_ADDRESS_2”.
 
 Once a successful request has been made, you will need to accept and sign the transaction in the “NOTIFICATIONS” section of your dev wallet.
@@ -358,22 +175,8 @@ unfamiliar with hosting files.
 **Advanced Users:**
 The URI value allows for ID substitution by clients. If the string `{id}` exists in any URI, clients MUST replace this with the actual token ID in hexadecimal form. This allows for large number of tokens to use the same on-chain string by defining a URI once, for a large collection of tokens. Example of such a URI: `https://token-cdn-domain/{id}.json` would be replaced with `https://token-cdn-domain/780000000000001e000000000000000000000000000000000000000000000000.json` if the client is referring to token ID `780000000000001e000000000000000000000000000000000000000000000000`. See [Metadata](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#metadata) section in the ERC-1155 standards documentation for full details.
 
-```graphql
-mutation setItemURI{
-  CreateEnjinRequest (
-    identity_id: 1,
-    type: SET_ITEM_URI,
-    set_item_uri_data: {
-      token_id: "TOKEN_ID",
-      token_index: 0,
-      item_uri: "/METADATA.json"
-    }
-  ) {
-    id,
-    encoded_data
-  }
-}
-```
+[SetItemUri](../examples/SetItemUri.gql)
+
 
 There are many other built in features for metadata built into our schema,
 consult the [Enjin Metadata Schema](../erc1155_metadata_json_schema.md) for details.
@@ -381,66 +184,16 @@ consult the [Enjin Metadata Schema](../erc1155_metadata_json_schema.md) for deta
 Once a successful request has been made, you will need to accept and sign the transaction in the **NOTIFICATIONS** section of your dev wallet.
 
 
-## Working with Roles
-
-You can list roles as follows:
-
-```graphql
-query all_roles {
-  EnjinRoles
-	{
-    id,
-    name,
-    app_id
-  }
-}
-```
-
-To update a user, make sure you have your app id set. You need to set **all**
-the roles you want the user to have in one shot. Any roles not passed will be cleared from the user.
-
-```graphql
-mutation setRoles{
-  UpdateEnjinUser(id:1, roles:["Admin"]){
-    id,
-    roles{
-      id,
-      name,
-      app_id
-    }
-  }
-}
-```
-
 ## Updating Users (including yourself)
 You can update your user name, email, and password by running the following request. Replacing with your User ID, new name, new email and new password.
 
-```graphql
-mutation updateUser{
-  UpdateEnjinUser (
-    id: USER_ID
-    name: "NEW NAME",
-    email: "NEW EMAIL",
-    password: "NEW PASSWORD"
-  ) {
-    id
-    name
-    email
-  }
-}
-```
+[UpdateUser](../examples/UpdateUser.gql)
+
 
 ## Tips and tricks
 
 If the wallet daemon is complaining about a transaction with invalid parameters
 that needs to be reverted, you can revert the transaction
 
-```graphql
-mutation CancelTransaction {
-  UpdateEnjinRequest(id:XXXX state:CANCELED_USER) {
-    id
-    title
-    state
-  }
-}
-```
+[CancelTransaction](../examples/CancelTransaction.gql)
+

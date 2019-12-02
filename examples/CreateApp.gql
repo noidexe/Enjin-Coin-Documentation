@@ -1,0 +1,8 @@
+mutation CreateApp($name: String, $description: String, $image: String) {
+  app: CreateEnjinApp(name: $name, description: $description, image: $image) {
+    id
+    name
+    description
+    image
+  }
+}
