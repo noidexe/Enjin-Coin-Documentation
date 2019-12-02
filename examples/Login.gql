@@ -4,10 +4,5 @@ query Login($email: String!, $password: String!) {
     name
     email
     accessTokens
-    identities {
-      id
-      appId
-      ethAddress
-    }
   }
 }
