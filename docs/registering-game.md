@@ -2,7 +2,7 @@
 
 To register your game, first, you must sign up to the [Enjin developer portal](https://kovan.cloud.enjin.io/signup). This will give you an account and credentials to access the Trusted Cloud services.
 
-There are two separate versions of Ethereum, **Testnet** and **Mainnet**, which you can interact with via two seperate Trusted Cloud servers.
+**Testnet** and **Mainnet** are two different versions of Ethereum that can be accessed via two seperate Trusted Cloud servers.
 
 **Testnet** (Kovan) is a development version of Ethereum where you can test Enjin's Smart Contracts and obtain false Ethereum (KETH) and Enjin Coin (KENJ) to develop your implementation in a safe, simulated environment without spending any legitimate form of cryptocurrency.
 
