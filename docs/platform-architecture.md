@@ -1,12 +1,12 @@
-# Enjin's Architecture
+# Enjin Platform Architecture
 
-Now that you have a working [understanding of Enjin and Ethereum](enjin.md), it's time for you to understand in more detail how the different components that make up Enjin's platform interact with one another.
-
-The interaction model is intuitive when considering your game alone: first the user sends their input to the game, the game processes it, and then the result is displayed to the user. Consider the following example. In your game, the user wants to sell a sword. Your game removes the sword from the user's inventory and rewards them with gold. Then the user sees the sword disappear from their inventory. But how does this flow change when Ethereum comes into play?
+Managing a live blockchain game requires a robust ecosystem of architecture that is in constant communication with the Ethereum Network.
 
 ![A diagram of Enjin's Architecture](images/platform-architecture.png)
 
-As this diagram shows, a basic interaction involving one of Enjin's truly-owned game items is a simple six step process. In this example, let us still consider the case of the user trying to sell a sword:
+As this diagram shows, a basic blockchain interaction is a simple six step process. 
+
+In this example, let us still consider the case of the user trying to sell a sword:
 1. The user interacts with your game. They tell the game to sell a sword.
 2. Your game issues a web request to Enjin's Trusted Cloud. The request tells Enjin to remove the sword from the user's inventory.
 3. The Trusted Cloud sends a transaction request to the user's Enjin Wallet app. The requested transaction is one that would remove the sword.
