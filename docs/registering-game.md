@@ -1,22 +1,19 @@
 # Registering Your Game
 
-You understand what [item interactions on our Trusted Cloud](platform-architecture.md) look like, so you're ready to register a game of your own to work on.
+To register your game, first, you must sign up [on the Enjin developer portal](https://kovan.cloud.enjin.io/signup). This will give you an account and credentials to access the Trusted Cloud services.
 
-First, you must sign up [on the Enjin developer portal](https://kovan.cloud.enjin.io/signup) if you haven't done so already. This will give you an account and credentials to access the Trusted Cloud services.
+There are two separate versions of Ethereum, **Testnet** and **Mainnet**, which you can interact with via two seperate Trusted Cloud servers.
 
-There are two separate TC servers, Testnet and Mainnet.
+**Testnet** (Kovan) is a development version of Ethereum where you can test Enjin's Smart Contracts and obtain false Ethereum (KETH) and Enjin Coin (KENJ) to develop your implementation in a safe, simulated environment without spending any legitimate form of cryptocurrency.
 
-Testnet is a development version of the mainnet, where you can easily obtain fake Ethereum and Enjin Coin to test your items in a safe, simulated environment without using real cryptocurrency.
+Use the [Faucet for KETH & KENJ](https://kovan.faucet.enjin.io/) to access testing materials.
 
-Mainnet is the real deal. You are using real Ethereum and EnjinCoin, so transactions
-here cost real cryptocurrency. You should be very comfortable with your implementation on testnet before doing anything substantial on mainnet.
+**Mainnet** is the real Ethereum Network. You are using Ethereum and Enjin Coin that have real world value, so transactions processed in this space are costing you money. You should be very comfortable with your implementation on testnet before doing anything substantial on mainnet.
 
-We will only be publicly supporting Kovan testnet for our initial launch. Soon afterwards,
-we will roll out on Ropsten and finally, Mainnet proper.
+**You can use the following GraphiQL interfaces to interact with the Trusted Cloud:**
 
-You can use the following GraphiQL browser interface to interact with the Trusted Cloud:
-
-* **Kovan Trusted Cloud (GraphiQL):** [https://kovan.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
+* Kovan (Testnet) Trusted Cloud (GraphiQL): [https://kovan.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
+* Ethereum (Mainnet) Trusted Cloud (GraphiQL): [https://cloud.enjin.io/graphiql](https://cloud.enjin.io/graphiql)
 
 ## Browsing the Schema
 On the right-side there should be a documentation panel to expand and browse for all the requests and parameters you can use. See [here](https://graphql.org/learn/queries/) for documentation on Queries and Mutations. In a nutshell, Queries are requests for information from the server, where Mutations are requests that modify server side data.
