@@ -4,11 +4,11 @@ To register your game, first, you must sign up to the [Enjin developer portal](h
 
 **Testnet** and **Mainnet** are two different versions of Ethereum that can be accessed via two seperate Trusted Cloud servers.
 
-**Testnet** (Kovan) is a development version of Ethereum where you can test Enjin's Smart Contracts and obtain false Ethereum (KETH) and Enjin Coin (KENJ) to develop your implementation in a safe, simulated environment without spending any legitimate form of cryptocurrency.
+**Testnet (Kovan)** is a development version of Ethereum where you can test Enjin's Smart Contracts and obtain false Ethereum (KETH) and Enjin Coin (KENJ) to develop your implementation in a safe, simulated environment without spending any legitimate form of cryptocurrency.
 
 Use the [Faucet for KETH & KENJ](https://kovan.faucet.enjin.io/) to access testing materials.
 
-**Mainnet** is the real Ethereum Network. You are using Ethereum and Enjin Coin that have real world value, so transactions processed in this space are costing you money. You should be very comfortable with your implementation on testnet before doing anything substantial on mainnet.
+**Mainnet (Ethereum)** is the live Ethereum Network that can be accessed by anyone in the world. Here, you are using Ethereum and Enjin Coin that have real world value, so transactions processed in this space are costing you money. You should be very comfortable with your implementation on testnet before doing anything substantial on mainnet.
 
 **You can use the following GraphiQL interfaces to interact with the Trusted Cloud:**
 
