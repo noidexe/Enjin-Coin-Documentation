@@ -6,7 +6,7 @@ This will give you an account and credentials to access the Trusted Cloud servic
 
 There are two different versions of Ethereum that can be accessed via two seperate Trusted Cloud servers, **Testnet** and **Mainnet.** 
 
-**Testnet (Kovan)** is a development version of Ethereum where you can test Enjin's Smart Contracts and obtain false Ethereum (KETH) and Enjin Coin (KENJ) to develop your implementation in a safe, simulated environment without spending any legitimate form of cryptocurrency.
+**Testnet (Kovan)** is a development version of Ethereum where you can test Enjin's Smart Contracts and obtain pretend Ethereum (KETH) and Enjin Coin (KENJ) to develop your blockchain implementation in a safe, simulated environment without spending any legitimate form of cryptocurrency.
 
 Use the [Faucet for KETH & KENJ](https://kovan.faucet.enjin.io/) to access testing materials.
 
