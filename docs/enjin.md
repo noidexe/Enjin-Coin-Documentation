@@ -22,7 +22,7 @@ The Enjin Platform enables you to:
 
 # Built on Ethereum, Running on Ether (ETH)
 
-[Ethereum](https://en.wikipedia.org/wiki/Ethereum) is a public blockchain built for trustless computation. It is primarily used to execute self-contained programs known as "smart contracts" via a distributed network of computers. In brief, this has allows us to write functions that cannot be tampered with, thus offering you and your players a heightened level of security, transparency, and immutability.
+[Ethereum](https://en.wikipedia.org/wiki/Ethereum) is a public blockchain built for trustless computation. It is primarily used to execute self-contained programs known as "smart contracts" via a distributed network of computers. The Enjin Platform utilizes this technology to develop functions that cannot be tampered with, thus offering you and your players a heightened level of security, transparency, and immutability.
 
 There are several core principles that you need to understand:
 - Ethereum is the name of the blockchain network, and Ether (ETH) is the name of the currency that is used to pay the network's operators (miners).
