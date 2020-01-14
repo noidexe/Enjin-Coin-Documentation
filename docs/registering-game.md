@@ -10,7 +10,7 @@ There are two different versions of Ethereum that can be accessed via two sepera
 
 Use the [Faucet for KETH & KENJ](https://kovan.faucet.enjin.io/) to access testing materials.
 
-**Mainnet (Ethereum)** is the live Ethereum Network that can be accessed by anyone in the world. Here, you are using Ethereum and Enjin Coin that have real world value, so transactions processed in this space are costing you money. You should be very comfortable with your implementation on testnet before doing anything substantial on mainnet.
+**Mainnet (Ethereum)** is the live Ethereum Network that can be accessed by anyone in the world. Here, you are using Ethereum and Enjin Coin can be bought and sold via cryptocurrency exchanges for real world value. Therefore, transactions processed on Mainnet are costing you money. You should be very comfortable with your implementation on testnet before doing anything substantial on mainnet.
 
 **You can use the following GraphiQL interfaces to interact with the Trusted Cloud:**
 
