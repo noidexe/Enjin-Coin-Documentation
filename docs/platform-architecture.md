@@ -48,7 +48,7 @@ Your game can communicate with the Trusted Cloud using the [GraphQL query langua
 
 GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more.
 
-# The Enjin Wallet
+# Enjin Wallet
 
 Every user has their own unique blockchain address and all transactions to be executed on the blockchain need to be signed (authorized) using that user's private keys. 
 
