@@ -16,7 +16,7 @@ In this example, let's consider the case of a user trying to sell a sword:
 
 # Smart Contract
 
-Enjin's smart contract is responsible for executing the transactions (commands) via the Ethereum Network on your behalf.
+Enjin's smart contract is responsible for executing transactions (commands) via the Ethereum Network on your behalf.
 
 It is the core piece of on-chain infrastructure that creates, augments, and transacts your game's blockchain inventory.
 
