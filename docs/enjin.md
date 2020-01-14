@@ -1,6 +1,6 @@
 # What is the Enjin Platform?
 
-The Enjin Platform allows you to create and manage blockchain games without the complexity of building and maintaining blockchain infrastructure.
+The Enjin Platform allows you to create and manage blockchain games without the complexity of building and maintaining your own blockchain infrastructure.
 
 It is an all-in-one blockchain game development platform comprised of the Trusted Cloud, Blockchain SDKs, Platform API, and the Wallet Daemon.
 
@@ -22,15 +22,12 @@ The Enjin Platform enables you to:
 
 # Built on Ethereum, Running on Ether (ETH)
 
-[Ethereum](https://en.wikipedia.org/wiki/Ethereum) is a public blockchain built for trustless computation. Developers can upload self-contained programs known as "smart contracts" to be executed in by a distributed network of computers. In brief, this has allows us to write functions that cannot be tampered with, thus offering our users a heightened level of security, transparency, and immutability.
+[Ethereum](https://en.wikipedia.org/wiki/Ethereum) is a public blockchain built for trustless computation. It is primarily used to execute self-contained programs known as "smart contracts" via a distributed network of computers. In brief, this has allows us to write functions that cannot be tampered with, thus offering you and your players a heightened level of security, transparency, and immutability.
 
-We are opening up our blockchain infrastructure and smart contracts to you, to give you the power to build full-scale blockchain solutions&mdash;without needing any blockchain experience. 
-
-However, to make the most of this technology, you should make note of a few priciples:
-- Ethereum is the name of the blockchain network, and Ether (ETH) is the name of the currency that you must pay the network operators in.
-- Interacting with the Ethereum network, including Enjin's smart contract, is achieved by issuing transactions that are propogated across thousands of computers throughout Ethereum's decentralized network. The ETH cost of these transactions is calculated automatically for you as a "gas fee" that incentivizes the network's miners to process your transactions. Each transaction is a message that instructs Ethereum how to handle your request. Sending ETH to someone or telling our smart contract to create a new token are two examples of Ethereum transactions.
-- Transactions take a variable amount of time to complete, depending on the amount of ETH that you have chosen to pay as a gas fee, and the amount of gas the network operators require to prioritize your transaction.
-- Transactions may sometimes fail or become stuck. Handling these errors is supported by our Software Development Kits (SDKs).
+There are several core principles that you need to understand:
+- Ethereum is the name of the blockchain network, and Ether (ETH) is the name of the currency that is used to pay the network's operators (miners).
+- Interacting with the Ethereum network, including Enjin's smart contract, is achieved by issuing transactions that are propogated across thousands of computers throughout Ethereum's decentralized network. The ETH cost of these transactions is calculated automatically for you as a "gas fee" that is given to the network's miners for processing your transactions. Each transaction is a message that instructs Ethereum how to handle your request.
+- Each transaction takes a variable amount of time to complete, depending on the amount of ETH you have chosen to pay for your transaction and what kind of prioritization that purchases you from Ethereum's network operators.
 - Ethereum participants can be either smart contracts or people issuing transactions. Every participant controls a public address. These addresses are similar to street addresses. They are publicly available and tell participants in the network how to send transactions to eachother.
 - Users typically store their ETH in apps called "wallets," such as the Enjin Wallet mobile app for Android and iOS. Internally, a wallet tracks the contents within your Ethereum address.
 - All addresses also have a private key which should be solely controlled by the address owner. In the case of your wallet, imagine a safe containing all of your ETH at a particular street corner. The public address tells people where to find your safe, but only you can open it using your private key. You use your private key to access the contents of your wallet, but also to "sign" transactions that come from your address. The act of signing confirms that the transaction is coming from you and that you've authorized it to happen. Most players will probably use the Enjin Wallet to sign transactions quickly and easily.
