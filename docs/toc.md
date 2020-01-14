@@ -4,8 +4,10 @@
 [Registering Your Game](/docs/registering-game)
 [Getting Started with Enjin Wallet](/docs/wallet-setup)
 
-# Platform Fundamentals
+# Creating Tokens
 [Creating Your First Item](/docs/creating-items)
+
+# Integrating Tokens
 [Using Items In Your Game](/docs/using-items)
 
 # Enjin Cloud API
