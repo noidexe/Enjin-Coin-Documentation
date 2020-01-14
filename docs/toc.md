@@ -1,8 +1,10 @@
 # Getting Started
-[What is Enjin](/docs/enjin)
+[Introduction](/docs/enjin)
 [Platform Architecture](/docs/platform-architecture)
 [Registering Your Game](/docs/registering-game)
 [Getting Started with Enjin Wallet](/docs/wallet-setup)
+
+# Platform Fundamentals
 [Creating Your First Item](/docs/creating-items)
 [Using Items In Your Game](/docs/using-items)
 
