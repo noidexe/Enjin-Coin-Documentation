@@ -44,7 +44,7 @@ There are two separate Trusted Cloud servers: **Testnet** and **Mainnet**.
 
 # Platform API (GraphQL)
 
-You can communicate with the Trusted Cloud using the [GraphQL query language](https://graphql.org/learn/). 
+Your game can communicate with the Trusted Cloud using the [GraphQL query language](https://graphql.org/learn/). 
 
 GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more.
 
