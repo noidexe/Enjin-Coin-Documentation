@@ -1,6 +1,6 @@
 # Registering Your Game
 
-To register your game, first, you must sign up [on the Enjin developer portal](https://kovan.cloud.enjin.io/signup). This will give you an account and credentials to access the Trusted Cloud services.
+To register your game, first, you must sign up to the [Enjin developer portal](https://kovan.cloud.enjin.io/signup). This will give you an account and credentials to access the Trusted Cloud services.
 
 There are two separate versions of Ethereum, **Testnet** and **Mainnet**, which you can interact with via two seperate Trusted Cloud servers.
 
