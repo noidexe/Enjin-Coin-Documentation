@@ -52,7 +52,7 @@ Digital assets that are backed by ENJ have a number of distinct benefits:
 
 If you want a more extensive overview of our digital items, check out this [video](https://www.youtube.com/watch?v=7KLpNU6wXEM).
 
-# Sign me up!
+# Start Building!
 
 Now that you understand Enjin and Ethereum, it's time to start building a real-live blockchain game:
 1. [Understanding Enjin's platform architecture](platform-architecture.md),
