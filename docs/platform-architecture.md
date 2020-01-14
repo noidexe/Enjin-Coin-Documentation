@@ -52,7 +52,7 @@ GraphQL is a query language for APIs and a runtime for fulfilling those queries 
 
 Every user has their own unique blockchain address and all transactions to be executed on the blockchain need to be signed (authorized) using that user's private keys. 
 
-The Enjin wallet provides a seamless signing process that makes it easy to execute complex commands that are facilitated by Enjin's smart contracts.
+The Enjin wallet provides a seamless signing process that makes it easy to execute complex commands via Enjin's smart contracts.
 
 # Wallet Daemon
 
