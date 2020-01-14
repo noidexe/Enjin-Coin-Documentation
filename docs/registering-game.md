@@ -10,15 +10,17 @@ There are two different versions of Ethereum that can be accessed via two sepera
 
 Use the [Faucet for KETH & KENJ](https://kovan.faucet.enjin.io/) to access testing materials.
 
-**Mainnet (Ethereum)** is the live Ethereum Network that can be accessed by anyone in the world. Here, you are using Ethereum and Enjin Coin can be bought and sold via cryptocurrency exchanges for real world value. Therefore, transactions processed on Mainnet are costing you money. You should be very comfortable with your implementation on testnet before doing anything substantial on mainnet.
+**Mainnet (Ethereum)** is the live Ethereum Network that can be accessed by anyone in the world. Here, you are using Ethereum and Enjin Coin can be bought and sold via cryptocurrency exchanges for real money. You should be very comfortable with your implementation on testnet before doing anything substantial on Mainnet.
 
 **You can use the following GraphiQL interfaces to interact with the Trusted Cloud:**
 
 * Kovan (Testnet) Trusted Cloud (GraphiQL): [https://kovan.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
 * Ethereum (Mainnet) Trusted Cloud (GraphiQL): [https://cloud.enjin.io/graphiql](https://cloud.enjin.io/graphiql)
 
-## Browsing the Schema
-On the right-side there should be a documentation panel to expand and browse for all the requests and parameters you can use. See [here](https://graphql.org/learn/queries/) for documentation on Queries and Mutations. In a nutshell, Queries are requests for information from the server, where Mutations are requests that modify server side data.
+## Browsing the API
+We provide an [API Reference](/api-docs) where you can see all the GraphQL requests and parameters you can use. 
+
+See [here](https://graphql.org/learn/queries/) for documentation on Queries and Mutations. In a nutshell, Queries are requests for information from the server, where Mutations are requests that modify server side data.
 
 ## Making a Request
 On the (top) left panel, you would enter in your request to be made to the TC. Press the “Play” button at the top to submit that request, and you will receive a response on the right panel, sometimes a notification will appear in your dev wallet to sign a transaction depending on the request made.
