@@ -14,7 +14,7 @@ In this example, let's consider the case of a user trying to sell a sword:
 5. If the user accepts, the transaction is broadcast to the Ethereum network. Enjin's smart contract handles all the logic for actually operating on the user's inventory. In this case, the user has accepted and our smart contract handles removing their sword.
 6. The Trusted Cloud listens to Ethereum to see if the user's transaction was a success. The resulting transaction data is then sent from the Trusted Cloud back to your game, where you can choose how to display it to the user. In this case, you would show the user that their sword has been removed and reward them with some gold.
 
-# Smart Contract
+## Smart Contract
 
 Enjin's smart contract is responsible for executing transactions (commands) via the Ethereum Network on your behalf.
 
@@ -26,7 +26,7 @@ Functions include:
 - Customizing token data and metadata
 - Sending tokens between addresses (including yours and your users')
 
-# Trusted Cloud
+3# Trusted Cloud
 
 Trusted Cloud is the main backend service of the Enjin Platform. It is a cloud-hosted service that connects games to the Ethereum blockchain. 
 
@@ -42,19 +42,19 @@ There are two separate Trusted Cloud servers: **Testnet** and **Mainnet**.
 
 **Mainnet** is the real Ethereum network—transactions on it cost real cryptocurrency. You should be very comfortable with your implementation on testnet before doing anything substantial on mainnet.
 
-# Platform API (GraphQL)
+## Platform API (GraphQL)
 
 Your game can communicate with the Trusted Cloud using the [GraphQL query language](https://graphql.org/learn/). 
 
 GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more.
 
-# Enjin Wallet
+## Enjin Wallet
 
 Every user has their own unique blockchain address and all transactions to be executed on the blockchain need to be signed (authorized) using that user's private keys. 
 
 The Enjin wallet provides a seamless signing process that makes it easy to execute complex commands via Enjin's smart contracts.
 
-# Wallet Daemon
+## Wallet Daemon
 
 The Wallet Daemon is a tool that you can use to automate the authorization of transaction requests to and from the Trusted Cloud.
 
