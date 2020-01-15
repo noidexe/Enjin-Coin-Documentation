@@ -4,7 +4,7 @@ The Enjin Platform allows you to create and manage blockchain games without the 
 
 It is an all-in-one blockchain game development platform comprised of the Trusted Cloud, Blockchain SDKs, Platform API, and the Wallet Daemon.
 
-# The Benefits of Blockchain
+## The Benefits of Blockchain
 
 The Enjin Platform enables you to:
 
@@ -20,7 +20,7 @@ The Enjin Platform enables you to:
 
 **Reduce Player Churn:** Gaming assets are owned by gamers, safely kept in their private Enjin Wallet. Players must approve each transaction via their wallet, thus making any hacking or in-game fraud impossible—and in turn reducing player churn.
 
-# Built on Ethereum, Running on Ether (ETH)
+## Built on Ethereum, Running on Ether (ETH)
 
 [Ethereum](https://en.wikipedia.org/wiki/Ethereum) is a public blockchain built for trustless computation. It is primarily used to execute self-contained programs known as "smart contracts" via a distributed network of computers. The Enjin Platform utilizes this technology to develop functions that cannot be tampered with, thus offering you and your players a heightened level of security, transparency, and immutability.
 
@@ -32,7 +32,7 @@ The Enjin Platform is built to handle all communication with the blockchain on y
 - Users typically store their ETH in apps called "wallets," such as the Enjin Wallet mobile app for Android and iOS. Internally, a wallet tracks the contents within your Ethereum address.
 - All addresses also have a private key which should be solely controlled by the address owner. In the case of your wallet, imagine a safe containing all of your ETH at a particular street corner. The public address tells people where to find your safe, but only you can open it using your private key. You use your private key to access the contents of your wallet, but also to "sign" transactions that come from your address. The act of signing confirms that the transaction is coming from you and that you've authorized it to happen. Most players will probably use the Enjin Wallet to sign transactions quickly and easily.
 
-# What is Enjin Coin (ENJ)?
+## What is Enjin Coin (ENJ)?
 
 Enjin Coin (ENJ) is an Ethereum-based cryptocurrency used to directly back the value of next-generation blockchain assets. 
 
