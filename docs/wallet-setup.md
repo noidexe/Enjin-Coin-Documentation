@@ -101,16 +101,16 @@ When linking your wallet for the first time an approve transaction will automati
 You need to check the _Requests_ section of the wallet, where you should see an _APPROVE ENJ_ transaction request. You must accept this  request to allow the Enjin Smart Contract to do its work.
 
 ### Setting Approval Limits
-By default, your approval transaction value will be set to the maximum amount of ENJ possible. This means there will be no limitations to the amount of ENJ the Enjin Smart contract can spend on your behalf.
+By default, your approval transaction value will be set to the maximum amount of ENJ possible.
 
-In GraphQL this Max approval amount represented by -1 in the value field.
+In GraphQL this Max approval amount represented by _-1_ in the _value_ field.
 
-If you wish to change the pre-approval amount you would need to make sure that you have set the spending approval value to 0 first, before approving any value that is different from the default. 
+If you wish to change the pre-approval amount you would need to make sure that you have set the spending approval value to _0_ first, before approving any value that is different from the default. 
 
 [ApproveENJ](../examples/ApproveENJ.gql)
 
-Once you have set the value to 0 you can proceed to set your Max ENJ spend to whatever amount you want. 
+Once you have set the value to _0_ you can proceed to set your Max ENJ spend to whatever amount you want. 
 
-For example 100 (ENJ) or 1000 (ENJ). 
+For example _100_ (ENJ) or _1000_ (ENJ). 
 
-This could protect you from accidently overspending while minting batches of blockchain assets.
+This could protect you from accidentally overspending while minting batches of blockchain assets.
