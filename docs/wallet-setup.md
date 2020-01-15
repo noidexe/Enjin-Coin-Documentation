@@ -1,6 +1,8 @@
-# Getting Started with the Enjin Wallet
+# Connecting Your Enjin Wallet
 
-Congratulations on making it this far! By now you've completed [registering your game on the Trusted Cloud](registering-game.md) and are ready to begin using the Enjin Wallet app.
+The Enjin wallet provides an intuitive signing process that makes it easy to execute complex blockchain operations via Enjin's smart contracts.
+
+Most operations that involve a transfer of value or alteration of blockchain data or metadata will need to be authorized via the blockchain, which means an approval request will appear in your Enjin Wallet.
 
 ## Creating your Primary Wallet (Required)
 
