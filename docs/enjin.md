@@ -51,12 +51,3 @@ Digital assets that are backed by ENJ have a number of distinct benefits:
 **Anti-Inflation:** Because ENJ is a limited, valuable resource, backing assets with it is the only way to regulate asset creation.
 
 If you want a more extensive overview of our digital items, check out this [video](https://www.youtube.com/watch?v=7KLpNU6wXEM).
-
-# Start Building!
-
-Now that you understand Enjin and Ethereum, it's time to start building a real-live blockchain game:
-1. [Understanding Enjin's platform architecture](platform-architecture.md),
-2. [Register your game on the Enjin platform](registering-game.md),
-3. [Setting up your Ethereum Address via the Enjin Wallet](wallet-setup.md),
-4. [Creating items using the Enjin platform](creating-items.md),
-5. [Using blockchain assets in your game](using-items.md).
