@@ -29,7 +29,7 @@ In the GraphQL Browser Interface, enter the request you want to send to the Trus
 
 Press the “Play” button at the top to submit that request and you will receive a response on the right panel.
 
-**GraphQL runs on two types of operations, queries and mutations**.
+**GraphQL runs two types of operations, queries and mutations**.
 
 * **Queries** are requests for information from the server by performing a READ operation that does not change data
 * **Mutation**s are requests that modify server side data. You can think of mutations as CUD (Create, Update, Delete) in REST.
