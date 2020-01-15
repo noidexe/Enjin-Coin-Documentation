@@ -37,7 +37,9 @@ Press the “Play” button at the top to submit that request and you will recei
 _NOTE: Most mutations that involve a transfer of value or alteration of blockchain data or metadata will need to be authorized via the blockchain, which means an approval request will appear in your Enjin Wallet._
 
 ## Logging in and Authenticating Your Requests
-You will need to **authenticate your requests** made via the Trusted Cloud. To authenticate your request, you will need an access token. Use this request to get your access token:
+You will need to **authenticate your requests** made via the Trusted Cloud.
+
+Use this request to get your access token:
 
 [Login](../examples/Login.gql)
 
