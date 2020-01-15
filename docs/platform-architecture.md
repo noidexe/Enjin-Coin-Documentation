@@ -26,7 +26,7 @@ Functions include:
 - Customizing token data and metadata
 - Sending tokens between addresses (including yours and your users')
 
-3# Trusted Cloud
+## Trusted Cloud
 
 Trusted Cloud is the main backend service of the Enjin Platform. It is a cloud-hosted service that connects games to the Ethereum blockchain. 
 
