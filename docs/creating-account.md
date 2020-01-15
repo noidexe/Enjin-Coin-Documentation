@@ -22,7 +22,7 @@ _NOTE: Accounts are not shared between Testnet & Mainnet TC servers. You will ne
 ## Browsing the API 
 We provide an [API Reference](/api-docs) where you can see all the core GraphQL requests and parameters you can use with the Platform API.
 
-While we will provide all necesary information for you to understand GraphQL in the context of developing integration for games using the Enjin Platform we also encourage you to gain a comprehensive understanding of GraphQL by reading up on the [official documentation](https://graphql.org/learn/queries/) 
+While we will provide all necesary information for you to understand GraphQL in the context of using the Enjin Platform we also encourage you to gain a comprehensive understanding of GraphQL by reading up on the [official documentation](https://graphql.org/learn/queries/) 
 
 ## Making Requests
 In the GraphQL Browser Interface, enter the request you want to send to the Trusted Cloud in the (top) left panel
