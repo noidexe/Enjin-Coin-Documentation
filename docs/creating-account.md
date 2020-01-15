@@ -34,7 +34,7 @@ Press the “Play” button at the top to submit that request and you will recei
 * **Queries** are requests for information from the server by performing a READ operation that does not change data
 * **Mutation**s are requests that modify server side data. You can think of mutations as CUD (Create, Update, Delete) in REST.
 
-_NOTE: Most mutations that involve a transfer of value or alteration of blockchain data or metadata will need to be authorized by you, which means an approval request will appear in your Enjin Wallet._
+_NOTE: Most mutations that involve a transfer of value or alteration of blockchain data or metadata will need to be authorized via the blockchain, which means an approval request will appear in your Enjin Wallet._
 
 ## Logging in and Authenticating Your Requests
 You will need to **authenticate your requests** made via the Trusted Cloud. To authenticate your request, you will need an access token. Use this request to get your access token:
