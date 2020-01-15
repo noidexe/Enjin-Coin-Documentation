@@ -55,31 +55,32 @@ _NOTE: Your Enjin Coin and all of your blockchain assets are running on Ethereum
 
 ### Fund Your Wallet
 
-Fill your wallet with cryptocurrencies that pay for your necessary blockchain transactions.
+To begin creating and managing your blockchain assets you need to pay for your necessary blockchain transactions using Ether and Enjin Coin.
 
-ETH/KETH is used to pay for transaction fees on the network, while ENJ/KENJ is used to create and back your items. 
+Ether (ETH/KETH) is used to pay for transaction fees on the network, while Enjin Coin (ENJ/KENJ) is used to create and back your items. 
 
 **Kovan Testnet:** To begin transacting on Testnet will need KETH (Kovan Ether) and KENJ (Kovan Enjin Coin). To receive these free resources, go to the [Enjin Kovan Testnet Faucet](https://kovan.faucet.enjin.io/) and input your Ethereum address.
 **Ethereum Mainnet:** To begin transacting on Mainnet, you will need ETH (Ether) and ENJ (Enjin Coin). You can purchase these from a cryptocurrency exchange.
 
-# Linking Your Wallet
+## Wallet Linking
 
 Every user of your Enjin App or collection requires an app identity which allows you to identify them as the true owner of their Ethereum address.
 
-Identities are distinct from user ids, and are a way to decouple users from wallet
-addresses. Identities are either linked, or unlinked. If they are linked, they
-contain a valid Ethereum address. Unlinked identities have a like code like `BXXAZK`.
+Identities are distinct from user ids, and are a way to decouple users from wallet addresses. Identities are either linked, or unlinked. If they are linked, they contain a valid Ethereum address. Unlinked identities have a code like `BXXAZK` that users can sign into their Enjin Wallet to link their Ethereum address and prove that it's theirs.
+
 It is important to know that **there can only be one identity per user, per app/game.**
+
 You cannot directly connect a user id to a wallet.
 
-For example, user `bob` can link
-his wallet `0xabcd`to the game `Space Monkies`, but cannot link multiple wallets to
-that particular game.  If `bob` wants to use a different wallet with `Space Monkies`,
-he will need to unlink the current wallet, and re-link with the new wallet.
+For example, user `bob` can link his wallet `0xabcd`to the game `Space Monkies`, but cannot link multiple wallets to that particular game. If `bob` wants to use a different wallet with `Space Monkies`, he will need to unlink the current wallet, and re-link with the new wallet.
 
 An identity will automatically be created for new users if you set an app id when creating the user.
 
-To accept and sign any transactions, you will need to link your Enjin Wallet (Dev version) app to your identity. To do this, you will need to find your **Linking Code**.
+### Linking Your Wallet
+
+To authorize and sign any transactions, you will need to link your Enjin Wallet app to your identity. 
+
+To do this, you will need to find your **Linking Code**.
 
 You can find the link code with the following query:
 
@@ -90,18 +91,26 @@ You should be given a 6 character linking code to enter into your dev wallet app
 To reset your linked wallet, use the following query.
 [UnlinkIdentity](../examples/UnlinkIdentity.gql)
 
+### Approving ENJ
+Every time a successful request has been made to the blockchain, you will need to accept and sign the transaction in the REQUESTS section of your dev wallet.
 
-## Approving ENJ
-To prepare for item creation, you will need to pre-approve ENJ to the CryptoItems smart contract.  When linking your wallet for the first time an approve transaction will automatically be created for you to sign.  If you check the **REQUESTS** section of the wallet you should see and APPROVE ENJ transaction ready to sign.  Accept the transaction request to approve the ENJ.
+Since creating transactions will usually cost Enjin Coin or Ether, to prepare for future expendature you will need to pre-approve the Enjin Smart Contract to create transactions on your behalf.  
 
-By default the automatic approval transaction will approve the maximum amount of ENJ possible.  If you wish to change the pre-approval amount you will need to make sure you have set approval to 0 first before approving your actual value (use -1 for max ENJ possible). You do not need to multiply value by 10^18 for this request. You don’t need to do this if you have previously approved a sufficient amount of ENJ to use (i.e approved
-wallet transaction above)
+When linking your wallet for the first time an approve transaction will automatically be created for you to sign.  
+
+You need to check the _Requests_ section of the wallet, where you should see an _APPROVE ENJ_ transaction request. You must accept this  request to allow the Enjin Smart Contract to do its work.
+
+### Setting Approval Limits
+By default, your approval transaction value will be set to the maximum amount of ENJ possible. This means there will be no limitations to the amount of ENJ the Enjin Smart contract can spend on your behalf.
+
+In GraphQL this Max approval amount represented by -1 in the value field.
+
+If you wish to change the pre-approval amount you would need to make sure that you have set the spending approval value to 0 first, before approving any value that is different from the default. 
 
 [ApproveENJ](../examples/ApproveENJ.gql)
 
+Once you have set the value to 0 you can proceed to set your Max ENJ spend to whatever amount you want. 
 
-Once a successful request has been made, you will need to accept and sign the transaction in the **REQUESTS** section of your dev wallet.
+For example 100 (ENJ) or 1000 (ENJ). 
 
-# Creating Items
-
-Your game is ready, your wallet is ready, and soon your items will be ready. In our next guide, we will walk you through the [process of creating items with Enjin](creating-items.md).
+This could protect you from accidently overspending while minting batches of blockchain assets.
