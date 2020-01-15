@@ -14,8 +14,8 @@ Use the [Faucet for KETH & KENJ](https://kovan.faucet.enjin.io/) to access testi
 
 **You can use the following GraphiQL interfaces to interact with the Trusted Cloud:**
 
-* Kovan (Testnet) Trusted Cloud (GraphiQL): [https://kovan.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
-* Ethereum (Mainnet) Trusted Cloud (GraphiQL): [https://cloud.enjin.io/graphiql](https://cloud.enjin.io/graphiql)
+* **Kovan (Testnet)** Trusted Cloud (GraphiQL): [https://kovan.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
+* **Ethereum (Mainnet)** Trusted Cloud (GraphiQL): [https://cloud.enjin.io/graphiql](https://cloud.enjin.io/graphiql)
 
 _NOTE: Accounts are not shared between Testnet & Mainnet TC servers. You will need an account on each server if you want to use both platforms._
 
@@ -29,11 +29,11 @@ In the GraphQL Browser Interface, enter the request you want to send to the Trus
 
 Press the “Play” button at the top to submit that request and you will receive a response on the right panel.
 
-GraphQL runs on two types of operations, **queries** and **mutations**.
+**GraphQL runs on two types of operations, queries and mutations**.
 
-**Queries** are requests for information from the server by performing a READ operation that does not change data
+* **Queries** are requests for information from the server by performing a READ operation that does not change data
 
-**Mutation**s are requests that modify server side data. You can think of mutations as CUD (Create, Update, Delete) in REST.
+* **Mutation**s are requests that modify server side data. You can think of mutations as CUD (Create, Update, Delete) in REST.
 
 _NOTE: Most mutations that involve a transfer of value or alteration of blockchain data or metadata will need to be authorized by you, which means an approval request will appear in your Enjin Wallet._
 
