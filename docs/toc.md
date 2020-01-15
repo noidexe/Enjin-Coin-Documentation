@@ -1,13 +1,15 @@
 # Getting Started
 [Introduction](/docs/enjin)
 [Platform Architecture](/docs/platform-architecture)
-[Registering Your Game](/docs/registering-game)
-[Getting Started with Enjin Wallet](/docs/wallet-setup)
+[Creating Your Account](/docs/creating-account)
+[Connecting Your Enjin Wallet](/docs/wallet-setup)
+[Using Your Wallet Daemon](/docs/using-wallet-daemon)
+[Understanding GraphQL](/docs/using-graphql)
 
-# Creating Tokens
+# Token Management
 [Creating Your First Item](/docs/creating-items)
 
-# Integrating Tokens
+# Software Integration
 [Using Items In Your Game](/docs/using-items)
 
 # Enjin Cloud API
