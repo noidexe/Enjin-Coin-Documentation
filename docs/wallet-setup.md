@@ -4,59 +4,67 @@ The Enjin wallet provides an intuitive signing process that makes it easy to exe
 
 Most operations that involve a transfer of value or alteration of blockchain data or metadata will need to be authorized via the blockchain, which means an approval request will appear in your Enjin Wallet.
 
-## Creating your Primary Wallet (Required)
+## Creating your Wallet
 
 ### Install the Enjin Developer Wallet
 
-You can get the latest version of the Enjin Wallet on both Android and iOS from the Play Store and App Store, also for Android devices, you can install the app with the APK [HERE](https://enjinwallet.io/apk.html). You'll need version
-1.3.7.20316 or later to work with the platform with developer mode enabled.
+You can get the latest version of the Enjin Wallet on both Android and iOS from the Play Store and App Store
+
+For Android devices, you can also install the app by [downloading the APK](https://enjinwallet.io/apk.html). 
+
+You'll need version 1.3.7.20316 or later with developer mode enabled to communicate with the Enjin Platform.
 
 ### Enable Developer Mode
-To enable developer mode in the wallet, head to the settings screen and tap the version number located on the bottom
-right 10 times. Developer mode is needed in order to link to the Trusted Cloud and enable other developer related features and functions. Developer mode is available
-on both Android (1.3.7) and iOS (1.3.0).
+To enable developer mode in the wallet head to the settings screen and tap the version number in the bottom right corner 10 times. 
+
+Developer mode is needed in order to link to the Trusted Cloud and enable other developer related features and functions. Developer mode is available on both Android (1.3.7) and iOS (1.3.0).
 
 ### Create a wallet
-If this is your first wallet, select Create Wallet option. If this is not your first
-wallet hit the selector on the right, tap Manage Wallets, and tap the + symbol in the
-lower right. Select Create Wallet.
+- If this is your first wallet, select the _Create Wallet_ option. 
+- If this is not your first wallet hit the selector on the right, tap Manage Wallets, and tap the + symbol in the lower right. Then select _Create Wallet_.
 
-Give the wallet a name, like "Master Wallet".
+Give the wallet a name that stands out, like "Master Wallet".
 
-Select Ethereum (Kovan) and Enjin Coin (Kovan) for Coins. Tap Create Wallet.
+- If you are working on Testnet, select _Ethereum (Kovan)_ and _Enjin Coin (Kovan)_ for Coins. Then tap _Create Wallet_.
+- If you are working on Mainnet, select _Ethereum_ and _Enjin Coin_ for Coins. Then tap _Create Wallet_.
 
 ![Enjin Select Coins](../docs/images/wallet_select_coins.png)
 
 Enter a password for the wallet.
 
-The wallet is created.
+You have now successfully created a wallet.
 
 ### Backup the Wallet
-It is strongly recommended that you take a minute and back up your wallet using the 12 keywords. If you do NOT backup your wallet and your device is lost you will **NOT BE ABLE TO RECOVER** your cryptocurrency and items. You are warned!
+It is imperative that you take a minute to save and protect your private keys (12 keywords). 
+
+* If you do NOT backup your wallet and your device is lost you will **NOT BE ABLE TO RECOVER** your cryptocurrency and items. 
+* If anyone else gains access to your private keys they will be able to steal your cryptocurrency and items.
 
 ![Enjin Backup Wallet](../docs/images/wallet_master_wallet.png)
 
-### Fund the Wallet
+### Get Your Ethereum Address
+To Find your Ethereum address;
+1. Tap _Wallets_. 
+2. Tap either the _ETH_ or _ENJ_. 
+3. Then tap _Receive_ in the top left. 
+4. Copy this address.
 
-The next step is to fund the wallet with ETH (Ethereum) and ENJ (Enjin Coin). ETH is used
-to pay for transaction fees on the network, while ENJ is used as the digital casting material
-to create your items. You'll need both to use the platform successfully and both are provided
-for free on testnet.
-
-Find your wallet address by tapping WALLETS. Tap either the ETH or ENJ entry. Then tap
-RECEIVE in the top left. Copy this address.
+_NOTE: Your Enjin Coin and all of your blockchain assets are running on Ethereum so they are also managed within the same address._
 
 ![Enjin My Address](../docs/images/wallet_get_address.png)
 
-Go to [Enjin Kovan Testnet Faucet](https://kovan.faucet.enjin.io/) and paste your address.
+### Fund Your Wallet
 
-In a couple of minutes, you should have both Kovan ETH and ENJ in your wallet. You'll be
-using the ETH and ENJ to pay for transactions and infusing your items with ENJ.
+Fill your wallet with cryptocurrencies that pay for your necessary blockchain transactions.
+
+ETH/KETH is used to pay for transaction fees on the network, while ENJ/KENJ is used to create and back your items. 
+
+**Kovan Testnet:** To begin transacting on Testnet will need KETH (Kovan Ether) and KENJ (Kovan Enjin Coin). To receive these free resources, go to the [Enjin Kovan Testnet Faucet](https://kovan.faucet.enjin.io/) and input your Ethereum address.
+**Ethereum Mainnet:** To begin transacting on Mainnet, you will need ETH (Ether) and ENJ (Enjin Coin). You can purchase these from a cryptocurrency exchange.
 
 # Linking Your Wallet
 
-Every user for your app requires an app identity which links users to your app,
-along with their unique wallet address.
+Every user of your Enjin App or collection requires an app identity which allows you to identify them as the true owner of their Ethereum address.
 
 Identities are distinct from user ids, and are a way to decouple users from wallet
 addresses. Identities are either linked, or unlinked. If they are linked, they
