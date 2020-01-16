@@ -1,12 +1,22 @@
-# Enjin Wallet Daemon Installation
+# What is the Wallet Daemon?
+
+The wallet daemon is a tool that signs your blockchain transactions on your behalf.
+
+As your game grows, it is possible that you may need to sign thousands of transactions per day using your Enjin wallet, which is impossible.
+
+Even signing a small amount of transactions manually is more trouble than its worth.
+
+The wallet daemon allows you to automate the signing process, so transactions are actioned instantly, creating an instant bridge between your game and the blockchain, and ensuring your players can enjoy a seamless and fluid gaming experience.
+
+## Enjin Wallet Daemon Installation
 
 Here are the instruction to install the Enjin Wallet Daemon application under various OSes. This document necessitates an up-to-date OS, and knowledge of the command line and system administration.
 
 Administrator access to the target computer is required.
 
-## Windows 10
+### Windows 10
 
-### Requirements Summary
+#### Requirements Summary
 * node.js
 * Python 2
 * Visual Studio Build Tools
