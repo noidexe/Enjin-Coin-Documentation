@@ -3,7 +3,7 @@
 [Platform Architecture](/docs/platform-architecture)
 [Creating Your Account](/docs/creating-account)
 [Connecting Your Enjin Wallet](/docs/wallet-setup)
-[Using Your Wallet Daemon](/docs/using-wallet-daemon)
+[Using Your Wallet Daemon](/docs/wallet-daemon)
 [Understanding GraphQL](/docs/using-graphql)
 
 # Token Management
