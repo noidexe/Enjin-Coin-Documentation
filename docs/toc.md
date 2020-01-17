@@ -4,7 +4,7 @@
 [Creating Your Account](/docs/creating-account)
 [Connecting Your Enjin Wallet](/docs/wallet-setup)
 [Using Your Wallet Daemon](/docs/wallet-daemon)
-[Using GraphQL](/docs/using-graphql)
+[Using GraphQL](/docs/graphql)
 
 # Token Management
 [Creating Your First Item](/docs/creating-items)
