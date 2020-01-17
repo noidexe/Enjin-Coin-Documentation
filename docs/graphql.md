@@ -29,6 +29,15 @@ Fields are used to ask for specific properties in objects.
 
 Each object has fields that can be queried by name in order to query for specific properties.
 
+```bash
+query {
+   boards {
+      id
+      >
+   }
+}
+```
+
 ## Arguments
 
 You can pass arguments to a query to determine the return value (eg. filtering search results) and narrow down the results to the specific ones you’re after.
