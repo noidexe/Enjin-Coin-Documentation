@@ -1,66 +1,35 @@
-# Enjin Wallet Daemon First Steps
+# Using GraphQL
 
-The Enjin Wallet Daemon is a utility that manages an Ethereum address linked to an Enjin Trusted Cloud identity. When a transaction is submitted on the Trusted Cloud, the wallet daemon receives that transaction, signs it, and sends it back to the Trusted Cloud.
+Unlike REST APIs where there is a clearly defined structure of information returned from each endpoint, GraphQL always exposes one endpoint, allowing you to determine the structure of the data that is returned.
 
-## New Wallet Creation
+The result of each query will be formatted in the same way as the query itself.
 
-This is the recommended way to initialize a Wallet Daemon.
+In the following section we’re going to have a quick look into to GraphQL components.
 
-Run `node src/main.js account new`
-Notice the new wallet address is printed on the console.
+## Operations
 
-**Keep a backup of your password somewhere safe! Otherwise there is no way to recover your account**
+Query - A GraphQL query performs the READ operation and does not change data.
 
-## Import Existing Private Key
+Mutation - To perform all other operations to modify data you will need mutations. You can think of mutations as CUD (Create, Update, Delete) in REST.
 
-### From Enjin Wallet
+## Object Types
 
-The Enjin Wallet uses the Ledger (ETH) _HD derivation path_ (`m/44'/60'/0'`). You can use MyEtherWallet to rebuild your private key from the 12 word recovery phrase.
+Object types are a collection of fields, which are used to describe the set of possible data you can query from the API.
 
-This method is _rather insecure_ and should only be used knowing that it exposes your private key to a website that could have been compromised. To mitigate the risk, it's highly recommended to deploy a private copy of MyEtherWallet from <https://github.com/kvhnuke/etherwallet/releases>
+## Fields
 
-If you decide to go this route, click on "View Wallet Info" and follow the onscreen instructions:
+Fields are used to ask for specific properties in objects.
 
-* Mnemonic Phrase
-* Pasting your 12 words and keeping the password field empty
-* Selecting the _Ledger (ETH)_ derivation path
-* Choosing the correct address from the suggestion list
+Each object has fields that can be queried by name in order to query for specific properties.
 
-### From MetaMask
+## Arguments
 
-Go in account details and select "Export Private Key"
+You can pass arguments to a query to determine the return value (eg. filtering search results) and narrow down the results to the specific ones you’re after.
 
-### From Parity/Geth
+In the following example, the object is “boards”, the requested field is “owner”, the argument is “ids”, and the argument value is 201781755.
 
-Assuming your client installation uses the default data folders, the keys are stored there:
+## GraphQL visual interface - GraphiQL
 
-#### Parity
+One of the most powerful parts of GraphQL is its visual interface. GraphiQL is an in-browser tool for writing, validating, and testing GraphQL queries.
 
-* Windows: `%HOMEPATH%/AppData/Roaming/Parity/Ethereum/keys`
-* macOS: `~/Library/Application\ Support/io.parity.ethereum/keys`
-* Linux: `$HOME/.local/share/io.parity.ethereum/keys`
-
-#### Geth
-
-* Windows: `%APPDATA%\Ethereum\keystore`
-* macOS: `~/Library/Ethereum/keystore`
-* Linux: `~/.ethereum/keystore`
-
-Each key is stored in an extensionless json file. Here again, you can use "MyEtherWallet" to extract the private keys.
-
-This method is _rather insecure_ and should only be used knowing that it exposes your private key to a website that could have been compromised. To mitigate the risk, it's highly recommended to deploy a private copy of MyEtherWallet from <https://github.com/kvhnuke/etherwallet/releases>
-
-If you decide to go this route, click on "View Wallet Info" and follow the onscreen instructions:
-
-* Keystore / JSON File
-* Select your file, enter your password
-
-## Link To Trusted Cloud
-
-1. Create an account on the Trusted Cloud.
-2. Create an identify for the application you want to control with the wallet daemon.
-3. Copy the linking code from the identity `<CODE>`.
-4. Run `node src/main.js link <CODE>`
-
-## Run The Wallet Daemon
-Run `node src/main.js`
+Before diving in and starting querying the API, it’s highly recommended to run your queries through the visual interface to make sure they are correct and the data being returned is the data you expect. GraphiQL is available in the Try It Yourself tab.
