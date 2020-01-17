@@ -17,7 +17,10 @@ Mutation - To perform all other operations to modify data you will need mutation
 Object types are a collection of fields, which are used to describe the set of possible data you can query from the API.
 
 ```bash
-npm install --global --production windows-build-tools
+query {
+}
+mutation {
+}
 ```
 
 ## Fields
