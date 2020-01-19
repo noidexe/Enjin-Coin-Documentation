@@ -1,12 +1,6 @@
 # What is the Wallet Daemon?
 
-The wallet daemon is a tool that signs your blockchain transactions on your behalf.
-
-As your game grows, it is possible that you may need to sign thousands of transactions per day using your Enjin wallet, which is impossible.
-
-Even signing a small amount of transactions manually is more trouble than its worth.
-
-The wallet daemon allows you to automate the signing process, so transactions are actioned instantly, creating an instant bridge between your game and the blockchain, and ensuring your players can enjoy a seamless and fluid gaming experience.
+The wallet daemon allows you to automate the signing process, so transactions are actioned instantly, creating an persistent bridge between your game and the blockchain, and ensuring your players can enjoy a seamless and fluid gaming experience.
 
 ## Enjin Wallet Daemon Installation
 
