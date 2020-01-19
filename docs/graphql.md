@@ -49,3 +49,8 @@ In the following example, the object is “boards”, the requested field is “
 One of the most powerful parts of GraphQL is its visual interface. GraphiQL is an in-browser tool for writing, validating, and testing GraphQL queries.
 
 Before diving in and starting querying the API, it’s highly recommended to run your queries through the visual interface to make sure they are correct and the data being returned is the data you expect. GraphiQL is available in the Try It Yourself tab.
+
+**You can use the following GraphiQL interfaces to interact with the Trusted Cloud:**
+
+* **Kovan (Testnet)** Trusted Cloud (GraphiQL): [https://kovan.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
+* **Ethereum (Mainnet)** Trusted Cloud (GraphiQL): [https://cloud.enjin.io/graphiql](https://cloud.enjin.io/graphiql)
