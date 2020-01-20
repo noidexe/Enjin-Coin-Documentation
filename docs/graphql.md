@@ -74,7 +74,7 @@ In the following sections we’re going to discuss each of the object types you 
 * **EnjinTokenTransferFeeSettings:** 
 * **EnjinTransactions:** A transaction request.
 * **EnjinBlock:** A batch of data being processed by the Ethereum network.
-* **PaginationCursor:**
+* **PaginationCursor:** Representing a single page of data within a list.
 
 ## Mutating Enjin Object Types
 
