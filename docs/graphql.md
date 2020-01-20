@@ -31,7 +31,7 @@ Each object has fields that can be queried by name in order to query for specifi
 
 ```bash
 query {
-   boards {
+   token {
       id
       >
    }
@@ -54,3 +54,40 @@ Before diving in and starting querying the API, it’s highly recommended to run
 
 * **Kovan (Testnet)** Trusted Cloud (GraphiQL): [https://kovan.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
 * **Ethereum (Mainnet)** Trusted Cloud (GraphiQL): [https://cloud.enjin.io/graphiql](https://cloud.enjin.io/graphiql)
+
+## Querying Enjin Object Types
+
+Querying is the way to ask for data, it’s similar to the GET action in REST-based APIs.
+
+In the following sections we’re going to discuss each of the object types you can query and the different data you can extract from each of them. Here is a list of the Enjin object types you can query through the API:
+* **EnjinOauth:** A Trusted Platform access token 
+* **EnjinPlatform:** An app on the Trusted Platform
+* **EnjinApp:** An app on the Trusted Platform.
+* **EnjinUser:** A user account.
+* **EnjinRole:** The role of a user account.
+* **EnjinPermission:** The permissions of a role of a user account.
+* **EnjinIdentity:** A user's identity for a game.
+* **EnjinIdentityField:** A field that can be attached to an identity.
+* **EnjinToken:** A blockchain asset
+* **EnjinBalance:** A balance of tokens in a user account
+* **EnjinTokenEvents:** A blockchain asset event.
+* **EnjinTokenTransferFeeSettings:** 
+* **EnjinTransactions:** A transaction request.
+* **EnjinBlock:** A batch of data being processed by the Ethereum network.
+* **PaginationCursor:**
+
+## Mutating Enjin Object Types
+
+Mutating in GraphQL is the way to modify data, it is the term used to include all non API functions other than GET. This includes functions such as put, post, and delete that you may be familiar with from REST-based APIs.
+
+Unlike querying, mutating requires adding all the arguments to the mutation. After it runs, you can query the values of the object after the mutation took place.
+
+There are different types of Enjin object types that can be mutated through the API. In the following sections we’re going to dive into each of them, the different data you can mutate, and additional details about how to do so.
+
+Here is a list of the Enjin object types that can be mutated:
+* **EnjinApp:** An app on the Trusted Platform.
+* **EnjinUser:** A user account.
+* **EnjinRole:** A user role.
+* **EnjinIdentity:** A user's identity for a game.
+* **EnjinToken:** A blockchain asset.
+* **EnjinRequest:** A transaction sent to the Trusted Platform.
