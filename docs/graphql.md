@@ -40,13 +40,15 @@ query {
 
 You can determine the return value of a query by passing arguments to it. This narrows down the results and allows you to only get what you're after.
 
-In the following example, the object is “token”, the requested field is “name”, the argument is “token_id”, and the argument value is 0x6000000000000e13.
+In the following example, the object is “token”, the requested field is “name”, the argument is “id”.
 
 ```bash
-query {
-   EnjinToken (token_id: 0x6000000000000e13){
-      name
-   }
+query Token($name: String,) {
+  token: EnjinTokens(
+    name: $name
+  ) {
+    id
+  }
 }
 ```
 
