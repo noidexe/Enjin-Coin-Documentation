@@ -1,4 +1,4 @@
-# Working With Metadata
+# Working with Metadata
 
 ## ERC1155 Metadata JSON Schema
 
