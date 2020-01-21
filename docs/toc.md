@@ -7,7 +7,7 @@
 [Using GraphQL](/docs/graphql)
 
 # Token Management
-[Creating Your First Item](/docs/creating-items)
+[Minting Tokens](/docs/minting-tokens)
 
 # Software Integration
 [Using Items In Your Game](/docs/using-items)
