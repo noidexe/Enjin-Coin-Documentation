@@ -8,6 +8,7 @@
 
 # Token Management
 [Minting Tokens](/docs/minting-tokens)
+[Working with Metadata](/docs/metadata)
 
 # Software Integration
 [Using Items In Your Game](/docs/using-items)
