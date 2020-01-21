@@ -31,7 +31,6 @@ Each object has fields that can be queried by name in order to query for the pro
 query {
    EnjinToken {
       id
-      >
    }
 }
 ```
