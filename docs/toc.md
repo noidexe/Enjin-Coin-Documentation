@@ -23,11 +23,6 @@
 # Java SDK
 [Java SDK User Guide](/docs/java)
 
-# Wallet Daemon
-[Installation](/docs/wallet_daemon_install)
-[Usage](/docs/wallet_daemon_usage)
-[First Steps](/docs/wallet_daemon_first_steps)
-
 # Metadata
 [ERC-1155 Metadata JSON Schema](/docs/erc1155_metadata_json_schema)
 [Working with Metadata](/docs/working_with_metadata_digital_ocean)
