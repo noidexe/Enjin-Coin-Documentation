@@ -1,20 +1,18 @@
 # Using GraphQL
 
-Unlike REST APIs where there is a clearly defined structure of information returned from each endpoint, GraphQL always exposes one endpoint, allowing you to determine the structure of the data that is returned.
+GraphQL is a modern syntax that allows you to define the data structure of your queries and ask for exactly what you want and nothing more.
 
-The result of each query will be formatted in the same way as the query itself.
-
-In the following section we’re going to have a quick look into to GraphQL components.
+GraphQL queries access not just the properties of one resource but also smoothly follow references between them. While typical REST APIs require loading from multiple URLs, GraphQL APIs get all the data your app needs in a single request. 
 
 ## Operations
 
-Query - A GraphQL query performs the READ operation and does not change data.
+**Query:** READ operations are performed by GraphQL queries, these do not change data.
 
-Mutation - To perform all other operations to modify data you will need mutations. You can think of mutations as CUD (Create, Update, Delete) in REST.
+**Mutation:** You will use mutations to perform all other operations to modify data.
 
 ## Object Types
 
-Object types are a collection of fields, which are used to describe the set of possible data you can query from the API.
+Object types are sets of fields that are used to define the set of data you can query from the API.
 
 ```bash
 query {
@@ -25,13 +23,13 @@ mutation {
 
 ## Fields
 
-Fields are used to ask for specific properties in objects.
+Fields are used to ask for specific object propeties.
 
-Each object has fields that can be queried by name in order to query for specific properties.
+Each object has fields that can be queried by name in order to query for the properties you need.
 
 ```bash
 query {
-   token {
+   EnjinToken {
       id
       >
    }
@@ -40,15 +38,23 @@ query {
 
 ## Arguments
 
-You can pass arguments to a query to determine the return value (eg. filtering search results) and narrow down the results to the specific ones you’re after.
+You can determine the return value of a query by passing arguments to it. This narrows down the results and allows you to only get what you're after.
 
-In the following example, the object is “boards”, the requested field is “owner”, the argument is “ids”, and the argument value is 201781755.
+In the following example, the object is “token”, the requested field is “name”, the argument is “token_id”, and the argument value is 0x6000000000000e13.
+
+```bash
+query {
+   EnjinToken (token_id: 0x6000000000000e13){
+      name
+   }
+}
+```
 
 ## GraphQL visual interface - GraphiQL
 
-One of the most powerful parts of GraphQL is its visual interface. GraphiQL is an in-browser tool for writing, validating, and testing GraphQL queries.
+Probably the most user-friendly feature of GraphQL is its visual interface, an in-browser tool for writing, validating, and testing GraphQL queries.
 
-Before diving in and starting querying the API, it’s highly recommended to run your queries through the visual interface to make sure they are correct and the data being returned is the data you expect. GraphiQL is available in the Try It Yourself tab.
+Before you query the API, it’s recommended to run your queries through the visual interface to make sure they are correct and the data being returned is the data you expect. 
 
 **You can use the following GraphiQL interfaces to interact with the Trusted Cloud:**
 
@@ -59,7 +65,7 @@ Before diving in and starting querying the API, it’s highly recommended to run
 
 Querying is the way to ask for data, it’s similar to the GET action in REST-based APIs.
 
-In the following sections we’re going to discuss each of the object types you can query and the different data you can extract from each of them. Here is a list of the Enjin object types you can query through the API:
+Here is a list of the Enjin object types you can query through the API:
 * **EnjinOauth:** A Trusted Platform access token 
 * **EnjinPlatform:** An app on the Trusted Platform
 * **EnjinApp:** An app on the Trusted Platform.
@@ -82,7 +88,7 @@ Mutating in GraphQL is the way to modify data, it is the term used to include al
 
 Unlike querying, mutating requires adding all the arguments to the mutation. After it runs, you can query the values of the object after the mutation took place.
 
-There are different types of Enjin object types that can be mutated through the API. In the following sections we’re going to dive into each of them, the different data you can mutate, and additional details about how to do so.
+There are different types of Enjin object types that can be mutated through the API. 
 
 Here is a list of the Enjin object types that can be mutated:
 * **EnjinApp:** An app on the Trusted Platform.
@@ -91,3 +97,5 @@ Here is a list of the Enjin object types that can be mutated:
 * **EnjinIdentity:** A user's identity for a game.
 * **EnjinToken:** A blockchain asset.
 * **EnjinRequest:** A transaction sent to the Trusted Platform.
+
+For more information, go through the [API Reference](/api-docs) where you can see all the core GraphQL requests and parameters.
