@@ -1,6 +1,10 @@
-# Creating Your First Items
+# Minting Tokens
 
-With a [properly setup wallet](wallet-setup.md) under your belt, it's time for you to create some items to fill that wallet with. You can opt to create these items directly using GraphQL, or by using the [Enjin SDK editor](# Using Unity) window within the Unity.
+Tokens, also known as blockchain assets, are used to represent the identity of your virtual items on the blockchain. 
+
+When your game items are on the blockchain, their value is more tangible because their identities are immutable, transparent, and incorruptible.
+
+The tokenization and management of virtual items is the core function of the Enjin Platform.
 
 # Using GraphQL
 
