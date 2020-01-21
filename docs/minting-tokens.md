@@ -6,11 +6,10 @@ When your game items are on the blockchain, their value is more tangible because
 
 The tokenization and management of virtual items is the core function of the Enjin Platform.
 
-# Using GraphQL
+## Creating a Token Template
 
-## Creating an Item
+A token template contains the core, immutable token data that will be committed to the blockchain.
 
-Creating an item is like creating a template that you will use to mint your items.
 To create an item, you will need to make a request with the desired item properties. Here is
 an example:
 
