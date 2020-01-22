@@ -24,10 +24,6 @@
 # Java SDK
 [Java SDK User Guide](/docs/java)
 
-# Metadata
-[ERC-1155 Metadata JSON Schema](/docs/erc1155_metadata_json_schema)
-[Working with Metadata](/docs/working_with_metadata_digital_ocean)
-
 # NodeJS SDK
 [First Steps](/docs/node_sdk_examples)
 
