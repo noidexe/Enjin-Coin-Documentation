@@ -1,4 +1,4 @@
-# Working with Metadata - Digital Ocean
+# Hosting Metadata
 
 This guide will show you how to host JSON metadata and images for your items
 using [Digital Ocean](https://enj.in/digital-ocean) Cloud Services. This is not the only
