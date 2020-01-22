@@ -14,9 +14,7 @@ There are two types of token data that are used within the Enjin Platform.
 
 * **Metadata** is the human-readable information that your users will be able to see in your game or app and any other platform where they can see your token. This data can be updated at any time.
 
-### Blockchain Data
-
-#### Changeable
+### Blockchain Data: Changable
 
 **name**: The name that will be committed to the blockchain.
 
@@ -59,7 +57,7 @@ The token ID of the token you want to use as the transfer fee. Use 0 if you want
 **transferFeeSettings:** value
 Value of the transfer fee. If using ENJ, multiply the value by 10^18 to include 18 decimals.
 
-#### Permanent
+### Blockchain Data: Permanent
 
 **totalSupply**: This is how many of the item you want to exist in the world. This limit can be
 broken or mean different things depending on the supply model you use above. For example, if you
