@@ -10,14 +10,14 @@ The tokenization and management of virtual items is the core function of the Enj
 
 There are two different token types that can be created using the Enjin Platform.
 
-### Fungible Tokens (FT):
+#### Fungible Tokens (FT):
 Traditional currencies and cryptocurrencies are fungible; they are identical, interchangeable, and divisible. For currencies to work as a standard payment method, fungibility is essential.
 
 Fungible tokens do not have a unique serial number or history; there is nothing to distinguish one from the next. For example, every $5 note is exactly the same and holds the same value. Every half of one fungible token is equal to two quarters of another.
 
 Fungible tokens are useful for things like currency, reward points, discounts, and promotional materials—any item that doesn't require a unique identity. 
 
-### Non-Fungible Tokens (NFT)
+#### Non-Fungible Tokens (NFT):
 
 A non-fungible token is a singular, defined asset.
 
