@@ -8,7 +8,21 @@ The tokenization and management of virtual items is the core function of the Enj
 
 ## Token Data
 
-There are two types of token data that are used within the Enjin Platform.
+There are two different token types that can be created using the Enjin Platform.
+
+* **Fungible Tokens (FT):** Traditional currencies and cryptocurrencies are fungible; they are identical, interchangeable, and divisible. For currencies to work as a standard payment method, fungibility is essential.
+
+Fungible tokens do not have a unique serial number or history; there is nothing to distinguish one from the next. For example, every $5 note is exactly the same and holds the same value. Every half of one fungible token is equal to two quarters of another.
+
+Fungible tokens are useful for things like currency, reward points, discounts, and promotional materials—any item that doesn't require a unique identity. 
+
+* **Non-Fungible Tokens (NFT)** A non-fungible token is a singular, defined asset.
+
+Non-fungible tokens are not divisible and are stored in the Enjin Wallet as separate tokens with individual data. However, non-fungible tokens are not always 100% unique. For example, a set of tokens may share the same name, description, and image, but they can still be non-fungible if they possess unique, distinguishing properties (identity, history, and metadata).
+
+Non-fungible tokens are suitable for things like identification, certificates, collectibles, gaming characters—any asset that requires its own identity.
+
+There are two types of data that can be attached to each token.
 
 * **Blockchain Data** is committed permanently to the Ethereum Network. The defining properties of a token, including its identity, settings, and ENJ-backed value can impact the demand for a token drastically, therefore, much of this data can never be changed once committed to the blockchain. While some token settings can be updated by replacing old data with new, the previous token settings will remain on record, viewable in the transaction history on the blockchain.
 
@@ -106,7 +120,7 @@ You can either find the Token ID on the transaction with that item after it conf
 
 Please note: You will need to wait for it to be confirmed and scraped from the blockchain first.
 
-Enter in the `ITEM NAME` to search for that item. Alternatively, you can make the request without the name parameter to return all items on your app.
+Enter in the `NAME` to search for that token. Alternatively, you can make the request without the name parameter to return all items on your app.
 
 [Tokens](../examples/Tokens.gql)
 
@@ -129,39 +143,35 @@ would define this like so:
   "image": "/IMAGE.jpg"
 }
 ```
-Once you have that .json file uploaded with public read access, you can make the request to set the item URI. 
+Once you have that .json file uploaded with public read access, you can make the request to set the item URI (Uniform Resource Identifier).
 
-Replacing with your token_id and link to your .json file. See [this guide](/docs/metadata) for more details if you are
-unfamiliar with hosting files.
+See [this guide](/docs/metadata) for more details if you are unfamiliar with hosting files.
 
 **Advanced Users:**
 The URI value allows for ID substitution by clients. If the string `{id}` exists in any URI, clients MUST replace this with the actual token ID in hexadecimal form. This allows for large number of tokens to use the same on-chain string by defining a URI once, for a large collection of tokens. Example of such a URI: `https://token-cdn-domain/{id}.json` would be replaced with `https://token-cdn-domain/780000000000001e000000000000000000000000000000000000000000000000.json` if the client is referring to token ID `780000000000001e000000000000000000000000000000000000000000000000`. See [Metadata](/docs/metadata) section in the ERC-1155 standards documentation for full details.
 
 [SetItemUri](../examples/SetItemUri.gql)
 
-
-There are many other built in features for metadata built into our schema,
-consult the [Enjin Metadata Schema](../erc1155_metadata_json_schema.md) for details.
-
-Once a successful request has been made, you will need to accept and sign the transaction in the **NOTIFICATIONS** section of your dev wallet.
+Once a successful request has been made, you will need to accept and sign the transaction in the **REQUESTS** section of your dev wallet.
 
 ## Minting the Tokens
 
-Minting items is using the template you created in the CREATE step to
-instantiate some items on the blockchain. The request for minting fungible items (FIs) vs non-fungible items (NFIs) varies slightly. You can batch mint to multiple addresses if you wish to do so. The differences are that if you need to mint multiple NFIs, you will need to specify the wallet address for each individual item. Ideally try to avoid minting over 100 NFIs in a single transaction, FIs do not have this restriction. Here is the same request between 2 different items types, FI and NFI.
+Now that you have created the template and defined all the data to attach to it, it's time to mint your first batch of tokens. 
 
-**FI:**
+The request for minting fungible tokens (FTs) vs non-fungible tokens (NFTs) varies slightly. You can batch mint to multiple addresses if you wish to do so. The differences are that if you need to mint multiple NFIs, you will need to specify the wallet address for each individual item. Ideally try to avoid minting over 100 NFIs in a single transaction, FIs do not have this restriction. Here is the same request between 2 different token types, FT and NFT.
+
+**FT:**
 [MintFungibleItems](../examples/MintFungibleItems.gql)
 
 This request would mint 5x items to “WALLET_ADDRESS_1” and 3x items to “WALLET_ADDRESS_2”.
 You can mint up to `INITIAL RESERVE` of items.
 
-**NFI:**
+**NFT:**
 [MintNonFungibleItems](../examples/MintNonFungibleItems.gql)
 
 This request would mint 5x items to “WALLET_ADDRESS_1” and 3x items to “WALLET_ADDRESS_2”.
 
-Once a successful request has been made, you will need to accept and sign the transaction in the “NOTIFICATIONS” section of your dev wallet.
+Once a successful request has been made, you will need to accept and sign the transaction in the “REQUESTS” section of your dev wallet.
 
 # Using Unity
 
