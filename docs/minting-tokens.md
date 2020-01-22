@@ -47,7 +47,7 @@ Determines if items are able to be traded, or are bound to their owners (i.e. no
 * **Bound**: Item is always bound to the owner of the item.
 * **Temporary**: Item is currently tradable, but creator can make it non-tradable at a future date.
 
-**transferFeeSettings: Value** 
+**transferFeeSettings: value** 
 
 Value of the transfer fee. If using ENJ, multiply the value by 10^18 to include 18 decimals. When you first set a transfer fee, that setting become the maximum fee you can charge. However, you can lower a transfer fee at any time, at which point, you can then raise it back to the amount you initially set.
 
@@ -62,7 +62,7 @@ can only be "this many" items of this kind in existence at any one time.
 **initialReserve**:This is how many items you want to pre-pay to mint as part of the initial create operation. Minting items will be deducted from this balance until it is exhausted. You have to
 pay for at least one item on creation. Having an initial reserve allows you to create your item without having to spend all the ENJ for your total supply on the create.
 
-**transferFeeSettings: Type**
+**transferFeeSettings: type**
 
 You can choose to charge a transfer fee for every peer-to-peer transaction that your users make. This allows you to monetize the economy that surrounds your game and gain revenue by fostering interesting new social dynamics within your community.
 
