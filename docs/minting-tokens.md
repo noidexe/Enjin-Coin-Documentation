@@ -33,6 +33,8 @@ There are two types of data that can be attached to each token.
 
 ### Blockchain Data: Changable
 
+This data can be edited and replaced with new settings at any time.
+
 **name**: The name that will be committed to the blockchain.
 
 **Metadata URI**
@@ -41,9 +43,23 @@ The metadata URI allows you to add a URL that contains a JSON that describes pro
 
 **Transferable**
 Determines if items are able to be traded, or are bound to their owners (i.e. non-tradable).
-* **Permanent**: Item is always able to be traded with others.
+* **Permanent**: Item is always able to be traded with others. This setting is not changable once committed to a token.
 * **Bound**: Item is always bound to the owner of the item.
 * **Temporary**: Item is currently tradable, but creator can make it non-tradable at a future date.
+
+**transferFeeSettings:** value
+Value of the transfer fee. If using ENJ, multiply the value by 10^18 to include 18 decimals. When you first set a transfer fee, that setting become the maximum fee you can charge. However, you can lower a transfer fee at any time, at which point, you can then raise it back to the amount you initially set.
+
+### Blockchain Data: Permanent
+
+**totalSupply**: This is how many of the item you want to exist in the world. This limit can be
+broken or mean different things depending on the supply model you use above. For example, if you
+use the COLLAPSING supply type, the initial supply would represent the total number of items that
+existed during the original run. The easiest to understand is FIXED, which tells users that there
+can only be "this many" items of this kind in existence at any one time.
+
+**initialReserve**:This is how many items you want to pre-pay to mint as part of the initial create operation. Minting items will be deducted from this balance until it is exhausted. You have to
+pay for at least one item on creation. Having an initial reserve allows you to create your item without having to spend all the ENJ for your total supply on the create.
 
 **transferFeeSettings:** type
 You can choose to charge a transfer fee for every peer-to-peer transaction that your users make. This allows you to monetize the economy that surrounds your game and gain revenue by fostering interesting new social dynamics within your community.
@@ -70,20 +86,6 @@ Result: `0xPAT` loses 4,600 `gold`, `0xERIC` receives 4000, `0xCREATOR` receives
 
 **transferFeeSettings:** token_id
 The token ID of the token you want to use as the transfer fee. Use 0 if you want your users to pay you in Enjin Coin.
-
-**transferFeeSettings:** value
-Value of the transfer fee. If using ENJ, multiply the value by 10^18 to include 18 decimals.
-
-### Blockchain Data: Permanent
-
-**totalSupply**: This is how many of the item you want to exist in the world. This limit can be
-broken or mean different things depending on the supply model you use above. For example, if you
-use the COLLAPSING supply type, the initial supply would represent the total number of items that
-existed during the original run. The easiest to understand is FIXED, which tells users that there
-can only be "this many" items of this kind in existence at any one time.
-
-**initialReserve**:This is how many items you want to pre-pay to mint as part of the initial create operation. Minting items will be deducted from this balance until it is exhausted. You have to
-pay for at least one item on creation. Having an initial reserve allows you to create your item without having to spend all the ENJ for your total supply on the create.
 
 **meltValue**
 The amount of ENJ you want to use per unit of item you are creating. You need to use a minimal
