@@ -6,6 +6,86 @@ When your game items are on the blockchain, their value is more tangible because
 
 The tokenization and management of virtual items is the core function of the Enjin Platform.
 
+## Token Data
+
+There are two types of token data that are used within the Enjin Platform.
+
+* **Blockchain Data** is committed permanently to the Ethereum Network. The defining properties of a token, including its identity, settings, and ENJ-backed value can impact the demand for a token drastically, therefore, much of this data can never be changed once committed to the blockchain. While some token settings can be updated by replacing old data with new, the previous token settings will remain on record, viewable in the transaction history on the blockchain.
+
+* **Metadata** is the human-readable information that your users will be able to see in your game or app and any other platform where they can see your token. This data can be updated at any time.
+
+### Blockchain Data
+
+#### Can be Updated
+
+**name**: The name that will be committed to the blockchain.
+
+**Metadata URI**
+See **Working with metadata** section.
+The metadata URI allows you to add a URL that contains a JSON that describes properties of your item, including images.
+
+**Transferable**
+Determines if items are able to be traded, or are bound to their owners (i.e. non-tradable).
+* **Permanent**: Item is always able to be traded with others.
+* **Bound**: Item is always bound to the owner of the item.
+* **Temporary**: Item is currently tradable, but creator can make it non-tradable at a future date.
+
+**transferFeeSettings:** type
+You can choose to charge a transfer fee for every peer-to-peer transaction that your users make. This allows you to monetize the economy that surrounds your game and gain revenue by fostering interesting new social dynamics within your community.
+
+* **None**: No Transfer fees are charged when this item changes hands.
+
+* **Per_Crypto_Item**: Transfer fee *per item* changing hands, in ENJ. For example, if an `Apple`
+has a `0.1 ENJ` fee per item and `0xPAT` sends 10 apples to `0xERIC`, `0xPAT` would be charged 1 ENJ for the transaction that would go to the `0xCREATOR` of the apple.
+
+* **Per_Transfer**: Transfer fee per *transfer* when changing hands, in ENJ. For example, if a `Banana` has a `0.1 ENJ` fee per transfer and `0xPAT` sends 10 bananas to `0xERIC`, `0xPAT` would
+be charged 0.1 ENJ for the transaction that would go to the `0xCREATOR` of the banana.
+* **Ratio_Cut**: Fungible Items only. A % cut of the total items is subtracted from the total for the dev, with the sender paying the total price. For example, if transferring 500 gold with a 10% ratio cut (0.1) the recipient would get 450 gold and the dev 50 gold, with the sender paying 500 total for the transaction.
+Another example:
+
+`day_of_subscription` has RATIO_CUT of 100 (results in 1% cut to creator)
+`0xPAT` sends 10000 `day_of_subscription` to `0xERIC`
+Result: `0xERIC` gets 9,900 items and `0xCREATOR` gets 100.
+
+* **Ratio_Extra**: Fungible items only. A tax that is charged ON TOP of everything. For example if transferring 500 gold with a 10% ratio extra the recipient would get 500 gold, the dev 50 gold, and the sender pays 550 gold total for the transaction.
+Another example:
+`gold` has RATIO_EXTRA fees of 1,500 (15%)
+0xPAT sends 4000 `gold` to `0xERIC`
+Result: `0xPAT` loses 4,600 `gold`, `0xERIC` receives 4000, `0xCREATOR` receives 600.
+
+**transferFeeSettings:** token_id
+The token ID of the token you want to use as the transfer fee. Use 0 if you want your users to pay you in Enjin Coin.
+
+**transferFeeSettings:** value
+Value of the transfer fee. If using ENJ, multiply the value by 10^18 to include 18 decimals.
+
+#### Can Never be Changed
+
+**totalSupply**: This is how many of the item you want to exist in the world. This limit can be
+broken or mean different things depending on the supply model you use above. For example, if you
+use the COLLAPSING supply type, the initial supply would represent the total number of items that
+existed during the original run. The easiest to understand is FIXED, which tells users that there
+can only be "this many" items of this kind in existence at any one time.
+
+**initialReserve**:This is how many items you want to pre-pay to mint as part of the initial create operation. Minting items will be deducted from this balance until it is exhausted. You have to
+pay for at least one item on creation. Having an initial reserve allows you to create your item without having to spend all the ENJ for your total supply on the create.
+
+**meltValue**
+The amount of ENJ you want to use per unit of item you are creating. You need to use a minimal
+amount of ENJ to back your items depending on how many you are creating in your initial reserve (the min cost will be listed beside the label). In general, the more items of one type you are making, the less ENJ you need **per unit** of item.
+
+**supplyModel**: This is how the item pool behaves with respect to minting and melting. We have the following supply types in the current version on Enjin:
+  * **Fixed**: You can have up to TOTAL SUPPLY number of items in circulation at one time.
+  * **Settable**: Allows you to edit the total supply at any time.
+  * **Infinite**: You can mint as many items as you want, exceeding TOTAL SUPPLY.
+  * **Collapsing**: Once melted the items cannot be re-minted.
+
+**meltFeeRatio**
+This is the current percentage of ENJ that the player will receive upon melting the item. The remaining ENJ goes to the creator.
+
+**nonFungible**
+Whether the item is Non-Fungible or Fungible, true or false.
+
 ## Creating a Token Template
 
 A token template contains the core, immutable token data that will be committed to the blockchain.
@@ -15,37 +95,59 @@ an example:
 
 [CreateToken](../examples/CreateToken.gql)
 
-
-Property | Descriptions
----|---
-totalSupply | Total Supply for the item
-initialReserve | Initial Reserve for the item. You will need ENJ approved for this reserve.
-supplyModel | Supply Model for the item. FIXED, SETTABLE, INFINITE, COLLAPSING, ANNUAL_VALUE, ANNUAL_PERCENTAGE.
-meltValue | ENJ value of the item. Need to multiply value by 10^18 to include 18 decimals.  There is a minimum melt value required by new items which is calculated from the inital reserve.  You can use this TP endpoint to discover the minimum amount for any given reserve: `/api/v1/ethereum/get-min-melt-value/{iniitalReserve}` e.g. [https://kovan.cloud.enjin.io/api/v1/ethereum/get-min-melt-value/1000000](https://kovan.cloud.enjin.io/api/v1/ethereum/get-min-melt-value/1000000)
-meltFeeRatio | Percentage of melt value returned to the creator (up to a maximum of 50%), up to 2 decimals. Need to multiply the percentage by 100. i.e. 12.5 % would be 1250.
-Transferable | Transfer Type. PERMANENT, TEMPORARY, BOUND.
-transferFeeSettings - type | Transfer Fee Type. NONE, PER_TRANSFER, PER_CRYPTO_ITEM, RATIO_CUT, RATIO_EXTRA, TYPE_COUNT.
-transferFeeSettings - token_id | Token ID of the item you want to use as the transfer fee. Use 0 for Enjin Coin.
-transferFeeSettings - value | Value of the transfer fee. If using ENJ, multiply the value by 10^18 to include 18 decimals.
-nonFungible | Whether the item is Non-Fungible or Fungible, true or false.
-
-Consult the "Creating Items" section of the [Unity Guide](./unity.md) to get a more detailed explanation of the item properties and how they work.
-
-Once a successful request has been made, you will need to accept and sign the transaction in the **NOTIFICATIONS** section of your dev wallet. If the transaction is successful the
-item template is created and you can move onto finding the item's id to MINT.
+Once a successful request has been made, you will need to accept and sign the transaction in the **REQUESTS** section of your dev wallet. 
 
 
-## Finding the Token ID (and Additional Details)
+## Finding the Token ID
 
-You can either find the Token ID on the transaction with that item after it confirms via EnjinX or you can search for the item on the Trusted Cloud, you will need to wait for it to be confirmed and scraped from the blockchain first.
+A Token ID is a permanent identity given to your Token Template once it has been committed to the blockchain. 
 
-NOTE: If you find your Token ID via the blockchain rather than the TP then it will be in integer form, you will need to convert this number to hex and take just the 'upper' 32 bits of the resulting value (which represents the Base Token ID) before using it in many of the GraphQL mutations. You can use a service such as [Rapid Tables](https://www.rapidtables.com/convert/number/decimal-to-hex.html) to do this.
+Therefore, once the token template has been created you will need to find the Token ID to MINT the tokens that you have defined within the template.
 
-[Tokens](../examples/Tokens.gql)
+You can either find the Token ID on the transaction with that item after it confirms via [EnjinX](https://enjinx.io/) or you can search for the item on the Trusted Cloud using the following query
+
+Please note: You will need to wait for it to be confirmed and scraped from the blockchain first.
 
 Enter in the `ITEM NAME` to search for that item. Alternatively, you can make the request without the name parameter to return all items on your app.
 
-## Minting the Item
+[Tokens](../examples/Tokens.gql)
+
+
+## Creating Token Metadata
+
+Once you have defined your token's blockchain data by creating the token template, you can add Metadata to it which is stored in a .json file, hosted somewhere that has public read access.
+
+Technically, item metadata is optional, but if you want to display an image and custom item properties in your game, the Enjin Wallet, and other Enjin Services, you will need to define some metadata.
+
+You can include a name (which would be displayed instead of the blockchain item name), description, and link to an image (which also needs to be publicly readable) in the .json file.
+
+The bare minimum recommended metadata is a name, a description, and an image. You
+would define this like so:
+
+```json
+{
+  "name": "ITEM_NAME",
+  "description": "Description line 1.\nDescription line 2.",
+  "image": "/IMAGE.jpg"
+}
+```
+Once you have that .json file uploaded with public read access, you can make the request to set the item URI. 
+
+Replacing with your token_id and link to your .json file. See [this guide](/docs/metadata) for more details if you are
+unfamiliar with hosting files.
+
+**Advanced Users:**
+The URI value allows for ID substitution by clients. If the string `{id}` exists in any URI, clients MUST replace this with the actual token ID in hexadecimal form. This allows for large number of tokens to use the same on-chain string by defining a URI once, for a large collection of tokens. Example of such a URI: `https://token-cdn-domain/{id}.json` would be replaced with `https://token-cdn-domain/780000000000001e000000000000000000000000000000000000000000000000.json` if the client is referring to token ID `780000000000001e000000000000000000000000000000000000000000000000`. See [Metadata](/docs/metadata) section in the ERC-1155 standards documentation for full details.
+
+[SetItemUri](../examples/SetItemUri.gql)
+
+
+There are many other built in features for metadata built into our schema,
+consult the [Enjin Metadata Schema](../erc1155_metadata_json_schema.md) for details.
+
+Once a successful request has been made, you will need to accept and sign the transaction in the **NOTIFICATIONS** section of your dev wallet.
+
+## Minting the Tokens
 
 Minting items is using the template you created in the CREATE step to
 instantiate some items on the blockchain. The request for minting fungible items (FIs) vs non-fungible items (NFIs) varies slightly. You can batch mint to multiple addresses if you wish to do so. The differences are that if you need to mint multiple NFIs, you will need to specify the wallet address for each individual item. Ideally try to avoid minting over 100 NFIs in a single transaction, FIs do not have this restriction. Here is the same request between 2 different items types, FI and NFI.
@@ -62,38 +164,6 @@ You can mint up to `INITIAL RESERVE` of items.
 This request would mint 5x items to “WALLET_ADDRESS_1” and 3x items to “WALLET_ADDRESS_2”.
 
 Once a successful request has been made, you will need to accept and sign the transaction in the “NOTIFICATIONS” section of your dev wallet.
-
-## Setting the URI (Item Metadata)
-Item metadata is optional, but if you want to display an image and custom item properties
-in the Enjin Wallet (and other Enjin Services) you will need to define some metadata.
-
-In order to link an item to a metadata file, you will need a .json file hosted somewhere that has public read access. You can include a name (which would be displayed instead of the blockchain item name), description, and link to an image (which also needs to be publicly readable) in the .json file.
-
-The bare minimum recommended metadata is a name, a description, and an image. You
-would define this like so:
-
-```json
-{
-  "name": "ITEM_NAME",
-  "description": "Description line 1.\nDescription line 2.",
-  "image": "/IMAGE.jpg"
-}
-```
-Once you have that .json file uploaded with public read access, you can make the request to set the item URI. Replacing with your token_id and link to your .json file. See
-[this guide](./working_with_metadata_digital_ocean.md) for more details if you are
-unfamiliar with hosting files.
-
-**Advanced Users:**
-The URI value allows for ID substitution by clients. If the string `{id}` exists in any URI, clients MUST replace this with the actual token ID in hexadecimal form. This allows for large number of tokens to use the same on-chain string by defining a URI once, for a large collection of tokens. Example of such a URI: `https://token-cdn-domain/{id}.json` would be replaced with `https://token-cdn-domain/780000000000001e000000000000000000000000000000000000000000000000.json` if the client is referring to token ID `780000000000001e000000000000000000000000000000000000000000000000`. See [Metadata](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#metadata) section in the ERC-1155 standards documentation for full details.
-
-[SetItemUri](../examples/SetItemUri.gql)
-
-
-There are many other built in features for metadata built into our schema,
-consult the [Enjin Metadata Schema](../erc1155_metadata_json_schema.md) for details.
-
-Once a successful request has been made, you will need to accept and sign the transaction in the **NOTIFICATIONS** section of your dev wallet.
-
 
 # Using Unity
 
