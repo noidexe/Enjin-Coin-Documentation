@@ -16,7 +16,7 @@ There are two types of token data that are used within the Enjin Platform.
 
 ### Blockchain Data
 
-#### Can be Updated
+#### Changeable
 
 **name**: The name that will be committed to the blockchain.
 
@@ -59,7 +59,7 @@ The token ID of the token you want to use as the transfer fee. Use 0 if you want
 **transferFeeSettings:** value
 Value of the transfer fee. If using ENJ, multiply the value by 10^18 to include 18 decimals.
 
-#### Can Never be Changed
+#### Permanent
 
 **totalSupply**: This is how many of the item you want to exist in the world. This limit can be
 broken or mean different things depending on the supply model you use above. For example, if you
