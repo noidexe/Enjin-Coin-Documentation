@@ -14,7 +14,7 @@ GraphQL queries access not just the properties of one resource but also smoothly
 
 Object types are sets of fields that are used to define the set of data you can query from the API.
 
-```bash
+```gql
 query {
 }
 mutation {
@@ -27,7 +27,7 @@ Fields are used to ask for specific object propeties.
 
 Each object has fields that can be queried by name in order to query for the properties you need.
 
-```bash
+```gql
 query {
    EnjinToken {
       id
@@ -41,7 +41,7 @@ You can determine the return value of a query by passing arguments to it. This n
 
 In the following example, the object is “token”, the requested field is “name”, the argument is “id”.
 
-```bash
+```gql
 query Token($name: String,) {
   token: EnjinTokens(
     name: $name
