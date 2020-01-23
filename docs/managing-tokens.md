@@ -92,8 +92,6 @@ This is to ensure you can mint your tokens fluidly, using the Enjin Coin you hav
 
 If you no longer wish to use the token template and decide not to go ahead with minting the respective tokens, you can destroy the template and return the ENJ that you have set aside by using the following mutation:
 
-The more items you have the longer you have to wait after release - can add up to days or weeks if it's thousands of items - get exact figure
-
 ```gql
 mutation releaseReserve {
 CreateEnjinRequest(
@@ -137,7 +135,7 @@ encoded_data
 ```
 
 ## Transfer Whitelisting
-If you've created a bound token, or a token with transfer fees, and you don't wish for these settings to apply in every circumstance, you can use transfer whitelisting to allow specific users to send tokens to specific addresses.
+If you've created a bound token or a token with transfer fees, and you don't wish for these settings to apply in every circumstance, you can use transfer whitelisting to allow specific users to send tokens to specific addresses.
 
 Place the address in question into the following account field:
 
