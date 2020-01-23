@@ -12,7 +12,7 @@
 [Managing Your Tokens](/docs/managing-tokens)
 
 # Software Integration
-[Using Items In Your Game](/docs/using-items)
+[Integrating Your Tokens](/docs/integrating-tokens)
 
 # Enjin Cloud API
 [API Reference](/api-docs)
@@ -21,6 +21,7 @@
 
 # Unity SDK
 [Unity Panel User Guide](/docs/unity)
+[Using Items In Your Game](/docs/using-items)
 
 # Java SDK
 [Java SDK User Guide](/docs/java)
