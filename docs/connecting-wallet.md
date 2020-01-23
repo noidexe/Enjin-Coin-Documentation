@@ -17,7 +17,7 @@ You'll need version 1.3.7.20316 or later with developer mode enabled to communic
 ### Enable Developer Mode
 To enable developer mode in the wallet head to the settings screen and tap the version number in the bottom right corner 10 times. 
 
-Developer mode is needed in order to link to the Trusted Cloud and enable other developer related features and functions. Developer mode is available on both Android (1.3.7) and iOS (1.3.0).
+Developer mode is needed in order to link to the Trusted Cloud and enable other developer-related features and functions. Developer mode is available on both Android (1.3.7) and iOS (1.3.0).
 
 ### Create a wallet
 - If this is your first wallet, select the _Create Wallet_ option. 
@@ -43,7 +43,7 @@ It is imperative that you take a minute to save and protect your private keys (1
 ![Enjin Backup Wallet](../docs/images/wallet_master_wallet.png)
 
 ### Get Your Ethereum Address
-To Find your Ethereum address;
+To find your Ethereum address;
 1. Tap _Wallets_. 
 2. Tap either the _ETH_ or _ENJ_. 
 3. Then tap _Receive_ in the top left. 
@@ -55,7 +55,7 @@ _NOTE: Your Enjin Coin and all of your blockchain assets are running on Ethereum
 
 ### Fund Your Wallet
 
-To begin creating and managing your blockchain assets you need to pay for your necessary blockchain transactions using Ether and Enjin Coin.
+To begin creating and managing your blockchain assets, you need to pay for your necessary blockchain transactions using Ether and Enjin Coin.
 
 Ether (ETH/KETH) is used to pay for transaction fees on the network, while Enjin Coin (ENJ/KENJ) is used to create and back your items. 
 
@@ -64,15 +64,15 @@ Ether (ETH/KETH) is used to pay for transaction fees on the network, while Enjin
 
 ## Wallet Linking
 
-Every user of your Enjin App or collection requires an app identity which allows you to identify them as the true owner of their Ethereum address.
+Every user of your Enjin App or collection requires an app identity that allows you to identify them as the true owner of their Ethereum address.
 
-Identities are distinct from user ids, and are a way to decouple users from wallet addresses. Identities are either linked, or unlinked. If they are linked, they contain a valid Ethereum address. Unlinked identities have a code like `BXXAZK` that users can sign into their Enjin Wallet to link their Ethereum address and prove that it's theirs.
+Identities are distinct from user ids and are a way to decouple users from wallet addresses. Identities are either linked or unlinked. If they are linked, they contain a valid Ethereum address. Unlinked identities have a code like `BXXAZK` that users can sign into their Enjin Wallet to link their Ethereum address and prove that it's theirs.
 
 It is important to know that **there can only be one identity per user, per app/game.**
 
 You cannot directly connect a user id to a wallet.
 
-For example, user `bob` can link his wallet `0xabcd`to the game `Space Monkies`, but cannot link multiple wallets to that particular game. If `bob` wants to use a different wallet with `Space Monkies`, he will need to unlink the current wallet, and re-link with the new wallet.
+For example, user `bob` can link his wallet `0xabcd`to the game `Space Monkies`, but cannot link multiple wallets to that particular game. If `bob` wants to use a different wallet with `Space Monkies`, he will need to unlink the current wallet and re-link with the new wallet.
 
 An identity will automatically be created for new users if you set an app id when creating the user.
 
@@ -94,7 +94,7 @@ To reset your linked wallet, use the following query.
 ### Approving ENJ
 Every time a successful request has been made to the blockchain, you will need to accept and sign the transaction in the REQUESTS section of your dev wallet.
 
-Since creating transactions will usually cost Enjin Coin or Ether, to prepare for future expendature you will need to pre-approve the Enjin Smart Contract to create transactions on your behalf.  
+Since creating transactions will usually cost Enjin Coin or Ether, to prepare for future expenditure you will need to pre-approve the Enjin Smart Contract to create transactions on your behalf.  
 
 When linking your wallet for the first time an approve transaction will automatically be created for you to sign.  
 
