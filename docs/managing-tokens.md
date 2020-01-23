@@ -159,9 +159,11 @@ encodedData
 }
 ```
 
-### Whitelisted settings:
+### Whitelist settings:
 **Full Rights:** The address has full rights to send and receive the token.
+```gql
 0x0000000000000000000000000000000000000001
+```
 
 **No Outgoing:** The address has can send but not receive the token. Which means the only way they can get it, is if you mint it directly into their address.
 0x0000000000000000000000000000000000000002
