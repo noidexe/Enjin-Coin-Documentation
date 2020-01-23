@@ -74,9 +74,8 @@ You can update your user name, email, and password by running the following requ
 [UpdateUser](../examples/UpdateUser.gql)
 
 
-## Reverting Pending Transactions
+## Cancelling Pending Transactions
 
-If the wallet daemon is complaining about a transaction with invalid parameters
-that needs to be reverted, you can revert the transaction
+If the wallet daemon is complaining about a transaction with invalid parameters that needs to be reverted, you can revert the transaction by using the following mutation:
 
 [CancelTransaction](../examples/CancelTransaction.gql)
