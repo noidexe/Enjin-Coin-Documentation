@@ -269,17 +269,21 @@ name
 ```
 
 **This query will return the following values:**
-Open: The transaction has been posted to the Trusted Cloud but is yet to reach the Ethereum Network.
-Pending: The transaction is in the process of being fulfilled by the Ethereum Network.
-Executed: The transaction has been successfully completed.
 
-## Approve ENJ
-Spending Allowance for your creator wallet and for each player's wallet. We need to explain that this exists, how to use it, examples etc
-Player security Player could potentially choose their own spending limit so they don't spend more on each game than they want
-Player can change their value - increase/decrease
-Game dev Security - set a spending allowance to ensure the game doesn't spend too much
+* **OPENED:** Transaction is opened on the Trusted Cloud, but is yet to be committed to the blockchain..
+* **PENDING:** Transaction is created on the Trusted Cloud, but has not yet been signed by the user/dev.
+* **TP_PROCESSING:** Transaction has been signed and is waiting for the Trusted Cloud/Platform) to process the transaction for broadcast.
+* **BROADCAST:** Transaction has been signed and has been broadcasted but has not yet been confirmed on the blockchain.
+* **CONFIRMED:** Transaction has been confirmed by the blockchain and is waiting to be executed on the Trusted Cloud.
+* **EXECUTED:** The transaction has received confirmation on the blockchain and the Trusted Cloud.
+* **CANCELED_USER:** The user has canceled the PENDING transaction/not signed.
+* **CANCELED_PLATFORM:** The Platform has canceled the PENDING transaction.
+* **FAILED:** Transaction has failed on the TP.
 
-Send request to user to approve enj use on app
+## Set Spending Allowance
+If you want to increase the security of your app and set a spending limit for yourself, or allow your players to choose their own spending limited.
+
+You can use this mutation to set a spending allowance: 
 
 ```gql
 mutation ApproveEnj{
@@ -295,14 +299,15 @@ id,
 }
 ```
 
-Set value as -1 for max value
-Note that this value decreases as it is used, like a literal spending allowance, if you set a value fo 10 ENJ and then make 10 transactions for 1 ENJ each your allowance will then be 0 and need to be set again.
+Set `value` as `-1` for max value
+
+**Note:** This value decreases as it is used, like a literal spending allowance. If you set the value to 10 Enjin Coin (ENJ) and then make 10 transactions for 1 ENJ each, your allowance go down to 0 and need to be set again.
 
 
 ## Trade Request
-3 steps to a full trade
+Initiating secure peer-to-peer trades is a three-step process because the trade needs to be created, the respective items need to be held in escrow, and once both parties have checked the items they can complete the trade.
 
-1: create trade request - confirm in 1st persons wallet - use token id:"0" for ENJ
+**Step 1:** Create the trade request and confirm in 1st person's wallet.
 
 ```gql
 mutation sendTradeRequest {
@@ -323,7 +328,9 @@ state
 }
 ```
 
-2: get the trade_id - param1
+Use token `id: "0"` for Enjin Coin (ENJ)
+
+**Step 2:** Get the trade_id - param1.
 
 ```gql
 query idForCompleteTrade{
@@ -335,7 +342,7 @@ events { param1 }
 }
 ```
 
-3: complete the trade request - entering param1 as trade_id, 2nd persons identity_id and confirm in 2nd persons wallet
+**Step 3:** Complete the trade request, entering param1 as trade_id, 2nd persons identity_id and confirm in 2nd persons wallet.
 
 ```gql
 mutation completeTradeRequest {
@@ -354,17 +361,9 @@ encoded_data
 }
 ```
 
-You can cancel the mutation yourself, using this mutation:
+## Blockchain Explorer
+Players are inherently interested in the data behind the assets they own.
 
-```gql
-mutation {
-  UpdateEnjinRequest(id: 453929, state: CANCELED_USER) {
-    id
-    state
-  }
-}
-```
+If you would like to link your users to the EnjinX listing of a specific token, you can add the Token ID to the following URL
 
-## Marketplace
 https://enjinx.io/eth/asset/0x(id)00000000000000000000000000000000(index)
-This link allows you to send users to any token based on the token ID
