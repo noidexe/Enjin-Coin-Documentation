@@ -12,7 +12,7 @@
 [Managing Your Tokens](/docs/managing-tokens)
 
 # Software Integration
-[Creating Your Integration](/docs/integrating)
+[Creating Your Integration](/docs/creating-your-integration)
 
 # Enjin Cloud API
 [API Reference](/api-docs)
