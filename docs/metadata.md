@@ -62,7 +62,7 @@ Any token ID may have a metadata URI that can be retrieved by calling uri(_id) o
 If an individual Non-Fungible token ID has a metadata URI defined, client apps should use this URI. If not defined, client apps should call uri(_id) on the base token id to retrieve the Default URI for the entire set of Non-Fungible tokens.
 
 ### Default URI
-A Non-Fungible token that defines a Default URI in its base token has the option of using an {id} placeholder in the URI itself. This will get replaced with the distinct ID when accessing NF items.
+A Non-Fungible token that defines a Default URI in its base token has the option of using an {id} placeholder in the URI itself. This will get replaced with the distinct ID when accessing NFTs.
 
 Example:
 ```
@@ -72,7 +72,7 @@ yoursite.com/0xbd4818c04f57a2ebc473d74ee06d6e0600000000000000000000000000000001.
 ```
 
 ### Images
-If the Default URI contains an image property that in turn contains the {id} placeholder, the image url will be used as the default image for all tokens of this type.
+If the Default URI contains an image property that in turn contains the {id} placeholder, the image URL will be used as the default image for all tokens of this type.
 
 Example:
 ```
@@ -86,8 +86,8 @@ The **image** property can also be a static URI without the placeholder, as desi
 ## Hosting Metadata
 
 This guide will show you how to host JSON metadata and images for your items
-using [Digital Ocean](https://enj.in/digital-ocean) Cloud Services. This is not the only
-way to host your data, but should provide an easy, yet robust way for developers that
+using [Digital Ocean](https://enj.in/digital-ocean) Cloud Services. This is not a only
+way to host your data but should provide an easy, yet robust way for developers that
 are less familiar with web technologies to fully take advantage of item metadata.
 
 You can look at the full JSON schema for metadta over [here](./erc1155_metadata_json_schema.md).
@@ -95,8 +95,8 @@ You can look at the full JSON schema for metadta over [here](./erc1155_metadata_
 ### Getting Started
 Create an account on Digital Ocean.
 
-Once you have an account, create an new
-project for you game, and then create a [Space](https://www.digitalocean.com/docs/spaces/).
+Once you have an account, create a new
+project for your game, and then create a [Space](https://www.digitalocean.com/docs/spaces/).
 
 Your screen should look something like this:
 
@@ -105,7 +105,7 @@ Your screen should look something like this:
 ### Uploading Files
 Click on the Space to access.
 
-Upload your images first, since you will need to set the `image` field in your JSON to the URL of you image.
+Upload your images first, since you will need to set the `image` field in your JSON to the URL of your image.
 
 Set permissions to Public.
 
