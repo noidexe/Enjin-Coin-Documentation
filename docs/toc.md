@@ -14,7 +14,7 @@
 # Software Integration
 [Creating Your Integration](/docs/creating-your-integration)
 
-# Enjin Cloud API
+# Platform API
 [API Reference](/api-docs)
 [GraphiQL](/graphiql)
 [Guide](/docs/cloud_platform)
