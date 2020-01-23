@@ -159,7 +159,7 @@ encodedData
 }
 ```
 
-### Whitelisted settings:
+### Whitelisted Settings
 **Full Rights:** The address has full rights to send and receive the token.
 ```gql
 0x0000000000000000000000000000000000000001
