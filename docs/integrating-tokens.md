@@ -1,7 +1,7 @@
-# Using Tokens in Your App
+# Integrating Your Tokens
 
-## Integrating into your game
-Getting your own session token: Following on from Cliff's point - Need information about how to get client/app secret which you then use to get your developer Auth token. That allows you to start creating accounts for people.
+## Getting your own session token: 
+Following on from Cliff's point - Need information about how to get client/app secret which you then use to get your developer Auth token. That allows you to start creating accounts for people.
 
 Get Secret
 Find secret key for app for creating auth tokens
