@@ -159,8 +159,15 @@ encodedData
 }
 ```
 
-Whitelisted settings:
-0x0000000000000000000000000000000000000001 - The address has full rights to send and receive the token.
-0x0000000000000000000000000000000000000002 - The address has can send but not receive the token. Which means the only way they can get it, is if you mint it directly into their address.
-0x0000000000000000000000000000000000000003 - The address can receive but can't send the token. 
-0x0000000000000000000000000000000000000004 - The address can send tokens without paying transfer fees.
+### Whitelisted settings:
+**Full Rights:** The address has full rights to send and receive the token.
+0x0000000000000000000000000000000000000001
+
+**No Outgoing:** The address has can send but not receive the token. Which means the only way they can get it, is if you mint it directly into their address.
+0x0000000000000000000000000000000000000002
+
+**No Incoming:** The address can receive but can't send the token. 
+0x0000000000000000000000000000000000000003
+
+**No Fees:** The address can send tokens without paying transfer fees.
+0x0000000000000000000000000000000000000004
