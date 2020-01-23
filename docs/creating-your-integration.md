@@ -362,8 +362,8 @@ encoded_data
 ```
 
 ## Blockchain Explorer
-Players are inherently interested in the data behind the assets they own.
+Players are inherently interested in the blockchain data behind the assets they own.
 
-If you would like to link your users to the EnjinX listing of a specific token, you can add the Token ID to the following URL
+If you would like to link your users to the EnjinX listing of a specific token, so they can learn everything they can about their tokens, you can add the Token ID to the following link.
 
 https://enjinx.io/eth/asset/0x(id)00000000000000000000000000000000(index)
