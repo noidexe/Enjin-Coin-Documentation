@@ -1,5 +1,4 @@
 # Managing Your Tokens
-
 Once your tokens are minted you may need to edit, send, or melt them down and recover the Enjin Coin from inside.
 
 The Platform API has been built to provide all the functionality you need to manage a robust blockchain-based gaming economy. 
@@ -8,7 +7,9 @@ You will likely use the following queries and mutations quite often.
 
 
 ## Change Token URI 
-Changes the name/description/image of a token
+To change your token metadata, including the name, description, and images of your tokens, you will need to update your URI.
+
+The following mutation can be used to alter the URI or reload the data:
 
 ```gql
 mutation changeURI {
@@ -30,7 +31,11 @@ state
 ```
 
 ## Change Token Name
-Editing the name of a token
+Tokens have their names specified on the blockchain and within their metadata. 
+
+This means tokens can, technically, be given a different name on the blockchain and in its metadata.
+
+You can update a token's name on the blockchain by using the following mutation:
 
 ```gql
 mutation changeNFTname {
@@ -49,7 +54,12 @@ encoded_data
 ```
 
 ## Melt Batch Items
-Melt NFT's in batches
+There may be times that you make a mistake during the token minting process and you wish to melt all of the tokens you have created. 
+
+To melt any token, it needs to be in your wallet, so it's important to qudruple check your token settings prior to sending them to your users.
+
+Once your tokens have been distributed to your users there is no going back and the only way to fix any errors is to issue replacement tokens.
+
 
 ```gql
 mutation BatchMelt{
@@ -118,7 +128,7 @@ encoded_data
 }
 ```
 
-## telist Address - Whitelist fees on sending & recieving
+## Whitelist Address - Whitelist fees on sending & recieving
 Removes fees for a give wallet address per token
 
 ```gql
