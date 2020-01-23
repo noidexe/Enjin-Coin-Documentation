@@ -62,8 +62,21 @@ If you already created an app, but forget the id, you can look it up with the fo
 
 You will need a name, description and an (optional) link to a hosted image for your app. You should get the App ID in the response if it was successful.
 
-## Creating More Users (Optional)
+## Creating More Users
 
   If you are an Admin for your app (you are admin by default if you created the app), you can create new user accounts directly in GraphiQL with the following mutation, if desired:
 
 [CreateUser](../examples/CreateUser.gql)
+
+## Updating Users
+You can update your user name, email, and password by running the following request. Replacing with your User ID, new name, new email and new password.
+
+[UpdateUser](../examples/UpdateUser.gql)
+
+
+## Reverting Pending Transactions
+
+If the wallet daemon is complaining about a transaction with invalid parameters
+that needs to be reverted, you can revert the transaction
+
+[CancelTransaction](../examples/CancelTransaction.gql)
