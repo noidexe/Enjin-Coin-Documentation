@@ -39,10 +39,6 @@
 # NodeJS SDK
 [First Steps](/docs/node_sdk_examples)
 
-# Guides
-[Trade Fee Guide](/docs/trade_fees)
-[GraphQL Cookbook](/docs/graphql_cookbook)
-
 # Terms
 [Terms & Conditions](/terms)
 [Privacy Policy](/privacy)
