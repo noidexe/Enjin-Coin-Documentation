@@ -1,10 +1,10 @@
 # Getting Started
 [Introduction](/docs/enjin)
 [Platform Architecture](/docs/platform-architecture)
+[Using GraphQL](/docs/graphql)
 [Creating Your Account](/docs/creating-account)
 [Connecting Your Enjin Wallet](/docs/wallet-setup)
 [Using Your Wallet Daemon](/docs/wallet-daemon)
-[Using GraphQL](/docs/graphql)
 
 # Token Management
 [Minting Tokens](/docs/minting-tokens)
