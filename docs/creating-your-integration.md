@@ -50,7 +50,7 @@ Next, you will gain your Auth Token by posting the following query to https://cl
 ```
 
 ## Create a User 
-Your authorisation system needs to check to see if a user's account has been created yet.
+Your authorization system needs to check to see if a user's account has been created yet.
 
 
 * If it hasn't, it should create a new account for them. 
@@ -69,7 +69,7 @@ Your authorisation system needs to check to see if a user's account has been cre
 "}".
 ```
 
-Once you have created an Enjin account, it's advisable to enter the reference into your database, so you don't repeat this process unnecesarily in future.
+Once you have created an Enjin account, it's advisable to enter the reference into your database, so you don't repeat this process unnecessarily in the future.
 
 ## Log Your User In
 Once you are have confirmed that your user has an existing account, you can log your user into Enjin Auth using the following query:
@@ -179,7 +179,7 @@ balance
 
 This query displays the `token_index` and `balance` of the token in question.
 
-You can also choose request the data for `token_id` and `identity_id` by adding the fields to the query.
+You can also choose to request the data for `token_id` and `identity_id` by adding the fields to the query.
 
 ## Token Holders 
 providing rewards to everyone that has a specific token
@@ -270,7 +270,7 @@ name
 
 **This query will return the following values:**
 
-* **OPENED:** Transaction is opened on the Trusted Cloud, but is yet to be committed to the blockchain..
+* **OPENED:** Transaction is opened on the Trusted Cloud, but is yet to be committed to the blockchain.
 * **PENDING:** Transaction is created on the Trusted Cloud, but has not yet been signed by the user/dev.
 * **TP_PROCESSING:** Transaction has been signed and is waiting for the Trusted Cloud/Platform) to process the transaction for broadcast.
 * **BROADCAST:** Transaction has been signed and has been broadcasted but has not yet been confirmed on the blockchain.
