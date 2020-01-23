@@ -4,7 +4,7 @@ Managing a live blockchain game requires a robust ecosystem of architecture that
 
 ![A diagram of Enjin's Architecture](images/platform-architecture.png)
 
-As this diagram shows, a basic blockchain interaction is a simple six step process. 
+As this diagram shows, a basic blockchain interaction is a simple six-step process. 
 
 In this example, let's consider the case of a user trying to sell a sword:
 1. The user interacts with your game. They tell the game to sell a sword.
@@ -30,7 +30,7 @@ Functions include:
 
 Trusted Cloud is the main backend service of the Enjin Platform. It is a cloud-hosted service that connects games to the Ethereum blockchain. 
 
-Trusted Cloud acts as a hub, gathering requests from clients, game servers, and the Enjin Wallet, interacting with Enjin's smart contracts on Ethereum, and returning data back to the game. It also manages the link between users’ game accounts (e.g., SteamID, XBox Live) and their blockchain identity (e.g., currently linked blockchain wallet address).
+Trusted Cloud acts as a hub, gathering requests from clients, game servers, and the Enjin Wallet, interacting with Enjin's smart contracts on Ethereum, and returning data back to the game. It also manages the link between users’ game accounts (e.g., SteamID, Xbox Live) and their blockchain identity (e.g., currently linked blockchain wallet address).
 
 To save you having to build logic for interacting with our smart contract or the Enjin Wallet app directly, we provide a server that includes a convenient Application Programming Interface (API) to facilitate communication.
 
@@ -38,9 +38,9 @@ The Trusted Cloud includes better error handling and input validation than direc
 
 There are two separate Trusted Cloud servers: **Testnet** and **Mainnet**.
 
-**Testnet** is an Ethereum test network where Ethereum and Enjin Coin do not carry any value and it’s easy to obtain any amount of either. Thus, testnet offers an inexpensive way for you to prototype and test out your creations before taking them to production.
+**Testnet** is an Ethereum test network where Ethereum and Enjin Coin do not carry any value and it’s easy to obtain any amount of either. Thus, the Testnet offers an inexpensive way for you to prototype and test out your creations before taking them to production.
 
-**Mainnet** is the real Ethereum network—transactions on it cost real cryptocurrency. You should be very comfortable with your implementation on testnet before doing anything substantial on mainnet.
+**Mainnet** is the real Ethereum network—transactions on it cost real cryptocurrency. You should be very comfortable with your implementation on Testnet before doing anything on Mainnet.
 
 ## Platform API (GraphQL)
 
