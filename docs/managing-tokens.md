@@ -2,7 +2,9 @@
 
 Once your tokens are minted you may need to edit, send, or melt them down and recover the Enjin Coin from inside.
 
-The Platform API has been built to provide all the functionality you need to manage a robust gaming economy. 
+The Platform API has been built to provide all the functionality you need to manage a robust blockchain-based gaming economy. 
+
+You will likely use the following queries and mutations quite often.
 
 
 ## Change Token URI 
