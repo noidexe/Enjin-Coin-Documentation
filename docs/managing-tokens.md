@@ -166,10 +166,16 @@ encodedData
 ```
 
 **No Outgoing:** The address has can send but not receive the token. Which means the only way they can get it, is if you mint it directly into their address.
+```gql
 0x0000000000000000000000000000000000000002
+```
 
 **No Incoming:** The address can receive but can't send the token. 
+```gql
 0x0000000000000000000000000000000000000003
+```
 
 **No Fees:** The address can send tokens without paying transfer fees.
+```gql
 0x0000000000000000000000000000000000000004
+```
