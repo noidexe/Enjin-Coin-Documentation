@@ -49,7 +49,7 @@ Next, you will gain your Auth Token by posting the following query to https://cl
 }
 ```
 
-### Create a User 
+## Create a User 
 Your authorisation system needs to check to see if a user's account has been created yet.
 
 
@@ -69,23 +69,9 @@ Your authorisation system needs to check to see if a user's account has been cre
 "}".
 ```
 
-If the API returns a linking code that means the user's Enjin Wallet is not linked, if no linking code is returned that means the wallet is linked and you can send the user into the game.
-
-You can also check linking code whenever you want using this;
-
-```gql
-query {
-EnjinIdentities (
-id: XX
-) {
-ethereum_address
-}
-}
-```
-
 Once you have created an Enjin account, it's advisable to enter the reference into your database, so you don't repeat this process unnecesarily in future.
 
-### Log Your User In
+## Log Your User In
 Once you are have confirmed that your user has an existing account, you can log your user into Enjin Auth using the following query:
 
 ```gql
@@ -102,10 +88,12 @@ Once you are have confirmed that your user has an existing account, you can log 
 "}".
 ```
 
+If the API returns a linking code, that means the user's Enjin Wallet is not linked. If no linking code is returned that means the wallet is linked and you can send the user into the game.
+
 ## EnjinIdentities
-Shows you your Indentity_Id which is used in most queries and mutations
+Most queries and mutations require an indentity ID, you can use this query to find it:
 
-
+```gql
 query viewIdentities {
 EnjinIdentities(
 pagination: {
@@ -122,11 +110,27 @@ enj_allowance
 ethereum_address
 }
 }
+```
 
-##Unlink Wallet
-Unlinks a wallet so a user can re-link
+## Check Linking Code
+You can also check your user's linking code whenever you want using this query;
 
+```gql
+query {
+EnjinIdentities (
+id: XX
+) {
+ethereum_address
+}
+}
+```
 
+## Unlink Wallet
+Sometimes your user may want to change wallets, they can do this via the Enjin Wallet or you can initiate it on your end.
+
+This query will unlink their wallet and allowing them to re-link it, or link a new one:
+
+```gql
 mutation UnlinkWallet {
 DeleteEnjinIdentity(id: XXXXXX, unlink: true)
 {
@@ -134,17 +138,17 @@ linking_code
 linking_code_qr
 }
 }
-
-
+```
 
 ## View Tokens in a Wallet
 
-used when logging a player into a game - update balance on the database - the game runs on that data
-Displays Token_Name and Token_Id for tokens found in wallet
+Once a player is logged in and linked, the first thing you will want to do is see their inventory so you can provide them with game items to match their tokens.
 
+It's advisable to update the user's balance on your database, that way your app or game can run efficiently on the data you are holding. 
 
-EnjinBalances(ethereum_address: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", show_zero_balances: false) {
+```gql
 query getBalance {
+EnjinBalances(ethereum_address: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", show_zero_balances: false) {
 token {
 name
 token_id
@@ -153,12 +157,14 @@ token_index
 balance
 }
 }
-show_zero_balances: false -> prevents the display of melted items as they technically still belong to that wallet
+```
 
-View Specific Tokens in a Wallet - - when you want to do a specific action with a token, you can use this to validate whether the token is still there 
-Displays Token_Index for a specific token found in wallet
+It's important to include the `show_zero_balances: false` argument because it prevents the display of melted items, as they technically still exist within that blockchain address, even though the user has chosen to destroy them. 
 
+## View Specific Tokens in a Wallet
+When you want to perfoem a specific action with a token, you can use this to validate whether the token is still there.
 
+```gql
 query getBalance {
 EnjinBalances(ethereum_address: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", token_id: "XXXXXXXXXXXXXXXXX", show_zero_balances: false) {
 token {
@@ -169,13 +175,17 @@ token_index
 balance
 }
 }
-show_zero_balances: false -> prevents the display of melted items as they technically still belong to that wallet
+```
+
+This query displays the `token_index` and `balance` of the token in question.
+
+You can also choose request the data for `token_id` and `identity_id` by adding the fields to the query.
 
 ## Token Holders 
 providing rewards to everyone that has a specific token
 Returns the addresses that have a specific token
 
-
+```gql
 query getBalanceByTokenNotAddress {
 EnjinBalances(
 token_id: "XXXXXXXXXXXXXXXXX",
@@ -185,11 +195,12 @@ balance
 ethereum_address
 }
 }
+```
 
 ## Token Details - 
-Gives detailed information about a specific token
-e.g. you can use this to show players information about a token, or use it to lookup your information for yourself
+If you wish to gives your users detailed information about a specific token, you can use this query to lookup the data:
 
+```gql
 query viewTokens {
 EnjinTokens(
 name: "TOKEN_NAME",
@@ -217,11 +228,12 @@ availableToMint
 itemURI
 }
 }
+```
 
 ## Token Holders
-Returns the addresses that have a specific token
+This query returns a list of addresses who own a specific token:
 
-
+```gql
 query getBalanceByTokenNotAddress {
 EnjinBalances(
 token_id: "XXXXXXXXXXXXXXXXX",
@@ -231,12 +243,15 @@ balance
 ethereum_address
 }
 }
+```
+Tt can be useful for rewarding all holders of a specific token in one go, through an coordinated airdrop.
 
 ## Transaction data
-- CONSTANTLY NEEDED
-This is how you know that someone's actually completed something
+Whenever you issue a send mutation, an `id` will be returned to you, and it is highly advisable to log this data so you can access it again later.
 
+Should you want to view the state of your past transaction, you will need to use this query: 
 
+```gql
 query ViewTransactionData{
 EnjinTransactions(
 id: xxxxx,
@@ -251,6 +266,12 @@ name
 }
 }
 }
+```
+
+**This query will return the following values:**
+Open: The transaction has been posted to the Trusted Cloud but is yet to reach the Ethereum Network.
+Pending: The transaction is in the process of being fulfilled by the Ethereum Network.
+Executed: The transaction has been successfully completed.
 
 ## Approve ENJ
 Spending Allowance for your creator wallet and for each player's wallet. We need to explain that this exists, how to use it, examples etc
@@ -260,7 +281,7 @@ Game dev Security - set a spending allowance to ensure the game doesn't spend to
 
 Send request to user to approve enj use on app
 
-
+```gql
 mutation ApproveEnj{
 CreateEnjinRequest (
 identity_id: XX,
@@ -272,6 +293,8 @@ value: XXXXXXX,
 id,
 }
 }
+```
+
 Set value as -1 for max value
 Note that this value decreases as it is used, like a literal spending allowance, if you set a value fo 10 ENJ and then make 10 transactions for 1 ENJ each your allowance will then be 0 and need to be set again.
 
@@ -281,7 +304,7 @@ Note that this value decreases as it is used, like a literal spending allowance,
 
 1: create trade request - confirm in 1st persons wallet - use token id:"0" for ENJ
 
-
+```gql
 mutation sendTradeRequest {
 CreateEnjinRequest (
 identity_id: XXX,
@@ -298,9 +321,11 @@ encoded_data
 state
 }
 }
+```
 
 2: get the trade_id - param1
 
+```gql
 query idForCompleteTrade{
 EnjinTransactions(id:XXXXXX){
 type,
@@ -308,9 +333,11 @@ transaction_id,
 events { param1 }
 }
 }
+```
 
 3: complete the trade request - entering param1 as trade_id, 2nd persons identity_id and confirm in 2nd persons wallet
 
+```gql
 mutation completeTradeRequest {
 CreateEnjinRequest (
 identity_id: XXX,
@@ -325,15 +352,18 @@ transaction_id
 encoded_data
 }
 }
+```
 
 You can cancel the mutation yourself, using this mutation:
 
+```gql
 mutation {
   UpdateEnjinRequest(id: 453929, state: CANCELED_USER) {
     id
     state
   }
 }
+```
 
 ## Marketplace
 https://enjinx.io/eth/asset/0x(id)00000000000000000000000000000000(index)
