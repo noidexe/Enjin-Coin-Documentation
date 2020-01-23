@@ -189,3 +189,9 @@ You can mint up to `INITIAL RESERVE` of items.
 This request would mint 5x items to “WALLET_ADDRESS_1” and 3x items to “WALLET_ADDRESS_2”.
 
 Once a successful request has been made, you will need to accept and sign the transaction in the “REQUESTS” section of your dev wallet.
+
+## Cancelling Pending Transactions
+
+If the wallet daemon is complaining about a transaction with invalid parameters that needs to be reverted, you can revert the transaction by using the following mutation:
+
+[CancelTransaction](../examples/CancelTransaction.gql)
