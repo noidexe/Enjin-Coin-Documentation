@@ -2,51 +2,62 @@
 
 Once you have [minted your tokens](/docs/minting-tokens) and are comfortable with [managing them](/docs/managing-tokens) it's time to start integrating them into your app or game.
 
-Although we have some very useful SDKs that can help you get on your feet, it's **very important** that all of your admin and user data is parsed and stored by a secure server, which means you will need a working knowledge of our Platform API (GraphQL) to complete your  integration.
+Although we have some very useful SDKs that can help you get on your feet, it's **very important** that all of your admin and user data is parsed and stored by a secure server.
 
-## Getting your own session token: 
-Following on from Cliff's point - Need information about how to get client/app secret which you then use to get your developer Auth token. That allows you to start creating accounts for people.
+This means you will need a working knowledge of our Platform API (GraphQL) to complete your secure integration.
 
-Get Secret
-Find secret key for app for creating auth tokens
+## Getting Your Bearer Token
+In the [creating your account](/docs/creating-account) section, you logged into to your account using the following query:
+
+```gql
+query login{
+  EnjinOauth (
+    email: "YOUR EMAIL",
+    password: "YOUR PASSWORD"
+  ) {
+    id,
+    name,
+    email,
+    access_tokens
+  }
+}
+```
+
+However, it's important to note that this connection expires after two weeks, so if you want to create a long-term connection to the Trusted Cloud, the following process will keep you logged in for up to 12 months.
+
+### Get Secret Key
+First, you will need to find your secret key:
+
+```gql
 query myApp{
-EnjinApps(id:XX){
-secret
+  EnjinApps(id:YOUR_ID){
+    secret
+  }
 }
+```
+
+### Get the Auth Token
+**SECURITY: MAKE SURE TO STORE THIS SERVERSIDE**
+
+Next, you will gain your Auth Token by posting the following query to https://cloud.enjin.io/oauth/token.
+
+```REST
+{
+    "grant_type":"client_credentials",
+    "client_id": YOUR_APP_ID,
+    "client_secret":"YOUR_SECRET_FROM_OTHER_CALL"
 }
+```
 
-Get the Bearer Token - how you get your Auth Token
-SECURITY: MAKE SURE TO STORE THIS ON SERVERSIDE OFFLINE
-PHP EXAMPLE - 
-$data = '{"grant_type":"client_credentials","client_id": "XX","client_secret":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}';
-
-    $url = 'https://cloud.enjin.io/oauth/token';
-  
-
-        $headers = array(
-            "Accept: application/json",
-            "Content-Type: application/json"
-        );
+### Create a User 
+Your authorisation system needs to check to see if a user's account has been created yet.
 
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+* If it hasn't, it should create a new account for them. 
+* If it has, then the system should try to log them in.
 
-        $response = curl_exec($ch);
-        curl_close($ch);
-        var_dump($response);
 
-        return json_decode($response, true);
-
-## Create a user through the Oauth system - checks to see if a user has been created as an enjin user 
-If they haven't it creates them as a user.
-If they already have then it just tries to log them in instead -> Logging in a player through the Enjin Auth
-Create Enjin User
-Creates players as an identity for your app
+```gql
 "CreateEnjinUser(name:\"".$playerid."\"){".
 "id,".
 "access_tokens,".
@@ -56,56 +67,13 @@ Creates players as an identity for your app
 "linking_code_qr".
 "}".
 "}".
+```
 
-PHP VERSION - Would be useful to allow devs to click to whatever version of code they use
-$query = " {".
-      "CreateEnjinUser(name:\"".$playerid."\"){".
-      "id,".
-      "access_tokens,".
-      "identities {".
-        "ethereum_address,".
-        "linking_code".
-        "}".
-        "}".
-      "}";
-    
-    $data = [ "query" => "mutation ".$query ];
-    
-    
-      $url = 'https://cloud.enjin.io/graphql';
+If the API returns a linking code that means the user's Enjin Wallet is not linked, if no linking code is returned that means the wallet is linked and you can send the user into the game.
 
-      $auth_token = "Authorization: Bearer ". $master_token; 
-      $app_id = "X-App-Id: ". $appID;
-      
+You can also check linking code whenever you want using this;
 
-    $headers = array(
-      $auth_token,
-      $app_id,
-      "Accept: application/json",
-      "Content-Type: application/json"
-    );
-
-    $postfields = json_encode($data);
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $postfields);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-    $response = curl_exec($ch);
-    curl_close($ch);
-    
-    
-    $data = json_decode($response, true);
-    $linking_code = $data['data']['CreateEnjinUser']['identities'][0]['linking_code'];
-
-If it returns a linking code that means it's not linked 
-- if it doesn't it's linked and you can send the user into the game.
-
-You can also check linking code using this
-
+```gql
 query {
 EnjinIdentities (
 id: XX
@@ -113,14 +81,14 @@ id: XX
 ethereum_address
 }
 }
+```
 
-Enter the database reference into the game's database to signify that you've created an Enjin account and you don't need to do it again.
+Once you have created an Enjin account, it's advisable to enter the reference into your database, so you don't repeat this process unnecesarily in future.
 
-Logging in a player through the Enjin Auth
-Login OAuth User
-Logs player into enjin via OAuth
-ogin OAuth User
-Logs player into enjin via OAuth
+### Log Your User In
+Once you are have confirmed that your user has an existing account, you can log your user into Enjin Auth using the following query:
+
+```gql
 "EnjinOauth(name:\"".$playerid."\"){".
 "id,".
 "access_tokens,".
@@ -132,6 +100,7 @@ Logs player into enjin via OAuth
 "linking_code_qr".
 "}".
 "}".
+```
 
 ## EnjinIdentities
 Shows you your Indentity_Id which is used in most queries and mutations
@@ -283,7 +252,7 @@ name
 }
 }
 
-##Approve ENJ
+## Approve ENJ
 Spending Allowance for your creator wallet and for each player's wallet. We need to explain that this exists, how to use it, examples etc
 Player security Player could potentially choose their own spending limit so they don't spend more on each game than they want
 Player can change their value - increase/decrease
