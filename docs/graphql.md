@@ -23,7 +23,7 @@ mutation {
 
 ## Fields
 
-Fields are used to ask for specific object propeties.
+Fields are used to ask for specific object properties.
 
 Each object has fields that can be queried by name in order to query for the properties you need.
 
@@ -85,7 +85,7 @@ Here is a list of the Enjin object types you can query through the API:
 
 ## Mutating Enjin Object Types
 
-Mutating in GraphQL is the way to modify data, it is the term used to include all non API functions other than GET. This includes functions such as put, post, and delete that you may be familiar with from REST-based APIs.
+Mutating in GraphQL is the way to modify data, it is the term used to include all non-API functions other than GET. This includes functions such as put, post, and delete that you may be familiar with from REST-based APIs.
 
 Unlike querying, mutating requires adding all the arguments to the mutation. After it runs, you can query the values of the object after the mutation took place.
 
