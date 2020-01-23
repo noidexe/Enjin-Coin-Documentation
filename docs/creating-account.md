@@ -72,10 +72,3 @@ You will need a name, description and an (optional) link to a hosted image for y
 You can update your user name, email, and password by running the following request. Replacing with your User ID, new name, new email and new password.
 
 [UpdateUser](../examples/UpdateUser.gql)
-
-
-## Cancelling Pending Transactions
-
-If the wallet daemon is complaining about a transaction with invalid parameters that needs to be reverted, you can revert the transaction by using the following mutation:
-
-[CancelTransaction](../examples/CancelTransaction.gql)
