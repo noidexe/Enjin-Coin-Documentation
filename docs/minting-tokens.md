@@ -13,7 +13,7 @@ There are two different token types that can be created using the Enjin Platform
 #### Fungible Tokens (FT):
 Traditional currencies and cryptocurrencies are fungible; they are identical, interchangeable, and divisible. For currencies to work as a standard payment method, fungibility is essential.
 
-Fungible tokens do not have a unique serial number or history; there is nothing to distinguish one from the next. For example, every $5 note is exactly the same and holds the same value. Every half of one fungible token is equal to two quarters of another.
+Fungible tokens do not have a unique serial number or history; there is nothing to distinguish one from the next. For example, every $5 note is exactly the same and holds the same value. Every half of one fungible token is equal to two-quarters of another.
 
 Fungible tokens are useful for things like currency, reward points, discounts, and promotional materials—any item that doesn't require a unique identity. 
 
@@ -31,7 +31,7 @@ There are two types of data that can be attached to each token.
 
 * **Metadata** is the human-readable information that your users will be able to see in your game or app and any other platform where they can see your token. This data can be updated at any time.
 
-### Blockchain Data: Changable
+### Blockchain Data: Changeable
 
 This data can be edited and replaced with new settings at any time.
 
@@ -43,13 +43,13 @@ The metadata URI allows you to add a URL that contains a JSON that describes pro
 
 **Transferable**
 Determines if items are able to be traded, or are bound to their owners (i.e. non-tradable).
-* **Permanent**: Item is always able to be traded with others. This setting is not changable once committed to a token.
+* **Permanent**: Item is always able to be traded with others. This setting is not changeable once committed to a token.
 * **Bound**: Item is always bound to the owner of the item.
-* **Temporary**: Item is currently tradable, but creator can make it non-tradable at a future date.
+* **Temporary**: Item is currently tradable, but the creator can make it non-tradable at a future date.
 
 **transferFeeSettings: value** 
 
-Value of the transfer fee. If using ENJ, multiply the value by 10^18 to include 18 decimals. When you first set a transfer fee, that setting become the maximum fee you can charge. However, you can lower a transfer fee at any time, at which point, you can then raise it back to the amount you initially set.
+Value of the transfer fee. If using ENJ, multiply the value by 10^18 to include 18 decimals. When you first set a transfer fee, that setting becomes the maximum fee you can charge. However, you can lower a transfer fee at any time, at which point, you can then raise it back to the amount you initially set.
 
 ### Blockchain Data: Permanent
 
@@ -59,8 +59,8 @@ use the COLLAPSING supply type, the initial supply would represent the total num
 existed during the original run. The easiest to understand is FIXED, which tells users that there
 can only be "this many" items of this kind in existence at any one time.
 
-**initialReserve**:This is how many items you want to pre-pay to mint as part of the initial create operation. Minting items will be deducted from this balance until it is exhausted. You have to
-pay for at least one item on creation. Having an initial reserve allows you to create your item without having to spend all the ENJ for your total supply on the create.
+**initialReserve**: This is how many items you want to pre-pay to mint as part of the initial create operation. Minting items will be deducted from this balance until it is exhausted. You have to
+pay for at least one item on creation. Having an initial reserve allows you to create your item without having to spend all the ENJ for your total supply upon creation.
 
 **transferFeeSettings: type**
 
@@ -80,7 +80,7 @@ Another example:
 `0xPAT` sends 10000 `day_of_subscription` to `0xERIC`
 Result: `0xERIC` gets 9,900 items and `0xCREATOR` gets 100.
 
-* **Ratio_Extra**: Fungible items only. A tax that is charged ON TOP of everything. For example if transferring 500 gold with a 10% ratio extra the recipient would get 500 gold, the dev 50 gold, and the sender pays 550 gold total for the transaction.
+* **Ratio_Extra**: Fungible items only. A tax that is charged ON TOP of everything. For example, if transferring 500 gold with a 10% ratio extra the recipient would get 500 gold, the dev 50 gold, and the sender pays 550 gold total for the transaction.
 Another example:
 `gold` has RATIO_EXTRA fees of 1,500 (15%)
 0xPAT sends 4000 `gold` to `0xERIC`
@@ -90,8 +90,8 @@ Result: `0xPAT` loses 4,600 `gold`, `0xERIC` receives 4000, `0xCREATOR` receives
 The token ID of the token you want to use as the transfer fee. Use 0 if you want your users to pay you in Enjin Coin.
 
 **meltValue**
-The amount of ENJ you want to use per unit of item you are creating. You need to use a minimal
-amount of ENJ to back your items depending on how many you are creating in your initial reserve (the min cost will be listed beside the label). In general, the more items of one type you are making, the less ENJ you need **per unit** of item.
+The amount of ENJ you want to use per unit of the item you are creating. You need to use a minimal
+amount of ENJ to back your items depending on how many you are creating in your initial reserve (the min-cost will be listed beside the label). In general, the more items of one type you are making, the less ENJ you need **per unit** of item.
 
 **supplyModel**: This is how the item pool behaves with respect to minting and melting. We have the following supply types in the current version on Enjin:
   * **Fixed**: You can have up to TOTAL SUPPLY number of items in circulation at one time.
@@ -155,7 +155,7 @@ Once you have that .json file uploaded with public read access, you can make the
 See [this guide](/docs/metadata) for more details if you are unfamiliar with hosting files.
 
 **Advanced Users:**
-The URI value allows for ID substitution by clients. If the string `{id}` exists in any URI, clients MUST replace this with the actual token ID in hexadecimal form. This allows for large number of tokens to use the same on-chain string by defining a URI once, for a large collection of tokens. Example of such a URI: `https://token-cdn-domain/{id}.json` would be replaced with `https://token-cdn-domain/780000000000001e000000000000000000000000000000000000000000000000.json` if the client is referring to token ID `780000000000001e000000000000000000000000000000000000000000000000`. See [Metadata](/docs/metadata) section in the ERC-1155 standards documentation for full details.
+The URI value allows for ID substitution by clients. If the string `{id}` exists in any URI, clients MUST replace this with the actual token ID in hexadecimal form. This allows for a large number of tokens to use the same on-chain string by defining a URI once, for a large collection of tokens. Example of such a URI: `https://token-cdn-domain/{id}.json` would be replaced with `https://token-cdn-domain/780000000000001e000000000000000000000000000000000000000000000000.json` if the client is referring to token ID `780000000000001e000000000000000000000000000000000000000000000000`. See [Metadata](/docs/metadata) section in the ERC-1155 standards documentation for full details.
 
 [SetItemUri](../examples/SetItemUri.gql)
 
@@ -169,11 +169,11 @@ The request for minting fungible tokens (FTs) vs non-fungible tokens (NFTs) vari
 
 You can mint batches of any token type to multiple addresses or mint them to a single address. 
 
-The supply of Fungible Tokens is essentially represented by a quantity field within the token data, as opposed to Non-Fungible Tokens whose supply is represented by the quantity of seperate token identities.
+The supply of Fungible Tokens is essentially represented by a quantity field within the token data, as opposed to Non-Fungible Tokens whose supply is represented by the quantity of separate token identities.
 
 That's why, if you need to mint multiple NFTs in a single transaction, you will need to specify the receiving Ethereum address for each individual item. It is also advisable not to mint over 100 NFTs in a single transaction, because overloading transactions can cause transactions to fail.
 
-FTs do not have the same restriction, you can mint unlimited Fungible Tokens into a Ethereum Address. However, it advisable not to mint any amount of fungible tokens into over 100 different Ethereum Addresses in one transaction. That too could cause the transaction to fail due to network overload.
+FTs do not have the same restriction, you can mint unlimited Fungible Tokens into an Ethereum Address. However, it advisable not to mint any amount of fungible tokens into over 100 different Ethereum Addresses in one transaction. That too could cause the transaction to fail due to network overload.
 
 Here is the same request between 2 different token types, FT and NFT.
 
@@ -192,6 +192,6 @@ Once a successful request has been made, you will need to accept and sign the tr
 
 ## Cancelling Pending Transactions
 
-If the wallet daemon is complaining about a transaction with invalid parameters that needs to be reverted, you can revert the transaction by using the following mutation:
+If the wallet daemon is complaining about a transaction with invalid parameters that need to be reverted, you can revert the transaction by using the following mutation:
 
 [CancelTransaction](../examples/CancelTransaction.gql)
