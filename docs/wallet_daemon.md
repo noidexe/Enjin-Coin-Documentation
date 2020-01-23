@@ -1,10 +1,10 @@
 # What is the Wallet Daemon?
 
-The wallet daemon allows you to automate the transaction signing process, so all of your blockchain transactions are actioned instantly, creating an persistent bridge between your game and the blockchain, and ensuring your players can enjoy a seamless and fluid gaming experience.
+The wallet daemon allows you to automate the transaction signing process, so all of your blockchain transactions are actioned instantly, creating a persistent bridge between your game and the blockchain, and ensuring your players can enjoy a seamless and fluid gaming experience.
 
 ## Enjin Wallet Daemon Installation
 
-Here are the instruction to install the Enjin Wallet Daemon application under various OSes. This document necessitates an up-to-date OS, and knowledge of the command line and system administration.
+Here are the instructions to install the Enjin Wallet Daemon application under various OSes. This document necessitates an up-to-date OS and knowledge of the command line and system administration.
 
 Administrator access to the target computer is required.
 
@@ -127,13 +127,13 @@ This is the recommended way to initialize a Wallet Daemon.
 Run `node src/main.js account new`
 Notice the new wallet address is printed on the console.
 
-**Keep a backup of your password somewhere safe! Otherwise there is no way to recover your account**
+**Keep a backup of your password somewhere safe! Otherwise, there is no way to recover your account**
 
 ### Import Existing Private Key
 
 #### From Enjin Wallet
 
-The Enjin Wallet uses the Ledger (ETH) _HD derivation path_ (`m/44'/60'/0'`). You can use MyEtherWallet to rebuild your private key from the 12 word recovery phrase.
+The Enjin Wallet uses the Ledger (ETH) _HD derivation path_ (`m/44'/60'/0'`). You can use MyEtherWallet to rebuild your private key from the 12-word recovery phrase.
 
 This method is _rather insecure_ and should only be used knowing that it exposes your private key to a website that could have been compromised. To mitigate the risk, it's highly recommended to deploy a private copy of MyEtherWallet from <https://github.com/kvhnuke/etherwallet/releases>
 
@@ -146,7 +146,7 @@ If you decide to go this route, click on "View Wallet Info" and follow the onscr
 
 #### From MetaMask
 
-Go in account details and select "Export Private Key"
+Go into account details and select "Export Private Key"
 
 #### From Parity/Geth
 
@@ -176,7 +176,7 @@ If you decide to go this route, click on "View Wallet Info" and follow the onscr
 ### Link To Trusted Cloud
 
 1. Create an account on the Trusted Cloud.
-2. Create an identify for the application you want to control with the wallet daemon.
+2. Create an identity for the application you want to control with the wallet daemon.
 3. Copy the linking code from the identity `<CODE>`.
 4. Run `node src/main.js link <CODE>`
 
