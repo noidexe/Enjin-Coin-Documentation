@@ -1,4 +1,4 @@
-# Integrating Your Tokens
+# Creating Your Integration
 
 Once you have [minted your tokens](/docs/minting-tokens) and are comfortable with [managing them](/docs/managing-tokens) it's time to start integrating them into your app or game.
 
