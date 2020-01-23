@@ -1,5 +1,9 @@
 # Integrating Your Tokens
 
+Once you have [minted your tokens](/docs/minting-tokens) and are comfortable with [managing them](/docs/managing-tokens) it's time to start integrating them into your app or game.
+
+Although we have some very useful SDKs that can help you get on your feet, it's **very important** that all of your admin and user data is parsed and stored by a secure server, which means you will need a working knowledge of our Platform API (GraphQL) to complete your  integration.
+
 ## Getting your own session token: 
 Following on from Cliff's point - Need information about how to get client/app secret which you then use to get your developer Auth token. That allows you to start creating accounts for people.
 
