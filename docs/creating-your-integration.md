@@ -25,7 +25,7 @@ query login{
 
 However, it's important to note that this connection expires after two weeks, so if you want to create a long-term connection to the Trusted Cloud, the following process will keep you logged in for up to 12 months.
 
-### Get Secret Key
+#### Get Secret Key
 First, you will need to find your secret key:
 
 ```gql
@@ -36,7 +36,7 @@ query myApp{
 }
 ```
 
-### Get the Auth Token
+#### Get the Auth Token
 **SECURITY: MAKE SURE TO STORE THIS SERVERSIDE**
 
 Next, you will gain your Auth Token by posting the following query to https://cloud.enjin.io/oauth/token.
@@ -49,7 +49,7 @@ Next, you will gain your Auth Token by posting the following query to https://cl
 }
 ```
 
-### Create a User 
+#### Create a User 
 Your authorisation system needs to check to see if a user's account has been created yet.
 
 
@@ -85,7 +85,7 @@ ethereum_address
 
 Once you have created an Enjin account, it's advisable to enter the reference into your database, so you don't repeat this process unnecesarily in future.
 
-### Log Your User In
+#### Log Your User In
 Once you are have confirmed that your user has an existing account, you can log your user into Enjin Auth using the following query:
 
 ```gql
