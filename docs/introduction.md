@@ -6,13 +6,13 @@ It is an all-in-one blockchain game development platform comprised of the Truste
 
 ## The Benefits of Blockchain
 
-The Enjin Platform enables you to:
+Thanks to the decentralization, immutability, and transparency of blockchain, the Enjin Platform enables you to:
 
 **Utilize Innovative Crowdfunding Models:** Create your characters, weapons, real estate, and other gaming assets in advance and offer them to gamers via traditional crowdfunding platforms or a stand-alone website.
 
 **Enable Player-Driven Value Creation:** Enable your users to modify, craft, upgrade, build, and trade blockchain-based gaming assets which can then gain intrinsic, real-life value of their own based on their history, stats, input, and player customization.
 
-**Gain User Loyalty and Trust:** Give each player an unbreakable bond of trust: true ownership of digital gaming assets value-backed with ENJ. This makes your users not only more loyal, but also more likely to make a purchasing decision.
+**Gain User Loyalty and Trust:** Give each player an unbreakable bond of trust: true ownership of digital gaming assets value-backed with ENJ. This makes your users not only more loyal but also more likely to make a purchasing decision.
 
 **Recapture Lost Revenue:** Eliminate or regulate gray market trading, which can amount to over 40% in lost revenue. You can then monetize all trading—whether online, in-game, or peer-to-peer—via implementing blockchain-enforced trading fees.
 
@@ -26,9 +26,9 @@ The Enjin Platform enables you to:
 
 The Enjin Platform is built to handle all communication with the blockchain on your behalf. However, there are still several core principles of building on Ethereum that you need to understand:
 - Ethereum is the name of the blockchain network, and Ether (ETH) is the name of the currency that is used to pay the network's operators (miners).
-- Interacting with the Ethereum network, including Enjin's smart contract, is achieved by issuing transactions that are propogated across thousands of computers throughout Ethereum's decentralized network. The ETH cost of these transactions is calculated automatically for you as a "gas fee" and that is paid to the network's operators as they process your transactions. 
+- Interacting with the Ethereum network, including Enjin's smart contract, is achieved by issuing transactions that are propagated  across thousands of computers throughout Ethereum's decentralized network. The ETH cost of these transactions is calculated automatically for you as a "gas fee" and that is paid to the network's operators as they process your transactions. 
 - Each transaction takes a variable amount of time to complete, depending on the amount of ETH you have chosen to pay and the kind of prioritization that purchases you from the network's operators.
-- Ethereum participants can be either smart contracts or people issuing transactions. Every participant controls a public address. These addresses are similar to street addresses. They are publicly available and tell participants in the network how to send transactions to eachother.
+- Ethereum users can be either people or smart contracts issuing transactions. Every user controls a public address. These addresses are similar to street addresses. They are publicly available and tell participants in the network how to send transactions to each other.
 - Users typically store their ETH in apps called "wallets," such as the Enjin Wallet mobile app for Android and iOS. Internally, a wallet tracks the contents within your Ethereum address.
 - All addresses also have a private key which should be solely controlled by the address owner. In the case of your wallet, imagine a safe containing all of your ETH at a particular street corner. The public address tells people where to find your safe, but only you can open it using your private key. You use your private key to access the contents of your wallet, but also to "sign" transactions that come from your address. The act of signing confirms that the transaction is coming from you and that you've authorized it to happen. Most players will probably use the Enjin Wallet to sign transactions quickly and easily.
 
