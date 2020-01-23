@@ -69,6 +69,6 @@ You will need a name, description and a link to a hosted image for your app. You
 [CreateUser](../examples/CreateUser.gql)
 
 ## Updating Users
-You can update your user name, email, and password by running the following request. Replacing with your User ID, new name, new email and, new password.
+You can update your user name, email, and password by running the following request. Replacing with your User ID, new name, new email, and new password.
 
 [UpdateUser](../examples/UpdateUser.gql)
