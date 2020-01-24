@@ -1,6 +1,6 @@
 # Using GraphQL
 
-GraphQL is a modern syntax that allows you to define the data structure of your queries and ask for exactly what you want and nothing more.
+GraphQL is a modern query language that allows you to define the data structure of your queries and ask for exactly what you want and nothing more.
 
 GraphQL queries access not just the properties of one resource but also smoothly follow references between them. While typical REST APIs require loading from multiple URLs, GraphQL APIs get all the data your app needs in a single request. 
 
