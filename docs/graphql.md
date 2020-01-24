@@ -118,4 +118,6 @@ Here is a list of the Enjin object types that can be mutated:
 * **UnlinkApp:** Use this mutation to unlink a wallet from an app.
 * **UnlinkIdentity:** Use this mutation to unlink a wallet from an identity.
 
-For more information, go through the [API Reference](/api-docs) where you can see all the core GraphQL requests and parameters.
+You can find comprehensive information about what data can be queried and mutated using these Object Types in the GraphiQL Documentation Explorer.
+
+To find it, go to the [GraphiQL visual interface](https://kovan.cloud.enjin.io/graphiql) and click the _"Docs"_ button in the top-right corner. 
