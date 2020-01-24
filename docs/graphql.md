@@ -51,7 +51,7 @@ query Token($name: String,) {
 }
 ```
 
-## GraphQL visual interface - GraphiQL
+## GraphQL's visual interface - GraphiQL
 
 Probably the most user-friendly feature of GraphQL is its visual interface, an in-browser tool for writing, validating, and testing GraphQL queries.
 
