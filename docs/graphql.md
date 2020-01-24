@@ -62,6 +62,13 @@ Before you query the API, it’s recommended to run your queries through the vis
 * **Kovan (Testnet)** Trusted Cloud (GraphiQL): [https://kovan.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
 * **Ethereum (Mainnet)** Trusted Cloud (GraphiQL): [https://cloud.enjin.io/graphiql](https://cloud.enjin.io/graphiql)
 
+**You can also download desktop version of the GraphiQL interface to interact with the Trusted Cloud:**
+
+[https://www.electronjs.org/apps/graphiql]
+
+* **Kovan (Testnet)** GraphiQL Endpoint: https://kovan.cloud.enjin.io/graphql
+* **Ethereum (Mainnet)** GraphiQL Endpoint: https://cloud.enjin.io/graphql
+
 ## Querying Enjin Object Types
 
 Querying is the way to ask for data, it’s similar to the GET action in REST-based APIs.
