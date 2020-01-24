@@ -57,15 +57,17 @@ Probably the most user-friendly feature of GraphQL is its visual interface, an i
 
 Before you query the API, it’s recommended to run your queries through the visual interface to make sure they are correct and the data being returned is the data you expect. 
 
-**You can use the following GraphiQL interfaces to interact with the Trusted Cloud:**
+**You can use the following GraphiQL web interfaces to interact with the Trusted Cloud:**
 
 * **Kovan (Testnet)** Trusted Cloud (GraphiQL): [https://kovan.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
 * **Ethereum (Mainnet)** Trusted Cloud (GraphiQL): [https://cloud.enjin.io/graphiql](https://cloud.enjin.io/graphiql)
 
-**You can also download desktop version of the GraphiQL interface to interact with the Trusted Cloud:**
+## GraphiQL Desktop App
+You can also download desktop version of the GraphiQL interface to interact with the Trusted Cloud
 
 https://www.electronjs.org/apps/graphiql
 
+Here are the endpoints to use within the desktop app:
 * **Kovan (Testnet)** GraphiQL Endpoint: https://kovan.cloud.enjin.io/graphql
 * **Ethereum (Mainnet)** GraphiQL Endpoint: https://cloud.enjin.io/graphql
 
