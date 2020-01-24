@@ -64,7 +64,7 @@ Before you query the API, it’s recommended to run your queries through the vis
 
 **You can also download desktop version of the GraphiQL interface to interact with the Trusted Cloud:**
 
-[https://www.electronjs.org/apps/graphiql]
+https://www.electronjs.org/apps/graphiql
 
 * **Kovan (Testnet)** GraphiQL Endpoint: https://kovan.cloud.enjin.io/graphql
 * **Ethereum (Mainnet)** GraphiQL Endpoint: https://cloud.enjin.io/graphql
