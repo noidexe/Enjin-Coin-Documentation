@@ -86,7 +86,9 @@ You can find the link code with the following query:
 
 [Identities](../examples/Identities.gql)
 
-You should be given a 6 character linking code to enter into your dev wallet app in the **LINKED APPS** section. Mainnet code starts with “A”, while Kovan starts with “B”. You will need to choose which wallet to link (if you have multiple wallets imported).
+You should be given a 6 character linking code to enter into your Enjin Wallet app in the **LINKED APPS** section. Mainnet code starts with “A”, while Kovan starts with “B”. You will need to choose which wallet to link (if you have multiple wallets imported).
+
+![Enjin Linking Platform](../docs/images/linking_platform.jpg)
 
 To reset your linked wallet, use the following query.
 [UnlinkIdentity](../examples/UnlinkIdentity.gql)
