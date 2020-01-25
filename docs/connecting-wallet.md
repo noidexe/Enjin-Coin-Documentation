@@ -6,7 +6,7 @@ Most operations that involve a transfer of value or alteration of blockchain dat
 
 ## Creating your Wallet
 
-### Install the Enjin Developer Wallet
+### Install the Enjin Wallet App
 
 You can get the latest version of the Enjin Wallet on both Android and iOS from the Play Store and App Store
 
@@ -20,7 +20,9 @@ To enable developer mode in the wallet head to the settings screen and tap the v
 Developer mode is needed in order to link to the Trusted Cloud and enable other developer-related features and functions. Developer mode is available on both Android (1.3.7) and iOS (1.3.0).
 
 ### Create a wallet
-- If this is your first wallet, select the _Create Wallet_ option. 
+- If this is your first wallet, select the _Open Wallet_ option and then select the _Create Wallet_ option.
+- Accept the _Terms and Conditions_ and create a password.
+
 - If this is not your first wallet hit the selector on the right, tap Manage Wallets, and tap the + symbol in the lower right. Then select _Create Wallet_.
 
 Give the wallet a name that stands out, like "Master Wallet".
@@ -28,9 +30,7 @@ Give the wallet a name that stands out, like "Master Wallet".
 - If you are working on Testnet, select _Ethereum (Kovan)_ and _Enjin Coin (Kovan)_ for Coins. Then tap _Create Wallet_.
 - If you are working on Mainnet, select _Ethereum_ and _Enjin Coin_ for Coins. Then tap _Create Wallet_.
 
-![Enjin Select Coins](../docs/images/wallet_select_coins.png)
-
-Enter a password for the wallet.
+![Enjin Select Coins](../docs/images/select_coins.jpg)
 
 You have now successfully created a wallet.
 
@@ -40,7 +40,7 @@ It is imperative that you take a minute to save and protect your private keys (1
 * If you do NOT backup your wallet and your device is lost you will **NOT BE ABLE TO RECOVER** your cryptocurrency and items. 
 * If anyone else gains access to your private keys they will be able to steal your cryptocurrency and items.
 
-![Enjin Backup Wallet](../docs/images/wallet_master_wallet.png)
+![Enjin Backup Wallet](../docs/images/wallet_backup.jpg)
 
 ### Get Your Ethereum Address
 To find your Ethereum address;
@@ -51,7 +51,7 @@ To find your Ethereum address;
 
 _NOTE: Your Enjin Coin and all of your blockchain assets are running on Ethereum so they are also managed within the same address._
 
-![Enjin My Address](../docs/images/wallet_get_address.png)
+![Enjin My Address](../docs/images/eth_address.jpg)
 
 ### Fund Your Wallet
 
