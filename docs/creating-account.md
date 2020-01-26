@@ -4,6 +4,8 @@ To create an account on the Enjin Platform, first, you must sign up to the [Enji
 
 This will give you an account and credentials to access the Trusted Cloud services.
 
+We also recommend checking this [support article](https://support.enjin.io/help/creating-your-account-on-the-enjin-platform?version=latest), which goes through step-by-step on how to create your account on the Enjin Platform. 
+
 There are two different versions of Ethereum that can be accessed via two separate Trusted Cloud servers, **Testnet** and **Mainnet.** 
 
 **Testnet (Kovan)** is a development version of Ethereum where you can test Enjin's Smart Contracts and obtain pretend Ethereum (KETH) and Enjin Coin (KENJ) to develop your blockchain implementation in a safe, simulated environment without spending any legitimate form of cryptocurrency.
@@ -51,6 +53,8 @@ A Project is a central container for all of your items and players. Your users c
 You can create a Project via our visual interface panel or by using the following mutation: 
 
 [CreateApp](../examples/CreateApp.gql)
+
+We also recommend checking this [support article](https://support.enjin.io/help/creating-your-first-enjin-project?version=latest) on how to create your first project, using the Enjin Platform panel. 
 
 ## Identifying Your Project
 Many operations you perform via GraphQL will require an App ID. 
