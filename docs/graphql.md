@@ -17,6 +17,7 @@ Object types are sets of fields that are used to define the set of data you can 
 ```gql
 query {
 }
+
 mutation {
 }
 ```
