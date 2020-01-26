@@ -1,24 +1,21 @@
 # Creating Your Integration
 
-Once you have [minted your tokens](/docs/minting-tokens) and are comfortable with [managing them](/docs/managing-tokens) it's time to start integrating them into your app or game.
+Once you have [minted your tokens](/docs/minting-tokens) and are comfortable with [managing them](/docs/managing-tokens), it's time to start integrating them into your project or game.
 
 Although we have some very useful SDKs that can help you get on your feet, it's **very important** that all of your admin and user data is parsed and stored by a secure server.
 
-This means you will need a working knowledge of our Platform API (GraphQL) to complete your secure integration.
+This means you will need solid knowledge of our Platform API (GraphQL) to complete your secure integration.
 
 ## Getting Your Bearer Token
-In the [creating your account](/docs/creating-account) section, you logged into to your account using the following query:
+In the [creating your account](/docs/creating-account) section, you would have logged into your account using the following query:
 
 ```gql
-query login{
-  EnjinOauth (
-    email: "YOUR EMAIL",
-    password: "YOUR PASSWORD"
-  ) {
-    id,
-    name,
-    email,
-    access_tokens
+query Login($email: String!, $password: String!) {
+  EnjinOauth(email: $email, password: $password) {
+    id
+    name
+    email
+    accessTokens
   }
 }
 ```
@@ -29,8 +26,8 @@ However, it's important to note that this connection expires after two weeks, so
 First, you will need to find your secret key:
 
 ```gql
-query myApp{
-  EnjinApps(id:YOUR_ID){
+query GetAppSecret($id: Int!) {
+  EnjinApps(id: $id){
     secret
   }
 }
@@ -43,9 +40,9 @@ Next, you will gain your Auth Token by posting the following query to https://cl
 
 ```REST
 {
-    "grant_type":"client_credentials",
-    "client_id": YOUR_APP_ID,
-    "client_secret":"YOUR_SECRET_FROM_OTHER_CALL"
+    "grant_type": "client_credentials",
+    "client_id": $id,
+    "client_secret": "$secret"
 }
 ```
 
@@ -58,15 +55,19 @@ Your authorization system needs to check to see if a user's account has been cre
 
 
 ```gql
-"CreateEnjinUser(name:\"".$playerid."\"){".
-"id,".
-"access_tokens,".
-"identities {".
-"ethereum_address,".
-"linking_code,".
-"linking_code_qr".
-"}".
-"}".
+mutation CreateUser($name: String!) {
+  CreateEnjinUser(name: $name) {
+    id
+    accessTokens
+    identities {
+      linkingCode
+      linkingCodeQr
+      wallet {
+        ethAddress
+      }
+    }
+  }
+}
 ```
 
 Once you have created an Enjin account, it's advisable to enter the reference into your database, so you don't repeat this process unnecessarily in the future.
@@ -75,40 +76,36 @@ Once you have created an Enjin account, it's advisable to enter the reference in
 Once you are have confirmed that your user has an existing account, you can log your user into Enjin Auth using the following query:
 
 ```gql
-"EnjinOauth(name:\"".$playerid."\"){".
-"id,".
-"access_tokens,".
-"identities {".
-"id,".
-"app_id,".
-"ethereum_address,".
-"linking_code,".
-"linking_code_qr".
-"}".
-"}".
+query Login($name: String!) {
+  EnjinOauth(name: $name) {
+    id
+    accessTokens
+    identities {
+      linkingCode
+      linkingCodeQr
+      wallet {
+        ethAddress
+      }
+    }
+  }
+}
 ```
 
-If the API returns a linking code, that means the user's Enjin Wallet is not linked. If no linking code is returned that means the wallet is linked and you can send the user into the game.
+If the API returns a linking code, that means the user's Enjin Wallet is not linked. If no linking code is returned, this means the wallet is linked and you can send the user into the game.
 
 ## EnjinIdentities
-Most queries and mutations require an indentity ID, you can use this query to find it:
+Most queries and mutations require an indentity ID. You can use this query to locate the Identity ID:
 
 ```gql
-query viewIdentities {
-EnjinIdentities(
-pagination: {
-page: 1,
-limit: 50})
-{
-id
-app {
-name
-}
-linking_code
-linking_code_qr
-enj_allowance
-ethereum_address
-}
+query GetIdentities {
+  EnjinIdentities(pagination: {page: 1, limit: 50}) {
+    id
+    linkingCode
+    linkingCodeQr
+    wallet {
+      ethAddress
+    }
+  }
 }
 ```
 
@@ -116,27 +113,28 @@ ethereum_address
 You can also check your user's linking code whenever you want using this query;
 
 ```gql
-query {
-EnjinIdentities (
-id: XX
-) {
-ethereum_address
-}
+query GetIdentityLinkingCode($id: Int!) {
+  EnjinIdentities(id: $id) {
+    linkingCode
+    linkingCodeQr
+    wallet {
+      ethAddress
+    }
+  }
 }
 ```
 
 ## Unlink Wallet
-Sometimes your user may want to change wallets, they can do this via the Enjin Wallet or you can initiate it on your end.
+Sometimes your user may want to change wallets, they can do this via the Enjin Wallet or you can initiate this on your end.
 
-This query will unlink their wallet and allowing them to re-link it, or link a new one:
+This query will unlink their wallet and allow them to re-link it, or link a new one:
 
 ```gql
-mutation UnlinkWallet {
-DeleteEnjinIdentity(id: XXXXXX, unlink: true)
-{
-linking_code
-linking_code_qr
-}
+mutation UnlinkWalletAddress($id: Int!) {
+  DeleteEnjinIdentity(id: $id, unlink: true) {
+    linkingCode
+    linkingCodeQr
+  }
 }
 ```
 
@@ -144,89 +142,95 @@ linking_code_qr
 
 Once a player is logged in and linked, the first thing you will want to do is see their inventory so you can provide them with game items to match their tokens.
 
-It's advisable to update the user's balance on your database, that way your app or game can run efficiently on the data you are holding. 
+It's advisable to update the user's balance on your database. That way, your project or game can run efficiently on the data you are holding. 
 
 ```gql
-query getBalance {
-EnjinBalances(ethereum_address: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", show_zero_balances: false) {
-token {
-name
-token_id
-}
-token_index
-balance
-}
+query getBalance($address: String!) {
+  EnjinBalances(ethAddress: $address, value_gt: 0) {
+    token {
+      id
+      index
+      name
+    }
+    value
+  }
 }
 ```
 
-It's important to include the `show_zero_balances: false` argument because it prevents the display of melted items, as they technically still exist within that blockchain address, even though the user has chosen to destroy them. 
+It's important to include the `value_gt: 0` argument because it prevents the display of melted items. They technically still exist within that blockchain address, even though the user has chosen to destroy/melt them. 
 
 ## View Specific Tokens in a Wallet
-When you want to perfoem a specific action with a token, you can use this to validate whether the token is still there.
+When you want to perform a specific action with a token, you can use this to validate whether the token is still there.
 
 ```gql
-query getBalance {
-EnjinBalances(ethereum_address: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", token_id: "XXXXXXXXXXXXXXXXX", show_zero_balances: false) {
-token {
-name
-token_id
-}
-token_index
-balance
-}
+query GetWalletTokenBalance($address: String!, $tokenId: String) {
+  EnjinBalances(ethereum_address: $address, token_id: $tokenId, value_gt: 0) {
+    token {
+      id
+      index
+      name
+    }
+    value
+  }
 }
 ```
 
-This query displays the `token_index` and `balance` of the token in question.
+This query displays the `token index` and `balance` of the token in question.
 
-You can also choose to request the data for `token_id` and `identity_id` by adding the fields to the query.
+You can also choose to request the data for `tokenId` and `identity_id` by adding the fields to the query.
 
-## Token Holders 
-providing rewards to everyone that has a specific token
-Returns the addresses that have a specific token
+## View ENJ Balance
+You can view the amount of Enjin Coin (ENJ) of a user in the wallet. This can be useful, if you need to know if they have enough Enjin Coin to approve certain transactions and requests. 
+You can use the following query to retrieve the ENJ balance: 
 
-```gql
-query getBalanceByTokenNotAddress {
-EnjinBalances(
-token_id: "XXXXXXXXXXXXXXXXX",
-) {
-token_index
-balance
-ethereum_address
-}
+``` gql
+query GetWalletBalance($id: Int!) {
+  EnjinUsers(id: $id) {
+    identities {
+      wallet {
+        ethAddress
+        enjBalance
+      }
+    }
+  }
 }
 ```
 
-## Token Details - 
-If you wish to gives your users detailed information about a specific token, you can use this query to lookup the data:
+If you don't know the user ID or the Identity ID, you can use the following query to retrieve the same results, simply with the ethreum address instead:
+``` gql
+query GetWalletBalanceByAddress($address: String!) {
+  EnjinWallet(ethAddress: $address) {
+    enjBalance
+    ethBalance
+  }
+}
+```
+
+## Token Details 
+If you wish to provide your users detailed information about a specific token, you can use this query to lookup the data:
 
 ```gql
-query viewTokens {
-EnjinTokens(
-name: "TOKEN_NAME",
-pagination: {
-page: 1,
-limit: 50})
-{
-token_id
-name
-creator
-meltValue
-meltFeeRatio
-meltFeeMaxRatio
-supplyModel
-totalSupply
-circulatingSupply
-reserve
-transferable
-nonFungible
-blockHeight
-markedForDelete
-created_at
-updated_at
-availableToMint
-itemURI
-}
+query GetTokenDetails($name: String!) {
+  EnjinTokens(name: $name, pagination: {page: 1, limit: 50}) {
+    id
+    name
+    creator
+    meltValue
+    meltFeeRatio
+    meltFeeMaxRatio
+    supplyModel
+    totalSupply
+    circulatingSupply
+    reserve
+    transferable
+    nonFungible
+    blockHeight
+    markedForDelete
+    createdAt
+    updatedAt
+    availableToMint
+    itemURI
+  }
 }
 ```
 
@@ -234,136 +238,135 @@ itemURI
 This query returns a list of addresses who own a specific token:
 
 ```gql
-query getBalanceByTokenNotAddress {
-EnjinBalances(
-token_id: "XXXXXXXXXXXXXXXXX",
-) {
-token_index
-balance
-ethereum_address
-}
+query GetBalance($tokenId: String!) {
+  EnjinBalances(token_id: $tokenId) {
+    token {
+      id
+      index
+    }
+    wallet {
+      ethAddress
+    }
+    value
+  }
 }
 ```
-Tt can be useful for rewarding all holders of a specific token in one go, through an coordinated airdrop.
+It can be useful for rewarding all holders of a specific token in one go, through a coordinated airdrop.
 
 ## Transaction data
-Whenever you issue a send mutation, an `id` will be returned to you, and it is highly advisable to log this data so you can access it again later.
+Whenever you issue a send mutation, an `id` will be returned to you. This `id` is very important and it is highly advisable to log this data so you can access it again, at a later date.
 
-Should you want to view the state of your past transaction, you will need to use this query: 
+Should you want to view the state of any transaction that you have performed on the blockchain, you will need to use this query: 
 
 ```gql
-query ViewTransactionData{
-EnjinTransactions(
-id: xxxxx,
-) {
-id
-transaction_id
-type
-state
-token {
-token_id
-name
-}
-}
+query GetTransaction($id: Int!) {
+  EnjinTransactions(id: $id) {
+    id
+    transactionId
+    type
+    state
+    error
+    token {
+      id
+      name
+    }
+  }
 }
 ```
+The Enjin Transactions query will return vvarious pieces of information, depending on the state of the transaction that you have ran. 
+You will notice that we added the `error` argument within the query. The `error` argument is useful to have, in case your transaction has failed / dropped for a certain reason, this will display why the transaction in question did not process on the blockchain. 
 
 **This query will return the following values:**
 
-* **OPENED:** Transaction is opened on the Trusted Cloud, but is yet to be committed to the blockchain.
 * **PENDING:** Transaction is created on the Trusted Cloud, but has not yet been signed by the user/dev.
 * **TP_PROCESSING:** Transaction has been signed and is waiting for the Trusted Cloud/Platform) to process the transaction for broadcast.
-* **BROADCAST:** Transaction has been signed and has been broadcasted but has not yet been confirmed on the blockchain.
-* **CONFIRMED:** Transaction has been confirmed by the blockchain and is waiting to be executed on the Trusted Cloud.
+* **BROADCAST:** Transaction has been signed and has been broadcast but has not yet been confirmed on the blockchain.
 * **EXECUTED:** The transaction has received confirmation on the blockchain and the Trusted Cloud.
 * **CANCELED_USER:** The user has canceled the PENDING transaction/not signed.
 * **CANCELED_PLATFORM:** The Platform has canceled the PENDING transaction.
-* **FAILED:** Transaction has failed on the TP.
+* **FAILED:** Transaction has failed on the Trusted Platform.
+* **DROPPED:** Transaction was not mined on the blockchain and has since been dropped.
+
+
 
 ## Set Spending Allowance
-If you want to increase the security of your app and set a spending limit for yourself, or allow your players to choose their own spending limited.
-
-You can use this mutation to set a spending allowance: 
+If you want to increase the security of your project and set a spending limit for yourself, or allow your players to choose their own spending limited, you can use this mutation to set a spending allowance: 
 
 ```gql
-mutation ApproveEnj{
-CreateEnjinRequest (
-identity_id: XX,
-type: APPROVE,
-approve_enj_data: {
-value: XXXXXXX,
-}
-) {
-id,
-}
+mutation ApproveEnj($id: String!, $limit: Int!) {
+  CreateEnjinRequest(identity_id: $id, type: APPROVE, approve_enj_data: {value: $limit}) {
+    id
+  }
 }
 ```
 
-Set `value` as `-1` for max value
+Set `value` as `-1` for max value.
 
-**Note:** This value decreases as it is used, like a literal spending allowance. If you set the value to 10 Enjin Coin (ENJ) and then make 10 transactions for 1 ENJ each, your allowance go down to 0 and need to be set again.
+**_Note:_** This value decreases as it is used, like a literal spending allowance. If you set the value to 10 Enjin Coin (ENJ) and then make 10 transactions for 1 ENJ each, your allowance will go down to 0 and it will need to be set again.
 
 
 ## Trade Request
-Initiating secure peer-to-peer trades is a three-step process because the trade needs to be created, the respective items need to be held in escrow, and once both parties have checked the items they can complete the trade.
+Initiating secure peer-to-peer trades is a three-step process. The way this works is, first, the trade needs to be created, the respective items need to be held in escrow, and once both parties have checked the items, they can complete the trade.
 
 **Step 1:** Create the trade request and confirm in 1st person's wallet.
 
 ```gql
-mutation sendTradeRequest {
-CreateEnjinRequest (
-identity_id: XXX,
-type: CREATE_TRADE,
-create_trade_data:
-{
-asking_tokens: [{ id: "XXXXXXXXXXXXXXXXX", value: 1 }],
-offering_tokens: [{ id: "XXXXXXXXXXXXXXXXX", value: 1 }],
-second_party_identity_id: XXX
-})
-{
-id
-encoded_data
-state
-}
+mutation SendTradeRequest($initiatorId: Int!, $recipientId: Int!) {
+  CreateEnjinRequest(identity_id: $initiatorId, type: CREATE_TRADE, create_trade_data: {asking_tokens: [{id: "XXXXXXXXXXXXXXXXX", value: 1}], offering_tokens: [{id: "XXXXXXXXXXXXXXXXX", value: 1}], second_party_identity_id: $recipientId}) {
+    id
+    encodedData
+    state
+  }
 }
 ```
 
-Use token `id: "0"` for Enjin Coin (ENJ)
+Use the `id: "0"` argument for Enjin Coin (ENJ).
 
 **Step 2:** Get the trade_id - param1.
 
 ```gql
-query idForCompleteTrade{
-EnjinTransactions(id:XXXXXX){
-type,
-transaction_id,
-events { param1 }
-}
+query RetrieveTradeId($id: Int!) {
+  EnjinTransactions(id: $id) {
+    type
+    transactionId
+    events {
+      param1
+    }
+  }
 }
 ```
 
-**Step 3:** Complete the trade request, entering param1 as trade_id, 2nd persons identity_id and confirm in 2nd persons wallet.
+**Step 3:** Complete the trade request. Enter param1 as trade_id, 2nd persons identity_id and confirm in 2nd persons wallet.
 
 ```gql
-mutation completeTradeRequest {
-CreateEnjinRequest (
-identity_id: XXX,
-type: COMPLETE_TRADE,
-complete_trade_data:
-{
-trade_id: "XX"
-})
-{
-id
-transaction_id
-encoded_data
+mutation CompleteTradeRequest($id: Int!, $tradeId: String!) {
+  CreateEnjinRequest(identity_id: $id, type: COMPLETE_TRADE, complete_trade_data: {trade_id: $tradeId}) {
+    id
+    transactionId
+    encodedData
+  }
 }
+```
+
+## Changing Asset Transfer Status
+At times, you may want to change the transfer status of a token you have created to give it certain value, whether you want the token to be _permanently transferable_, _temporary transferable_ or _bound_ to an address.  
+
+**_Note_**: If you have set the token to be permanently transferable, you will not be able to alter that setting. 
+
+```gql
+mutation ChangeAssetTransferableType($appId: Int!, $identityId: Int!, $tokenId: String!, $transferable: TokenTransferable!) {
+  CreateEnjinRequest(appId: $appId, identity_id: $identityId, type: SET_TRANSFERABLE, set_transferable_data: {token_id: $tokenId, transferable: $transferable}) {
+    id
+    encodedData
+  }
 }
+
 ```
 
 ## Blockchain Explorer
 Players are inherently interested in the blockchain data behind the assets they own.
 
-If you would like to link your users to the EnjinX listing of a specific token, so they can learn everything they can about their tokens, you can add the Token ID to the following link.
+If you would like to link your users to the EnjinX listing of a specific token, you can append the token ID to the end of the URL. This allows them to learn everything they can about their tokens. 
 
+Example: 
 https://enjinx.io/eth/asset/0x(id)00000000000000000000000000000000(index)

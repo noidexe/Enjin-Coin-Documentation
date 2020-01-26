@@ -82,33 +82,33 @@ Once you have created your new project, you can set up various team member roles
 
 The following are all available roles in descending order: 
 
-1 **Member:** The Member role has the ability to
-  - View applications. 
-  - View identities. 
-  - View requests. 
-  - View team. 
-  - View users. 
-  - View token events. 
+**Member:** The member role has the ability to:
+  - View applications.
+  - View identities.
+  - View requests.
+  - View team.
+  - View users.
+  - View token events.
   
-2 **Minter:** The Minter role has the ability to
-  - Manage requests. 
-  - Mint tokens (mint existing tokens only). 
+**Minter:** The minter role has the ability to:
+  - Manage requests.
+  - Mint tokens (mint existing tokens only).
   
-3 **Creator:** The Creator role has the ability to 
-  - Manage tokens (create new tokens / editing existing tokens). 
+**Creator:** The creator role has the ability to:
+  - Manage tokens (create new tokens / editing existing tokens).
   
-4 **Admin:** The Admin role has the ability to
-  - Manage project settings. 
+**Admin:** The admin role has the ability to:
+  - Manage project settings.
   - Manage team members/minters/creators.
-  - Manage identities (apps only).
-  - Manage users (apps only). 
+  - Manage identities.
+  - Manage users.
   
-5 **Owner:** The Owner role has the ability to
-  - View application secret. 
-  - Manage team admins. 
+**Owner:** The owner role has the ability to:
+  - View application secret.
+  - Manage team admins.
   
-6 **Primary Owner (PO):** The Primary Owner has the ability to
-  - Delete project. 
-  - Manage team owners. 
+**Primary Owner:** The primary owner has the ability to:
+  - Delete project.
+  - Manage team owners.
 
-_Note:_ Each role inherits the permissions from the above. The Primary Owner, is the individual who created the project and has full control over said project. 
+_**Note:** Each role inherits the permissions from the above. The Primary Owner, is the individual who created the project and has full control over said project._
