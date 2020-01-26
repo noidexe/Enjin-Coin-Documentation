@@ -72,3 +72,39 @@ You should get the App ID in the response if it was successful. It's also import
 You can update your user name, email, and password by running the following mutation. Replacing with your User ID, new name, new email, and new password.
 
 [UpdateUser](../examples/UpdateUser.gql)
+
+## Project Team Member Roles
+Once you have created your new project, you can set up various team member roles for your team. It's important to know which roles can perform certain requests. You can set up roles for your team members on the Enjin Platform by clicking the **Teams** section, on the left-side panel. 
+
+The following are all available roles in descending order: 
+
+1 **Member:** The Member role has the ability to
+  - View applications. 
+  - View identities. 
+  - View requests. 
+  - View team. 
+  - View users. 
+  - View token events. 
+  
+2 **Minter:** The Minter role has the ability to
+  - Manage requests. 
+  - Mint tokens (mint existing tokens only). 
+  
+3 **Creator:** The Creator role has the ability to 
+  - Manage tokens (create new tokens / editing existing tokens). 
+  
+4 **Admin:** The Admin role has the ability to
+  - Manage project settings. 
+  - Manage team members/minters/creators.
+  - Manage identities (apps only).
+  - Manage users (apps only). 
+  
+5 **Owner:** The Owner role has the ability to
+  - View application secret. 
+  - Manage team admins. 
+  
+6 **Primary Owner (PO):** The Primary Owner has the ability to
+  - Delete project. 
+  - Manage team owners. 
+
+_Note:_ Each role inherits the permissions from the above. The Primary Owner, is the individual who created the project and has full control over said project. 
