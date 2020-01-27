@@ -81,20 +81,16 @@ Here is a list of the Enjin object types you can query through the API:
 * **EnjinApp:** Use this query to get information about an app on the Enjin Platform.
 * **EnjinApps:** Use this query to get information about multiple apps on the Enjin Platform.
 * **EnjinBalances:** Use this query to get information about balances stored on the Enjin Platform.
-* **EnjinBlockHeight:** Use this query to get the last block processed on the Enjin Platform.
 * **EnjinIdentities:** Use this query to get information about identities stored on the Enjin Platform.
 * **EnjinIdentity:** A user's identity for a game.
 * **EnjinOauth:** Use this query to log users in and obtain oAuth access tokens.
 * **EnjinPlatform:** Use this query to get information about a project on the Enjin Platform.
-* **EnjinRoles:** Use this query to get information about app roles on the Enjin Platform.
-* **EnjinSearch:** Use this query to perform searches of the different searchable types.
 * **EnjinTokenEvents:** Use this to query the token events that has been recorded by the Enjin Platform.
 * **EnjinToken:** Use this query to get token data.
 * **EnjinTransactions:** Use this to query transaction requests.
 * **EnjinUser:** Use this query to get information about a user on the Enjin Platform.
 * **EnjinUsers:** Use this to query user data on the Enjin Platform.
 * **EnjinWallet:** Use this query to get wallet data.
-* **EnjinWallets:** Use this query to get information about wallets stored on the Enjin Platform.
 
 ## Mutating Enjin Object Types
 

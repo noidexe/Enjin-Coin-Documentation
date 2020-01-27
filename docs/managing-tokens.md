@@ -1,32 +1,23 @@
 # Managing Your Tokens
-Once your tokens are minted you may need to edit, send, or melt them down and recover the Enjin Coin from inside.
+Once your tokens have been minted, you may want to edit, send, or melt them down and recover the Enjin Coin (ENJ) from within inside the tokens.
 
 The Platform API has been built to provide all the functionality you need to manage a robust blockchain-based gaming economy. 
 
-You will likely use the following queries and mutations quite often.
+You will likely use the following queries and mutations quite often when it comes to managing your tokenized assets.
 
 
 ## Change Token URI 
-To change your token metadata, including the name, description, and images of your tokens, you will need to update your URI.
+You can change your token metadata at any time. You can do this by setting or updating the token URI. Your token metadata may include the name, description and the image. 
 
-The following mutation can be used to alter the URI or reload the data:
+The following mutation can be used to set the URI or update the data:
 
 ```gql
-mutation changeURI {
-CreateEnjinRequest (
-identity_id: XXX,
-type: SET_ITEM_URI,
-set_item_uri_data:
-{
-token_id: "xxxxxxxxxxxxxxxx",
-token_index: "xxxxxxxxxxxxxxxx",
-item_uri: "https://xxxxxxxxxxxxxxxx.com/xxxxxxxxxxxxxxxx"
-})
-{
-id
-encoded_data
-state
-}
+mutation SetItemUri($identityId: Int!, $itemUriData: SetItemUriInput!) {
+  CreateEnjinRequest(identity_id: $identityId, type: SET_ITEM_URI, set_item_uri_data: $itemUriData) {
+    id
+    encodedData
+    state
+  }
 }
 ```
 
@@ -35,145 +26,89 @@ Tokens have their names specified on the blockchain and within their metadata.
 
 This means tokens can, technically, be given a different name on the blockchain and in its metadata.
 
-You can update a token's name on the blockchain by using the following mutation:
+This following mutation can be used to update a token's name on the blockchain:
 
 ```gql
-mutation changeNFTname {
-CreateEnjinRequest(
-identity_id: XX,
-type: UPDATE_NAME,
-update_item_name_data: {
-token_id: "xxxxxxxxxxxxxxxx",
-name: "NEW NAME HERE",
-})
-{
-id
-encoded_data
-}
+mutation UpdateTokenName($identityId: Int!, $itemNameData: UpdateItemNameInput!) {
+  CreateEnjinRequest(identity_id: $identityId, type: UPDATE_NAME, update_item_name_data: $itemNameData) {
+    id
+    encodedData
+  }
 }
 ```
 
 ## Melt Batch Items
 There may be times that you make a mistake during the token minting process and you wish to melt all of the tokens you have created. 
 
-To melt any token, it needs to be in your wallet, so it's important to quadruple check your token settings prior to sending them to your users.
+To melt any token, the token must be in your wallet. It's important to **quadruple** check your token settings prior to sending them to your users.
 
-Once your tokens have been distributed to your users there is no going back and the only way to fix any errors is to issue replacement tokens.
+Once your tokens have been distributed to your users, there is no going back and the only way to fix any errors is to generate replacement tokens.
 
 
 ```gql
-mutation BatchMelt{
-CreateEnjinRequest (
-identity_id: YOUR_IDENTITY_ID,
-type:MELT,
-melt_token_data: {
-token_id: "xxxxxxxxxxxxxxxx",
-token_index_array: [
-"xxxxxxxxxxxxxxxx",
-"xxxxxxxxxxxxxxxx",
-"xxxxxxxxxxxxxxxx",
-"xxxxxxxxxxxxxxxx",
-"xxxxxxxxxxxxxxxx",
-"xxxxxxxxxxxxxxxx",
-],
-#value_array: "",
-}
-) {
-identity_id
-token_id
-}
+mutation BatchMelt($identityId: Int!, $meltTokenData: MeltTokenInput!) {
+  CreateEnjinRequest(identity_id: $identityId, type: MELT, melt_token_data: $meltTokenData) {
+    identityId
+    tokenId
+  }
 }
 ```
 
 ## Release Reserve
-When you first create a token template you will be asked to lock an initial reserve on Enjin Coin into it.
+When you first create a token, you will be asked to lock an initial reserve on the Enjin Coin (ENJ) into it.
 
 This is to ensure you can mint your tokens fluidly, using the Enjin Coin you have set aside.
 
-If you no longer wish to use the token template and decide not to go ahead with minting the respective tokens, you can destroy the template and return the ENJ that you have set aside by using the following mutation:
+If you no longer wish to use the token, and decide not to go ahead with minting the respective tokens, you can destroy the template and return the Enjin Coin that you have set aside by using the following mutation:
 
 ```gql
-mutation releaseReserve {
-CreateEnjinRequest(
-identity_id: XXX,
-type: RELEASE_RESERVE,
-release_reserve_data: {
-token_id: "xxxxxxxxxxxxxxxx",
-value: X,
-}
-)
-{
-token_id
-}
+mutation ReleaseReserve($identityId: Int!, $tokenId: String!, $value: Int!) {
+  CreateEnjinRequest(identity_id: $identityId, type: RELEASE_RESERVE, release_reserve_data: {token_id: $tokenId, value: $value}) {
+    tokenId
+  }
 }
 ```
-Note: There is a cool down period for releasing reserve and the more Enjin Coin you have locked into the template, the longer you have to wait until you can release it. This waiting period can take days or even weeks.
+**_Note:_** There is a cool down period for releasing reserve and the more Enjin Coin you have locked into the template, the longer you have to wait until you can release it. This waiting period can take days or even weeks.
 
-## Send All Item Types - Advanced Send - most used send command
+## Send All Item Types: Advanced Send
 The Platform API allows you to send unlimited Fungible and up to 100 Non-Fungible tokens to up to 1000 users, in a single transaction.
+The `Advanced Send mutation` is one of the most common mutations to send vast amounts of assets from one address, to another in a single transaction and with ease. 
 
 This is the most robust and popular sending mutation used by developers:
 
 ```gql
-mutation advancedSendAll {
-CreateEnjinRequest(
-identity_id: YOUR_IDENTITY_ID,
-type: ADVANCED_SEND,
-advanced_send_token_data: {transfers: [
-{token_id: "xxxxxxxxxxxxxxxx", token_index: "xxxxxxxxxxxxxxxx", to: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", value:"1" },
-{token_id: "xxxxxxxxxxxxxxxx", token_index: "xxxxxxxxxxxxxxxx", to: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", value:"1" },
-{token_id: "xxxxxxxxxxxxxxxx", token_index: "xxxxxxxxxxxxxxxx", to: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", value:"1" },
-{token_id: "xxxxxxxxxxxxxxxx", token_index: "xxxxxxxxxxxxxxxx", to: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", value:"1" },
-{token_id: "xxxxxxxxxxxxxxxx", to: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", value:"1" },
-{token_id: "xxxxxxxxxxxxxxxx", to: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", value:"1" }
-]})
-{
-id
-encoded_data
-}
+mutation AdvancedSend($identityId: Int!, $tokenData: AdvancedSendTokenInput!) {
+  CreateEnjinRequest(identity_id: $identityId, type: ADVANCED_SEND, advanced_send_token_data: $tokenData) {
+    id
+    encodedData
+  }
 }
 ```
+You will notice that, the first 4 token IDs in the mutation include a `token_index`. This is referring to the first 4 tokens listed on there, are Non-Fungle Tokens (NFTs) and you will need to specify the token index # of the NFTs that you wish to send. The last 2, are simply referring to Fungible Tokens (FT) where you don't need to specify a `token_index` as Fungible tokens share all the same data (they are not unique). 
 
 ## Transfer Whitelisting
 If you've created a bound token or a token with transfer fees, and you don't wish for these settings to apply in every circumstance, you can use transfer whitelisting to allow specific users to send tokens to specific addresses.
 
-Place the address in question into the following account field:
+Place the wallet address in question into the following `account` field:
 
 ```gql
-mutation WhiteList{
-CreateEnjinRequest (
-identity_id: XXX,
-, appId: XXX, type: SET_WHITELISTED,
-set_whitelisted_data: {
-token_id: "XXXXXXXXXXXXXXXXX",
-account: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-whitelisted: "0x0000000000000000000000000000000000000004",
-on: true
-}
-) {
-id,
-encodedData
-}
+mutation WhitelistToken($identityId: Int!, $appId: Int!, $whitelistData: SetWhitelistedInput!) {
+  CreateEnjinRequest(identity_id: $identityId, appId: $appId, type: SET_WHITELISTED, set_whitelisted_data: $whitelistData) {
+    id
+    encodedData
+  }
 }
 ```
 
-### Whitelisted Settings
+### Whitelist Settings
 **Full Rights:** The address has full rights to send and receive the token.
-```gql
-0x0000000000000000000000000000000000000001
-```
+`0x0000000000000000000000000000000000000001`
 
-**No Outgoing:** The address has can send but not receive the token. Which means the only way they can get it, is if you mint it directly into their address.
-```gql
-0x0000000000000000000000000000000000000002
-```
+**No Outgoing:** The address can send but not receive the token. Which means the only way they can get the token, is if you mint it directly to their address.
+`0x0000000000000000000000000000000000000002`
 
 **No Incoming:** The address can receive but can't send the token. 
-```gql
-0x0000000000000000000000000000000000000003
-```
+`0x0000000000000000000000000000000000000003`
 
 **No Fees:** The address can send tokens without paying transfer fees.
-```gql
-0x0000000000000000000000000000000000000004
-```
+`0x0000000000000000000000000000000000000004`
