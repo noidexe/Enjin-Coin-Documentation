@@ -23,11 +23,11 @@ A non-fungible token is a unique asset.
 
 Non-fungible tokens are not divisible and are stored in the Enjin Wallet as separate tokens with individual data. However, non-fungible tokens are not always 100% unique. For example, a set of tokens may share the same name, description, and image, but they can still be non-fungible if they possess unique, distinguishing properties (identity, history, and metadata).
 
-Non-fungible tokens are suitable for things like identification, certificates, collectibles, gaming characters—any asset that requires its own identity.
+Non-fungible tokens are suitable for things like identification, certificates, collectibles, gaming characters—any asset that requires its own unique identity.
 
 There are two types of data that can be attached to each token.
 
-* **Blockchain Data** is committed permanently to the Ethereum Network. The defining properties of a token, including its identity, settings, and ENJ-backed value can impact the demand for a token drastically, therefore, much of this data can never be changed once committed to the blockchain. While some token settings can be updated by replacing old data with new, the previous token settings will remain on record, viewable in the transaction history on the blockchain.
+* **Blockchain Data** is committed permanently to the Ethereum Network. The defining properties of a token, including its identity, settings, and ENJ-backed value can impact the demand for a token drastically. Therefore, much of this data can never be changed once committed to the blockchain. While some token settings can be updated by replacing old data with new data, the previous token settings will remain on record, viewable in the transaction history on the blockchain.
 
 * **Metadata** is the human-readable information that your users will be able to see in your game or app and any other platform where they can see your token. This data can be updated at any time.
 
@@ -35,7 +35,7 @@ There are two types of data that can be attached to each token.
 
 This data can be edited and replaced with new settings at any time.
 
-**name**: The name that will be committed to the blockchain.
+**Name**: The name that will be committed to the blockchain.
 
 **Metadata URI**
 See **Working with metadata** section.
@@ -49,7 +49,7 @@ Determines if items are able to be traded, or are bound to their owners (i.e. no
 
 **transferFeeSettings: value** 
 
-Value of the transfer fee. If using ENJ, multiply the value by 10^18 to include 18 decimals. When you first set a transfer fee, that setting becomes the maximum fee you can charge. However, you can lower a transfer fee at any time, at which point, you can then raise it back to the amount you initially set.
+If using ENJ, multiply the value by 10^18 to include 18 decimals. When you first set a transfer fee, that setting becomes the maximum fee you can charge. However, you can lower a transfer fee at any time, at which point, you can then raise it back to the amount you initially set.
 
 ### Blockchain Data: Permanent
 
@@ -68,32 +68,21 @@ You can choose to charge a transfer fee for every peer-to-peer transaction that 
 
 * **None**: No Transfer fees are charged when this item changes hands.
 
-* **Per_Crypto_Item**: Transfer fee *per item* changing hands, in ENJ. For example, if an `Apple`
-has a `0.1 ENJ` fee per item and `0xPAT` sends 10 apples to `0xERIC`, `0xPAT` would be charged 1 ENJ for the transaction that would go to the `0xCREATOR` of the apple.
+* **Per_Crypto_Item**: This refers to transfer fee per asset in ENJ, which is cumulative based on the number of assets that is being sent. For example, if an  `Apple` has a `0.1 ENJ` transfer fee per item and the user `Simon` sends 10 apples to user1, then Simon would be charged 1 ENJ for the transaction that would go to the creator of the apple asset.
+* **Per_Transfer**: This refers to transfer fee, per transfer, in ENJ. For example, if an `Apple` has 0.1 ENJ fee per transfer and `Simon` sends 10 apples to `user1`, Simon would be charged `0.1 ENJ` for the transaction that would go to the creator of the apple asset. 
+* **Ratio_Cut**: Note, to use ratio_cut, only fungible assets are allowed. A % cut of the total items is subtracted from the total for the creator, with the sender paying the total price. For example, if transferring 500 apples with a 10% ratio cut (0.1) the recipient would get 450 apples and the creator, would receive 50 apples, with the sender paying 500 total for the transaction.
+* **Ratio_Extra**: Note, to use ratio_extra, only fungible assets are allowed. A tax that is charged ON TOP of everything. For example, if transferring 500 apples with a 10% ratio extra, the user would get 500 apples and the creator would receive 50 apples, and the sender pays 550 apples total for the transaction.
 
-* **Per_Transfer**: Transfer fee per *transfer* when changing hands, in ENJ. For example, if a `Banana` has a `0.1 ENJ` fee per transfer and `0xPAT` sends 10 bananas to `0xERIC`, `0xPAT` would
-be charged 0.1 ENJ for the transaction that would go to the `0xCREATOR` of the banana.
-* **Ratio_Cut**: Fungible Items only. A % cut of the total items is subtracted from the total for the dev, with the sender paying the total price. For example, if transferring 500 gold with a 10% ratio cut (0.1) the recipient would get 450 gold and the dev 50 gold, with the sender paying 500 total for the transaction.
-Another example:
-
-`day_of_subscription` has RATIO_CUT of 100 (results in 1% cut to creator)
-`0xPAT` sends 10000 `day_of_subscription` to `0xERIC`
-Result: `0xERIC` gets 9,900 items and `0xCREATOR` gets 100.
-
-* **Ratio_Extra**: Fungible items only. A tax that is charged ON TOP of everything. For example, if transferring 500 gold with a 10% ratio extra the recipient would get 500 gold, the dev 50 gold, and the sender pays 550 gold total for the transaction.
-Another example:
-`gold` has RATIO_EXTRA fees of 1,500 (15%)
-0xPAT sends 4000 `gold` to `0xERIC`
-Result: `0xPAT` loses 4,600 `gold`, `0xERIC` receives 4000, `0xCREATOR` receives 600.
-
-**transferFeeSettings:** token_id
+**transferFeeSettings:** 
 The token ID of the token you want to use as the transfer fee. Use 0 if you want your users to pay you in Enjin Coin.
 
 **meltValue**
 The amount of ENJ you want to use per unit of the item you are creating. You need to use a minimal
 amount of ENJ to back your items depending on how many you are creating in your initial reserve (the min-cost will be listed beside the label). In general, the more items of one type you are making, the less ENJ you need **per unit** of item.
 
-**supplyModel**: This is how the item pool behaves with respect to minting and melting. We have the following supply types in the current version on Enjin:
+**supplyModel**: This is how the item pool behaves with respect to minting and melting. 
+
+The following are our current supply types: 
   * **Fixed**: You can have up to TOTAL SUPPLY number of items in circulation at one time.
   * **Settable**: Allows you to edit the total supply at any time.
   * **Infinite**: You can mint as many items as you want, exceeding TOTAL SUPPLY.
@@ -114,27 +103,34 @@ an example:
 
 [CreateToken](../examples/CreateToken.gql)
 
-Once a successful request has been made, you will need to accept and sign the transaction in the **REQUESTS** section of your dev wallet. 
+Once a successful request has been made, you will need to accept and sign the transaction in the **REQUESTS** section of your wallet.
 
 
 ## Finding the Token ID
 
-A Token ID is a permanent identity given to your Token Template once it has been committed to the blockchain. 
+A Token ID is a permanent identity given to your Token Template, once it has been committed to the blockchain. 
 
 Therefore, once the token template has been created you will need to find the Token ID to MINT the tokens that you have defined within the template.
+There are multiple ways that you can find the Token ID of an asset: 
 
-You can either find the Token ID on the transaction with that item after it confirms via [EnjinX](https://enjinx.io/) or you can search for the item on the Trusted Cloud using the following query
+* You can find the Token ID on the transaction with that item after it confirms via [EnjinX](https://enjinx.io/). Click the "Event Logs" tab, and you will notice the 16 unique digit 
+* You can search for the asset on the Trusted Cloud using the following query: [Tokens](../examples/Tokens.gql). 
+* Lastly, if you are using the [Enjin Panel](https://cloud.enjin.io) you will notice, when minting your newly created asset you will also see the token ID on the panel
 
-Please note: You will need to wait for it to be confirmed and scraped from the blockchain first.
+![Home Screen](../docs/images/token_id.png)
 
-Enter in the `NAME` to search for that token. Alternatively, you can make the request without the name parameter to return all items on your app.
+**Please note:** You will need to wait for it to be confirmed and scraped from the blockchain first.
 
-[Tokens](../examples/Tokens.gql)
 
 
 ## Creating Token Metadata
 
 Once you have defined your token's blockchain data by creating the token template, you can add Metadata to it which is stored in a .json file, hosted somewhere that has public read access.
+Please note the following requirements when it comes to metadata:
+1. The link (to both metadata and image) must be publicly accessible to robots.
+2. The uri must be set appropriately to the requested file.
+3. The image must be that of a valid image file (first metadata shows a json file is referenced).
+4. The JSON must conform with the JSON RFC standards, if it does not conform in anyway then it won't be loaded.
 
 Technically, item metadata is optional, but if you want to display an image and custom item properties in your game, the Enjin Wallet, and other Enjin Services, you will need to define some metadata.
 
@@ -154,12 +150,18 @@ Once you have that .json file uploaded with public read access, you can make the
 
 See [this guide](/docs/metadata) for more details if you are unfamiliar with hosting files.
 
-**Advanced Users:**
-The URI value allows for ID substitution by clients. If the string `{id}` exists in any URI, clients MUST replace this with the actual token ID in hexadecimal form. This allows for a large number of tokens to use the same on-chain string by defining a URI once, for a large collection of tokens. Example of such a URI: `https://token-cdn-domain/{id}.json` would be replaced with `https://token-cdn-domain/780000000000001e000000000000000000000000000000000000000000000000.json` if the client is referring to token ID `780000000000001e000000000000000000000000000000000000000000000000`. See [Metadata](/docs/metadata) section in the ERC-1155 standards documentation for full details.
+The following mutation will set Item URI on your asset: 
 
 [SetItemUri](../examples/SetItemUri.gql)
 
-Once a successful request has been made, you will need to accept and sign the transaction in the **REQUESTS** section of your dev wallet.
+**Advanced Users:**
+The URI value allows for ID substitution by clients. If the string `{id}` exists in any URI, clients MUST replace this with the actual token ID in hexadecimal form. This allows for a large number of tokens to use the same on-chain string by defining a URI once, for a large collection of tokens. Example of such a URI: `https://token-cdn-domain/{id}.json` would be replaced with `https://token-cdn-domain/780000000000001e000000000000000000000000000000000000000000000000.json` if the client is referring to token ID `780000000000001e000000000000000000000000000000000000000000000000`. 
+
+See [Metadata](/docs/metadata) section in the ERC-1155 standards documentation for full details.
+
+
+
+Once a successful request has been made, you will need to accept and sign the transaction in the **REQUESTS** section of your wallet.
 
 ## Minting the Tokens
 
@@ -188,7 +190,7 @@ You can mint up to `INITIAL RESERVE` of items.
 
 This request would mint 5x items to “WALLET_ADDRESS_1” and 3x items to “WALLET_ADDRESS_2”.
 
-Once a successful request has been made, you will need to accept and sign the transaction in the “REQUESTS” section of your dev wallet.
+Once a successful request has been made, you will need to accept and sign the transaction in the **REQUESTS** section of your wallet.
 
 ## Cancelling Pending Transactions
 

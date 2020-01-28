@@ -164,7 +164,7 @@ When you want to perform a specific action with a token, you can use this to val
 
 ```gql
 query GetWalletTokenBalance($address: String!, $tokenId: String) {
-  EnjinBalances(ethereum_address: $address, token_id: $tokenId, value_gt: 0) {
+  EnjinBalances(ethAddress: $address, tokenId: $tokenId, value_gt: 0) {
     token {
       id
       index
