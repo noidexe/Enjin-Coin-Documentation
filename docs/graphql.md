@@ -121,4 +121,9 @@ Here is a list of the Enjin object types that can be mutated:
 
 You can find comprehensive information about what data can be queried and mutated using these Object Types in the **GraphiQL Documentation Explorer.**
 
+## Querying Variables
+You may notice in our documetatation we provide examples of queries and mutations that you can use and they will often contain vairables within them. You can query these variables by simply passing through the data in the "Query Variables" section at the bottom of the page. 
+
+![Enjin Linking Platform](../docs/images/querying_using_variables.png)
+
 **To find it, go to the [GraphiQL visual interface](cloud.enjin.io/graphiql) and click the _"Docs"_ button in the top-right corner.**
