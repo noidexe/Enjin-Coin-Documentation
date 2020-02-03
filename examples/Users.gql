@@ -1,0 +1,16 @@
+query getUserDetails {
+  EnjinUsers{
+    name
+    id
+    email
+    identities {
+      id
+      appId
+      wallet {
+        ethAddress
+      }
+      linkingCode
+      linkingCodeQr
+    }
+  }
+}
