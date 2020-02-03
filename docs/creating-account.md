@@ -63,6 +63,14 @@ If you have already created a project, but forgot the id, you can always search 
 
 [Apps](../examples/Apps.gql)
 
+You should get the App ID in the response if it was successful. It's also important to set a name, description and a link to a hosted image for your newly created project. 
+
+## Identifying Your Identity ID
+Many operations you perform via GraphQL will also require an Identity ID. 
+
+If you have already created an identity for yourself, but forgot the id, you can always search for your identity ID with the following query:
+
+[Apps](../examples/Users.gql)
 
 You should get the App ID in the response if it was successful. It's also important to set a name, description and a link to a hosted image for your newly created project. 
 
