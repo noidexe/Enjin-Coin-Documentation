@@ -114,7 +114,8 @@ Therefore, once the token template has been created you will need to find the To
 There are multiple ways that you can find the Token ID of an asset: 
 
 * You can find the Token ID on the transaction with that item after it confirms via [EnjinX](https://enjinx.io/). Click the "Event Logs" tab, and you will notice the 16 unique digit 
-* You can search for the asset on the Trusted Cloud using the following query: [Tokens](../examples/Tokens.gql). 
+* You can search for the asset on the Trusted Cloud using the following query:
+[Tokens](../examples/Tokens.gql)
 * Lastly, if you are using the [Enjin Panel](https://cloud.enjin.io) you will notice, when minting your newly created asset you will also see the token ID on the panel
 
 ![Home Screen](../docs/images/token_id.png)
@@ -179,13 +180,13 @@ FTs do not have the same restriction, you can mint unlimited Fungible Tokens int
 
 Here is the same request between 2 different token types, FT and NFT.
 
-**FT:**
+**Fungible Token:**
 [MintFungibleItems](../examples/MintFungibleItems.gql)
 
 This request would mint 5x items to “WALLET_ADDRESS_1” and 3x items to “WALLET_ADDRESS_2”.
 You can mint up to `INITIAL RESERVE` of items.
 
-**NFT:**
+**Non-Fungible Token:**
 [MintNonFungibleItems](../examples/MintNonFungibleItems.gql)
 
 This request would mint 5x items to “WALLET_ADDRESS_1” and 3x items to “WALLET_ADDRESS_2”.
