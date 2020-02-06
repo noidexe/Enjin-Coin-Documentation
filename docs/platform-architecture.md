@@ -54,6 +54,8 @@ Every user has their own unique blockchain address and all transactions to be ex
 
 The Enjin wallet provides a seamless signing process that makes it easy to execute complex commands via Enjin's smart contracts.
 
+If you are unsure on how to get started with the Enjin Wallet, we highly recommend going through our [connecting your Enjin Wallet](./connecting-wallet.md) guide for further information. 
+
 ## Wallet Daemon
 
 The Wallet Daemon is a tool that you can use to automate the authorization of transaction requests to and from the Trusted Cloud.
@@ -63,3 +65,5 @@ Without the Wallet Daemon, you would need to sign every in-game blockchain trans
 Wallet Daemon manages an Ethereum address linked to a Trusted Cloud identity. When a transaction is submitted on the Trusted Cloud, the Wallet Daemon receives that transaction, signs it, and sends it back to the Trusted Cloud.
 
 Currently, only a console version of the Wallet Daemon is available. In the future, we will likely create a simple graphical user interface to make it easier for you to use.
+
+If you are in need of further assistance regarding the Enjin Wallet Daemon, we highly recommend checking out our [Wallet Daemon](./wallet_daemon.md) set of guides.

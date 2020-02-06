@@ -216,7 +216,10 @@ Furthermore, we decide we are not going to charge any transfer fees. So we set t
 We set melt fee ratio to none. If players melt this item 100% of the ENJ used to back the
 item will go back to the player.
 
-We click CREATE. The transaction is posted to the blockchain and needs to be signed by a wallet. In this example we will be using the mobile wallet. You'll see something like this:
+We click CREATE. The transaction is posted to the blockchain and needs to be signed by a wallet. 
+
+In this example we will be using the mobile wallet. You'll see something like this:
+
 ![Cryptoitems Create Item](../docs/images/unity_cryptoitems_example1_2.png)
 
 We approve the create request, after awhile (be patient) Unity will refresh and show the newly
@@ -235,6 +238,7 @@ also choose the address to where the minted items will go. Handy if you have som
 our wallet daemon running on a remote machine acting as a vault for items. Click MINT.
 
 You'll get a notification in the wallet similar to this:
+
 ![Cryptoitems Create Item](../docs/images/unity_cryptoitems_example1_5.png)
 
 Accept it, and wait. Once the transaction is confirmed on the blockchain, Unity will refresh

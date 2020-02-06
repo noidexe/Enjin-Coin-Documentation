@@ -180,13 +180,13 @@ FTs do not have the same restriction, you can mint unlimited Fungible Tokens int
 
 Here is the same request between 2 different token types, FT and NFT.
 
-**FT:**
+**Fungible Token:**
 [MintFungibleItems](../examples/MintFungibleItems.gql)
 
 This request would mint 5x items to “WALLET_ADDRESS_1” and 3x items to “WALLET_ADDRESS_2”.
 You can mint up to `INITIAL RESERVE` of items.
 
-**NFT:**
+**Non-Fungible Token:**
 [MintNonFungibleItems](../examples/MintNonFungibleItems.gql)
 
 This request would mint 5x items to “WALLET_ADDRESS_1” and 3x items to “WALLET_ADDRESS_2”.

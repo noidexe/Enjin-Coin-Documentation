@@ -273,7 +273,7 @@ query GetTransaction($id: Int!) {
   }
 }
 ```
-The Enjin Transactions query will return vvarious pieces of information, depending on the state of the transaction that you have ran. 
+The Enjin Transactions query will return various pieces of information, depending on the state of the transaction that you have ran. 
 You will notice that we added the `error` argument within the query. The `error` argument is useful to have, in case your transaction has failed / dropped for a certain reason, this will display why the transaction in question did not process on the blockchain. 
 
 **This query will return the following values:**
@@ -287,7 +287,36 @@ You will notice that we added the `error` argument within the query. The `error`
 * **FAILED:** Transaction has failed on the Trusted Platform.
 * **DROPPED:** Transaction was not mined on the blockchain and has since been dropped.
 
+## Re-broadcasting Transactions
+Rebroadcasting transactions are useful when there has been a transaction made/signed and is now in "Pending" state on the Trusted Cloud. However the transaction has not been broadcast and cannot be found on the blockchain.
 
+**Example 1:** To cancel any PENDING transaction (those in pending state):
+```gql
+mutation CancelPendingTransaction($id: Int!) {
+  UpdateEnjinRequest(id: $id, state: CANCELED_USER) {
+    id, state
+  }
+}
+```
+
+**Example 2:** To cancel a transaction that's in the BROADCAST state (such as a pending transaction on the blockchain): 
+```gql
+mutation CancelBroadcastedTransaction($id: Int!) {
+  UpdateEnjinRequest(id: $id, rebroadcast:CANCEL){
+    id,
+    transactionId
+  }
+}
+```
+
+When you omit rebroadcast and instead provide state it allows you to change the state to CANCELED_USER (cancelled) whilst the transaction is in the PENDING state. Once it leaves PENDING it's no longer possible to cancel.
+
+The rebroadcast mutation has 3 important values:
+* RETRY: this will attempt to re-post the same transaction.
+* BACKUP: this will attempt to post another transaction that has a higher gas prices.
+* CANCEL: this will send another [self] transaction (with the same nonce and higher gas) in an attempt to cancel the transaction. 
+
+The rebroadcast parameter will result in a blockchain-related event happening and, based on the status, the state will update to BROADCAST / EXECUTED respectively.
 
 ## Set Spending Allowance
 If you want to increase the security of your project and set a spending limit for yourself, or allow your players to choose their own spending limited, you can use this mutation to set a spending allowance: 
