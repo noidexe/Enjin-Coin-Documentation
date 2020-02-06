@@ -1,8 +1,7 @@
-query getUserDetails {
-  EnjinUsers{
+query GetIdentities {
+  EnjinUser(me: true) {
     name
     id
-    email
     identities {
       id
       appId
