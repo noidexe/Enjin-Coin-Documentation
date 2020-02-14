@@ -1,7 +1,7 @@
 # Getting Started
 [Introduction](/docs/introduction)
 [Platform Architecture](/docs/platform-architecture)
-[Using GraphQL](/docs/graphql)
+[Using GraphQL](/docs/using-graphql)
 [Creating Your Account](/docs/creating-account)
 [Connecting Your Enjin Wallet](/docs/connecting-wallet)
 [Using Your Wallet Daemon](/docs/wallet-daemon)
