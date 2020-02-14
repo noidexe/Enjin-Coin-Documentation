@@ -1,0 +1,7 @@
+query GetToken($name: String) {
+  token: EnjinTokens(
+    name: $name
+  ) {
+    id
+  }
+}

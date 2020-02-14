@@ -96,18 +96,8 @@ If the API returns a linking code, that means the user's Enjin Wallet is not lin
 ## EnjinIdentities
 Most queries and mutations require an indentity ID. You can use this query to locate the Identity ID:
 
-```gql
-query GetIdentities {
-  EnjinIdentities(pagination: {page: 1, limit: 50}) {
-    id
-    linkingCode
-    linkingCodeQr
-    wallet {
-      ethAddress
-    }
-  }
-}
-```
+
+[Get Identities](../../../examples/getIdentities.gql)
 
 ## Check Linking Code
 You can also check your user's linking code whenever you want using this query;
@@ -237,20 +227,8 @@ query GetTokenDetails($name: String!) {
 ## Token Holders
 This query returns a list of addresses who own a specific token:
 
-```gql
-query GetBalance($tokenId: String!) {
-  EnjinBalances(token_id: $tokenId) {
-    token {
-      id
-      index
-    }
-    wallet {
-      ethAddress
-    }
-    value
-  }
-}
-```
+[Get Balance Holders](../../../examples/getBalanceHolders.gql)
+
 It can be useful for rewarding all holders of a specific token in one go, through a coordinated airdrop.
 
 ## Transaction data
@@ -273,7 +251,7 @@ query GetTransaction($id: Int!) {
   }
 }
 ```
-The Enjin Transactions query will return various pieces of information, depending on the state of the transaction that you have ran. 
+The Enjin Transactions query will return vvarious pieces of information, depending on the state of the transaction that you have ran. 
 You will notice that we added the `error` argument within the query. The `error` argument is useful to have, in case your transaction has failed / dropped for a certain reason, this will display why the transaction in question did not process on the blockchain. 
 
 **This query will return the following values:**
@@ -287,36 +265,7 @@ You will notice that we added the `error` argument within the query. The `error`
 * **FAILED:** Transaction has failed on the Trusted Platform.
 * **DROPPED:** Transaction was not mined on the blockchain and has since been dropped.
 
-## Re-broadcasting Transactions
-Rebroadcasting transactions are useful when there has been a transaction made/signed and is now in "Pending" state on the Trusted Cloud. However the transaction has not been broadcast and cannot be found on the blockchain.
 
-**Example 1:** To cancel any PENDING transaction (those in pending state):
-```gql
-mutation CancelPendingTransaction($id: Int!) {
-  UpdateEnjinRequest(id: $id, state: CANCELED_USER) {
-    id, state
-  }
-}
-```
-
-**Example 2:** To cancel a transaction that's in the BROADCAST state (such as a pending transaction on the blockchain): 
-```gql
-mutation CancelBroadcastedTransaction($id: Int!) {
-  UpdateEnjinRequest(id: $id, rebroadcast:CANCEL){
-    id,
-    transactionId
-  }
-}
-```
-
-When you omit rebroadcast and instead provide state it allows you to change the state to CANCELED_USER (cancelled) whilst the transaction is in the PENDING state. Once it leaves PENDING it's no longer possible to cancel.
-
-The rebroadcast mutation has 3 important values:
-* RETRY: this will attempt to re-post the same transaction.
-* BACKUP: this will attempt to post another transaction that has a higher gas prices.
-* CANCEL: this will send another [self] transaction (with the same nonce and higher gas) in an attempt to cancel the transaction. 
-
-The rebroadcast parameter will result in a blockchain-related event happening and, based on the status, the state will update to BROADCAST / EXECUTED respectively.
 
 ## Set Spending Allowance
 If you want to increase the security of your project and set a spending limit for yourself, or allow your players to choose their own spending limited, you can use this mutation to set a spending allowance: 
@@ -382,15 +331,8 @@ At times, you may want to change the transfer status of a token you have created
 
 **_Note_**: If you have set the token to be permanently transferable, you will not be able to alter that setting. 
 
-```gql
-mutation ChangeAssetTransferableType($appId: Int!, $identityId: Int!, $tokenId: String!, $transferable: TokenTransferable!) {
-  CreateEnjinRequest(appId: $appId, identity_id: $identityId, type: SET_TRANSFERABLE, set_transferable_data: {token_id: $tokenId, transferable: $transferable}) {
-    id
-    encodedData
-  }
-}
 
-```
+[Change Asset Transferable](../../../examples/changeAssetTransferable.gql)
 
 ## Blockchain Explorer
 Players are inherently interested in the blockchain data behind the assets they own.

@@ -120,7 +120,7 @@ There are multiple ways that you can find the Token ID of an asset:
 
 * Lastly, if you are using the [Enjin Panel](https://cloud.enjin.io) you will notice, when minting your newly created asset you will also see the token ID on the panel
 
-![Home Screen](../docs/images/token_id.png)
+![Home Screen](../docs/images/tokenId.png)
 
 **Please note:** You will need to wait for it to be confirmed and scraped from the blockchain first.
 

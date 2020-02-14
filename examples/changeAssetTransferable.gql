@@ -1,0 +1,6 @@
+mutation ChangeAssetTransferableType($appId: Int!, $identityId: Int!, $tokenId: String!, $transferable: TokenTransferable!) {
+  CreateEnjinRequest(appId: $appId, identityId: $identityId, type: SET_TRANSFERABLE, set_transferable_data: {token_id: $tokenId, transferable: $transferable}) {
+    id
+    encodedData
+  }
+}
