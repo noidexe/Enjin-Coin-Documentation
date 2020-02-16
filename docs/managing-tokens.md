@@ -5,14 +5,6 @@ The Platform API has been built to provide all the functionality you need to man
 
 You will likely use the following queries and mutations quite often when it comes to managing your tokenized assets.
 
-
-## Change Token URI 
-You can change your token metadata at any time. You can do this by setting or updating the token URI. Your token metadata may include the name, description and the image. 
-
-The following mutation can be used to set the URI or update the data:
-
-[Set Item URI](../../../examples/SetItemUri.gql)
-
 ## Change Token Name
 Tokens have their names specified on the blockchain and within their metadata. 
 
