@@ -1,60 +1,61 @@
-# Working with Metadata
-
-## ERC1155 Metadata JSON Schema
+# Setting your Metadata
 
 Assets made on the Enjin Platform may contain metadata that is based on the ERC721 Metadata JSON Schema. We are adding an optional formatting standard to this schema to increase efficiency for games that need to manage metadata for thousands of items.
 
-Correctly formatted metadata is used by:
-* Enjin Wallet
-* EnjinX Blockchain Explorer
-* The Game Client / Server via SDKs
+Note the following requirements when it comes to metadata:
 
-### JSON Format
-Example:
+1. The link (to both metadata and image) must be publicly accessible to robots.
+2. The uri must be set appropriately to the requested file.
+3. The image must be that of a valid image file (the image must show).
+4. The JSON must conform with the JSON RFC standards, if it does not conform in anyway then it won't be loaded.
+
+You can view the following [section](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema) which goes in depth about the ERC-1155 Metadata. 
+
+### Setting your Metadata on the Enjin Platform
+
+You can set your own unique, metadata on assets using the Enjin Platform. Once you have created a project and a few assets, you will notice that you will be able to "Edit" your newly created assets.
+
+You will simply need to select a name, an asset description and an image (recommended size is 1000x1000 (px)). Check the following example:
+
+![Hosted Metadata](../docs/images/hostedMetadata.png)
+
+Your metadata will be hosted by Enjin and you will be able to change your asset's metadata at any given time. 
+Once done, a Set Uri notification request will be sent to your wallet. 
+You will need to accept the request in your wallet, and the Set Uri transaction will broadcast on the blockchain. 
+
+### Advanced Editor
+Additionally, you can also host your own unique, metadata for your assets elsewhere, if you wish to not use Enjin as the service to host your files. 
+Many game developers will often use their own hosting sites to store their asset's metadata, in which, we cater for with the use of the advanced editor on the Enjin platform. 
+
+You can optionally set a name for your asset. Lastly, you will need to paste the .json file into the "Metadata URI" field and save the changes. Once done, a Set Uri notification request will be sent to your wallet. 
+You will need to accept the request in your wallet, and the Set Uri transaction will broadcast on the blockchain. 
+Once successful, your unique metadata will appear on your asset(s).  
+
+![Advanced Editor](../docs/images/advancedEditor.png)
+
+**Note:** You can change your unique metadata at any give time, simply paste a new version of the .json file and click "Save Uri". 
+
+### JSON Format 
+We will proivde a simple run-down on an example of how your unique metadata can look. The main 3 factors that you will need, is an asset name, description and image. 
+
+The properties name, description and image follows the ERC-721 metadata schema. Values in the properties JSON object, will be rendered in client applications, such as the [Enjin Wallet](https://enjin.io/products/wallet) and on [EnjinX](https://enjinx.io). 
+
+Example Format:
 ```json
 {
-	"name": "Asset Name",
-	"description": "Lorem ipsum...",
-	"image": "https:\/\/s3.amazonaws.com\/your-bucket\/images\/{id}.png",
-	"properties": {
-		"simple_property": "example value",
-		"rich_property": {
-			"name": "Name",
-			"value": "123",
-			"display_value": "123 Example Value",
-			"class": "emphasis",
-			"css": {
-				"color": "#ffffff",
-				"font-weight": "bold",
-				"text-decoration": "underline"
-			}
-		},
-		"array_property": {
-			"name": "Name",
-			"value": [1, 2, 3, 4],
-			"class": "emphasis"
-		}
-	}
+    "name": "Asset Name",
+    "description": "Lorem ipsum",
+    "image": "https:\/\/s3.amazonaws.com\/your-bucket\/images\/{id}.png",
+    "properties": {
+        "simple_property": "example value",
+        "rich_property": {
+            "name": "Name",
+            "value": "123",
+            "display_value": "123 Example Value"
+        }
+    }
 }
 ```
-The properties name, description and image follow the ERC721 metadata schema. Values in the properties JSON object will be rendered in client applications (Enjin Wallet and EnjinX).
-
-#### Simple Property
-Value must be a string, integer, float, or simple array.
-
-#### Rich Property
-Must be an object containing:
-* Required Properties:
-  * value
-    * string, integer, float, or simple array
-* Optional Properties
-  * name
-  * display_value
-  * class
-  * css
-
-#### Arrays
-The value field may be a simple array of strings, ints, or floats. These will be displayed in table form in the client application.
 
 ### Specific Metadata URI
 Any token ID may have a metadata URI that can be retrieved by calling uri(_id) on the ERC-1155 contract.
@@ -65,74 +66,25 @@ If an individual Non-Fungible token ID has a metadata URI defined, client apps s
 A Non-Fungible token that defines a Default URI in its base token has the option of using an {id} placeholder in the URI itself. This will get replaced with the distinct ID when accessing NFTs.
 
 Example:
-```
-yoursite.com/{id}.json
-->
-yoursite.com/0xbd4818c04f57a2ebc473d74ee06d6e0600000000000000000000000000000001.json
-```
+
+`yoursite.com/{id}.json` ->
+`yoursite.com/0xbd4818c04f57a2ebc473d74ee06d6e0600000000000000000000000000000001.json`
+
 
 ### Images
 If the Default URI contains an image property that in turn contains the {id} placeholder, the image URL will be used as the default image for all tokens of this type.
 
 Example:
-```
-yoursite.com/images/{id}.jpg
-->
-yoursite.com/images/0xbd4818c04f57a2ebc473d74ee06d6e0600000000000000000000000000000001.jpg
-```
+
+`yoursite.com/images/{id}.jpg` ->
+`yoursite.com/images/0xbd4818c04f57a2ebc473d74ee06d6e0600000000000000000000000000000001.jpg`
+
 
 The **image** property can also be a static URI without the placeholder, as desired.
 
-## Hosting Metadata
 
-This guide will show you how to host JSON metadata and images for your items
-using [Digital Ocean](https://enj.in/digital-ocean) Cloud Services. This is not a only
-way to host your data but should provide an easy, yet robust way for developers that
-are less familiar with web technologies to fully take advantage of item metadata.
+In GraphiQL, you can set the URI for the item using the following mutation:
 
-You can look at the full JSON schema for metadta over [here](./erc1155_metadata_json_schema.md).
+[Set Uri](../../../examples/SetItemUri.gql)
 
-### Getting Started
-Create an account on Digital Ocean.
-
-Once you have an account, create a new
-project for your game, and then create a [Space](https://www.digitalocean.com/docs/spaces/).
-
-Your screen should look something like this:
-
-![Getting Started](../docs/images/metadata_digitalocean_getting_started.png)
-
-### Uploading Files
-Click on the Space to access.
-
-Upload your images first, since you will need to set the `image` field in your JSON to the URL of your image.
-
-Set permissions to Public.
-
-Modify your JSON data to point to the appropriate images on like so:
-
-```json
-{
-  "description": "Hello from Digital Ocean!",
-  "image": "https://enjintest.sfo2.cdn.digitaloceanspaces.com/shcmeckle_export.png",
-  "properties": {
-    "Quality": "Common"
-  }
-}
-```
-
-Upload your finished JSON to the Digital Ocean Space. It should look something like this:
-
-![Digital Ocean Upload](../docs/images/metadata_digitalocean_upload.png)
-
-### Setting URIs and Testing
-
-In Unity, select the item and hit EDIT. Fill in the URI field.
-
-![Digital Ocean Unity](../docs/images/metadata_digitalocean_unity_uri.png)
-
-In the Platform API (GraphQL), you can set the URI for the item like so:
-
-[CreateToken](../examples/CreateToken.gql)
-
-Note that in either case setting the URI is a blockchain transaction that you will need to approve.
+**Note:** Setting the URI is a blockchain transaction that you will need to approve in the Enjin Wallet, under the "Requests" tab, in order to see the metadata appear on your assets.
