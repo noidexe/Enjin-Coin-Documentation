@@ -122,34 +122,33 @@ There are multiple ways that you can find the Token ID of an asset:
 
 ![Token Id](../docs/images/tokenId.png)
 
-**Please note:** You will need to wait for it to be confirmed and scraped on the blockchain first.
+**Note:** You will need to wait for it to be confirmed and scraped on the blockchain first.
 
 
 
-## Creating Token Metadata
+## Creating your Asset Metadata
 
-Once you have defined your token's blockchain data by creating the token template, you can add Metadata to it which is stored in a .json file, hosted somewhere that has public read access.
+Once you have defined your token's blockchain data by creating the token template, you can add Metadata to it, which is stored in a .json file, hosted somewhere that has public read access.
+
 Please note the following requirements when it comes to metadata:
 1. The link (to both metadata and image) must be publicly accessible to robots.
 2. The uri must be set appropriately to the requested file.
-3. The image must be that of a valid image file (first metadata shows a json file is referenced).
+3. The image must be that of a valid image file (the image must show).
 4. The JSON must conform with the JSON RFC standards, if it does not conform in anyway then it won't be loaded.
 
-Technically, item metadata is optional, but if you want to display an image and custom item properties in your game, the Enjin Wallet, and other Enjin Services, you will need to define some metadata.
+Technically, item metadata is optional. Albeit, if you want to display an image and custom item properties in your game, it can result in your asset being extra unique. The Enjin Wallet, and other Enjin Services will also display your assets, based on the metadata that you set. 
 
-You can include a name (which would be displayed instead of the blockchain item name), description, and link to an image (which also needs to be publicly readable) in the .json file.
-
-The bare minimum recommended metadata is a name, a description, and an image. You
-would define this like so:
+You can include a name (which would be displayed instead of the blockchain item name), description, and link to an image, such as the following example:
 
 ```json
 {
-  "name": "ITEM_NAME",
+  "name": "item_name",
   "description": "Description line 1.\nDescription line 2.",
-  "image": "/IMAGE.jpg"
+  "image": "/image.jpg"
 }
 ```
-Once you have that .json file uploaded with public read access, you can make the request to set the item URI (Uniform Resource Identifier).
+
+You will need to save that file, as a .json file. Once you have that .json file uploaded with public read access, you can make the request to set the item URI (Uniform Resource Identifier).
 
 See [this guide](/docs/metadata) for more details if you are unfamiliar with hosting files.
 
@@ -158,10 +157,12 @@ The following mutation will set Item URI on your asset:
 [SetItemUri](../examples/SetItemUri.gql)
 
 **Advanced Users:**
-The URI value allows for ID substitution by clients. If the string `{id}` exists in any URI, clients MUST replace this with the actual token ID in hexadecimal form. This allows for a large number of tokens to use the same on-chain string by defining a URI once, for a large collection of tokens. Example of such a URI: `https://token-cdn-domain/{id}.json` would be replaced with `https://token-cdn-domain/780000000000001e000000000000000000000000000000000000000000000000.json` if the client is referring to token ID `780000000000001e000000000000000000000000000000000000000000000000`. 
+The URI value allows for ID substitution by clients. If the string `{id}` exists in any URI, clients must replace this with the actual token ID in hexadecimal form. 
+This allows for large number of tokens to use the same on-chain string by defining a URI once, for a large collection of tokens. 
 
-See [Metadata](/docs/metadata) section in the ERC-1155 standards documentation for full details.
+Example of such a URI: `https://token-cdn-domain/{id}.json` would be replaced with `https://token-cdn-domain/780000000000001e000000000000000000000000000000000000000000000000.json`, if the client is referring to token ID `780000000000001e000000000000000000000000000000000000000000000000`. 
 
+See [Metadata](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#metadata) section in the ERC-1155 standards documentation for full details.
 
 
 Once a successful request has been made, you will need to accept and sign the transaction in the **REQUESTS** section of your wallet.
