@@ -102,15 +102,13 @@ Here is a list of the Enjin object types that can be mutated:
 * **CreateEnjinRequest:** This mutation allows you to create a new transaction request to send to the blockchain, and is the main way to interact with the different smart contract methods. When creating transaction requests, it is important to use the correct Identity ID as the ethereum address that is stored on it will be used as the 'creator' of the request and so needs to match the creator or owner of the token being manipulated. In the case of a Create request, the ID will become the 'creator' of the new token.
 * **UpdateEnjinRequest:** This mutation allows you to update a pending transaction request that's not yet been signed and broadcast to the blockchain.
 * **DeleteEnjinRequest:** This mutation allows you to  cancel a transaction request that's not yet been signed and broadcast to the blockchain.
-* **CreateEnjinToken:** This mutation allows you to import an existing token onto the Enjin Platform, the token data will be read from the blockchain and linked to the App ID you specify in the request header.
-* **UpdateEnjinToken:** This mutation allows you to refresh the token data on the Enjin Platform from the blockchain or change which project the token is linked to.
 * **CreateEnjinUser:** This mutation allows you to create a player for your application on the Enjin Platform.
 * **UnlinkApp:** This mutation allows you to unlink a wallet from a project.
 * **UnlinkIdentity:** This mutation allows you to unlink a wallet from an identity.
 
 You can find comprehensive information about what data can be queried and mutated using these Object Types in the **GraphiQL Documentation Explorer.**
 
-To find it, go to the [GraphiQL visual interface](cloud.enjin.io/graphiql) and click the _"Docs"_ button in the top-right corner.
+To find it, go to the [GraphiQL visual interface](https://cloud.enjin.io/graphiql) and click the _"Docs"_ button in the top-right corner.
 
 ## Querying Variables
 You may notice in our documetatation, we provide examples of our queries and mutations that you can use and they will often contain vairables within them. You can query these variables by simply passing through the data in the "Query Variables" section at the bottom of the page. 

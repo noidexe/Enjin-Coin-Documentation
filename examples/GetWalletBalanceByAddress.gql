@@ -1,0 +1,6 @@
+query GetWalletBalanceByAddress($address: String!) {
+  EnjinWallet(ethAddress: $address) {
+    enjBalance
+    ethBalance
+  }
+}

@@ -1,12 +1,5 @@
-mutation ApproveENJ($identityId: Int) {
-  transaction: CreateEnjinRequest(
-    identity_id: $identityId
-    type: APPROVE
-    approve_enj_data: {
-      value: 0
-    }
-  ) {
+mutation ApproveEnj($id: String!, $limit: Int!) {
+  CreateEnjinRequest(identity_id: $id, type: APPROVE, approve_enj_data: {value: $limit}) {
     id
-    encodedData
   }
 }

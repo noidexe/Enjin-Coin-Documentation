@@ -1,0 +1,6 @@
+mutation BatchMelt($identityId: Int!, $meltTokenData: MeltTokenInput!) {
+  CreateEnjinRequest(identity_id: $identityId, type: MELT, melt_token_data: $meltTokenData) {
+    identityId
+    tokenId
+  }
+}

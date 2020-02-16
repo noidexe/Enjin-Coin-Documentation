@@ -1,0 +1,6 @@
+mutation WhitelistToken($identityId: Int!, $appId: Int!, $whitelistData: SetWhitelistedInput!) {
+  CreateEnjinRequest(identity_id: $identityId, appId: $appId, type: SET_WHITELISTED, set_whitelisted_data: $whitelistData) {
+    id
+    encodedData
+  }
+}

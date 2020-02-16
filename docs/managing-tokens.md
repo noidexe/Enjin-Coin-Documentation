@@ -11,15 +11,7 @@ You can change your token metadata at any time. You can do this by setting or up
 
 The following mutation can be used to set the URI or update the data:
 
-```gql
-mutation SetItemUri($identityId: Int!, $itemUriData: SetItemUriInput!) {
-  CreateEnjinRequest(identity_id: $identityId, type: SET_ITEM_URI, set_item_uri_data: $itemUriData) {
-    id
-    encodedData
-    state
-  }
-}
-```
+[Set Item URI](../../../examples/SetItemUri.gql)
 
 ## Change Token Name
 Tokens have their names specified on the blockchain and within their metadata. 
@@ -28,14 +20,7 @@ This means tokens can, technically, be given a different name on the blockchain 
 
 This following mutation can be used to update a token's name on the blockchain:
 
-```gql
-mutation UpdateTokenName($identityId: Int!, $itemNameData: UpdateItemNameInput!) {
-  CreateEnjinRequest(identity_id: $identityId, type: UPDATE_NAME, update_item_name_data: $itemNameData) {
-    id
-    encodedData
-  }
-}
-```
+[Update Token Name](../../../examples/UpdateTokenName.gql)
 
 ## Melt Batch Items
 There may be times that you make a mistake during the token minting process and you wish to melt all of the tokens you have created. 
@@ -44,15 +29,7 @@ To melt any token, the token must be in your wallet. It's important to **quadrup
 
 Once your tokens have been distributed to your users, there is no going back and the only way to fix any errors is to generate replacement tokens.
 
-
-```gql
-mutation BatchMelt($identityId: Int!, $meltTokenData: MeltTokenInput!) {
-  CreateEnjinRequest(identity_id: $identityId, type: MELT, melt_token_data: $meltTokenData) {
-    identityId
-    tokenId
-  }
-}
-```
+[Batch Melt](../../../examples/BatchMelt.gql)
 
 ## Release Reserve
 When you first create a token, you will be asked to lock an initial reserve on the Enjin Coin (ENJ) into it.
@@ -61,13 +38,8 @@ This is to ensure you can mint your tokens fluidly, using the Enjin Coin you hav
 
 If you no longer wish to use the token, and decide not to go ahead with minting the respective tokens, you can destroy the template and return the Enjin Coin that you have set aside by using the following mutation:
 
-```gql
-mutation ReleaseReserve($identityId: Int!, $tokenId: String!, $value: Int!) {
-  CreateEnjinRequest(identity_id: $identityId, type: RELEASE_RESERVE, release_reserve_data: {token_id: $tokenId, value: $value}) {
-    tokenId
-  }
-}
-```
+[Release Reserve](../../../examples/ReleaseReserve.gql)
+
 **_Note:_** There is a cool down period for releasing reserve and the more Enjin Coin you have locked into the template, the longer you have to wait until you can release it. This waiting period can take days or even weeks.
 
 ## Send All Item Types: Advanced Send
@@ -76,29 +48,12 @@ The `Advanced Send mutation` is one of the most common mutations to send vast am
 
 This is the most robust and popular sending mutation used by developers:
 
-```gql
-mutation AdvancedSend($identityId: Int!, $tokenData: AdvancedSendTokenInput!) {
-  CreateEnjinRequest(identity_id: $identityId, type: ADVANCED_SEND, advanced_send_token_data: $tokenData) {
-    id
-    encodedData
-  }
-}
-```
-You will notice that, the first 4 token IDs in the mutation include a `token_index`. This is referring to the first 4 tokens listed on there, are Non-Fungle Tokens (NFTs) and you will need to specify the token index # of the NFTs that you wish to send. The last 2, are simply referring to Fungible Tokens (FT) where you don't need to specify a `token_index` as Fungible tokens share all the same data (they are not unique). 
+[Advanced Send](../../../examples/AdvancedSend.gql)
 
 ## Transfer Whitelisting
 If you've created a bound token or a token with transfer fees, and you don't wish for these settings to apply in every circumstance, you can use transfer whitelisting to allow specific users to send tokens to specific addresses.
 
-Place the wallet address in question into the following `account` field:
-
-```gql
-mutation WhitelistToken($identityId: Int!, $appId: Int!, $whitelistData: SetWhitelistedInput!) {
-  CreateEnjinRequest(identity_id: $identityId, appId: $appId, type: SET_WHITELISTED, set_whitelisted_data: $whitelistData) {
-    id
-    encodedData
-  }
-}
-```
+[Whitelist](../../../examples/Whitelist.gql)
 
 ### Whitelist Settings
 **Full Rights:** The address has full rights to send and receive the token.

@@ -1,0 +1,10 @@
+query GetWalletBalance($id: Int!) {
+  EnjinUsers(id: $id) {
+    identities {
+      wallet {
+        ethAddress
+        enjBalance
+      }
+    }
+  }
+}

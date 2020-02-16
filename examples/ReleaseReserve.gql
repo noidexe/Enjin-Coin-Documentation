@@ -1,0 +1,5 @@
+mutation ReleaseReserve($identityId: Int!, $tokenId: String!, $value: Int!) {
+  CreateEnjinRequest(identity_id: $identityId, type: RELEASE_RESERVE, release_reserve_data: {token_id: $tokenId, value: $value}) {
+    tokenId
+  }
+}

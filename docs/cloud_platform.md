@@ -6,19 +6,13 @@ The Trusted Cloud is the main backend service of ENJ that connects your game to 
 The main way to interface with our service is to use GraphQL, either via API or interactively
 using a console like GraphiQL. If you are unfamiliar with GraphQL, check out [this introduction](https://graphql.org/learn/) to get started using the language.
 
-There are two separate TC servers, Testnet and Mainnet.
-
 Testnet is a development version of the mainnet, where you can easily obtain fake Ethereum and Enjin Coin to test your items in a safe, simulated environment without using real cryptocurrency.
 
-Mainnet is the real deal. You are using real Ethereum and EnjinCoin, so transactions
-here cost real cryptocurrency. You should be very comfortable with your implementation on testnet before doing anything substantial on mainnet.
+Mainnet is the real deal. You are using real Ethereum and Enjin Coin (ENJ). Therefore, transactions cost real cryptocurrency. You should be very comfortable with your implementation on testnet before doing anything substantial on mainnet.
 
-You can use the following GraphiQL browser interface to interact with the Trusted Cloud:
-
-* **Kovan Trusted Cloud (GraphiQL):** [https://kovan.cloud.enjin.io/graphiql](https://kovan.cloud.enjin.io/graphiql)
 
 ## Browsing the Schema
-On the right-side there should be a documentation panel to expand and browse for all the requests and parameters you can use. See [here](https://graphql.org/learn/queries/) for documentation on Queries and Mutations. Queries are requests for information from the
+On the right-side, there should be a documentation panel to expand and browse for all the requests and parameters you can use. See [here](https://graphql.org/learn/queries/) for documentation on Queries and Mutations. Queries are requests for information from the
 server, where Mutations are requests that modify server side data.
 
 ## Making a Request
@@ -41,9 +35,9 @@ You will need to **authenticate your requests** made via the TC. To authenticate
 [Login](../examples/Login.gql)
 
 
-## Creating Your App
-You will need to create at least one App on the Trusted Cloud. An app is a central
-container for all of your items and players. For example your app will appear as one of the “Collections” where your items will appear in the user’s wallet.
+## Creating Your Project
+You will need to create at least one Project (also known as App) on the Trusted Cloud. A project, is a central
+container for all of your items and players. For example, your project will appear as one of the “Collections” where your items will appear in the user’s wallet.
 
 [CreateApp](../examples/CreateApp.gql)
 
@@ -110,7 +104,7 @@ Property | Descriptions
 totalSupply | Total Supply for the item
 initialReserve | Initial Reserve for the item. You will need ENJ approved for this reserve.
 supplyModel | Supply Model for the item. FIXED, SETTABLE, INFINITE, COLLAPSING, ANNUAL_VALUE, ANNUAL_PERCENTAGE.
-meltValue | ENJ value of the item. Need to multiply value by 10^18 to include 18 decimals.  There is a minimum melt value required by new items which is calculated from the inital reserve.  You can use this TP endpoint to discover the minimum amount for any given reserve: `/api/v1/ethereum/get-min-melt-value/{iniitalReserve}` e.g. [https://kovan.cloud.enjin.io/api/v1/ethereum/get-min-melt-value/1000000](https://kovan.cloud.enjin.io/api/v1/ethereum/get-min-melt-value/1000000)
+meltValue | ENJ value of the item. You must multiply the value by 10^18 to include 18 decimals. There is a dynamic minimum melt value, required for creating new assets, which is calculated from the inital reserve.
 meltFeeRatio | Percentage of melt value returned to the creator (up to a maximum of 50%), up to 2 decimals. Need to multiply the percentage by 100. i.e. 12.5 % would be 1250.
 Transferable | Transfer Type. PERMANENT, TEMPORARY, BOUND.
 transferFeeSettings - type | Transfer Fee Type. NONE, PER_TRANSFER, PER_CRYPTO_ITEM, RATIO_CUT, RATIO_EXTRA, TYPE_COUNT.
@@ -118,7 +112,6 @@ transferFeeSettings - token_id | Token ID of the item you want to use as the tra
 transferFeeSettings - value | Value of the transfer fee. If using ENJ, multiply the value by 10^18 to include 18 decimals.
 nonFungible | Whether the item is Non-Fungible or Fungible, true or false.
 
-Consult the "Creating Items" section of the [Unity Guide](./unity.md) to get a more detailed explanation of the item properties and how they work.
 
 Once a successful request has been made, you will need to accept and sign the transaction in the **NOTIFICATIONS** section of your dev wallet. If the transaction is successful the
 item template is created and you can move onto finding the item's id to MINT.
@@ -139,13 +132,13 @@ Enter in the `ITEM NAME` to search for that item. Alternatively, you can make th
 Minting items is using the template you created in the CREATE step to
 instantiate some items on the blockchain. The request for minting fungible items (FIs) vs non-fungible items (NFIs) varies slightly. You can batch mint to multiple addresses if you wish to do so. The differences are that if you need to mint multiple NFIs, you will need to specify the wallet address for each individual item. Ideally try to avoid minting over 100 NFIs in a single transaction, FIs do not have this restriction. Here is the same request between 2 different items types, FI and NFI.
 
-**FI:**
+**Fungible Token:**
 [MintFungibleItems](../examples/MintFungibleItems.gql)
 
 This request would mint 5x items to “WALLET_ADDRESS_1” and 3x items to “WALLET_ADDRESS_2”.
 You can mint up to `INITIAL RESERVE` of items.
 
-**NFI:**
+**Non-Fungible Token:**
 [MintNonFungibleItems](../examples/MintNonFungibleItems.gql)
 
 This request would mint 5x items to “WALLET_ADDRESS_1” and 3x items to “WALLET_ADDRESS_2”.
@@ -173,7 +166,12 @@ Once you have that .json file uploaded with public read access, you can make the
 unfamiliar with hosting files.
 
 **Advanced Users:**
-The URI value allows for ID substitution by clients. If the string `{id}` exists in any URI, clients MUST replace this with the actual token ID in hexadecimal form. This allows for large number of tokens to use the same on-chain string by defining a URI once, for a large collection of tokens. Example of such a URI: `https://token-cdn-domain/{id}.json` would be replaced with `https://token-cdn-domain/780000000000001e000000000000000000000000000000000000000000000000.json` if the client is referring to token ID `780000000000001e000000000000000000000000000000000000000000000000`. See [Metadata](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#metadata) section in the ERC-1155 standards documentation for full details.
+The URI value allows for ID substitution by clients. If the string `{id}` exists in any URI, clients must replace this with the actual token ID in hexadecimal form. 
+This allows for large number of tokens to use the same on-chain string by defining a URI once, for a large collection of tokens. 
+
+Example of such a URI: `https://token-cdn-domain/{id}.json` would be replaced with `https://token-cdn-domain/780000000000001e000000000000000000000000000000000000000000000000.json`, if the client is referring to token ID `780000000000001e000000000000000000000000000000000000000000000000`. 
+
+See [Metadata](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#metadata) section in the ERC-1155 standards documentation for full details.
 
 [SetItemUri](../examples/SetItemUri.gql)
 
@@ -181,19 +179,5 @@ The URI value allows for ID substitution by clients. If the string `{id}` exists
 There are many other built in features for metadata built into our schema,
 consult the [Enjin Metadata Schema](../erc1155_metadata_json_schema.md) for details.
 
-Once a successful request has been made, you will need to accept and sign the transaction in the **NOTIFICATIONS** section of your dev wallet.
-
-
-## Updating Users (including yourself)
-You can update your user name, email, and password by running the following request. Replacing with your User ID, new name, new email and new password.
-
-[UpdateUser](../examples/UpdateUser.gql)
-
-
-## Tips and tricks
-
-If the wallet daemon is complaining about a transaction with invalid parameters
-that needs to be reverted, you can revert the transaction
-
-[CancelTransaction](../examples/CancelTransaction.gql)
+Once a successful request has been made, you will need to accept and sign the transaction in the Requests section of your wallet.
 

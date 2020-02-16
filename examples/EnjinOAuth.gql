@@ -1,5 +1,5 @@
-mutation CreateUser($name: String!) {
-  CreateEnjinUser(name: $name) {
+query Login($name: String!) {
+  EnjinOauth(name: $name) {
     id
     accessTokens
     identities {

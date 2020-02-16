@@ -1,0 +1,6 @@
+mutation UpdateTokenName($identityId: Int!, $itemNameData: UpdateItemNameInput!) {
+  CreateEnjinRequest(identity_id: $identityId, type: UPDATE_NAME, update_item_name_data: $itemNameData) {
+    id
+    encodedData
+  }
+}

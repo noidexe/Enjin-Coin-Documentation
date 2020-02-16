@@ -1,0 +1,10 @@
+query GetWalletTokenBalance($address: String!, $tokenId: String) {
+  EnjinBalances(ethAddress: $address, tokenId: $tokenId, value_gt: 0) {
+    token {
+      id
+      index
+      name
+    }
+    value
+  }
+}

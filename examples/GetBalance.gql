@@ -1,0 +1,10 @@
+query getBalance($address: String!) {
+  EnjinBalances(ethAddress: $address, value_gt: 0) {
+    token {
+      id
+      index
+      name
+    }
+    value
+  }
+}
