@@ -11,7 +11,7 @@ Note the following requirements when it comes to metadata:
 
 You can view the following [section](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema) which goes in depth about the ERC-1155 Metadata. 
 
-###Setting your Metadata on the Enjin Platform
+## Setting your Metadata on the Enjin Platform
 
 You can set your own unique, metadata on assets using the Enjin Platform. Once you have created a project and a few assets, you will notice that you will be able to "Edit" your newly created assets.
 
