@@ -8,7 +8,7 @@
 
 # Token Management
 [Minting Tokens](/docs/minting-tokens)
-[Working with Metadata](/docs/metadata)
+[Setting your Metadata](/docs/metadata)
 [Managing Your Tokens](/docs/managing-tokens)
 
 # Software Integration

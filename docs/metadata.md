@@ -11,7 +11,7 @@ Note the following requirements when it comes to metadata:
 
 You can view the following [section](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema) which goes in depth about the ERC-1155 Metadata. 
 
-### Setting your Metadata on the Enjin Platform
+###Setting your Metadata on the Enjin Platform
 
 You can set your own unique, metadata on assets using the Enjin Platform. Once you have created a project and a few assets, you will notice that you will be able to "Edit" your newly created assets.
 
@@ -23,7 +23,7 @@ Your metadata will be hosted by Enjin and you will be able to change your asset'
 Once done, a Set Uri notification request will be sent to your wallet. 
 You will need to accept the request in your wallet, and the Set Uri transaction will broadcast on the blockchain. 
 
-### Advanced Editor
+## Advanced Editor
 Additionally, you can also host your own unique, metadata for your assets elsewhere, if you wish to not use Enjin as the service to host your files. 
 Many game developers will often use their own hosting sites to store their asset's metadata, in which, we cater for with the use of the advanced editor on the Enjin platform. 
 
@@ -35,7 +35,7 @@ Once successful, your unique metadata will appear on your asset(s).
 
 **Note:** You can change your unique metadata at any give time, simply paste a new version of the .json file and click "Save Uri". 
 
-### JSON Format 
+## JSON Format 
 We will proivde a simple run-down on an example of how your unique metadata can look. The main 3 factors that you will need, is an asset name, description and image. 
 
 The properties name, description and image follows the ERC-721 metadata schema. Values in the properties JSON object, will be rendered in client applications, such as the [Enjin Wallet](https://enjin.io/products/wallet) and on [EnjinX](https://enjinx.io). 
@@ -57,7 +57,7 @@ Example Format:
 }
 ```
 
-### Specific Metadata URI
+###  Specific Metadata URI
 Any token ID may have a metadata URI that can be retrieved by calling uri(_id) on the ERC-1155 contract.
 
 If an individual Non-Fungible token ID has a metadata URI defined, client apps should use this URI. If not defined, client apps should call uri(_id) on the base token id to retrieve the Default URI for the entire set of Non-Fungible tokens.
@@ -71,7 +71,7 @@ Example:
 `yoursite.com/0xbd4818c04f57a2ebc473d74ee06d6e0600000000000000000000000000000001.json`
 
 
-### Images
+#### Images
 If the Default URI contains an image property that in turn contains the {id} placeholder, the image URL will be used as the default image for all tokens of this type.
 
 Example:
