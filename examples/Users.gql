@@ -1,0 +1,15 @@
+query GetIdentities {
+  EnjinUser(me: true) {
+    name
+    id
+    identities {
+      id
+      appId
+      wallet {
+        ethAddress
+      }
+      linkingCode
+      linkingCodeQr
+    }
+  }
+}

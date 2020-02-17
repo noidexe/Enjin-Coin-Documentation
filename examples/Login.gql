@@ -1,8 +1,7 @@
 query Login($email: String!, $password: String!) {
-  user: EnjinOauth(email: $email, password: $password) {
+  EnjinOauth(email: $email, password: $password) {
     id
     name
-    email
     accessTokens
   }
 }

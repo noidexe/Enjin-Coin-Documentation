@@ -1,0 +1,7 @@
+mutation CompleteTradeRequest($id: Int!, $tradeId: String!) {
+  CreateEnjinRequest(identity_id: $id, type: COMPLETE_TRADE, complete_trade_data: {trade_id: $tradeId}) {
+    id
+    transactionId
+    encodedData
+  }
+}

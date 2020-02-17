@@ -1,6 +1,7 @@
-mutation MintNonFungibleItems($identityId: Int!, $tokenId: String!) {
+mutation MintNonFungibleItems($identityId: Int!, $appId: Int!, $tokenId: String!) {
   transaction: CreateEnjinRequest(
-    identity_id: $identityId
+    identityId: $identityId
+    appId: $appId
     type: MINT
     mint_token_data: {
       token_id: $tokenId

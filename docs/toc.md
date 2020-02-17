@@ -1,33 +1,18 @@
 # Getting Started
-[What is Enjin](/docs/enjin)
+[Introduction](/docs/introduction)
 [Platform Architecture](/docs/platform-architecture)
-[Registering Your Game](/docs/registering-game)
-[Getting Started with Enjin Wallet](/docs/wallet-setup)
-[Creating Your First Item](/docs/creating-items)
-[Using Items In Your Game](/docs/using-items)
+[Using GraphQL](/docs/using-graphql)
+[Creating Your Account](/docs/creating-account)
+[Connecting Your Enjin Wallet](/docs/connecting-wallet)
+[Using Your Wallet Daemon](/docs/wallet-daemon)
 
-# Enjin Cloud API
-[API Reference](/api-docs)
-[GraphiQL](/graphiql)
-[Guide](/docs/cloud_platform)
+# Token Management
+[Minting Tokens](/docs/minting-tokens)
+[Setting your Metadata](/docs/metadata)
+[Managing Your Tokens](/docs/managing-tokens)
 
-# Unity SDK
-[Unity Panel User Guide](/docs/unity)
-
-# Java SDK
-[Java SDK User Guide](/docs/java)
-
-# Wallet Daemon
-[Installation](/docs/wallet_daemon_install)
-[Usage](/docs/wallet_daemon_usage)
-[First Steps](/docs/wallet_daemon_first_steps)
-
-# Metadata
-[ERC-1155 Metadata JSON Schema](/docs/erc1155_metadata_json_schema)
-[Working with Metadata](/docs/working_with_metadata_digital_ocean)
-
-# NodeJS SDK
-[First Steps](/docs/node_sdk_examples)
+# Software Integration
+[Creating Your Integration](/docs/creating-your-integration)
 
 # Live Query
 [Introduction](/docs/livequery/intro)
@@ -39,9 +24,20 @@
 [Trades](/docs/livequery/trades)
 [Melting](/docs/livequery/melting)
 
-# Guides
-[Trade Fee Guide](/docs/trade_fees)
-[GraphQL Cookbook](/docs/graphql_cookbook)
+# Platform API
+[API Reference](/api-docs)
+[GraphiQL](/graphiql)
+[Guide](/docs/cloud_platform)
+
+# Unity SDK
+[Unity Panel User Guide](/docs/unity)
+[Using Items In Your Game](/docs/using-items)
+
+# Java SDK
+[Java SDK User Guide](/docs/java)
+
+# NodeJS SDK
+[First Steps](/docs/node_sdk_examples)
 
 # Terms
 [Terms & Conditions](/terms)

@@ -1,0 +1,9 @@
+query GetIdentityLinkingCode($id: Int!) {
+  EnjinIdentities(id: $id) {
+    linkingCode
+    linkingCodeQr
+    wallet {
+      ethAddress
+    }
+  }
+}

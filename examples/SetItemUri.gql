@@ -1,14 +1,7 @@
-mutation SetItemUri($identityId: Int!, $tokenId: String!, $metadataUri: String!) {
-  transaction: CreateEnjinRequest(
-    identity_id: $identityId
-    type: SET_ITEM_URI
-    set_item_uri_data: {
-      token_id: $tokenId
-      token_index: 0
-      item_uri: $metadataUri
-    }
-  ) {
+mutation SetItemUri($identityId: Int!, $itemUriData: SetItemUriInput!) {
+  CreateEnjinRequest(identity_id: $identityId, type: SET_ITEM_URI, set_item_uri_data: $itemUriData) {
     id
     encodedData
+    state
   }
 }

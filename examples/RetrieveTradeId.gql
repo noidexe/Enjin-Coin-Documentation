@@ -1,0 +1,9 @@
+query RetrieveTradeId($id: Int!) {
+  EnjinTransactions(id: $id) {
+    type
+    transactionId
+    events {
+      param1
+    }
+  }
+}

@@ -1,0 +1,22 @@
+query GetTokenDetails($name: String!) {
+  EnjinTokens(name: $name, pagination: {page: 1, limit: 50}) {
+    id
+    name
+    creator
+    meltValue
+    meltFeeRatio
+    meltFeeMaxRatio
+    supplyModel
+    totalSupply
+    circulatingSupply
+    reserve
+    transferable
+    nonFungible
+    blockHeight
+    markedForDelete
+    createdAt
+    updatedAt
+    availableToMint
+    itemURI
+  }
+}

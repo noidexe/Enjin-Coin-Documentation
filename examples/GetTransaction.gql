@@ -1,0 +1,13 @@
+query GetTransaction($id: Int!) {
+  EnjinTransactions(id: $id) {
+    id
+    transactionId
+    type
+    state
+    error
+    token {
+      id
+      name
+    }
+  }
+}

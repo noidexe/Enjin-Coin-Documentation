@@ -1,0 +1,12 @@
+query GetBalance($tokenId: String!) {
+  EnjinBalances(tokenId: $tokenId) {
+    token {
+      id
+      index
+    }
+    wallet {
+      ethAddress
+    }
+    value
+  }
+}

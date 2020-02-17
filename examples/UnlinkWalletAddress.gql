@@ -1,0 +1,6 @@
+mutation UnlinkWalletAddress($id: Int!) {
+  DeleteEnjinIdentity(id: $id, unlink: true) {
+    linkingCode
+    linkingCodeQr
+  }
+}

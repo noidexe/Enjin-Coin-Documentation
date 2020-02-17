@@ -1,0 +1,6 @@
+mutation AdvancedSend($identityId: Int!, $tokenData: AdvancedSendTokenInput!) {
+  CreateEnjinRequest(identity_id: $identityId, type: ADVANCED_SEND, advanced_send_token_data: $tokenData) {
+    id
+    encodedData
+  }
+}
