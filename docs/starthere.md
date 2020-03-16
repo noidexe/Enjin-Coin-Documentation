@@ -68,9 +68,7 @@ Currently, we are using a cloud based solution so the platform is hosted for you
 The most basic way to talk to the Cloud Platform is by using our [GraphQL API](https://graphql.org/learn/). If you can use HTTP from your game to talk to a web service, you'll probably be able to talk to your Cloud Platform via this interface.
 
 ### Editor Tools and Runtime APIs
-Over time our team of Enjineers will be creating all sorts of tools and APIs for all of the most frequently used game technology out there. For now, the focus is on the Unity engine. We provide a Unity API, and an editor UI Panel to help you do the most common operations with the ENJ platform. If you are not using Unity, you'll want to use the GraphQL API for your game.
-
-![Unity SDK Screenshot](../docs/images/unity_login_page.png)
+Over time our team of Enjineers will be creating all sorts of tools and APIs for all of the most frequently used game technology out there.
 
 ### ENJ Wallets
 One concept to learn when working with the blockchain is the idea of having a wallet address a private key. Think of your wallet address as the street address for your garage of stuff. But it's more than that, because each garage comes with a private key. The private key is solely controlled by the wallet owner, YOU! You use your private key to access the contents of your wallet, but also to authorize and sign transactions that involve your items. For most players and some developer tasks, like creating items, you'll probably use the Enjin wallet mobile app for Android and iOS.
@@ -103,7 +101,7 @@ Which brings us to the bottom of the stack, where the rubber meets the road, you
   Finally, you need to decide how you are going to interact with the ENJ platform. You'll probably use all of these platform interfaces at one time or another, but here
   are your main options:
 
-  * If you are a Unity developer, you can use the Unity SDK, which is free on the Unity asset store. Guide is [here](./unity.md).
+  * If you are a Unity developer, you can use the Unity SDK, which is free on the Unity asset store.
 
   * You can work with the Platform API via browser based GraphiQL console. Guide is [here](./cloud_platform.md).
 

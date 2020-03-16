@@ -10,9 +10,6 @@
 [가이드](/docs/cloud_platform)
 [API Reference](/api-docs)
 
-# Unity SDK
-[Unity Panel 사용자 가이드](/docs/unity)
-
 # Wallet Daemon
 [설치](/docs/wallet_daemon_install)
 [사용법](/docs/wallet_daemon_usage)

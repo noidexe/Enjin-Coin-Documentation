@@ -8,7 +8,7 @@ the platform and the wallet daemon needs it's own user/identity on the app.
 Once you have an app created (or are using an existing app) you'll need a user
 for the daemon to use and link to your game.
 
-The instructions vary by platform so consult the [Unity Guide](./unity.md) or the [Platform API](./cloud_platform.md) guide on how to create a an apps and users and get a link code for the wallet.
+The instructions vary by platform so consult [Platform API](./cloud_platform.md) guide on how to create a an apps and users and get a link code for the wallet.
 
 Once you have the link code, execute the following:
 
@@ -79,7 +79,7 @@ On your wallet daemon installation:
   2. Delete or rename `storage.json` in `%\AppData\Local\enjin-wallet-daemon`
   3. `npm start account import 0x<private key>`
   4. Did you prepend `0x` to your private key? You need that.
-  5. Login via GraphQL or Unity.
+  5. Login via GraphQL.
   6. Unlink the wallet.
   7. Note the new link code.
   8. `npm start link <LINK CODE>`

@@ -29,10 +29,6 @@
 [GraphiQL](/graphiql)
 [Guide](/docs/cloud_platform)
 
-# Unity SDK
-[Unity Panel User Guide](/docs/unity)
-[Using Items In Your Game](/docs/using-items)
-
 # Java SDK
 [Java SDK User Guide](/docs/java)
 
