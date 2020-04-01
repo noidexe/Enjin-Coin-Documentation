@@ -32,6 +32,9 @@
 # Java SDK
 [Java SDK User Guide](/docs/java)
 
+# Godot SDK
+[Getting Started](/docs/godot_getting_started)
+
 # NodeJS SDK
 [First Steps](/docs/node_sdk_examples)
 
