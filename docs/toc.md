@@ -34,9 +34,9 @@
 
 # Godot SDK
 [Getting Started](/docs/godot_getting_started)
-
-# NodeJS SDK
-[First Steps](/docs/node_sdk_examples)
+[Authentication](/docs/godot_authentication)
+[Player Management](/docs/godot_player_management)
+[Creating Requests](/docs/godot_creating_requests)
 
 # Terms
 [Terms & Conditions](/terms)

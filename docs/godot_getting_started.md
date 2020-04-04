@@ -90,3 +90,5 @@ You can find the IDs of the tokens you created by going to the assets tab of you
 ### Conclusion
 
 Congratulations! You have now successfully created an app for the example and should now be able to run and play the example game.
+
+Next: [Authentication](/docs/godot_authentication)
