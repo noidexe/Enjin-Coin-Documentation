@@ -29,15 +29,14 @@
 [GraphiQL](/graphiql)
 [Guide](/docs/cloud_platform)
 
-# Unity SDK
-[Unity Panel User Guide](/docs/unity)
-[Using Items In Your Game](/docs/using-items)
-
 # Java SDK
 [Java SDK User Guide](/docs/java)
 
-# NodeJS SDK
-[First Steps](/docs/node_sdk_examples)
+# Godot SDK
+[Getting Started](/docs/godot_getting_started)
+[Authentication](/docs/godot_authentication)
+[Player Management](/docs/godot_player_management)
+[Creating Requests](/docs/godot_creating_requests)
 
 # Terms
 [Terms & Conditions](/terms)

@@ -100,6 +100,4 @@ itself.
 Great! With your account set up, and funded wallet(s), you are ready to use the
 Platform.
 
-If you are using Unity, head over to the [Unity Guide](./unity.md).
-
-If you are not using Unity, check out the [Trusted Cloud Guide](./cloud_platform.md)
+Check out the [Trusted Cloud Guide](./cloud_platform.md)
