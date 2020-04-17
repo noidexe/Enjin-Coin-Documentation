@@ -105,6 +105,7 @@ Here is a list of the Enjin object types that can be mutated:
 * **CreateEnjinUser:** This mutation allows you to create a player for your application on the Enjin Platform.
 * **UnlinkApp:** This mutation allows you to unlink a wallet from a project.
 * **UnlinkIdentity:** This mutation allows you to unlink a wallet from an identity.
+* **InvalidateTokenMetadata:** Invalidate token metadata instantly.
 
 You can find comprehensive information about what data can be queried and mutated using these Object Types in the **GraphiQL Documentation Explorer.**
 

@@ -1,13 +1,6 @@
-query Login($name: String!) {
-  EnjinOauth(name: $name) {
-    id
-    accessTokens
-    identities {
-      linkingCode
-      linkingCodeQr
-      wallet {
-        ethAddress
-      }
-    }
+query RetrievePlayerAccessToken($name: String!) {
+  AuthPlayer(id: $name) {
+    accessToken
+    expiresIn
   }
 }

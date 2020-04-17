@@ -15,7 +15,8 @@ You can view the following [section](https://github.com/ethereum/EIPs/blob/maste
 
 You can set your own unique, metadata on assets using the Enjin Platform. Once you have created a project and a few assets, you will notice that you will be able to "Edit" your newly created assets.
 
-You will simply need to select a name, an asset description and an image (recommended size is 1000x1000 (px)). Check the following example:
+You will simply need to select a name, an asset description and an image (recommended size is 1000x1000 (px)). 
+Check the following example:
 
 ![Hosted Metadata](../docs/images/hostedMetadata.png)
 
@@ -45,17 +46,22 @@ Example Format:
 {
     "name": "Asset Name",
     "description": "Lorem ipsum",
-    "image": "https:\/\/s3.amazonaws.com\/your-bucket\/images\/{id}.png",
-    "properties": {
-        "simple_property": "example value",
-        "rich_property": {
-            "name": "Name",
-            "value": "123",
-            "display_value": "123 Example Value"
-        }
-    }
+    "image": "https:\/\/s3.amazonaws.com\/your-bucket\/images\/{id}.png"
 }
 ```
+
+### Invalidating Your Metadata
+Sometimes for any reason, if your metadata doesn't load or takes a while to load, we have implemented the Invalidate Metadata mutation.
+
+[Invalidate Metadata](../../../examples/InvalidateMetadata.gql)
+
+`Id` is the token ID of the asset. 
+
+This mutation will instruct the Platform to invalidate the metadata and thus fetch it again, directly from your server.
+Please be aware that it can take a few minutes, after invalidating it, for the new metadata to load. 
+
+Additionally, please be aware that this mutation can only be ran once, per token, every few minutes.
+You can only run this mutation on tokens that belong to an application that you have the minter role (or higher) on.
 
 ###  Specific Metadata URI
 Any token ID may have a metadata URI that can be retrieved by calling uri(_id) on the ERC-1155 contract.

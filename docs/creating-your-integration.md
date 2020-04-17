@@ -4,35 +4,32 @@ Once you have [minted your tokens](/docs/minting-tokens) and are comfortable wit
 
 Although we have some very useful SDKs that can help you get on your feet, it's **very important** that all of your admin and user data is parsed and stored by a secure server.
 
-This means you will need solid knowledge of our Platform API (GraphQL) to complete your secure integration.
+This means, you will need solid knowledge of our Cloud API (GraphQL) to complete your secure integration.
 
-## Getting Your Bearer Token
-In the [creating your account](/docs/creating-account) section, you would have logged into your account using the following query:
+## Step 1: Getting Your Bearer Token
+The first step is acquiring your bearer token. In the [creating your account](/docs/creating-account) section, you would have logged into your account using the following query:
 
 
 [Login](../../../examples/Login.gql)
 
-However, it's important to note that this connection expires after two weeks, so if you want to create a long-term connection to the Trusted Cloud, the following process will keep you logged in for up to 12 months.
-
-### Get Secret Key
-First, you will need to find your secret key:
+### Step 2: Getting the Secret Key
+First, you will need to caquire your secret key, which you can do by following this query:
 
 [Get App Secret](../../../examples/GetAppSecret.gql)
 
-### Get the Auth Token
-**SECURITY: MAKE SURE TO STORE THIS SERVERSIDE**
+### Step 3: Getting the Access Token
 
-Next, you will gain your Auth Token by posting the following query to https://cloud.enjin.io/oauth/token.
+**SECURITY: MAKE SURE TO STORE THIS SERVERSIDE!**
 
-```REST
-{
-    "grant_type": "client_credentials",
-    "client_id": $id,
-    "client_secret": "$secret"
-}
-```
+Once you have retrieved the app secret from the previous step, you will need the access token, which you can retrieve by following this query: 
 
-## Create a User 
+[Retrieve Access Token](../../../examples/RetrieveAccessToken.gql)
+
+**Note:** Access tokens expire after 24 hours!
+
+## Step 4: Creating a User 
+In this step, with the access token that you retrieved in the previous step, you will need to pass that as the authorization header when performing the create user mutation. 
+
 Your authorization system needs to check to see if a user's account has been created yet.
 
 
@@ -43,32 +40,39 @@ Your authorization system needs to check to see if a user's account has been cre
 
 Once you have created an Enjin account, it's advisable to enter the reference into your database, so you don't repeat this process unnecessarily in the future.
 
-## Log Your User In
-Once you are have confirmed that your user has an existing account, you can log your user into Enjin Auth using the following query:
+## Step 5: Loggin Your User In
+In this final step of integration, once you are have confirmed that your user has an existing account, you can log your user in, following this query: 
 
 [Enjin OAuth Login](../../../examples/EnjinOAuth.gql)
 
 If the API returns a linking code, that means the user's Enjin Wallet is not linked. If no linking code is returned, this means the wallet is linked and you can send the user into the game.
 
 ## Enjin Identities
-Most queries and mutations require an indentity ID. You can use this query to locate the Identity ID:
+Most queries and mutations require an indentity ID. You can use this query to grab the Identity ID's:
 
 
 [Get Identities](../../../examples/getIdentities.gql)
 
+Using this query, should return various pieces of information that will help you with further integration, such as:
+- The App Id.
+- The Linking Code.
+- The Linking Code QR (This is rather useful, you can copy the URL of the linking code QR in a new tab, and scan with the Enjin Wallet to link your Identity ID). 
+- The wallet address associated with the identity ID. 
+
 ## Check Linking Code
-You can also check your user's linking code whenever you want using this query;
+You can also check your user's linking code whenever you want, by following this query:
 
 [Get Identity Linking Code](../../../examples/GetIdentityLinkingCode.gql)
 
-## Unlink Wallet
-Sometimes your user may want to change wallets, they can do this via the Enjin Wallet or you can initiate this on your end.
+## Unlinking a Wallet
+At times, your user may want to change wallets, which they can do this via the Enjin Wallet by going to the "Linked Apps" section, tapping on the project, tap on the 3-dot menu and select "Delete". 
+Additionally, you can also initiate this on your end.
 
-This query will unlink their wallet and allow them to re-link it, or link a new one:
+The following query will unlink their wallet and allow them to re-link it, or link a new one:
 
 [Unlink Wallet Address](../../../examples/UnlinkWalletAddress.gql)
 
-## View Tokens in a Wallet
+## Viewing Tokens in a Wallet
 
 Once a player is logged in and linked, the first thing you will want to do is see their inventory so you can provide them with game items to match their tokens.
 
