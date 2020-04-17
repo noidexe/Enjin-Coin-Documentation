@@ -6,13 +6,13 @@
 [Connecting Your Enjin Wallet](/docs/connecting-wallet)
 [Using Your Wallet Daemon](/docs/wallet-daemon)
 
-# Token Management
-[Minting Tokens](/docs/minting-tokens)
-[Setting your Metadata](/docs/metadata)
-[Managing Your Tokens](/docs/managing-tokens)
-
 # Software Integration
 [Creating Your Integration](/docs/creating-your-integration)
+
+# Token Management
+[Setting your Metadata](/docs/metadata)
+[Minting Tokens](/docs/minting-tokens)
+[Managing Your Tokens](/docs/managing-tokens)
 
 # Live Query
 [Introduction](/docs/livequery/intro)
