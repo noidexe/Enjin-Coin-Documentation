@@ -41,7 +41,7 @@ Your authorization system needs to check to see if a user's account has been cre
 Once you have created an Enjin account, it's advisable to enter the reference into your database, so you don't repeat this process unnecessarily in the future.
 
 ## Step 5: Loggin Your User In
-In this final step of integration, once you are have confirmed that your user has an existing account, you can log your user in, following this query: 
+In this final step of integration, once you are have confirmed that your user has an existing account, you can log your user in by following this query: 
 
 [Enjin OAuth Login](../../../examples/EnjinOAuth.gql)
 
