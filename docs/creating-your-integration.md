@@ -12,12 +12,12 @@ The first step is acquiring your bearer token. In the [creating your account](/d
 
 [Login](../../../examples/Login.gql)
 
-### Step 2: Getting the Secret Key
+## Step 2: Getting the Secret Key
 First, you will need to caquire your secret key, which you can do by following this query:
 
 [Get App Secret](../../../examples/GetAppSecret.gql)
 
-### Step 3: Getting the Access Token
+## Step 3: Getting the Access Token
 
 **SECURITY: MAKE SURE TO STORE THIS SERVERSIDE!**
 
