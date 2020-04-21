@@ -1,8 +1,8 @@
 # Authentication
 
-## App Authentication
+## Project Authentication
 
-The example below demonstrates how to authenticate a server as an app.
+The example below demonstrates how to authenticate a server client with the project id and secret.
 
 ```gdscript
 var _client: TrustedPlatformClient
@@ -24,7 +24,7 @@ func _auth_app(udata: Dictionary):
 
 ## Player Authentication
 
-Once a server has been authenticated as an app you can get a player access token as seen in the example below. The player access token should then be forwarded to the player client.
+Once the server client has been authenticated you can get a player access token as seen in the example below. The player access token should then be forwarded to the player client.
 
 ```gdscript
 var _client: TrustedPlatformClient

@@ -25,33 +25,33 @@ Before we can run the example game you must add the `PlatformServer` script as a
 
 Alternatively you can clone the Enjin SDK [repository](https://github.com/enjin/enjin-godot-sdk) and open this in Godot.
 
-### Creating An An App For The Example
+### Creating A Project For The Example
 
-To run the demo open and run the `res://addons/enjin/example/scenes/Game.tscn` scene. This will start the demo, creating a working directory in the root of your project. You will find a `config` folder that contains a `client.cfg` and `server.cfg`. Before you can run the game you will need to create an app on the [Kovan Cloud](https://kovan.cloud.enjin.io) and a few tokens for the items in the demo.
+To run the demo open and run the `res://addons/enjin/example/scenes/Game.tscn` scene. This will start the demo, creating a working directory in the root of your project. You will find a `config` folder that contains a `client.cfg` and `server.cfg`. Before you can run the game you will need to create a project on the [Enjin Platform (Kovan)](https://kovan.cloud.enjin.io) and create four assets for the items in the demo.
 
-#### Create Example App
+#### Create Example Project
 
 1. [Register](https://kovan.cloud.enjin.io/signup) if you haven't already.
 2. Select `Create Project` from the `Platform` page.
 3. Give the project a name and description. The image is optional.
-4. Click `Save Changes` to create the app.
+4. Click `Save Changes` to create the project.
 
-#### Create Example Tokens
+#### Create Example Assets
 
-You will need to do this four times for the following tokens: shard, crown, key, and health upgrade.
+You will need to do this four times for the following assets: shard, crown, key, and health upgrade.
 
-1. Open your app by selecting it from the `Platform` page.
+1. Open your project by selecting it from the `Platform` page.
 2. Go to `Assets` and click `Create Asset`
 3. Set the name, total supply, value per asset, enj returned on melt, and the starting supply. All other settings can be left as the default.
 4. Click `Create Asset`
 
 #### Configuring The Example
 
-Next we need to configure the `server.cfg` with the required details. You will need the id of the identity linked to your wallet, the id and secret of the app you created, and the ids of the tokens you created.
+Next we need to configure the `server.cfg` with the required details. You will need the id of the identity linked to your wallet, the id and secret of the project you created, and the ids of the assets you created.
 
-##### Getting App ID And Secret
+##### Getting The Project ID And Secret
 
-To get the id and secret of the app you created you can go [here](https://kovan.cloud.enjin.io/graphiql) and execute the following query:
+To get the id and secret of the project you created you can go [here](https://kovan.cloud.enjin.io/graphiql) and execute the following query:
 
 ```graphql
 query {
@@ -67,7 +67,7 @@ query {
 
 ##### Getting The Developer Identity ID
 
-The following query can be used to get the id of the developer identity associated with your app:
+The following query can be used to get the id of the developer identity associated with your project:
 
 ```graphql
 query {
@@ -83,12 +83,12 @@ query {
 }
 ```
 
-##### Getting The Token IDs
+##### Getting The Asset IDs
 
-You can find the IDs of the tokens you created by going to the assets tab of your app. The IDs are under the `item id` column.
+You can find the IDs of the assets you created by going to the assets tab of your project. The IDs are under the `item id` column.
 
 ### Conclusion
 
-Congratulations! You have now successfully created an app for the example and should now be able to run and play the example game.
+Congratulations! You have now successfully created an project for the example and should now be able to run and play the example game.
 
 Next: [Authentication](/docs/godot_authentication)
