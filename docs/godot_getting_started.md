@@ -29,9 +29,9 @@ Before we can run the example game you must add the `PlatformServer` script as a
 3. Add `res://addons/enjin/example/scripts/server/PlatformerServer.gd` to the your auto-loads.
 4. Enable the `PlatformServer` singleton.
 
-### Cloning Enjin SDK
+### Cloning The Godot SDK
 
-Alternatively you can clone the Enjin SDK [repository](https://github.com/enjin/enjin-godot-sdk) and open it in Godot.
+Alternatively you can clone the Godot SDK [repository](https://github.com/enjin/enjin-godot-sdk) and import it as a project in Godot.
 
 ### Creating A Project For The Example
 
