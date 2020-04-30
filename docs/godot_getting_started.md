@@ -3,16 +3,24 @@
 ## Downloading The SDK
 
 1. Open the AssetLib tab in Godot.
-2. Search for `Enjin SDK`.
+2. Search for `Blockchain SDK by Enjin`.
 3. Select the asset name and click `Download` on the popup.
 4. When download has completed click `Install...`, then click `Install` on the popup.
 5. Click `OK`.
+
+You may also find the [Godot SDK](https://godotengine.org/asset-library/asset/1968) on the asset library website.
 
 You've now downloaded the SDK and are ready to start using it in your project!
 
 ## Setup And Run SDK Example
 
-### Configure Existing Projects
+By default the example project is configured to connect to Enjin's hosted example server (hostname: enjinrun.demo.enjin.io), however, if you wish to host your own server there are a couple options available to you:
+
+1. Running the server in Godot with an auto-load script. (see below)
+2. Cloning the Godot SDK repository. (see below)
+3. Running the Java SDK [platformer server example](https://github.com/enjin/enjin-java-sdk/tree/master/examples/platformer-server).
+
+### Configuring The Server Auto-Load Script
 
 Before we can run the example game you must add the `PlatformServer` script as an auto-load for your project.
 
@@ -23,7 +31,7 @@ Before we can run the example game you must add the `PlatformServer` script as a
 
 ### Cloning Enjin SDK
 
-Alternatively you can clone the Enjin SDK [repository](https://github.com/enjin/enjin-godot-sdk) and open this in Godot.
+Alternatively you can clone the Enjin SDK [repository](https://github.com/enjin/enjin-godot-sdk) and open it in Godot.
 
 ### Creating A Project For The Example
 
